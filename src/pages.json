@@ -1,19 +1,69 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/login/login",
+			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "登录",
-				"enablePullDownRefresh": false
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/index/index",
+			"path": "pages/user/user",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/treasure/treasure",
+			"style": {
+				"navigationBarTitleText": "百宝箱",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/ditie/ditie",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "地铁线路图",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+    ],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/-tongue-.png",
+			"selectedIconPath": "static/-tongue-.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/treasure/treasure",
+			"iconPath": "static/-tongue-_1.png",
+			"selectedIconPath": "static/-tongue-_1.png",
+			"text": "百宝箱"
+		}, {
+			"pagePath": "pages/user/user",
+			"iconPath": "static/-tongue.png",
+			"selectedIconPath": "static/-tongue.png",
+			"text": "个人中心"
+		}]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "百宝箱",
