@@ -42,8 +42,7 @@
 			"path": "pages/dianzishu/dianzishu",
 			"style": {
 				"navigationBarTitleText": "盗版小说",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
+				"enablePullDownRefresh": false
 			}
 
 		}

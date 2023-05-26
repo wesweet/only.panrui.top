@@ -5,7 +5,8 @@
 
 <script lang="ts" setup>
 	import { onMounted, ref } from 'vue';
-	// const app = getApp()
+	const app = getApp()
+	console.log(app.globalData)
 	const fullscreen = ref(true)
 	onMounted(() => {
 

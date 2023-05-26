@@ -1,4 +1,5 @@
 <template>
+	<StatusBar></StatusBar>
 	<uni-nav-bar shadow dark title="百宝箱" />
 	<uni-grid :column="3" :square="false" :highlight="false" @change="change">
 		<uni-grid-item v-for="(item, index) in list" :index="index" :key="index">
@@ -12,46 +13,47 @@
 
 <script lang="ts" setup>
 	import { reactive } from 'vue';
+	import StatusBar from "@/components/StatusBar.vue"
 	const list = reactive([
 		{
 			text: "地铁线图",
-			url: "/src/static/ditie.png",
+			url: "/static/ditie.png",
 			page: "/pages/ditie/ditie"
 		},
 		{
 			text: "王者战绩",
-			url: "/src/static/wzry.jpg"
+			url: "/static/wzry.jpg"
 		},
 		{
 			text: "盗版小说",
-			url: "/src/static/dianzishu.png",
+			url: "/static/dianzishu.png",
 			page: "/pages/dianzishu/dianzishu"
 		},
 		{
 			text: "购物指南",
-			url: "/src/static/gouwu-2.png",
+			url: "/static/gouwu-2.png",
 			page: "/pages/gouwu/gouwu"
 		},
 		{
 			text: "文档",
-			url: "/src/static/wendang.png",
+			url: "/static/wendang.png",
 			page: "/pages/wendang/wendang"
 		},
 		{
 			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			url: "/static/mieba.png"
 		},
 		{
 			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			url: "/static/mieba.png"
 		},
 		{
 			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			url: "/static/mieba.png"
 		},
 		{
 			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			url: "/static/mieba.png"
 		}
 	])
 	const change = (e : any) => {
