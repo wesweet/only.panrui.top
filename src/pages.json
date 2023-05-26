@@ -30,12 +30,37 @@
 				"enablePullDownRefresh": false,
 				"navigationStyle": "custom"
 			}
+		}, {
+			"path": "pages/ditie/ditie",
+			"style": {
+				"navigationBarTitleText": "地铁线路图",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/dianzishu/dianzishu",
+			"style": {
+				"navigationBarTitleText": "盗版小说",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
 		}
 	    ,{
-            "path" : "pages/ditie/ditie",
+            "path" : "pages/wendang/wendang",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "地铁线路图",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/gouwu/gouwu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "指南",
                 "enablePullDownRefresh": false,
 				"navigationStyle": "custom"
             }

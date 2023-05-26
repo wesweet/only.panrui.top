@@ -14,25 +14,28 @@
 	import { reactive } from 'vue';
 	const list = reactive([
 		{
-			text: "地铁线路图",
+			text: "地铁线图",
 			url: "/src/static/ditie.png",
 			page: "/pages/ditie/ditie"
 		},
 		{
-			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			text: "王者战绩",
+			url: "/src/static/wzry.jpg"
 		},
 		{
-			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			text: "盗版小说",
+			url: "/src/static/dianzishu.png",
+			page: "/pages/dianzishu/dianzishu"
 		},
 		{
-			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			text: "购物指南",
+			url: "/src/static/gouwu-2.png",
+			page: "/pages/gouwu/gouwu"
 		},
 		{
-			text: "地铁线路图",
-			url: "/src/static/mieba.png"
+			text: "文档",
+			url: "/src/static/wendang.png",
+			page: "/pages/wendang/wendang"
 		},
 		{
 			text: "地铁线路图",
