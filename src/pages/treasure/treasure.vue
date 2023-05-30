@@ -27,12 +27,10 @@
 		{
 			text: "盗版小说",
 			url: "/static/dianzishu.png",
-			page: "/pages/dianzishu/dianzishu"
 		},
 		{
 			text: "购物指南",
 			url: "/static/gouwu-2.png",
-			page: "/pages/gouwu/gouwu"
 		},
 		{
 			text: "文档",
@@ -40,8 +38,9 @@
 			page: "/pages/wendang/wendang"
 		},
 		{
-			text: "地铁线路图",
-			url: "/static/mieba.png"
+			text: "chatgpt",
+			url: "/static/chat.png",
+			page: "/pages/chatgpt/chatgpt"
 		},
 		{
 			text: "地铁线路图",
