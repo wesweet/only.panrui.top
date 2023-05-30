@@ -74,6 +74,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/reg/reg",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"tabBar": {
 		"color": "#7A7E83",

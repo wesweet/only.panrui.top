@@ -24,6 +24,19 @@
 	const login = () => {
 		fetchLogin(formData).then((res : any) => {
 			console.log(res)
+			// 获取到返回值后，判断是否登录成功，成功则跳转到首页，并且在缓存当中存储token,失败则提示错误信息，不跳转，继续停留在登录页，等待用户重新输入，直到登录成功为止，
+			// 为了方便，这里直接跳转到首页	
+			if (res.code === 200) {
+				uni.setStorageSync('token', res.data.token)
+				uni.switchTab({
+					url: '/pages/index/index'
+				})
+			} else {
+				uni.showToast({
+					title: res.msg,
+					icon: 'none'
+				})
+			}
 		})
 	}
 </script>
