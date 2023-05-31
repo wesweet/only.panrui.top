@@ -10,10 +10,10 @@ import request from "@/utils/request";
 
 // 登录
 export function fetchLogin(data : any) {
-	return request?.post?.("/api/login", data, { noAuth: true });
+	return request?.post?.("/app/login", data, { noAuth: true });
 }
 
 // 参照上面的语法写一个注册的请求	
 export function fetchRegister(data : any) {
-	return request?.post?.("/api/register", data, { noAuth: true });
+	return request?.post?.("/app/register", data, { noAuth: true });
 }
