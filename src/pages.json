@@ -78,8 +78,9 @@
             "path" : "pages/reg/reg",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "注册",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }

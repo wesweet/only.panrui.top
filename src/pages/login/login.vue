@@ -1,24 +1,26 @@
 <template>
-  <uni-forms ref="form" class="uni-forms" :rules="rules" :model="formData">
-    <uni-forms-item label="账号" name="username" required>
-      <uni-easyinput
-        class="uni-mt-5"
-        trim="all"
-        v-model="formData.username"
-        placeholder="请输入内容"
-      ></uni-easyinput>
-    </uni-forms-item>
-    <uni-forms-item label="密码" name="password" required>
-      <uni-easyinput
-        type="password"
-        v-model="formData.password"
-        placeholder="请输入密码"
-      ></uni-easyinput>
-    </uni-forms-item>
-  </uni-forms>
-  <view class="uni-flex uni-flex-pack-around">
-    <button @click="login">登录</button>
-    <button @click="register">注册</button>
+  <view class="box">
+    <uni-forms ref="form" class="uni-forms" :rules="rules" :model="formData">
+      <uni-forms-item label="账号" name="username" required>
+        <uni-easyinput
+          class="uni-mt-5"
+          trim="all"
+          v-model="formData.username"
+          placeholder="请输入账号"
+        ></uni-easyinput>
+      </uni-forms-item>
+      <uni-forms-item label="密码" name="password" required>
+        <uni-easyinput
+          type="password"
+          v-model="formData.password"
+          placeholder="请输入密码"
+        ></uni-easyinput>
+      </uni-forms-item>
+    </uni-forms>
+    <view class="uni-flex uni-flex-pack-around">
+      <button size="mini" @click="login">登录</button>
+      <button size="mini" @click="register">注册</button>
+    </view>
   </view>
 </template>
 
@@ -68,30 +70,28 @@ onReady(() => {
   form.value.setRules(rules);
 });
 // 点击登录事情,对表单进行校验
-const login = () => {
-  form.value.validate().then((res: any) => {
-    if (res) {
-      fetchLogin(formData).then((res: any) => {
-        if (res.errorCode === 0) {
-          uni.setStorageSync("token", res.data.token);
-          uni.switchTab({
-            url: "/pages/index/index",
-          });
-        } else {
-          uni.showToast({
-            title: res.errorMessage,
-            icon: "none",
-          });
-        }
-      });
-    } else {
-      uni.showToast({
-        title: "请填写完整",
-        icon: "none",
-      });
-      return false;
-    }
-  });
+const login = async () => {
+  // 校验表单
+  const valid = await form.value.validate();
+  if (!valid) {
+    return;
+  }
+
+  // 发送请求
+  const res = await fetchLogin(formData);
+  console.log(res);
+
+  if (res.errorCode === 0) {
+    uni.setStorageSync("token", res.data.token);
+    uni.switchTab({
+      url: "/pages/index/index",
+    });
+  } else {
+    uni.showToast({
+      title: res.errorMessage,
+      icon: "none",
+    });
+  }
 };
 
 // 点击注册事情
@@ -103,11 +103,19 @@ const register = () => {
 </script>
 
 <style lang="scss" scoped>
+uni-page-body {
+  height: 100%;
+}
+.box {
+  height: 100%;
+  background-image: linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d);
+}
 .uni-forms {
-  padding: 100rpx 50rpx 0;
+  padding: 300rpx 50rpx 0;
 }
 .uni-flex {
   display: flex;
+  padding: 0 80rpx 0;
 }
 .uni-flex-pack-around {
   margin-top: 50rpx;
