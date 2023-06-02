@@ -2,7 +2,7 @@
  * @Description:
  * @Author: panrui
  * @Date: 2023-05-25 15:24:31
- * @LastEditTime: 2023-05-30 14:43:08
+ * @LastEditTime: 2023-06-02 21:17:02
  * @LastEditors: panrui
  * 不忘初心,不负梦想
  */
@@ -25,5 +25,5 @@ export function fetchLogout(data: any) {
 
 // 获取用户信息
 export function fetchUserInfo(data: any) {
-  return request?.post?.("/app/userInfo", data);
+  return request?.get?.("/app/getUserInfo", data);
 }

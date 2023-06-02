@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: panrui
  * @Date: 2023-05-30 15:00:57
- * @LastEditTime: 2023-05-31 15:27:32
+ * @LastEditTime: 2023-06-02 21:32:03
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -67,7 +67,7 @@ const formData: IFormData = reactive({
   username: "", // 用户名
   password: "", // 密码
   mobile: "", // 手机号
-  gender: "", // 性别
+  gender: "M", // 性别
 });
 
 // 定义表单校验规则

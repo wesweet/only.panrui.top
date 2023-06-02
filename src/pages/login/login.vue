@@ -79,10 +79,10 @@ const login = async () => {
 
   // 发送请求
   const res = await fetchLogin(formData);
-  console.log(res);
 
   if (res.errorCode === 0) {
     uni.setStorageSync("token", res.data.token);
+    uni.setStorageSync("userId", res.data.userId);
     uni.switchTab({
       url: "/pages/index/index",
     });
