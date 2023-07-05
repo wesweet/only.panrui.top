@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: panrui
  * @Date: 2023-05-25 16:11:02
- * @LastEditTime: 2023-06-02 21:29:33
+ * @LastEditTime: 2023-07-05 10:05:51
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -23,11 +23,11 @@
   <view class="list">
     <uni-title
       type="h3"
-      title="个人中心"
+      title="功能测试"
       color="#d7003a"
       style="padding-left: 20rpx"
     ></uni-title>
-    <uni-grid :column="3" :square="false" :highlight="false">
+    <uni-grid :column="3" :square="false" :highlight="false" @change="change">
       <uni-grid-item v-for="(item, index) in list" :index="index" :key="index">
         <view class="grid-item-box">
           <image :src="item.url" class="image" mode="aspectFill" />
@@ -62,24 +62,24 @@ import { fetchUserInfo } from "@/api/app";
 
 const list = reactive([
   {
-    text: "地铁线图",
+    text: "调用蓝牙",
     url: "/static/ditie.png",
-    page: "/pages/ditie/ditie",
+    page: "/pages/bluetooth/bluetooth",
   },
   {
-    text: "王者战绩",
+    text: "调用摄像头",
     url: "/static/wzry.jpg",
   },
   {
-    text: "盗版小说",
+    text: "调用位置",
     url: "/static/dianzishu.png",
   },
   {
-    text: "购物指南",
+    text: "播放视频",
     url: "/static/gouwu-2.png",
   },
   {
-    text: "文档",
+    text: "调用话筒",
     url: "/static/wendang.png",
     page: "/pages/wendang/wendang",
   },
@@ -101,6 +101,20 @@ const list = reactive([
     url: "/static/mieba.png",
   },
 ]);
+
+const change = (e: any) => {
+  const page = list[e.detail.index].page;
+  if (!page) {
+    uni.showToast({
+      title: "功能正在开发中",
+      duration: 2000,
+    });
+  } else {
+    uni.navigateTo({
+      url: page,
+    });
+  }
+};
 
 onReady(() => {
   // 从本地缓存中获取userId
@@ -135,6 +149,9 @@ const logout = () => {
 
 <style lang="scss" scoped>
 .hd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #bf242a;
   height: 256rpx;
 }

@@ -84,6 +84,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/bluetooth/bluetooth",
+            "style" :                                                                                
+            {
+				"navigationBarTitleText": "蓝牙测试",
+				"navigationStyle": "custom"
+            }
+            
+        }
     ],
 	"tabBar": {
 		"color": "#7A7E83",

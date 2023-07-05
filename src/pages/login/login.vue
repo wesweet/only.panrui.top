@@ -17,7 +17,7 @@
         ></uni-easyinput>
       </uni-forms-item>
     </uni-forms>
-    <view class="uni-flex uni-flex-pack-around">
+    <view class="uni-flex-pack-around">
       <button size="mini" @click="login">登录</button>
       <button size="mini" @click="register">注册</button>
     </view>
@@ -115,10 +115,11 @@ uni-page-body {
 }
 .uni-flex {
   display: flex;
-  padding: 0 80rpx 0;
 }
 .uni-flex-pack-around {
-  margin-top: 50rpx;
-  justify-content: space-around;
+  display: flex;
+  margin-left: 65px;
+  padding: 50rpx 50rpx 0;
+  justify-content: space-between;
 }
 </style>
