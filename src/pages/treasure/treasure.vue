@@ -16,21 +16,26 @@ import { reactive } from "vue";
 import StatusBar from "@/components/StatusBar.vue";
 const list = reactive([
   {
-    text: "地铁线图",
+    text: "地铁",
     url: "/static/ditie.png",
     page: "/pages/ditie/ditie",
   },
   {
-    text: "王者战绩",
+    text: "王者",
     url: "/static/wzry.jpg",
   },
   {
-    text: "盗版小说",
+    text: "小说",
     url: "/static/dianzishu.png",
   },
   {
-    text: "购物指南",
+    text: "购物",
     url: "/static/gouwu-2.png",
+  },
+  {
+    text: "最美的小丁",
+    url: "/static/love.png",
+  	page: "/pages/dhphoto/dhphoto",
   },
   {
     text: "文档",
@@ -43,15 +48,12 @@ const list = reactive([
     page: "/pages/chatgpt/chatgpt",
   },
   {
-    text: "地铁线路图",
+    text: "开发中",
     url: "/static/mieba.png",
   },
+
   {
-    text: "地铁线路图",
-    url: "/static/mieba.png",
-  },
-  {
-    text: "地铁线路图",
+    text: "开发中",
     url: "/static/mieba.png",
   },
 ]);

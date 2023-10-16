@@ -14,15 +14,13 @@
     color="#ffffff"
     show-icon
     scrollable
-    text="1208App正式发布了、欢迎大家下载体验、有问题请联系我(1547177202)、谢谢！"
+    text="初心不负App正式发布了、欢迎大家下载体验、有问题请联系我(1547177202)、谢谢！"
   />
   <uni-card @click="onClick" title="关于我">
     <image slot="cover" class="thumbnail" :src="cover" mode="widthFix"></image>
     <view class="uni-body">
-      <text>一开始我以为 </text>
-      <text>谈恋爱就像改bug</text>
-      <text>遇到问题就修复一下</text>
-      <text>后来才明白，根本找不到报错。</text>
+      <text>醉后不知天在水</text>
+      <text>满船清梦压星河</text>
     </view>
   </uni-card>
 </template>

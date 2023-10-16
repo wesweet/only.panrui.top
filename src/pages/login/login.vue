@@ -35,8 +35,8 @@ interface IFormData {
 }
 // 使用定义的接口创建一个响应式对象
 const formData: IFormData = reactive({
-  username: "",
-  password: "",
+  username: "wesweet",
+  password: "Pr338535",
 });
 // 定义表单校验规则
 const rules = {

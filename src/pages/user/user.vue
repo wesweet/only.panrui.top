@@ -10,14 +10,14 @@
   <StatusBar></StatusBar>
   <view class="hd">
     <view class="logout">
-      <uni-button
+<!--      <uni-button
         type="primary"
         size="mini"
         @click="logout"
         style="margin-right: 20rpx"
       >
         退出登录
-      </uni-button>
+      </uni-button> -->
     </view>
   </view>
   <view class="list">
@@ -79,7 +79,7 @@ const list = reactive([
     url: "/static/gouwu-2.png",
   },
   {
-    text: "调用话筒",
+    text: "文档指南",
     url: "/static/wendang.png",
     page: "/pages/wendang/wendang",
   },
@@ -89,15 +89,15 @@ const list = reactive([
     page: "/pages/chatgpt/chatgpt",
   },
   {
-    text: "地铁线路图",
+    text: "游玩指南",
     url: "/static/mieba.png",
   },
   {
-    text: "地铁线路图",
+    text: "工作指南",
     url: "/static/mieba.png",
   },
   {
-    text: "地铁线路图",
+    text: "租房指南",
     url: "/static/mieba.png",
   },
 ]);

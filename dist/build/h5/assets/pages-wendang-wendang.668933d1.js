@@ -1,0 +1,1 @@
+import{o as e,b as t,w as s,h as a,e as o,I as r}from"./index-7dab9c1e.js";import{_ as n}from"./_plugin-vue_export-helper.1b428a4d.js";const i=n({data:()=>({})},[["render",function(n,i,p,u,d,f){const l=r,c=a;return e(),t(c,null,{default:s((()=>[o(l,{src:"http://wesweet_admin.gitee.io/docs.panrui.top/"})])),_:1})}]]);export{i as default};

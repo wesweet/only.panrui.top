@@ -93,6 +93,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/dhphoto/dhphoto",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的小丁",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"tabBar": {
 		"color": "#7A7E83",

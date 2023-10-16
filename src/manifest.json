@@ -1,5 +1,5 @@
 {
-    "name" : "1208",
+    "name" : "唯一",
     "appid" : "__UNI__5575494",
     "description" : "初心开发的小工具",
     "versionName" : "1.0.0",
@@ -41,9 +41,21 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "xhdpi" : "C:/Users/dell/Desktop/微信图片_20230406131022.png",
+                    "xxhdpi" : "C:/Users/dell/Desktop/微信图片_20230406131022.png",
+                    "hdpi" : "C:/Users/dell/Desktop/微信图片_20230406131022.png",
+                    "xxxhdpi" : "C:/Users/dell/Desktop/微信图片_20230406131022.png"
+                }
+            }
         }
     },
     /* 快应用特有相关 */
