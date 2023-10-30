@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import StatusBar from "@/components/StatusBar.vue";
 import { ref } from "vue";
-const cover = ref("/static/panrui.jpg");
+const cover = ref("/static/20231016112713.jpg");
 const onClick = () => {
   uni.navigateTo({
     url: "/pages/index/index",

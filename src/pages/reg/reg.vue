@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: panrui
  * @Date: 2023-05-30 15:00:57
- * @LastEditTime: 2023-06-02 21:32:03
+ * @LastEditTime: 2023-10-16 13:34:30
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -172,7 +172,7 @@ const register = async () => {
   .uni-flex {
     margin-top: 20px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 }
 </style>

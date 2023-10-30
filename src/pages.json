@@ -97,7 +97,7 @@
             "path" : "pages/dhphoto/dhphoto",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "我的小丁",
+                "navigationBarTitleText": "瑞瑞和叮叮的流浪日记",
                 "enablePullDownRefresh": false
             }
             

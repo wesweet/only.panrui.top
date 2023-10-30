@@ -58,7 +58,8 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 import { onReady } from "@dcloudio/uni-app";
-import { fetchUserInfo } from "@/api/app";
+// import { fetchUserInfo } from "@/api/app";
+import StatusBar from "@/components/StatusBar.vue";
 
 const list = reactive([
   {
@@ -118,23 +119,23 @@ const change = (e: any) => {
 
 onReady(() => {
   // 从本地缓存中获取userId
-  const userId = uni.getStorageSync("userId");
-  // 如果userId不存在,则跳转到登录页面
-  if (!userId) {
-    // 清空缓存
-    uni.clearStorageSync();
-    uni.redirectTo({
-      url: "/pages/login/login",
-    });
-    return;
-  }
-  // 获取用户信息
-  fetchUserInfo({ id: userId }).then((res: any) => {
-    if (res.errorCode === 0) {
-      // 将用户信息存储到本地缓存中
-      uni.setStorageSync("userInfo", res.data);
-    }
-  });
+  // const userId = uni.getStorageSync("userId");
+  // // 如果userId不存在,则跳转到登录页面
+  // if (!userId) {
+  //   // 清空缓存
+  //   uni.clearStorageSync();
+  //   uni.redirectTo({
+  //     url: "/pages/login/login",
+  //   });
+  //   return;
+  // }
+  // // 获取用户信息
+  // fetchUserInfo({ id: userId }).then((res: any) => {
+  //   if (res.errorCode === 0) {
+  //     // 将用户信息存储到本地缓存中
+  //     uni.setStorageSync("userInfo", res.data);
+  //   }
+  // });
 });
 
 // 退出登录

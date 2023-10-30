@@ -40,6 +40,10 @@
     "usingComponents": true,
     "nvueStyleCompiler": "uni-app",
     "compilerVersion": 3,
+    "compatible": {
+      "runtimeVersion": "3.95",
+      "compilerVersion": "3.7.4"
+    },
     "distribute": {
       "icons": {
         "android": {

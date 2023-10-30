@@ -12,9 +12,9 @@ onLaunch(() => {
 onShow(() => {
   // console.log("App Show");
   // 判断本地缓存是否存在token: 不存在则跳转到登录页
-  if (!uni.getStorageSync("token")) {
-    uni.redirectTo({ url: "/pages/login/login" });
-  }
+  // if (!uni.getStorageSync("token")) {
+  //   uni.redirectTo({ url: "/pages/login/login" });
+  // }
 });
 onHide(() => {
   // console.log("App Hide");
