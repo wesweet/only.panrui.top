@@ -45,27 +45,33 @@
 		</uni-card>
 	</uni-section>
 	<uni-popup ref="popup" type="top">底部弹出 Popup</uni-popup>
-	<view class="icon-add" @click="addClick">
+	<view class="icon-add" @click="addWander">
 	</view>
 </template>
 
 <script setup lang="ts">
 import StatusBar from "@/components/StatusBar.vue";
 import { reactive } from "vue";
-// const cover = ref("/static/panrui.jpg");
+
 const jpgs = reactive([
 	"/static/20231016101236.jpg",
 	"/static/20231016101204.jpg",
 	"/static/20231030090420.jpg",
 	"/static/20231030090547.jpg",
-	
 ])
+
 const onClick = () => {
 	console.log('onClick')
 }
-const addClick = () => {
-	console.log('新增')
+
+const addWander = () => {
+	console.log('跳转新增页面')
+	// 跳转到新增流浪日记页面
+	uni.navigateTo({
+		url: '/pages/dhphoto/wander'
+	});
 }
+
 const actionsClick = (value: string) => {
 	console.log(value)
 	uni.showToast({

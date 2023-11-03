@@ -1,134 +1,135 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页",
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/user/user",
-			"style": {
-				"navigationBarTitleText": "个人中心",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "登录",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/treasure/treasure",
-			"style": {
-				"navigationBarTitleText": "百宝箱",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-			}
-		}, {
-			"path": "pages/ditie/ditie",
-			"style": {
-				"navigationBarTitleText": "地铁线路图",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-			}
-
-		}, {
-			"path": "pages/dianzishu/dianzishu",
-			"style": {
-				"navigationBarTitleText": "盗版小说",
-				"enablePullDownRefresh": false
-			}
-
-		}
-	    ,{
-            "path" : "pages/wendang/wendang",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/gouwu/gouwu",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "指南",
-                "enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-            }
-            
-        }
-        ,{
-            "path" : "pages/chatgpt/chatgpt",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/reg/reg",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "注册",
-                "enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-            }
-            
-        }
-        ,{
-            "path" : "pages/bluetooth/bluetooth",
-            "style" :                                                                                
-            {
-				"navigationBarTitleText": "蓝牙测试",
-				"navigationStyle": "custom"
-            }
-            
-        }
-        ,{
-            "path" : "pages/dhphoto/dhphoto",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "瑞瑞和叮叮的流浪日记",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
-	"tabBar": {
-		"color": "#7A7E83",
-		"selectedColor": "#3cc51f",
-		"borderStyle": "black",
-		"backgroundColor": "#ffffff",
-		"list": [{
-			"pagePath": "pages/index/index",
-			"iconPath": "static/-tongue-.png",
-			"selectedIconPath": "static/-tongue-.png",
-			"text": "首页"
-		}, {
-			"pagePath": "pages/treasure/treasure",
-			"iconPath": "static/-tongue-_1.png",
-			"selectedIconPath": "static/-tongue-_1.png",
-			"text": "百宝箱"
-		}, {
-			"pagePath": "pages/user/user",
-			"iconPath": "static/-tongue.png",
-			"selectedIconPath": "static/-tongue.png",
-			"text": "个人中心"
-		}]
-	},
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "百宝箱",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	}
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/user/user",
+      "style": {
+        "navigationBarTitleText": "个人中心",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/treasure/treasure",
+      "style": {
+        "navigationBarTitleText": "百宝箱",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/ditie/ditie",
+      "style": {
+        "navigationBarTitleText": "地铁线路图",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dianzishu/dianzishu",
+      "style": {
+        "navigationBarTitleText": "盗版小说",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/wendang/wendang",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/gouwu/gouwu",
+      "style": {
+        "navigationBarTitleText": "指南",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/chatgpt/chatgpt",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/reg/reg",
+      "style": {
+        "navigationBarTitleText": "注册",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/bluetooth/bluetooth",
+      "style": {
+        "navigationBarTitleText": "蓝牙测试",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dhphoto/dhphoto",
+      "style": {
+        "navigationBarTitleText": "瑞瑞和叮叮的流浪日记",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+    	"path" : "pages/dhphoto/wander",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "",
+    		"enablePullDownRefresh" : false
+    	}
+    }
+  ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/-tongue-.png",
+        "selectedIconPath": "static/-tongue-.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/treasure/treasure",
+        "iconPath": "static/-tongue-_1.png",
+        "selectedIconPath": "static/-tongue-_1.png",
+        "text": "百宝箱"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/-tongue.png",
+        "selectedIconPath": "static/-tongue.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "百宝箱",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
 }

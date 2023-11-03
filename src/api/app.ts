@@ -27,3 +27,8 @@ export function fetchLogout(data: any) {
 export function fetchUserInfo(data: any) {
   return request?.get?.("/app/getUserInfo", data);
 }
+
+// 上传流浪日记
+export function fetchUploadDiary(data: any) {
+  return request?.post?.("/app/uploadDiary", data, { noAuth: true });
+}
