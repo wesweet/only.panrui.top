@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-03 16:43:02
+ * @LastEditTime: 2023-11-06 15:35:50
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -25,7 +25,7 @@
           @maskClick="maskClick"
         />
       </uni-forms-item>
-      <uni-forms-item label="照片" required name="photo">
+      <uni-forms-item label="照片" name="photo">
         <uni-file-picker
           v-model="baseFormData.photo"
           file-mediatype="image"
@@ -51,6 +51,8 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import { request } from "@/utils/request";
+import { appApi } from "@/api/app";
 // 使用ts 定义表单数据类型接口
 interface BaseFormData {
   title: string;
@@ -74,7 +76,7 @@ const rules = reactive({
     rules: [{ required: true, errorMessage: "请选择日期" }],
   },
   photo: {
-    rules: [{ required: true, errorMessage: "请选择照片" }],
+    rules: [{ required: false, errorMessage: "请选择照片" }],
   },
   content: {
     rules: [{ required: true, errorMessage: "请输入内容" }],
@@ -98,13 +100,24 @@ const onSubmit = () => {
   valiForm.value
     .validate()
     .then((res: any) => {
-      console.log(res);
-      if (res) {
-        uni.showToast({
-          title: "提交成功",
-          duration: 2000,
-        });
+      // 新建formdata实例
+      const formData = new FormData();
+      for (const key in res) {
+        formData.append(key, res[key]);
       }
+      request(appApi.addWander, {
+        method: "POST",
+        data: formData,
+        header: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+        .then((res: any) => {
+          console.log(res);
+        })
+        .catch((err: any) => {
+          console.log(err);
+        });
     })
     .catch((err: any) => {
       console.log(err);
