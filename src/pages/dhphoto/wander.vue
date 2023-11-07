@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-06 15:35:50
+ * @LastEditTime: 2023-11-07 16:35:25
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -14,10 +14,10 @@
       :modelValue="baseFormData"
       label-position="top"
     >
-      <uni-forms-item label="标题" required name="title">
+      <uni-forms-item label="标题" name="title">
         <uni-easyinput v-model="baseFormData.title" placeholder="请输入标题" />
       </uni-forms-item>
-      <uni-forms-item label="日期" required name="date">
+      <uni-forms-item label="日期" name="date">
         <uni-datetime-picker
           type="date"
           :clear-icon="false"
@@ -25,18 +25,7 @@
           @maskClick="maskClick"
         />
       </uni-forms-item>
-      <uni-forms-item label="照片" name="photo">
-        <uni-file-picker
-          v-model="baseFormData.photo"
-          file-mediatype="image"
-          @select="select"
-          @delete="deleteImg"
-          mode="grid"
-          :limit="9"
-          :auto-upload="false"
-        ></uni-file-picker>
-      </uni-forms-item>
-      <uni-forms-item label="内容" required name="content">
+      <uni-forms-item label="内容" name="content">
         <uni-easyinput
           v-model="baseFormData.content"
           placeholder="请输入内容"
@@ -57,14 +46,12 @@ import { appApi } from "@/api/app";
 interface BaseFormData {
   title: string;
   date: string;
-  photo: Array<string>;
   content: string;
 }
 // 定义表单数据
 const baseFormData: BaseFormData = reactive({
   title: "",
   date: "",
-  photo: [],
   content: "",
 });
 // 定义表单验证规则
@@ -75,53 +62,48 @@ const rules = reactive({
   date: {
     rules: [{ required: true, errorMessage: "请选择日期" }],
   },
-  photo: {
-    rules: [{ required: false, errorMessage: "请选择照片" }],
-  },
   content: {
     rules: [{ required: true, errorMessage: "请输入内容" }],
   },
 });
 const maskClick = () => {};
 // 图片选择
-const select = (res: any) => {
-  baseFormData.photo.push(res.tempFiles[0]);
+const s4 = () => {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
 };
-// 删除图片
-const deleteImg = (res: any) => {
-  // 通过uuid删除图片
-  baseFormData.photo = baseFormData.photo.filter(
-    (item: any) => item.uuid !== res.tempFiles[0].uuid
+const generateUUID = () => {
+  return (
+    s4() +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    s4() +
+    s4()
   );
 };
 const valiForm = ref<any>(null);
 const onSubmit = () => {
   // 表单校验
-  valiForm.value
-    .validate()
-    .then((res: any) => {
-      // 新建formdata实例
-      const formData = new FormData();
-      for (const key in res) {
-        formData.append(key, res[key]);
-      }
-      request(appApi.addWander, {
-        method: "POST",
-        data: formData,
-        header: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-        .then((res: any) => {
-          console.log(res);
-        })
-        .catch((err: any) => {
-          console.log(err);
-        });
+  valiForm.value.validate().then((res: any) => {
+    request(appApi.addWander, {
+      method: "POST",
+      data: res,
     })
-    .catch((err: any) => {
-      console.log(err);
-    });
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 };
 </script>
 
@@ -129,6 +111,7 @@ const onSubmit = () => {
 .form-box {
   box-sizing: border-box;
   padding: 10rpx 40rpx 0;
+
   .primary-btn {
     background-color: #4263eb;
     color: aliceblue;
