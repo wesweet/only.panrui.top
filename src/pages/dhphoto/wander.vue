@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-07 16:35:25
+ * @LastEditTime: 2023-11-08 13:27:25
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -31,6 +31,7 @@
           placeholder="请输入内容"
           type="textarea"
           :rows="4"
+          maxlength="500"
         />
       </uni-forms-item>
     </uni-forms>
@@ -54,6 +55,7 @@ const baseFormData: BaseFormData = reactive({
   date: "",
   content: "",
 });
+
 // 定义表单验证规则
 const rules = reactive({
   title: {
@@ -66,13 +68,20 @@ const rules = reactive({
     rules: [{ required: true, errorMessage: "请输入内容" }],
   },
 });
+
 const maskClick = () => {};
+
 // 图片选择
 const s4 = () => {
   return Math.floor((1 + Math.random()) * 0x10000)
     .toString(16)
     .substring(1);
 };
+
+/**
+ * 生成一个UUID
+ * @returns {string} 生成的UUID
+ */
 const generateUUID = () => {
   return (
     s4() +
@@ -89,18 +98,25 @@ const generateUUID = () => {
     s4()
   );
 };
+
 const valiForm = ref<any>(null);
+// 定义一个名为onSubmit的箭头函数
 const onSubmit = () => {
-  // 表单校验
+  // 调用valiForm.value.validate()方法进行表单验证，并返回一个Promise对象
   valiForm.value.validate().then((res: any) => {
+    // 使用request函数向appApi.addWander发送POST请求，传入的数据为res对象
     request(appApi.addWander, {
       method: "POST",
       data: res,
     })
+      // 请求成功的回调函数
       .then((res: any) => {
+        // 打印请求返回的结果res
         console.log(res);
       })
+      // 请求失败的回调函数
       .catch((err) => {
+        // 打印错误信息err
         console.log(err);
       });
   });

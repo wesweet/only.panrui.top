@@ -6,5 +6,5 @@
  * @LastEditors: panrui
  * 不忘初心,不负梦想
  */
-// export const HTTP_REQUEST_URL = `http://server.panrui.top:8003`; // 线上环境
+// export const HTTP_REQUEST_URL = `http://server.panrui.top:9008`; // 线上环境
 export const HTTP_REQUEST_URL = `http://localhost:9008`; // 开发环境
