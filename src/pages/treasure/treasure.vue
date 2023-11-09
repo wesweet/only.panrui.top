@@ -48,10 +48,10 @@
 			page: "/pages/chatgpt/chatgpt",
 		},
 		{
-			text: "音乐",
+			text: "功能测试",
 			url: "/static/mieba.png",
+			page: "/pages/test/test",
 		},
-
 		{
 			text: "电影",
 			url: "/static/mieba.png",

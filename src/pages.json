@@ -98,6 +98,14 @@
     		"navigationBarTitleText" : "",
     		"enablePullDownRefresh" : false
     	}
+    },
+    {
+    	"path" : "pages/test/test",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "功能测试页面",
+    		"enablePullDownRefresh" : false
+    	}
     }
   ],
   "tabBar": {
