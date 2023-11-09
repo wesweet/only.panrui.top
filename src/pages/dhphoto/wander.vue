@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-08 13:27:25
+ * @LastEditTime: 2023-11-08 22:47:24
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -112,7 +112,21 @@ const onSubmit = () => {
       // 请求成功的回调函数
       .then((res: any) => {
         // 打印请求返回的结果res
-        console.log(res);
+        const { errorCode, message } = res;
+        if (errorCode == 0) {
+          // 提示用户添加成功
+          uni.showToast({
+            title: message,
+            icon: "success",
+            duration: 1500,
+            success() {
+              // 跳转到首页
+              uni.navigateTo({
+                url: "/pages/dhphoto/dhphoto",
+              });
+            },
+          });
+        }
       })
       // 请求失败的回调函数
       .catch((err) => {

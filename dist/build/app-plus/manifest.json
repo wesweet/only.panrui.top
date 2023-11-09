@@ -7,8 +7,8 @@
   "id": "__UNI__5575494",
   "name": "唯一",
   "version": {
-    "name": "1.0.0",
-    "code": "100"
+    "name": "1.0.2",
+    "code": 101
   },
   "description": "初心开发的小工具",
   "developer": {
@@ -41,16 +41,16 @@
     "nvueStyleCompiler": "uni-app",
     "compilerVersion": 3,
     "compatible": {
-      "runtimeVersion": "3.95",
+      "runtimeVersion": "3.96",
       "compilerVersion": "3.7.4"
     },
     "distribute": {
       "icons": {
         "android": {
-          "xhdpi": "C:/Users/dell/Desktop/微信图片_20230406131022.png",
-          "xxhdpi": "C:/Users/dell/Desktop/微信图片_20230406131022.png",
-          "hdpi": "C:/Users/dell/Desktop/微信图片_20230406131022.png",
-          "xxxhdpi": "C:/Users/dell/Desktop/微信图片_20230406131022.png"
+          "xhdpi": "C:/Users/15471/Desktop/Rui.png",
+          "xxhdpi": "C:/Users/15471/Desktop/Rui.png",
+          "hdpi": "C:/Users/15471/Desktop/Rui.png",
+          "xxxhdpi": "C:/Users/15471/Desktop/Rui.png"
         }
       },
       "google": {

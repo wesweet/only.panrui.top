@@ -1213,7 +1213,7 @@ if (uni.restoreGlobal) {
     const reg = /^[0-9]*$/g;
     return typeof val === "number" || reg.test(val) ? val + "px" : val;
   };
-  const _sfc_main$E = {
+  const _sfc_main$B = {
     name: "UniIcons",
     emits: ["click"],
     props: {
@@ -1257,7 +1257,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -1270,7 +1270,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$6 = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$u], ["__scopeId", "data-v-b40d096c"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
+  const __easycom_0$6 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$r], ["__scopeId", "data-v-b40d096c"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
   const ON_SHOW = "onShow";
   const ON_HIDE = "onHide";
   const ON_LAUNCH = "onLaunch";
@@ -1292,7 +1292,7 @@ if (uni.restoreGlobal) {
   const onHide = /* @__PURE__ */ createHook(ON_HIDE);
   const onLaunch = /* @__PURE__ */ createHook(ON_LAUNCH);
   const onReady = /* @__PURE__ */ createHook(ON_READY);
-  const _sfc_main$D = {
+  const _sfc_main$A = {
     name: "UniNoticeBar",
     emits: ["click", "getmore", "close"],
     props: {
@@ -1430,7 +1430,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$6);
     return $data.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
@@ -1528,8 +1528,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$t], ["__scopeId", "data-v-15b4e47c"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar.vue"]]);
-  const _sfc_main$C = {
+  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$q], ["__scopeId", "data-v-15b4e47c"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar.vue"]]);
+  const _sfc_main$z = {
     name: "UniCard",
     emits: ["click"],
     props: {
@@ -1590,7 +1590,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1691,20 +1691,20 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$4 = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$s], ["__scopeId", "data-v-69fdc3f6"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
-  const _sfc_main$B = {
+  const __easycom_1$4 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$p], ["__scopeId", "data-v-69fdc3f6"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
+  const _sfc_main$y = {
     name: "StatusBar",
     data() {
       return {};
     }
   };
-  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "status_bar" }, [
       vue.createCommentVNode(" 这里是状态栏 ")
     ]);
   }
-  const StatusBar = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$r], ["__scopeId", "data-v-c3dfd30e"], ["__file", "D:/gitee/app-vue3-ts/src/components/StatusBar.vue"]]);
-  const _sfc_main$A = /* @__PURE__ */ vue.defineComponent({
+  const StatusBar = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$o], ["__scopeId", "data-v-c3dfd30e"], ["__file", "D:/work/code/app-vue3-ts/src/components/StatusBar.vue"]]);
+  const _sfc_main$x = /* @__PURE__ */ vue.defineComponent({
     __name: "index",
     setup(__props) {
       const cover = vue.ref("/static/20231016112713.jpg");
@@ -1755,8 +1755,8 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["__scopeId", "data-v-83a5a03c"], ["__file", "D:/gitee/app-vue3-ts/src/pages/index/index.vue"]]);
-  const _sfc_main$z = {
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["__scopeId", "data-v-83a5a03c"], ["__file", "D:/work/code/app-vue3-ts/src/pages/index/index.vue"]]);
+  const _sfc_main$w = {
     name: "UniTitle",
     props: {
       type: {
@@ -1840,7 +1840,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1863,8 +1863,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$q], ["__scopeId", "data-v-41970fc8"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-title/components/uni-title/uni-title.vue"]]);
-  const _sfc_main$y = {
+  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$n], ["__scopeId", "data-v-41970fc8"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-title/components/uni-title/uni-title.vue"]]);
+  const _sfc_main$v = {
     name: "UniGridItem",
     inject: ["grid"],
     props: {
@@ -1914,7 +1914,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     return $data.width ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1941,8 +1941,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$p], ["__scopeId", "data-v-645c48f3"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid-item/uni-grid-item.vue"]]);
-  const _sfc_main$x = {
+  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$m], ["__scopeId", "data-v-645c48f3"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid-item/uni-grid-item.vue"]]);
+  const _sfc_main$u = {
     name: "UniGrid",
     emits: ["change"],
     props: {
@@ -2012,7 +2012,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-grid-wrap" }, [
       vue.createElementVNode("view", {
         id: $data.elId,
@@ -2024,8 +2024,8 @@ if (uni.restoreGlobal) {
       ], 14, ["id"])
     ]);
   }
-  const __easycom_2$3 = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$o], ["__scopeId", "data-v-d803be04"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid/uni-grid.vue"]]);
-  const _sfc_main$w = {
+  const __easycom_2$3 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$l], ["__scopeId", "data-v-d803be04"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid/uni-grid.vue"]]);
+  const _sfc_main$t = {
     name: "UniBadge",
     emits: ["click"],
     props: {
@@ -2148,7 +2148,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-badge--x" }, [
       vue.renderSlot(_ctx.$slots, "default", {}, void 0, true),
       $props.text ? (vue.openBlock(), vue.createElementBlock(
@@ -2165,8 +2165,8 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$n], ["__scopeId", "data-v-cd618ef3"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-badge/components/uni-badge/uni-badge.vue"]]);
-  const _sfc_main$v = {
+  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$k], ["__scopeId", "data-v-cd618ef3"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-badge/components/uni-badge/uni-badge.vue"]]);
+  const _sfc_main$s = {
     name: "UniListItem",
     emits: ["click", "switchChange"],
     props: {
@@ -2403,7 +2403,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$6);
     const _component_uni_badge = resolveEasycom(vue.resolveDynamicComponent("uni-badge"), __easycom_1$2);
     return vue.openBlock(), vue.createElementBlock("view", {
@@ -2532,8 +2532,8 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ], 14, ["hover-class"]);
   }
-  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$m], ["__scopeId", "data-v-549c0327"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue"]]);
-  const _sfc_main$u = {
+  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$j], ["__scopeId", "data-v-549c0327"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue"]]);
+  const _sfc_main$r = {
     name: "uniList",
     "mp-weixin": {
       options: {
@@ -2579,7 +2579,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-list uni-border-top-bottom" }, [
       $props.border ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 0,
@@ -2592,8 +2592,8 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$l], ["__scopeId", "data-v-31cc9eed"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-list/components/uni-list/uni-list.vue"]]);
-  const _sfc_main$t = /* @__PURE__ */ vue.defineComponent({
+  const __easycom_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$i], ["__scopeId", "data-v-31cc9eed"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-list/components/uni-list/uni-list.vue"]]);
+  const _sfc_main$q = /* @__PURE__ */ vue.defineComponent({
     __name: "user",
     setup(__props) {
       const list = vue.reactive([
@@ -2753,7 +2753,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesUserUser = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["__scopeId", "data-v-99b0ba47"], ["__file", "D:/gitee/app-vue3-ts/src/pages/user/user.vue"]]);
+  const PagesUserUser = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["__scopeId", "data-v-99b0ba47"], ["__file", "D:/work/code/app-vue3-ts/src/pages/user/user.vue"]]);
   function obj2strClass(obj) {
     let classess = "";
     for (let key in obj) {
@@ -2772,7 +2772,7 @@ if (uni.restoreGlobal) {
     }
     return style;
   }
-  const _sfc_main$s = {
+  const _sfc_main$p = {
     name: "uni-easyinput",
     emits: ["click", "iconClick", "update:modelValue", "input", "focus", "blur", "confirm", "clear", "eyes", "change", "keyboardheightchange"],
     model: {
@@ -3105,7 +3105,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$6);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -3226,8 +3226,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$k], ["__scopeId", "data-v-af395001"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput.vue"]]);
-  const _sfc_main$r = {
+  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$h], ["__scopeId", "data-v-af395001"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput.vue"]]);
+  const _sfc_main$o = {
     name: "uniFormsItem",
     options: {
       virtualHost: true
@@ -3559,7 +3559,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -3615,7 +3615,7 @@ if (uni.restoreGlobal) {
       /* CLASS */
     );
   }
-  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$j], ["__scopeId", "data-v-4c3fe719"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue"]]);
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$g], ["__scopeId", "data-v-4c3fe719"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue"]]);
   var pattern = {
     email: /^\S+?@\S+?\.\S+?$/,
     idcard: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
@@ -4179,7 +4179,7 @@ if (uni.restoreGlobal) {
       return false;
     }
   };
-  const _sfc_main$q = {
+  const _sfc_main$n = {
     name: "uniForms",
     emits: ["validate", "submit"],
     options: {
@@ -4476,101 +4476,15 @@ if (uni.restoreGlobal) {
       _isEqual: isEqual
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-forms" }, [
       vue.createElementVNode("form", null, [
         vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
       ])
     ]);
   }
-  const __easycom_4 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$i], ["__scopeId", "data-v-df3c5a01"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms/uni-forms.vue"]]);
-  const HTTP_REQUEST_URL = `http://localhost:5173`;
-  const HEADER = {
-    "content-type": "application/json"
-  };
-  const HEADERPARAMS = {
-    "content-type": "application/x-www-form-urlencoded"
-  };
-  const TOKENNAME = "Authorization";
-  const requestOptions = [
-    "options",
-    "get",
-    "post",
-    "put",
-    "head",
-    "delete",
-    "trace",
-    "connect"
-  ];
-  const request = {};
-  function baseRequest(url, method, data, { noAuth = false, noVerify = false, noLoading = false }, params) {
-    const ajaxdata = Object.assign({}, data);
-    const token = uni.getStorageSync("token");
-    const Url = HTTP_REQUEST_URL;
-    let header = JSON.parse(JSON.stringify(HEADER));
-    if (params != void 0) {
-      header = HEADERPARAMS;
-    }
-    if (!noAuth) {
-      if (!token) {
-        return new Promise((reslove, reject) => {
-          uni.navigateTo({
-            url: "../login/login"
-          });
-        });
-      }
-    }
-    if (token && token !== "null") {
-      ajaxdata.token = token;
-      header[TOKENNAME] = token;
-    }
-    ajaxdata.time = Date.now();
-    return new Promise((reslove, reject) => {
-      if (!noLoading) {
-        uni.showLoading({
-          title: "加载中",
-          mask: true
-        });
-      }
-      uni.request({
-        url: Url + url,
-        method: method || "GET",
-        header,
-        data: ajaxdata || {},
-        success: (res) => {
-          formatAppLog("log", "at utils/request.ts:75", "接口成功返回值:", res);
-          if (!noLoading) {
-            uni.hideLoading();
-          }
-          if (noVerify) {
-            reslove(res.data);
-          } else if (res.statusCode === 200) {
-            reslove(res.data);
-          } else {
-            reject(res.data.message || "系统错误");
-          }
-        },
-        fail: (msg) => {
-          uni.hideLoading();
-          formatAppLog("log", "at utils/request.ts:89", "接口失败返回值:", msg);
-          reject("请求失败");
-        }
-      });
-    });
-  }
-  requestOptions.forEach((method) => {
-    const m2 = method;
-    request[method] = (api, data, opt, params) => baseRequest(api, m2, data, opt || {}, params);
-  });
-  function fetchLogin(data) {
-    var _a;
-    return (_a = request == null ? void 0 : request.post) == null ? void 0 : _a.call(request, "/app/login", data, { noAuth: true });
-  }
-  function fetchRegister(data) {
-    var _a;
-    return (_a = request == null ? void 0 : request.post) == null ? void 0 : _a.call(request, "/app/register", data, { noAuth: true });
-  }
-  const _sfc_main$p = /* @__PURE__ */ vue.defineComponent({
+  const __easycom_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$f], ["__scopeId", "data-v-df3c5a01"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms/uni-forms.vue"]]);
+  const _sfc_main$m = /* @__PURE__ */ vue.defineComponent({
     __name: "login",
     setup(__props) {
       const formData = vue.reactive({
@@ -4610,19 +4524,6 @@ if (uni.restoreGlobal) {
         if (!valid) {
           return;
         }
-        const res = await fetchLogin(formData);
-        if (res.errorCode === 0) {
-          uni.setStorageSync("token", res.data.token);
-          uni.setStorageSync("userId", res.data.userId);
-          uni.switchTab({
-            url: "/pages/index/index"
-          });
-        } else {
-          uni.showToast({
-            title: res.errorMessage,
-            icon: "none"
-          });
-        }
       };
       const register = () => {
         uni.navigateTo({
@@ -4632,7 +4533,7 @@ if (uni.restoreGlobal) {
       return (_ctx, _cache) => {
         const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$3);
         const _component_uni_forms_item = resolveEasycom(vue.resolveDynamicComponent("uni-forms-item"), __easycom_1);
-        const _component_uni_forms = resolveEasycom(vue.resolveDynamicComponent("uni-forms"), __easycom_4);
+        const _component_uni_forms = resolveEasycom(vue.resolveDynamicComponent("uni-forms"), __easycom_3$2);
         return vue.openBlock(), vue.createElementBlock("view", { class: "box" }, [
           vue.createVNode(_component_uni_forms, {
             ref_key: "form",
@@ -4693,8 +4594,8 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["__scopeId", "data-v-cdfe2409"], ["__file", "D:/gitee/app-vue3-ts/src/pages/login/login.vue"]]);
-  const _sfc_main$o = {
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["__scopeId", "data-v-cdfe2409"], ["__file", "D:/work/code/app-vue3-ts/src/pages/login/login.vue"]]);
+  const _sfc_main$l = {
     name: "UniStatusBar",
     data() {
       return {
@@ -4702,7 +4603,7 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -4716,9 +4617,9 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const statusBar = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$h], ["__scopeId", "data-v-5abec205"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.vue"]]);
+  const statusBar = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$e], ["__scopeId", "data-v-5abec205"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.vue"]]);
   const getVal = (val) => typeof val === "number" ? val + "px" : val;
-  const _sfc_main$n = {
+  const _sfc_main$k = {
     name: "UniNavBar",
     components: {
       statusBar
@@ -4838,7 +4739,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_status_bar = vue.resolveComponent("status-bar");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$6);
     return vue.openBlock(), vue.createElementBlock(
@@ -4993,8 +4894,8 @@ if (uni.restoreGlobal) {
       /* CLASS */
     );
   }
-  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$g], ["__scopeId", "data-v-d4cf53b3"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue"]]);
-  const _sfc_main$m = /* @__PURE__ */ vue.defineComponent({
+  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$d], ["__scopeId", "data-v-d4cf53b3"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue"]]);
+  const _sfc_main$j = /* @__PURE__ */ vue.defineComponent({
     __name: "treasure",
     setup(__props) {
       const list = vue.reactive([
@@ -5115,8 +5016,8 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesTreasureTreasure = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["__file", "D:/gitee/app-vue3-ts/src/pages/treasure/treasure.vue"]]);
-  const _sfc_main$l = /* @__PURE__ */ vue.defineComponent({
+  const PagesTreasureTreasure = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["__file", "D:/work/code/app-vue3-ts/src/pages/treasure/treasure.vue"]]);
+  const _sfc_main$i = /* @__PURE__ */ vue.defineComponent({
     __name: "ditie",
     setup(__props) {
       const app = getApp();
@@ -5146,29 +5047,29 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesDitieDitie = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["__scopeId", "data-v-5a09347e"], ["__file", "D:/gitee/app-vue3-ts/src/pages/ditie/ditie.vue"]]);
-  const _sfc_main$k = {};
-  function _sfc_render$f(_ctx, _cache) {
+  const PagesDitieDitie = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["__scopeId", "data-v-5a09347e"], ["__file", "D:/work/code/app-vue3-ts/src/pages/ditie/ditie.vue"]]);
+  const _sfc_main$h = {};
+  function _sfc_render$c(_ctx, _cache) {
     return vue.openBlock(), vue.createElementBlock("web-view", { src: "https://novel.html5.qq.com/qbread/intro?bookid=1100648963" });
   }
-  const PagesDianzishuDianzishu = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$f], ["__file", "D:/gitee/app-vue3-ts/src/pages/dianzishu/dianzishu.vue"]]);
-  const _sfc_main$j = {
+  const PagesDianzishuDianzishu = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$c], ["__file", "D:/work/code/app-vue3-ts/src/pages/dianzishu/dianzishu.vue"]]);
+  const _sfc_main$g = {
     data() {
       return {};
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode("web-view", { src: "http://wesweet_admin.gitee.io/docs.panrui.top/" })
     ]);
   }
-  const PagesWendangWendang = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$e], ["__file", "D:/gitee/app-vue3-ts/src/pages/wendang/wendang.vue"]]);
-  const _sfc_main$i = {
+  const PagesWendangWendang = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$b], ["__file", "D:/work/code/app-vue3-ts/src/pages/wendang/wendang.vue"]]);
+  const _sfc_main$f = {
     data() {
       return {};
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_nav_bar = resolveEasycom(vue.resolveDynamicComponent("uni-nav-bar"), __easycom_0$2);
     return vue.openBlock(), vue.createBlock(_component_uni_nav_bar, {
       shadow: "",
@@ -5176,14 +5077,14 @@ if (uni.restoreGlobal) {
       title: "购物指南"
     });
   }
-  const PagesGouwuGouwu = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$d], ["__file", "D:/gitee/app-vue3-ts/src/pages/gouwu/gouwu.vue"]]);
-  const _sfc_main$h = {};
-  function _sfc_render$c(_ctx, _cache) {
+  const PagesGouwuGouwu = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$a], ["__file", "D:/work/code/app-vue3-ts/src/pages/gouwu/gouwu.vue"]]);
+  const _sfc_main$e = {};
+  function _sfc_render$9(_ctx, _cache) {
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode("web-view", { src: "https://chat.panrui.top" })
     ]);
   }
-  const PagesChatgptChatgpt = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$c], ["__file", "D:/gitee/app-vue3-ts/src/pages/chatgpt/chatgpt.vue"]]);
+  const PagesChatgptChatgpt = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$9], ["__file", "D:/work/code/app-vue3-ts/src/pages/chatgpt/chatgpt.vue"]]);
   const isObject = (val) => val !== null && typeof val === "object";
   const defaultDelimiters = ["{", "}"];
   class BaseFormatter {
@@ -8017,7 +7918,7 @@ if (uni.restoreGlobal) {
   const {
     t: t$2
   } = initVueI18n(messages);
-  const _sfc_main$g = {
+  const _sfc_main$d = {
     name: "UniLoadMore",
     emits: ["clickLoadMore"],
     props: {
@@ -8099,7 +8000,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", {
       class: "uni-load-more",
       onClick: _cache[0] || (_cache[0] = (...args) => $options.onClick && $options.onClick(...args))
@@ -8174,8 +8075,8 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$b], ["__scopeId", "data-v-db9a50fe"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
-  const _sfc_main$f = {
+  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$8], ["__scopeId", "data-v-db9a50fe"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
+  const _sfc_main$c = {
     name: "uniDataChecklist",
     mixins: [Ls.mixinDatacom || {}],
     emits: ["input", "update:modelValue", "change"],
@@ -8518,7 +8419,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_load_more = resolveEasycom(vue.resolveDynamicComponent("uni-load-more"), __easycom_0$1);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -8732,8 +8633,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$a], ["__scopeId", "data-v-84808e80"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue"]]);
-  const _sfc_main$e = /* @__PURE__ */ vue.defineComponent({
+  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$7], ["__scopeId", "data-v-84808e80"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue"]]);
+  const _sfc_main$b = /* @__PURE__ */ vue.defineComponent({
     __name: "reg",
     setup(__props) {
       const formData = vue.reactive({
@@ -8801,30 +8702,13 @@ if (uni.restoreGlobal) {
         if (!valid) {
           return;
         }
-        const res = await fetchRegister(
-          Object.assign({}, formData, { register_channel: "uniapp" })
-        );
-        if (res.errorCode === 0) {
-          uni.showToast({
-            title: "注册成功",
-            icon: "success"
-          });
-          uni.navigateTo({
-            url: "/pages/login/login"
-          });
-        } else {
-          uni.showToast({
-            title: res.errorMessage,
-            icon: "none"
-          });
-        }
       };
       return (_ctx, _cache) => {
         const _component_uni_nav_bar = resolveEasycom(vue.resolveDynamicComponent("uni-nav-bar"), __easycom_0$2);
         const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$3);
         const _component_uni_forms_item = resolveEasycom(vue.resolveDynamicComponent("uni-forms-item"), __easycom_1);
-        const _component_uni_data_checkbox = resolveEasycom(vue.resolveDynamicComponent("uni-data-checkbox"), __easycom_3$2);
-        const _component_uni_forms = resolveEasycom(vue.resolveDynamicComponent("uni-forms"), __easycom_4);
+        const _component_uni_data_checkbox = resolveEasycom(vue.resolveDynamicComponent("uni-data-checkbox"), __easycom_3$1);
+        const _component_uni_forms = resolveEasycom(vue.resolveDynamicComponent("uni-forms"), __easycom_3$2);
         return vue.openBlock(), vue.createElementBlock(
           vue.Fragment,
           null,
@@ -8930,8 +8814,8 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesRegReg = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-4dc59264"], ["__file", "D:/gitee/app-vue3-ts/src/pages/reg/reg.vue"]]);
-  const _sfc_main$d = /* @__PURE__ */ vue.defineComponent({
+  const PagesRegReg = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-4dc59264"], ["__file", "D:/work/code/app-vue3-ts/src/pages/reg/reg.vue"]]);
+  const _sfc_main$a = /* @__PURE__ */ vue.defineComponent({
     __name: "bluetooth",
     setup(__props) {
       const list = vue.ref([]);
@@ -9011,8 +8895,8 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesBluetoothBluetooth = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__file", "D:/gitee/app-vue3-ts/src/pages/bluetooth/bluetooth.vue"]]);
-  const _sfc_main$c = {
+  const PagesBluetoothBluetooth = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__file", "D:/work/code/app-vue3-ts/src/pages/bluetooth/bluetooth.vue"]]);
+  const _sfc_main$9 = {
     name: "UniSection",
     emits: ["click"],
     props: {
@@ -9071,7 +8955,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-section" }, [
       vue.createElementVNode("view", {
         class: "uni-section-header",
@@ -9128,7 +9012,7 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const __easycom_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$9], ["__scopeId", "data-v-391c54fc"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-section/components/uni-section/uni-section.vue"]]);
+  const __easycom_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$6], ["__scopeId", "data-v-391c54fc"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-section/components/uni-section/uni-section.vue"]]);
   class MPAnimation {
     constructor(options, _this) {
       this.options = options;
@@ -9241,7 +9125,7 @@ if (uni.restoreGlobal) {
     clearTimeout(_this.timer);
     return new MPAnimation(option, _this);
   }
-  const _sfc_main$b = {
+  const _sfc_main$8 = {
     name: "uniTransition",
     emits: ["click", "change"],
     props: {
@@ -9492,7 +9376,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.withDirectives((vue.openBlock(), vue.createElementBlock("view", {
       ref: "ani",
       animation: $data.animationData,
@@ -9505,8 +9389,8 @@ if (uni.restoreGlobal) {
       [vue.vShow, $data.isShow]
     ]);
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$8], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
-  const _sfc_main$a = {
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$5], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
+  const _sfc_main$7 = {
     name: "uniPopup",
     components: {},
     emits: ["change", "maskClick"],
@@ -9833,7 +9717,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_transition = resolveEasycom(vue.resolveDynamicComponent("uni-transition"), __easycom_0);
     return $data.showPopup ? (vue.openBlock(), vue.createElementBlock(
       "view",
@@ -9893,170 +9777,244 @@ if (uni.restoreGlobal) {
       /* CLASS */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$7], ["__scopeId", "data-v-526cda1c"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-popup/components/uni-popup/uni-popup.vue"]]);
-  const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
+  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$4], ["__scopeId", "data-v-526cda1c"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-popup/components/uni-popup/uni-popup.vue"]]);
+  const HTTP_REQUEST_URL = `http://nest.panrui.top:8008`;
+  const checkRequestValidity = (url) => {
+    if (!url) {
+      throw new Error("请求地址不能为空");
+    }
+  };
+  const getToken = () => {
+    return uni.getStorageSync("token");
+  };
+  const request = (url, options) => {
+    checkRequestValidity(url);
+    const token = getToken();
+    if (token) {
+      options.header.Authorization = `Bearer ${token}`;
+    }
+    return new Promise((resolve, reject) => {
+      uni.request({
+        url: HTTP_REQUEST_URL + url,
+        method: options.method || "GET",
+        data: options.data,
+        header: Object.assign(
+          {},
+          {
+            "Content-Type": "application/json"
+          },
+          options.header
+        ),
+        success: (response) => {
+          resolve(response.data);
+        },
+        fail: (error) => {
+          reject(error);
+        }
+      });
+    });
+  };
+  const appApi = {
+    // 登录
+    login: "/app/login",
+    // 注册
+    register: "/app/register",
+    // 退出登录
+    logout: "/app/logout",
+    // 获取用户信息
+    getUserInfo: "/app/getUserInfo",
+    // 上传流浪日记
+    addWander: "/app/addWander",
+    // 获取流浪日记列表
+    getWanderList: "/app/getWanderList"
+    // 获取流浪日记详情
+  };
+  const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
     __name: "dhphoto",
     setup(__props) {
-      const jpgs = vue.reactive([
+      vue.reactive([
         "/static/20231016101236.jpg",
         "/static/20231016101204.jpg",
         "/static/20231030090420.jpg",
         "/static/20231030090547.jpg"
       ]);
       const onClick = () => {
-        formatAppLog("log", "at pages/dhphoto/dhphoto.vue:64", "onClick");
+        formatAppLog("log", "at pages/dhphoto/dhphoto.vue:92", "onClick");
       };
       const addWander = () => {
-        formatAppLog("log", "at pages/dhphoto/dhphoto.vue:68", "跳转新增页面");
+        formatAppLog("log", "at pages/dhphoto/dhphoto.vue:96", "跳转新增页面");
         uni.navigateTo({
           url: "/pages/dhphoto/wander"
         });
       };
       const actionsClick = (value) => {
-        formatAppLog("log", "at pages/dhphoto/dhphoto.vue:76", value);
+        formatAppLog("log", "at pages/dhphoto/dhphoto.vue:104", value);
         uni.showToast({
           title: "功能正在开发中",
           duration: 2e3
         });
       };
+      const pagination = vue.reactive({
+        page: 1,
+        limit: 10
+      });
+      let total = vue.ref(0);
+      const wanderList = vue.ref([]);
+      const getWanderList = () => {
+        request(appApi.getWanderList, {
+          method: "GET",
+          data: pagination
+        }).then((res) => {
+          const { errorCode, errorMessage, data } = res;
+          if (errorCode == 0) {
+            uni.showToast({
+              title: errorMessage,
+              duration: 2e3
+            });
+            if (data) {
+              wanderList.value = data.list;
+              total.value = data.total;
+            }
+          }
+        }).catch((err) => {
+          formatAppLog("log", "at pages/dhphoto/dhphoto.vue:147", err);
+        });
+      };
+      getWanderList();
       return (_ctx, _cache) => {
         const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$6);
         const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1$4);
         const _component_uni_section = resolveEasycom(vue.resolveDynamicComponent("uni-section"), __easycom_2$1);
-        const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_3$1);
+        const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_3);
         return vue.openBlock(), vue.createElementBlock(
           vue.Fragment,
           null,
           [
             vue.createVNode(StatusBar),
-            vue.createVNode(_component_uni_section, {
-              title: "初见(2023.10.14)",
-              type: "line"
-            }, {
-              default: vue.withCtx(() => [
-                vue.createVNode(_component_uni_card, { onClick }, {
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList(wanderList.value, (item, index) => {
+                return vue.openBlock(), vue.createBlock(_component_uni_section, {
+                  title: item.title + "(" + item.date + ")",
+                  type: "line"
+                }, {
                   default: vue.withCtx(() => [
-                    vue.createElementVNode("image", {
-                      slot: "cover",
-                      style: { "width": "100%" },
-                      src: jpgs[0]
-                    }, null, 8, ["src"]),
-                    vue.createElementVNode("text", { class: "uni-body" }, "与小丁的第一次见面，漫步在秋天的树下，远处的风在动，天边的云在动，站在你旁边的我，心也在动"),
-                    vue.createElementVNode("image", {
-                      src: jpgs[1],
-                      style: { "width": "100%" }
-                    }, null, 8, ["src"]),
-                    vue.createElementVNode("text", { class: "uni-body" }, "人在看景，而我在看人"),
-                    vue.createElementVNode("view", {
-                      slot: "actions",
-                      class: "card-actions"
-                    }, [
-                      vue.createElementVNode("view", {
-                        class: "card-actions-item",
-                        onClick: _cache[0] || (_cache[0] = ($event) => actionsClick("分享"))
-                      }, [
-                        vue.createVNode(_component_uni_icons, {
-                          type: "redo",
-                          size: "18",
-                          color: "#999"
-                        }),
-                        vue.createElementVNode("text", { class: "card-actions-item-text" }, "分享")
-                      ]),
-                      vue.createElementVNode("view", {
-                        class: "card-actions-item",
-                        onClick: _cache[1] || (_cache[1] = ($event) => actionsClick("点赞"))
-                      }, [
-                        vue.createVNode(_component_uni_icons, {
-                          type: "heart",
-                          size: "18",
-                          color: "#999"
-                        }),
-                        vue.createElementVNode("text", { class: "card-actions-item-text" }, "点赞")
-                      ]),
-                      vue.createElementVNode("view", {
-                        class: "card-actions-item",
-                        onClick: _cache[2] || (_cache[2] = ($event) => actionsClick("评论"))
-                      }, [
-                        vue.createVNode(_component_uni_icons, {
-                          type: "chatbubble",
-                          size: "18",
-                          color: "#999"
-                        }),
-                        vue.createElementVNode("text", { class: "card-actions-item-text" }, "评论")
-                      ])
-                    ])
+                    vue.createVNode(
+                      _component_uni_card,
+                      { onClick },
+                      {
+                        default: vue.withCtx(() => [
+                          vue.createElementVNode(
+                            "text",
+                            { class: "uni-body" },
+                            vue.toDisplayString(item.content),
+                            1
+                            /* TEXT */
+                          ),
+                          vue.createElementVNode("view", {
+                            slot: "actions",
+                            class: "card-actions"
+                          }, [
+                            vue.createElementVNode("view", {
+                              class: "card-actions-item",
+                              onClick: _cache[0] || (_cache[0] = ($event) => actionsClick("分享"))
+                            }, [
+                              vue.createVNode(_component_uni_icons, {
+                                type: "redo",
+                                size: "18",
+                                color: "#999"
+                              }),
+                              vue.createElementVNode("text", { class: "card-actions-item-text" }, "分享")
+                            ]),
+                            vue.createElementVNode("view", {
+                              class: "card-actions-item",
+                              onClick: _cache[1] || (_cache[1] = ($event) => actionsClick("点赞"))
+                            }, [
+                              vue.createVNode(_component_uni_icons, {
+                                type: "heart",
+                                size: "18",
+                                color: "#999"
+                              }),
+                              vue.createElementVNode("text", { class: "card-actions-item-text" }, "点赞")
+                            ]),
+                            vue.createElementVNode("view", {
+                              class: "card-actions-item",
+                              onClick: _cache[2] || (_cache[2] = ($event) => actionsClick("评论"))
+                            }, [
+                              vue.createVNode(_component_uni_icons, {
+                                type: "comment",
+                                size: "18",
+                                color: "#999"
+                              }),
+                              vue.createElementVNode("text", { class: "card-actions-item-text" }, "评论")
+                            ])
+                          ])
+                        ]),
+                        _: 2
+                        /* DYNAMIC */
+                      },
+                      1024
+                      /* DYNAMIC_SLOTS */
+                    )
                   ]),
-                  _: 1
-                  /* STABLE */
-                })
-              ]),
-              _: 1
-              /* STABLE */
-            }),
-            vue.createVNode(_component_uni_section, {
-              title: "相遇(2023.10.29)",
-              type: "line"
-            }, {
-              default: vue.withCtx(() => [
-                vue.createVNode(_component_uni_card, { onClick }, {
-                  default: vue.withCtx(() => [
-                    vue.createElementVNode("image", {
-                      slot: "cover",
-                      style: { "width": "100%" },
-                      src: jpgs[2]
-                    }, null, 8, ["src"]),
-                    vue.createElementVNode("text", { class: "uni-body" }, "10.08相遇，跟潘潘相处了21天跟最初的热情逗比小瑞瑞相比越来越发现潘潘其实成熟，有自己的想法，洞察力强，很擅长在细节上观察到问题，然后梳理出前因后果，大概因为太聪明，有时候看的很明白，所以才对很多事情敏感，因为有自己的喜恶标准；内心很有力量，大概是有想要保护的人或者想保护自己想要保护的人，总觉得不够好要努力再努力；然后耐心有但不多，有时候你不愿意听的或者不喜欢我的地方你可能不会直接说或者回避了你不知道你能不能意识到，我能意识到的会自己注意，也在等你愿意自然想表达的时候，哪怕我们观点相左都没有关系。"),
-                    vue.createElementVNode("image", {
-                      src: jpgs[3],
-                      mode: "aspectFill"
-                    }, null, 8, ["src"]),
-                    vue.createElementVNode("text", { class: "uni-body" }, "遇到潘潘已经是我很幸运的一件事了，因为我享受了现在很好很好的潘潘今天印象最深的是，潘潘说:1.感受现在就好了2.没有那么多为什么突然意识到不知道从什么时候开始，我开始不断的量化，验证，推理人和事情，比如说性格合不合适，什么是对错、应该、爱与不爱，我做什么样或者对方做什么样可能会怎么样的结果；当曾经的这些小心思暴露出来，我才发现我在感情里自己困住了自己什么是爱呢？一见钟情是爱，分离也可能是爱的开始，不能说因为时间短不够了解和深刻就不是爱了，它真实发生着，在相处的过程中在爱的那一刻就是爱的，它不该被质疑，而分离也并不代表爱的结束，就像小王子和狐狸，在狐狸的眼中，那片金灿灿的麦田被赋予了小王子金黄色头发的回忆，如果真的喜欢，就不应该轻易放弃，好好感受现在跟潘潘相处的日子，我的人生还有一段是可以被潘潘爱和选择着，可是在潘潘的人生中呢，他也一直希望被爱和坚定的选择吧，抱抱潘潘"),
-                    vue.createElementVNode("view", {
-                      slot: "actions",
-                      class: "card-actions"
-                    }, [
-                      vue.createElementVNode("view", {
-                        class: "card-actions-item",
-                        onClick: _cache[3] || (_cache[3] = ($event) => actionsClick("分享"))
-                      }, [
-                        vue.createVNode(_component_uni_icons, {
-                          type: "redo",
-                          size: "18",
-                          color: "#999"
-                        }),
-                        vue.createElementVNode("text", { class: "card-actions-item-text" }, "分享")
-                      ]),
-                      vue.createElementVNode("view", {
-                        class: "card-actions-item",
-                        onClick: _cache[4] || (_cache[4] = ($event) => actionsClick("点赞"))
-                      }, [
-                        vue.createVNode(_component_uni_icons, {
-                          type: "heart",
-                          size: "18",
-                          color: "#999"
-                        }),
-                        vue.createElementVNode("text", { class: "card-actions-item-text" }, "点赞")
-                      ]),
-                      vue.createElementVNode("view", {
-                        class: "card-actions-item",
-                        onClick: _cache[5] || (_cache[5] = ($event) => actionsClick("评论"))
-                      }, [
-                        vue.createVNode(_component_uni_icons, {
-                          type: "chatbubble",
-                          size: "18",
-                          color: "#999"
-                        }),
-                        vue.createElementVNode("text", { class: "card-actions-item-text" }, "评论")
-                      ])
-                    ])
-                  ]),
-                  _: 1
-                  /* STABLE */
-                })
-              ]),
-              _: 1
-              /* STABLE */
-            }),
+                  _: 2
+                  /* DYNAMIC */
+                }, 1032, ["title"]);
+              }),
+              256
+              /* UNKEYED_FRAGMENT */
+            )),
+            vue.createCommentVNode(` <uni-section title="初见(2023.10.14)" type="line">\r
+    <uni-card @click="onClick">\r
+      <image slot="cover" style="width: 100%" :src="jpgs[0]"></image>\r
+      <text class="uni-body"\r
+        >与小丁的第一次见面，漫步在秋天的树下，远处的风在动，天边的云在动，站在你旁边的我，心也在动</text\r
+      >\r
+      <image :src="jpgs[1]" style="width: 100%"></image>\r
+      <text class="uni-body">人在看景，而我在看人</text>\r
+      <view slot="actions" class="card-actions">\r
+        <view class="card-actions-item" @click="actionsClick('分享')">\r
+          <uni-icons type="redo" size="18" color="#999"></uni-icons>\r
+          <text class="card-actions-item-text">分享</text>\r
+        </view>\r
+        <view class="card-actions-item" @click="actionsClick('点赞')">\r
+          <uni-icons type="heart" size="18" color="#999"></uni-icons>\r
+          <text class="card-actions-item-text">点赞</text>\r
+        </view>\r
+        <view class="card-actions-item" @click="actionsClick('评论')">\r
+          <uni-icons type="chatbubble" size="18" color="#999"></uni-icons>\r
+          <text class="card-actions-item-text">评论</text>\r
+        </view>\r
+      </view>\r
+    </uni-card>\r
+  </uni-section>\r
+  <uni-section title="相遇(2023.10.29)" type="line">\r
+    <uni-card @click="onClick">\r
+      <image slot="cover" style="width: 100%" :src="jpgs[2]"></image>\r
+      <text class="uni-body"\r
+        >10.08相遇，跟潘潘相处了21天跟最初的热情逗比小瑞瑞相比越来越发现潘潘其实成熟，有自己的想法，洞察力强，很擅长在细节上观察到问题，然后梳理出前因后果，大概因为太聪明，有时候看的很明白，所以才对很多事情敏感，因为有自己的喜恶标准；内心很有力量，大概是有想要保护的人或者想保护自己想要保护的人，总觉得不够好要努力再努力；然后耐心有但不多，有时候你不愿意听的或者不喜欢我的地方你可能不会直接说或者回避了你不知道你能不能意识到，我能意识到的会自己注意，也在等你愿意自然想表达的时候，哪怕我们观点相左都没有关系。</text\r
+      >\r
+      <image :src="jpgs[3]" mode="aspectFill"></image>\r
+      <text class="uni-body"\r
+        >遇到潘潘已经是我很幸运的一件事了，因为我享受了现在很好很好的潘潘今天印象最深的是，潘潘说:1.感受现在就好了2.没有那么多为什么突然意识到不知道从什么时候开始，我开始不断的量化，验证，推理人和事情，比如说性格合不合适，什么是对错、应该、爱与不爱，我做什么样或者对方做什么样可能会怎么样的结果；当曾经的这些小心思暴露出来，我才发现我在感情里自己困住了自己什么是爱呢？一见钟情是爱，分离也可能是爱的开始，不能说因为时间短不够了解和深刻就不是爱了，它真实发生着，在相处的过程中在爱的那一刻就是爱的，它不该被质疑，而分离也并不代表爱的结束，就像小王子和狐狸，在狐狸的眼中，那片金灿灿的麦田被赋予了小王子金黄色头发的回忆，如果真的喜欢，就不应该轻易放弃，好好感受现在跟潘潘相处的日子，我的人生还有一段是可以被潘潘爱和选择着，可是在潘潘的人生中呢，他也一直希望被爱和坚定的选择吧，抱抱潘潘</text\r
+      >\r
+      <view slot="actions" class="card-actions">\r
+        <view class="card-actions-item" @click="actionsClick('分享')">\r
+          <uni-icons type="redo" size="18" color="#999"></uni-icons>\r
+          <text class="card-actions-item-text">分享</text>\r
+        </view>\r
+        <view class="card-actions-item" @click="actionsClick('点赞')">\r
+          <uni-icons type="heart" size="18" color="#999"></uni-icons>\r
+          <text class="card-actions-item-text">点赞</text>\r
+        </view>\r
+        <view class="card-actions-item" @click="actionsClick('评论')">\r
+          <uni-icons type="chatbubble" size="18" color="#999"></uni-icons>\r
+          <text class="card-actions-item-text">评论</text>\r
+        </view>\r
+      </view>\r
+    </uni-card>\r
+  </uni-section> `),
             vue.createVNode(
               _component_uni_popup,
               {
@@ -10084,7 +10042,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesDhphotoDhphoto = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__file", "D:/gitee/app-vue3-ts/src/pages/dhphoto/dhphoto.vue"]]);
+  const PagesDhphotoDhphoto = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__file", "D:/work/code/app-vue3-ts/src/pages/dhphoto/dhphoto.vue"]]);
   let Calendar$1 = class Calendar {
     constructor({
       selected,
@@ -10434,7 +10392,7 @@ if (uni.restoreGlobal) {
     }
     return value;
   }
-  const _sfc_main$8 = {
+  const _sfc_main$5 = {
     props: {
       weeks: {
         type: Object,
@@ -10468,7 +10426,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -10524,7 +10482,7 @@ if (uni.restoreGlobal) {
       /* CLASS, HYDRATE_EVENTS */
     );
   }
-  const calendarItem = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$6], ["__scopeId", "data-v-c8f15d81"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar-item.vue"]]);
+  const calendarItem = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$3], ["__scopeId", "data-v-c8f15d81"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar-item.vue"]]);
   const en = {
     "uni-datetime-picker.selectDate": "select date",
     "uni-datetime-picker.selectTime": "select time",
@@ -10597,7 +10555,7 @@ if (uni.restoreGlobal) {
     "zh-Hant": zhHant
   };
   const { t: t$1 } = initVueI18n(i18nMessages);
-  const _sfc_main$7 = {
+  const _sfc_main$4 = {
     name: "UniDatetimePicker",
     data() {
       return {
@@ -11205,7 +11163,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-datetime-picker" }, [
       vue.createElementVNode("view", {
         onClick: _cache[0] || (_cache[0] = (...args) => $options.initTimePicker && $options.initTimePicker(...args))
@@ -11482,9 +11440,9 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const TimePicker = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$5], ["__scopeId", "data-v-728dc013"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/time-picker.vue"]]);
+  const TimePicker = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$2], ["__scopeId", "data-v-728dc013"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/time-picker.vue"]]);
   const { t } = initVueI18n(i18nMessages);
-  const _sfc_main$6 = {
+  const _sfc_main$3 = {
     components: {
       calendarItem,
       timePicker: TimePicker
@@ -11969,7 +11927,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_calendar_item = vue.resolveComponent("calendar-item");
     const _component_time_picker = vue.resolveComponent("time-picker");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$6);
@@ -12262,8 +12220,8 @@ if (uni.restoreGlobal) {
       /* HYDRATE_EVENTS */
     );
   }
-  const Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$4], ["__scopeId", "data-v-5c549568"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar.vue"]]);
-  const _sfc_main$5 = {
+  const Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$1], ["__scopeId", "data-v-5c549568"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar.vue"]]);
+  const _sfc_main$2 = {
     name: "UniDatetimePicker",
     options: {
       virtualHost: true
@@ -12905,7 +12863,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$6);
     const _component_time_picker = vue.resolveComponent("time-picker");
     const _component_Calendar = vue.resolveComponent("Calendar");
@@ -13248,1308 +13206,13 @@ if (uni.restoreGlobal) {
       }, null, 8, ["date", "defTime", "start-date", "end-date", "selectableTimes", "startPlaceholder", "endPlaceholder", "default-value", "pleStatus", "range", "hasTime", "hideSecond", "onConfirm", "onMaskClose"])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$3], ["__scopeId", "data-v-98991aff"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue"]]);
-  const ERR_MSG_OK = "chooseAndUploadFile:ok";
-  const ERR_MSG_FAIL = "chooseAndUploadFile:fail";
-  function chooseImage(opts) {
-    const {
-      count,
-      sizeType = ["original", "compressed"],
-      sourceType,
-      extension
-    } = opts;
-    return new Promise((resolve, reject) => {
-      uni.chooseImage({
-        count,
-        sizeType,
-        sourceType,
-        extension,
-        success(res) {
-          resolve(normalizeChooseAndUploadFileRes(res, "image"));
-        },
-        fail(res) {
-          reject({
-            errMsg: res.errMsg.replace("chooseImage:fail", ERR_MSG_FAIL)
-          });
-        }
-      });
-    });
-  }
-  function chooseVideo(opts) {
-    const {
-      camera,
-      compressed,
-      maxDuration,
-      sourceType,
-      extension
-    } = opts;
-    return new Promise((resolve, reject) => {
-      uni.chooseVideo({
-        camera,
-        compressed,
-        maxDuration,
-        sourceType,
-        extension,
-        success(res) {
-          const {
-            tempFilePath,
-            duration,
-            size,
-            height,
-            width
-          } = res;
-          resolve(normalizeChooseAndUploadFileRes({
-            errMsg: "chooseVideo:ok",
-            tempFilePaths: [tempFilePath],
-            tempFiles: [
-              {
-                name: res.tempFile && res.tempFile.name || "",
-                path: tempFilePath,
-                size,
-                type: res.tempFile && res.tempFile.type || "",
-                width,
-                height,
-                duration,
-                fileType: "video",
-                cloudPath: ""
-              }
-            ]
-          }, "video"));
-        },
-        fail(res) {
-          reject({
-            errMsg: res.errMsg.replace("chooseVideo:fail", ERR_MSG_FAIL)
-          });
-        }
-      });
-    });
-  }
-  function chooseAll(opts) {
-    const {
-      count,
-      extension
-    } = opts;
-    return new Promise((resolve, reject) => {
-      let chooseFile = uni.chooseFile;
-      if (typeof wx !== "undefined" && typeof wx.chooseMessageFile === "function") {
-        chooseFile = wx.chooseMessageFile;
-      }
-      if (typeof chooseFile !== "function") {
-        return reject({
-          errMsg: ERR_MSG_FAIL + " 请指定 type 类型，该平台仅支持选择 image 或 video。"
-        });
-      }
-      chooseFile({
-        type: "all",
-        count,
-        extension,
-        success(res) {
-          resolve(normalizeChooseAndUploadFileRes(res));
-        },
-        fail(res) {
-          reject({
-            errMsg: res.errMsg.replace("chooseFile:fail", ERR_MSG_FAIL)
-          });
-        }
-      });
-    });
-  }
-  function normalizeChooseAndUploadFileRes(res, fileType) {
-    res.tempFiles.forEach((item, index) => {
-      if (!item.name) {
-        item.name = item.path.substring(item.path.lastIndexOf("/") + 1);
-      }
-      if (fileType) {
-        item.fileType = fileType;
-      }
-      item.cloudPath = Date.now() + "_" + index + item.name.substring(item.name.lastIndexOf("."));
-    });
-    if (!res.tempFilePaths) {
-      res.tempFilePaths = res.tempFiles.map((file) => file.path);
-    }
-    return res;
-  }
-  function uploadCloudFiles(files, max = 5, onUploadProgress) {
-    files = JSON.parse(JSON.stringify(files));
-    const len = files.length;
-    let count = 0;
-    let self = this;
-    return new Promise((resolve) => {
-      while (count < max) {
-        next();
-      }
-      function next() {
-        let cur = count++;
-        if (cur >= len) {
-          !files.find((item) => !item.url && !item.errMsg) && resolve(files);
-          return;
-        }
-        const fileItem = files[cur];
-        const index = self.files.findIndex((v2) => v2.uuid === fileItem.uuid);
-        fileItem.url = "";
-        delete fileItem.errMsg;
-        Ls.uploadFile({
-          filePath: fileItem.path,
-          cloudPath: fileItem.cloudPath,
-          fileType: fileItem.fileType,
-          onUploadProgress: (res) => {
-            res.index = index;
-            onUploadProgress && onUploadProgress(res);
-          }
-        }).then((res) => {
-          fileItem.url = res.fileID;
-          fileItem.index = index;
-          if (cur < len) {
-            next();
-          }
-        }).catch((res) => {
-          fileItem.errMsg = res.errMsg || res.message;
-          fileItem.index = index;
-          if (cur < len) {
-            next();
-          }
-        });
-      }
-    });
-  }
-  function uploadFiles(choosePromise, {
-    onChooseFile,
-    onUploadProgress
-  }) {
-    return choosePromise.then((res) => {
-      if (onChooseFile) {
-        const customChooseRes = onChooseFile(res);
-        if (typeof customChooseRes !== "undefined") {
-          return Promise.resolve(customChooseRes).then((chooseRes) => typeof chooseRes === "undefined" ? res : chooseRes);
-        }
-      }
-      return res;
-    }).then((res) => {
-      if (res === false) {
-        return {
-          errMsg: ERR_MSG_OK,
-          tempFilePaths: [],
-          tempFiles: []
-        };
-      }
-      return res;
-    });
-  }
-  function chooseAndUploadFile(opts = {
-    type: "all"
-  }) {
-    if (opts.type === "image") {
-      return uploadFiles(chooseImage(opts), opts);
-    } else if (opts.type === "video") {
-      return uploadFiles(chooseVideo(opts), opts);
-    }
-    return uploadFiles(chooseAll(opts), opts);
-  }
-  const get_file_ext = (name) => {
-    const last_len = name.lastIndexOf(".");
-    const len = name.length;
-    return {
-      name: name.substring(0, last_len),
-      ext: name.substring(last_len + 1, len)
-    };
-  };
-  const get_extname = (fileExtname) => {
-    if (!Array.isArray(fileExtname)) {
-      let extname = fileExtname.replace(/(\[|\])/g, "");
-      return extname.split(",");
-    } else {
-      return fileExtname;
-    }
-  };
-  const get_files_and_is_max = (res, _extname) => {
-    let filePaths = [];
-    let files = [];
-    if (!_extname || _extname.length === 0) {
-      return {
-        filePaths,
-        files
-      };
-    }
-    res.tempFiles.forEach((v2) => {
-      let fileFullName = get_file_ext(v2.name);
-      const extname = fileFullName.ext.toLowerCase();
-      if (_extname.indexOf(extname) !== -1) {
-        files.push(v2);
-        filePaths.push(v2.path);
-      }
-    });
-    if (files.length !== res.tempFiles.length) {
-      uni.showToast({
-        title: `当前选择了${res.tempFiles.length}个文件 ，${res.tempFiles.length - files.length} 个文件格式不正确`,
-        icon: "none",
-        duration: 5e3
-      });
-    }
-    return {
-      filePaths,
-      files
-    };
-  };
-  const get_file_info = (filepath) => {
-    return new Promise((resolve, reject) => {
-      uni.getImageInfo({
-        src: filepath,
-        success(res) {
-          resolve(res);
-        },
-        fail(err) {
-          reject(err);
-        }
-      });
-    });
-  };
-  const get_file_data = async (files, type = "image") => {
-    let fileFullName = get_file_ext(files.name);
-    const extname = fileFullName.ext.toLowerCase();
-    let filedata = {
-      name: files.name,
-      uuid: files.uuid,
-      extname: extname || "",
-      cloudPath: files.cloudPath,
-      fileType: files.fileType,
-      url: files.path || files.path,
-      size: files.size,
-      //单位是字节
-      image: {},
-      path: files.path,
-      video: {}
-    };
-    if (type === "image") {
-      const imageinfo = await get_file_info(files.path);
-      delete filedata.video;
-      filedata.image.width = imageinfo.width;
-      filedata.image.height = imageinfo.height;
-      filedata.image.location = imageinfo.path;
-    } else {
-      delete filedata.image;
-    }
-    return filedata;
-  };
-  const _sfc_main$4 = {
-    name: "uploadImage",
-    emits: ["uploadFiles", "choose", "delFile"],
-    props: {
-      filesList: {
-        type: Array,
-        default() {
-          return [];
-        }
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      disablePreview: {
-        type: Boolean,
-        default: false
-      },
-      limit: {
-        type: [Number, String],
-        default: 9
-      },
-      imageStyles: {
-        type: Object,
-        default() {
-          return {
-            width: "auto",
-            height: "auto",
-            border: {}
-          };
-        }
-      },
-      delIcon: {
-        type: Boolean,
-        default: true
-      },
-      readonly: {
-        type: Boolean,
-        default: false
-      }
-    },
-    computed: {
-      styles() {
-        let styles = {
-          width: "auto",
-          height: "auto",
-          border: {}
-        };
-        return Object.assign(styles, this.imageStyles);
-      },
-      boxStyle() {
-        const {
-          width = "auto",
-          height = "auto"
-        } = this.styles;
-        let obj = {};
-        if (height === "auto") {
-          if (width !== "auto") {
-            obj.height = this.value2px(width);
-            obj["padding-top"] = 0;
-          } else {
-            obj.height = 0;
-          }
-        } else {
-          obj.height = this.value2px(height);
-          obj["padding-top"] = 0;
-        }
-        if (width === "auto") {
-          if (height !== "auto") {
-            obj.width = this.value2px(height);
-          } else {
-            obj.width = "33.3%";
-          }
-        } else {
-          obj.width = this.value2px(width);
-        }
-        let classles = "";
-        for (let i2 in obj) {
-          classles += `${i2}:${obj[i2]};`;
-        }
-        return classles;
-      },
-      borderStyle() {
-        let {
-          border
-        } = this.styles;
-        let obj = {};
-        const widthDefaultValue = 1;
-        const radiusDefaultValue = 3;
-        if (typeof border === "boolean") {
-          obj.border = border ? "1px #eee solid" : "none";
-        } else {
-          let width = border && border.width || widthDefaultValue;
-          width = this.value2px(width);
-          let radius = border && border.radius || radiusDefaultValue;
-          radius = this.value2px(radius);
-          obj = {
-            "border-width": width,
-            "border-style": border && border.style || "solid",
-            "border-color": border && border.color || "#eee",
-            "border-radius": radius
-          };
-        }
-        let classles = "";
-        for (let i2 in obj) {
-          classles += `${i2}:${obj[i2]};`;
-        }
-        return classles;
-      }
-    },
-    methods: {
-      uploadFiles(item, index) {
-        this.$emit("uploadFiles", item);
-      },
-      choose() {
-        this.$emit("choose");
-      },
-      delFile(index) {
-        this.$emit("delFile", index);
-      },
-      prviewImage(img, index) {
-        let urls = [];
-        if (Number(this.limit) === 1 && this.disablePreview && !this.disabled) {
-          this.$emit("choose");
-        }
-        if (this.disablePreview)
-          return;
-        this.filesList.forEach((i2) => {
-          urls.push(i2.url);
-        });
-        uni.previewImage({
-          urls,
-          current: index
-        });
-      },
-      value2px(value) {
-        if (typeof value === "number") {
-          value += "px";
-        } else {
-          if (value.indexOf("%") === -1) {
-            value = value.indexOf("px") !== -1 ? value : value + "px";
-          }
-        }
-        return value;
-      }
-    }
-  };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "uni-file-picker__container" }, [
-      (vue.openBlock(true), vue.createElementBlock(
-        vue.Fragment,
-        null,
-        vue.renderList($props.filesList, (item, index) => {
-          return vue.openBlock(), vue.createElementBlock(
-            "view",
-            {
-              class: "file-picker__box",
-              key: index,
-              style: vue.normalizeStyle($options.boxStyle)
-            },
-            [
-              vue.createElementVNode(
-                "view",
-                {
-                  class: "file-picker__box-content",
-                  style: vue.normalizeStyle($options.borderStyle)
-                },
-                [
-                  vue.createElementVNode("image", {
-                    class: "file-image",
-                    src: item.url,
-                    mode: "aspectFill",
-                    onClick: vue.withModifiers(($event) => $options.prviewImage(item, index), ["stop"])
-                  }, null, 8, ["src", "onClick"]),
-                  $props.delIcon && !$props.readonly ? (vue.openBlock(), vue.createElementBlock("view", {
-                    key: 0,
-                    class: "icon-del-box",
-                    onClick: vue.withModifiers(($event) => $options.delFile(index), ["stop"])
-                  }, [
-                    vue.createElementVNode("view", { class: "icon-del" }),
-                    vue.createElementVNode("view", { class: "icon-del rotate" })
-                  ], 8, ["onClick"])) : vue.createCommentVNode("v-if", true),
-                  item.progress && item.progress !== 100 || item.progress === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
-                    key: 1,
-                    class: "file-picker__progress"
-                  }, [
-                    vue.createElementVNode("progress", {
-                      class: "file-picker__progress-item",
-                      percent: item.progress === -1 ? 0 : item.progress,
-                      "stroke-width": "4",
-                      backgroundColor: item.errMsg ? "#ff5a5f" : "#EBEBEB"
-                    }, null, 8, ["percent", "backgroundColor"])
-                  ])) : vue.createCommentVNode("v-if", true),
-                  item.errMsg ? (vue.openBlock(), vue.createElementBlock("view", {
-                    key: 2,
-                    class: "file-picker__mask",
-                    onClick: vue.withModifiers(($event) => $options.uploadFiles(item, index), ["stop"])
-                  }, " 点击重试 ", 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
-                ],
-                4
-                /* STYLE */
-              )
-            ],
-            4
-            /* STYLE */
-          );
-        }),
-        128
-        /* KEYED_FRAGMENT */
-      )),
-      $props.filesList.length < $props.limit && !$props.readonly ? (vue.openBlock(), vue.createElementBlock(
-        "view",
-        {
-          key: 0,
-          class: "file-picker__box",
-          style: vue.normalizeStyle($options.boxStyle)
-        },
-        [
-          vue.createElementVNode(
-            "view",
-            {
-              class: "file-picker__box-content is-add",
-              style: vue.normalizeStyle($options.borderStyle),
-              onClick: _cache[0] || (_cache[0] = (...args) => $options.choose && $options.choose(...args))
-            },
-            [
-              vue.renderSlot(_ctx.$slots, "default", {}, () => [
-                vue.createElementVNode("view", { class: "icon-add" }),
-                vue.createElementVNode("view", { class: "icon-add rotate" })
-              ], true)
-            ],
-            4
-            /* STYLE */
-          )
-        ],
-        4
-        /* STYLE */
-      )) : vue.createCommentVNode("v-if", true)
-    ]);
-  }
-  const uploadImage = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$2], ["__scopeId", "data-v-2462b08f"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-file-picker/components/uni-file-picker/upload-image.vue"]]);
-  const _sfc_main$3 = {
-    name: "uploadFile",
-    emits: ["uploadFiles", "choose", "delFile"],
-    props: {
-      filesList: {
-        type: Array,
-        default() {
-          return [];
-        }
-      },
-      delIcon: {
-        type: Boolean,
-        default: true
-      },
-      limit: {
-        type: [Number, String],
-        default: 9
-      },
-      showType: {
-        type: String,
-        default: ""
-      },
-      listStyles: {
-        type: Object,
-        default() {
-          return {
-            // 是否显示边框
-            border: true,
-            // 是否显示分隔线
-            dividline: true,
-            // 线条样式
-            borderStyle: {}
-          };
-        }
-      },
-      readonly: {
-        type: Boolean,
-        default: false
-      }
-    },
-    computed: {
-      list() {
-        let files = [];
-        this.filesList.forEach((v2) => {
-          files.push(v2);
-        });
-        return files;
-      },
-      styles() {
-        let styles = {
-          border: true,
-          dividline: true,
-          "border-style": {}
-        };
-        return Object.assign(styles, this.listStyles);
-      },
-      borderStyle() {
-        let {
-          borderStyle,
-          border
-        } = this.styles;
-        let obj = {};
-        if (!border) {
-          obj.border = "none";
-        } else {
-          let width = borderStyle && borderStyle.width || 1;
-          width = this.value2px(width);
-          let radius = borderStyle && borderStyle.radius || 5;
-          radius = this.value2px(radius);
-          obj = {
-            "border-width": width,
-            "border-style": borderStyle && borderStyle.style || "solid",
-            "border-color": borderStyle && borderStyle.color || "#eee",
-            "border-radius": radius
-          };
-        }
-        let classles = "";
-        for (let i2 in obj) {
-          classles += `${i2}:${obj[i2]};`;
-        }
-        return classles;
-      },
-      borderLineStyle() {
-        let obj = {};
-        let {
-          borderStyle
-        } = this.styles;
-        if (borderStyle && borderStyle.color) {
-          obj["border-color"] = borderStyle.color;
-        }
-        if (borderStyle && borderStyle.width) {
-          let width = borderStyle && borderStyle.width || 1;
-          let style = borderStyle && borderStyle.style || 0;
-          if (typeof width === "number") {
-            width += "px";
-          } else {
-            width = width.indexOf("px") ? width : width + "px";
-          }
-          obj["border-width"] = width;
-          if (typeof style === "number") {
-            style += "px";
-          } else {
-            style = style.indexOf("px") ? style : style + "px";
-          }
-          obj["border-top-style"] = style;
-        }
-        let classles = "";
-        for (let i2 in obj) {
-          classles += `${i2}:${obj[i2]};`;
-        }
-        return classles;
-      }
-    },
-    methods: {
-      uploadFiles(item, index) {
-        this.$emit("uploadFiles", {
-          item,
-          index
-        });
-      },
-      choose() {
-        this.$emit("choose");
-      },
-      delFile(index) {
-        this.$emit("delFile", index);
-      },
-      value2px(value) {
-        if (typeof value === "number") {
-          value += "px";
-        } else {
-          value = value.indexOf("px") !== -1 ? value : value + "px";
-        }
-        return value;
-      }
-    }
-  };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "uni-file-picker__files" }, [
-      !$props.readonly ? (vue.openBlock(), vue.createElementBlock("view", {
-        key: 0,
-        class: "files-button",
-        onClick: _cache[0] || (_cache[0] = (...args) => $options.choose && $options.choose(...args))
-      }, [
-        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-      ])) : vue.createCommentVNode("v-if", true),
-      vue.createCommentVNode(` :class="{'is-text-box':showType === 'list'}" `),
-      $options.list.length > 0 ? (vue.openBlock(), vue.createElementBlock(
-        "view",
-        {
-          key: 1,
-          class: "uni-file-picker__lists is-text-box",
-          style: vue.normalizeStyle($options.borderStyle)
-        },
-        [
-          vue.createCommentVNode(" ,'is-list-card':showType === 'list-card' "),
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($options.list, (item, index) => {
-              return vue.openBlock(), vue.createElementBlock(
-                "view",
-                {
-                  class: vue.normalizeClass(["uni-file-picker__lists-box", {
-                    "files-border": index !== 0 && $options.styles.dividline
-                  }]),
-                  key: index,
-                  style: vue.normalizeStyle(index !== 0 && $options.styles.dividline && $options.borderLineStyle)
-                },
-                [
-                  vue.createElementVNode("view", { class: "uni-file-picker__item" }, [
-                    vue.createCommentVNode(` :class="{'is-text-image':showType === 'list'}" `),
-                    vue.createCommentVNode(' 	<view class="files__image is-text-image">\r\n						<image class="header-image" :src="item.logo" mode="aspectFit"></image>\r\n					</view> '),
-                    vue.createElementVNode(
-                      "view",
-                      { class: "files__name" },
-                      vue.toDisplayString(item.name),
-                      1
-                      /* TEXT */
-                    ),
-                    $props.delIcon && !$props.readonly ? (vue.openBlock(), vue.createElementBlock("view", {
-                      key: 0,
-                      class: "icon-del-box icon-files",
-                      onClick: ($event) => $options.delFile(index)
-                    }, [
-                      vue.createElementVNode("view", { class: "icon-del icon-files" }),
-                      vue.createElementVNode("view", { class: "icon-del rotate" })
-                    ], 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
-                  ]),
-                  item.progress && item.progress !== 100 || item.progress === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
-                    key: 0,
-                    class: "file-picker__progress"
-                  }, [
-                    vue.createElementVNode("progress", {
-                      class: "file-picker__progress-item",
-                      percent: item.progress === -1 ? 0 : item.progress,
-                      "stroke-width": "4",
-                      backgroundColor: item.errMsg ? "#ff5a5f" : "#EBEBEB"
-                    }, null, 8, ["percent", "backgroundColor"])
-                  ])) : vue.createCommentVNode("v-if", true),
-                  item.status === "error" ? (vue.openBlock(), vue.createElementBlock("view", {
-                    key: 1,
-                    class: "file-picker__mask",
-                    onClick: vue.withModifiers(($event) => $options.uploadFiles(item, index), ["stop"])
-                  }, " 点击重试 ", 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
-                ],
-                6
-                /* CLASS, STYLE */
-              );
-            }),
-            128
-            /* KEYED_FRAGMENT */
-          ))
-        ],
-        4
-        /* STYLE */
-      )) : vue.createCommentVNode("v-if", true)
-    ]);
-  }
-  const uploadFile = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$1], ["__scopeId", "data-v-b4278885"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-file-picker/components/uni-file-picker/upload-file.vue"]]);
-  const _sfc_main$2 = {
-    name: "uniFilePicker",
-    components: {
-      uploadImage,
-      uploadFile
-    },
-    options: {
-      virtualHost: true
-    },
-    emits: ["select", "success", "fail", "progress", "delete", "update:modelValue", "input"],
-    props: {
-      modelValue: {
-        type: [Array, Object],
-        default() {
-          return [];
-        }
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      disablePreview: {
-        type: Boolean,
-        default: false
-      },
-      delIcon: {
-        type: Boolean,
-        default: true
-      },
-      // 自动上传
-      autoUpload: {
-        type: Boolean,
-        default: true
-      },
-      // 最大选择个数 ，h5只能限制单选或是多选
-      limit: {
-        type: [Number, String],
-        default: 9
-      },
-      // 列表样式 grid | list | list-card
-      mode: {
-        type: String,
-        default: "grid"
-      },
-      // 选择文件类型  image/video/all
-      fileMediatype: {
-        type: String,
-        default: "image"
-      },
-      // 文件类型筛选
-      fileExtname: {
-        type: [Array, String],
-        default() {
-          return [];
-        }
-      },
-      title: {
-        type: String,
-        default: ""
-      },
-      listStyles: {
-        type: Object,
-        default() {
-          return {
-            // 是否显示边框
-            border: true,
-            // 是否显示分隔线
-            dividline: true,
-            // 线条样式
-            borderStyle: {}
-          };
-        }
-      },
-      imageStyles: {
-        type: Object,
-        default() {
-          return {
-            width: "auto",
-            height: "auto"
-          };
-        }
-      },
-      readonly: {
-        type: Boolean,
-        default: false
-      },
-      returnType: {
-        type: String,
-        default: "array"
-      },
-      sizeType: {
-        type: Array,
-        default() {
-          return ["original", "compressed"];
-        }
-      },
-      sourceType: {
-        type: Array,
-        default() {
-          return ["album", "camera"];
-        }
-      }
-    },
-    data() {
-      return {
-        files: [],
-        localValue: []
-      };
-    },
-    watch: {
-      modelValue: {
-        handler(newVal, oldVal) {
-          this.setValue(newVal, oldVal);
-        },
-        immediate: true
-      }
-    },
-    computed: {
-      filesList() {
-        let files = [];
-        this.files.forEach((v2) => {
-          files.push(v2);
-        });
-        return files;
-      },
-      showType() {
-        if (this.fileMediatype === "image") {
-          return this.mode;
-        }
-        return "list";
-      },
-      limitLength() {
-        if (this.returnType === "object") {
-          return 1;
-        }
-        if (!this.limit) {
-          return 1;
-        }
-        if (this.limit >= 9) {
-          return 9;
-        }
-        return this.limit;
-      }
-    },
-    created() {
-      if (!(Ls.config && Ls.config.provider)) {
-        this.noSpace = true;
-        Ls.chooseAndUploadFile = chooseAndUploadFile;
-      }
-      this.form = this.getForm("uniForms");
-      this.formItem = this.getForm("uniFormsItem");
-      if (this.form && this.formItem) {
-        if (this.formItem.name) {
-          this.rename = this.formItem.name;
-          this.form.inputChildrens.push(this);
-        }
-      }
-    },
-    methods: {
-      /**
-       * 公开用户使用，清空文件
-       * @param {Object} index
-       */
-      clearFiles(index) {
-        if (index !== 0 && !index) {
-          this.files = [];
-          this.$nextTick(() => {
-            this.setEmit();
-          });
-        } else {
-          this.files.splice(index, 1);
-        }
-        this.$nextTick(() => {
-          this.setEmit();
-        });
-      },
-      /**
-       * 公开用户使用，继续上传
-       */
-      upload() {
-        let files = [];
-        this.files.forEach((v2, index) => {
-          if (v2.status === "ready" || v2.status === "error") {
-            files.push(Object.assign({}, v2));
-          }
-        });
-        return this.uploadFiles(files);
-      },
-      async setValue(newVal, oldVal) {
-        const newData = async (v2) => {
-          const reg = /cloud:\/\/([\w.]+\/?)\S*/;
-          let url = "";
-          if (v2.fileID) {
-            url = v2.fileID;
-          } else {
-            url = v2.url;
-          }
-          if (reg.test(url)) {
-            v2.fileID = url;
-            v2.url = await this.getTempFileURL(url);
-          }
-          if (v2.url)
-            v2.path = v2.url;
-          return v2;
-        };
-        if (this.returnType === "object") {
-          if (newVal) {
-            await newData(newVal);
-          } else {
-            newVal = {};
-          }
-        } else {
-          if (!newVal)
-            newVal = [];
-          for (let i2 = 0; i2 < newVal.length; i2++) {
-            let v2 = newVal[i2];
-            await newData(v2);
-          }
-        }
-        this.localValue = newVal;
-        if (this.form && this.formItem && !this.is_reset) {
-          this.is_reset = false;
-          this.formItem.setValue(this.localValue);
-        }
-        let filesData = Object.keys(newVal).length > 0 ? newVal : [];
-        this.files = [].concat(filesData);
-      },
-      /**
-       * 选择文件
-       */
-      choose() {
-        if (this.disabled)
-          return;
-        if (this.files.length >= Number(this.limitLength) && this.showType !== "grid" && this.returnType === "array") {
-          uni.showToast({
-            title: `您最多选择 ${this.limitLength} 个文件`,
-            icon: "none"
-          });
-          return;
-        }
-        this.chooseFiles();
-      },
-      /**
-       * 选择文件并上传
-       */
-      chooseFiles() {
-        const _extname = get_extname(this.fileExtname);
-        Ls.chooseAndUploadFile({
-          type: this.fileMediatype,
-          compressed: false,
-          sizeType: this.sizeType,
-          sourceType: this.sourceType,
-          // TODO 如果为空，video 有问题
-          extension: _extname.length > 0 ? _extname : void 0,
-          count: this.limitLength - this.files.length,
-          //默认9
-          onChooseFile: this.chooseFileCallback,
-          onUploadProgress: (progressEvent) => {
-            this.setProgress(progressEvent, progressEvent.index);
-          }
-        }).then((result) => {
-          this.setSuccessAndError(result.tempFiles);
-        }).catch((err) => {
-          formatAppLog("log", "at uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker.vue:371", "选择失败", err);
-        });
-      },
-      /**
-       * 选择文件回调
-       * @param {Object} res
-       */
-      async chooseFileCallback(res) {
-        const _extname = get_extname(this.fileExtname);
-        const is_one = Number(this.limitLength) === 1 && this.disablePreview && !this.disabled || this.returnType === "object";
-        if (is_one) {
-          this.files = [];
-        }
-        let {
-          filePaths,
-          files
-        } = get_files_and_is_max(res, _extname);
-        if (!(_extname && _extname.length > 0)) {
-          filePaths = res.tempFilePaths;
-          files = res.tempFiles;
-        }
-        let currentData = [];
-        for (let i2 = 0; i2 < files.length; i2++) {
-          if (this.limitLength - this.files.length <= 0)
-            break;
-          files[i2].uuid = Date.now();
-          let filedata = await get_file_data(files[i2], this.fileMediatype);
-          filedata.progress = 0;
-          filedata.status = "ready";
-          this.files.push(filedata);
-          currentData.push({
-            ...filedata,
-            file: files[i2]
-          });
-        }
-        this.$emit("select", {
-          tempFiles: currentData,
-          tempFilePaths: filePaths
-        });
-        res.tempFiles = files;
-        if (!this.autoUpload || this.noSpace) {
-          res.tempFiles = [];
-        }
-      },
-      /**
-       * 批传
-       * @param {Object} e
-       */
-      uploadFiles(files) {
-        files = [].concat(files);
-        return uploadCloudFiles.call(this, files, 5, (res) => {
-          this.setProgress(res, res.index, true);
-        }).then((result) => {
-          this.setSuccessAndError(result);
-          return result;
-        }).catch((err) => {
-          formatAppLog("log", "at uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker.vue:437", err);
-        });
-      },
-      /**
-       * 成功或失败
-       */
-      async setSuccessAndError(res, fn) {
-        let successData = [];
-        let errorData = [];
-        let tempFilePath = [];
-        let errorTempFilePath = [];
-        for (let i2 = 0; i2 < res.length; i2++) {
-          const item = res[i2];
-          const index = item.uuid ? this.files.findIndex((p2) => p2.uuid === item.uuid) : item.index;
-          if (index === -1 || !this.files)
-            break;
-          if (item.errMsg === "request:fail") {
-            this.files[index].url = item.path;
-            this.files[index].status = "error";
-            this.files[index].errMsg = item.errMsg;
-            errorData.push(this.files[index]);
-            errorTempFilePath.push(this.files[index].url);
-          } else {
-            this.files[index].errMsg = "";
-            this.files[index].fileID = item.url;
-            const reg = /cloud:\/\/([\w.]+\/?)\S*/;
-            if (reg.test(item.url)) {
-              this.files[index].url = await this.getTempFileURL(item.url);
-            } else {
-              this.files[index].url = item.url;
-            }
-            this.files[index].status = "success";
-            this.files[index].progress += 1;
-            successData.push(this.files[index]);
-            tempFilePath.push(this.files[index].fileID);
-          }
-        }
-        if (successData.length > 0) {
-          this.setEmit();
-          this.$emit("success", {
-            tempFiles: this.backObject(successData),
-            tempFilePaths: tempFilePath
-          });
-        }
-        if (errorData.length > 0) {
-          this.$emit("fail", {
-            tempFiles: this.backObject(errorData),
-            tempFilePaths: errorTempFilePath
-          });
-        }
-      },
-      /**
-       * 获取进度
-       * @param {Object} progressEvent
-       * @param {Object} index
-       * @param {Object} type
-       */
-      setProgress(progressEvent, index, type) {
-        this.files.length;
-        const percentCompleted = Math.round(progressEvent.loaded * 100 / progressEvent.total);
-        let idx = index;
-        if (!type) {
-          idx = this.files.findIndex((p2) => p2.uuid === progressEvent.tempFile.uuid);
-        }
-        if (idx === -1 || !this.files[idx])
-          return;
-        this.files[idx].progress = percentCompleted - 1;
-        this.$emit("progress", {
-          index: idx,
-          progress: parseInt(percentCompleted),
-          tempFile: this.files[idx]
-        });
-      },
-      /**
-       * 删除文件
-       * @param {Object} index
-       */
-      delFile(index) {
-        this.$emit("delete", {
-          tempFile: this.files[index],
-          tempFilePath: this.files[index].url
-        });
-        this.files.splice(index, 1);
-        this.$nextTick(() => {
-          this.setEmit();
-        });
-      },
-      /**
-       * 获取文件名和后缀
-       * @param {Object} name
-       */
-      getFileExt(name) {
-        const last_len = name.lastIndexOf(".");
-        const len = name.length;
-        return {
-          name: name.substring(0, last_len),
-          ext: name.substring(last_len + 1, len)
-        };
-      },
-      /**
-       * 处理返回事件
-       */
-      setEmit() {
-        let data = [];
-        if (this.returnType === "object") {
-          data = this.backObject(this.files)[0];
-          this.localValue = data ? data : null;
-        } else {
-          data = this.backObject(this.files);
-          if (!this.localValue) {
-            this.localValue = [];
-          }
-          this.localValue = [...data];
-        }
-        this.$emit("update:modelValue", this.localValue);
-      },
-      /**
-       * 处理返回参数
-       * @param {Object} files
-       */
-      backObject(files) {
-        let newFilesData = [];
-        files.forEach((v2) => {
-          newFilesData.push({
-            extname: v2.extname,
-            fileType: v2.fileType,
-            image: v2.image,
-            name: v2.name,
-            path: v2.path,
-            size: v2.size,
-            fileID: v2.fileID,
-            url: v2.url,
-            // 修改删除一个文件后不能再上传的bug, #694
-            uuid: v2.uuid,
-            status: v2.status,
-            cloudPath: v2.cloudPath
-          });
-        });
-        return newFilesData;
-      },
-      async getTempFileURL(fileList) {
-        fileList = {
-          fileList: [].concat(fileList)
-        };
-        const urls = await Ls.getTempFileURL(fileList);
-        return urls.fileList[0].tempFileURL || "";
-      },
-      /**
-       * 获取父元素实例
-       */
-      getForm(name = "uniForms") {
-        let parent = this.$parent;
-        let parentName = parent.$options.name;
-        while (parentName !== name) {
-          parent = parent.$parent;
-          if (!parent)
-            return false;
-          parentName = parent.$options.name;
-        }
-        return parent;
-      }
-    }
-  };
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_upload_image = vue.resolveComponent("upload-image");
-    const _component_upload_file = vue.resolveComponent("upload-file");
-    return vue.openBlock(), vue.createElementBlock("view", { class: "uni-file-picker" }, [
-      $props.title ? (vue.openBlock(), vue.createElementBlock("view", {
-        key: 0,
-        class: "uni-file-picker__header"
-      }, [
-        vue.createElementVNode(
-          "text",
-          { class: "file-title" },
-          vue.toDisplayString($props.title),
-          1
-          /* TEXT */
-        ),
-        vue.createElementVNode(
-          "text",
-          { class: "file-count" },
-          vue.toDisplayString($options.filesList.length) + "/" + vue.toDisplayString($options.limitLength),
-          1
-          /* TEXT */
-        )
-      ])) : vue.createCommentVNode("v-if", true),
-      $props.fileMediatype === "image" && $options.showType === "grid" ? (vue.openBlock(), vue.createBlock(_component_upload_image, {
-        key: 1,
-        readonly: $props.readonly,
-        "image-styles": $props.imageStyles,
-        "files-list": $options.filesList,
-        limit: $options.limitLength,
-        disablePreview: $props.disablePreview,
-        delIcon: $props.delIcon,
-        onUploadFiles: $options.uploadFiles,
-        onChoose: $options.choose,
-        onDelFile: $options.delFile
-      }, {
-        default: vue.withCtx(() => [
-          vue.renderSlot(_ctx.$slots, "default", {}, () => [
-            vue.createElementVNode("view", { class: "is-add" }, [
-              vue.createElementVNode("view", { class: "icon-add" }),
-              vue.createElementVNode("view", { class: "icon-add rotate" })
-            ])
-          ], true)
-        ]),
-        _: 3
-        /* FORWARDED */
-      }, 8, ["readonly", "image-styles", "files-list", "limit", "disablePreview", "delIcon", "onUploadFiles", "onChoose", "onDelFile"])) : vue.createCommentVNode("v-if", true),
-      $props.fileMediatype !== "image" || $options.showType !== "grid" ? (vue.openBlock(), vue.createBlock(_component_upload_file, {
-        key: 2,
-        readonly: $props.readonly,
-        "list-styles": $props.listStyles,
-        "files-list": $options.filesList,
-        showType: $options.showType,
-        delIcon: $props.delIcon,
-        onUploadFiles: $options.uploadFiles,
-        onChoose: $options.choose,
-        onDelFile: $options.delFile
-      }, {
-        default: vue.withCtx(() => [
-          vue.renderSlot(_ctx.$slots, "default", {}, () => [
-            vue.createElementVNode("button", {
-              type: "primary",
-              size: "mini"
-            }, "选择文件")
-          ], true)
-        ]),
-        _: 3
-        /* FORWARDED */
-      }, 8, ["readonly", "list-styles", "files-list", "showType", "delIcon", "onUploadFiles", "onChoose", "onDelFile"])) : vue.createCommentVNode("v-if", true)
-    ]);
-  }
-  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render], ["__scopeId", "data-v-ce933aae"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker.vue"]]);
+  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render], ["__scopeId", "data-v-98991aff"], ["__file", "D:/work/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue"]]);
   const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     __name: "wander",
     setup(__props) {
       const baseFormData = vue.reactive({
         title: "",
         date: "",
-        photo: [],
         content: ""
       });
       const rules = vue.reactive({
@@ -14559,37 +13222,42 @@ if (uni.restoreGlobal) {
         date: {
           rules: [{ required: true, errorMessage: "请选择日期" }]
         },
-        photo: {
-          rules: [{ required: true, errorMessage: "请选择照片" }]
-        },
         content: {
           rules: [{ required: true, errorMessage: "请输入内容" }]
         }
       });
       const maskClick = () => {
       };
-      const select = (res) => {
-        baseFormData.photo.push(res.tempFiles[0]);
-      };
-      const deleteImg = (res) => {
-        baseFormData.photo = baseFormData.photo.filter(
-          (item) => item.uuid !== res.tempFiles[0].uuid
-        );
-      };
       const valiForm = vue.ref(null);
       const onSubmit = () => {
-        formatAppLog("log", "at pages/dhphoto/wander.vue:98", "表单检验");
-        formatAppLog("log", "at pages/dhphoto/wander.vue:99", baseFormData);
-        valiForm.value.validate((res) => {
-          formatAppLog("log", "at pages/dhphoto/wander.vue:101", res);
+        valiForm.value.validate().then((res) => {
+          request(appApi.addWander, {
+            method: "POST",
+            data: res
+          }).then((res2) => {
+            const { errorCode, message } = res2;
+            if (errorCode == 0) {
+              uni.showToast({
+                title: message,
+                icon: "success",
+                duration: 1500,
+                success() {
+                  uni.navigateTo({
+                    url: "/pages/dhphoto/dhphoto"
+                  });
+                }
+              });
+            }
+          }).catch((err) => {
+            formatAppLog("log", "at pages/dhphoto/wander.vue:134", err);
+          });
         });
       };
       return (_ctx, _cache) => {
         const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$3);
         const _component_uni_forms_item = resolveEasycom(vue.resolveDynamicComponent("uni-forms-item"), __easycom_1);
         const _component_uni_datetime_picker = resolveEasycom(vue.resolveDynamicComponent("uni-datetime-picker"), __easycom_2);
-        const _component_uni_file_picker = resolveEasycom(vue.resolveDynamicComponent("uni-file-picker"), __easycom_3);
-        const _component_uni_forms = resolveEasycom(vue.resolveDynamicComponent("uni-forms"), __easycom_4);
+        const _component_uni_forms = resolveEasycom(vue.resolveDynamicComponent("uni-forms"), __easycom_3$2);
         return vue.openBlock(), vue.createElementBlock("view", { class: "form-box" }, [
           vue.createVNode(_component_uni_forms, {
             ref_key: "valiForm",
@@ -14601,7 +13269,6 @@ if (uni.restoreGlobal) {
             default: vue.withCtx(() => [
               vue.createVNode(_component_uni_forms_item, {
                 label: "标题",
-                required: "",
                 name: "title"
               }, {
                 default: vue.withCtx(() => [
@@ -14616,7 +13283,6 @@ if (uni.restoreGlobal) {
               }),
               vue.createVNode(_component_uni_forms_item, {
                 label: "日期",
-                required: "",
                 name: "date"
               }, {
                 default: vue.withCtx(() => [
@@ -14632,37 +13298,17 @@ if (uni.restoreGlobal) {
                 /* STABLE */
               }),
               vue.createVNode(_component_uni_forms_item, {
-                label: "照片",
-                required: "",
-                name: "photo"
-              }, {
-                default: vue.withCtx(() => [
-                  vue.createVNode(_component_uni_file_picker, {
-                    modelValue: baseFormData.photo,
-                    "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => baseFormData.photo = $event),
-                    "file-mediatype": "image",
-                    onSelect: select,
-                    onDelete: deleteImg,
-                    mode: "grid",
-                    limit: 9,
-                    "auto-upload": false
-                  }, null, 8, ["modelValue"])
-                ]),
-                _: 1
-                /* STABLE */
-              }),
-              vue.createVNode(_component_uni_forms_item, {
                 label: "内容",
-                required: "",
                 name: "content"
               }, {
                 default: vue.withCtx(() => [
                   vue.createVNode(_component_uni_easyinput, {
                     modelValue: baseFormData.content,
-                    "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => baseFormData.content = $event),
+                    "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => baseFormData.content = $event),
                     placeholder: "请输入内容",
                     type: "textarea",
-                    rows: 4
+                    rows: 4,
+                    maxlength: "500"
                   }, null, 8, ["modelValue"])
                 ]),
                 _: 1
@@ -14680,7 +13326,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesDhphotoWander = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-d524397b"], ["__file", "D:/gitee/app-vue3-ts/src/pages/dhphoto/wander.vue"]]);
+  const PagesDhphotoWander = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-d524397b"], ["__file", "D:/work/code/app-vue3-ts/src/pages/dhphoto/wander.vue"]]);
   __definePage("pages/index/index", PagesIndexIndex);
   __definePage("pages/user/user", PagesUserUser);
   __definePage("pages/login/login", PagesLoginLogin);
@@ -14716,7 +13362,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:/gitee/app-vue3-ts/src/App.vue"]]);
+  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:/work/code/app-vue3-ts/src/App.vue"]]);
   function createApp() {
     const app = vue.createVueApp(App);
     return {

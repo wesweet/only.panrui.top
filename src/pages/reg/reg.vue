@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: panrui
  * @Date: 2023-05-30 15:00:57
- * @LastEditTime: 2023-10-16 13:34:30
+ * @LastEditTime: 2023-11-08 22:55:33
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -53,7 +53,7 @@
 <script lang="ts" setup>
 import StatusBar from "@/components/StatusBar.vue";
 import { reactive, ref } from "vue";
-import { fetchRegister } from "@/api/app";
+// import { fetchRegister } from "@/api/app";
 import { onReady } from "@dcloudio/uni-app";
 // 定义接口
 interface IFormData {
@@ -137,24 +137,24 @@ const register = async () => {
     return;
   }
   // 发送请求
-  const res = await fetchRegister(
-    Object.assign({}, formData, { register_channel: "uniapp" })
-  );
-  if (res.errorCode === 0) {
-    uni.showToast({
-      title: "注册成功",
-      icon: "success",
-    });
-    // 跳转到登录页面
-    uni.navigateTo({
-      url: "/pages/login/login",
-    });
-  } else {
-    uni.showToast({
-      title: res.errorMessage,
-      icon: "none",
-    });
-  }
+  // const res = await fetchRegister(
+  //   Object.assign({}, formData, { register_channel: "uniapp" })
+  // );
+  // if (res.errorCode === 0) {
+  //   uni.showToast({
+  //     title: "注册成功",
+  //     icon: "success",
+  //   });
+  //   // 跳转到登录页面
+  //   uni.navigateTo({
+  //     url: "/pages/login/login",
+  //   });
+  // } else {
+  //   uni.showToast({
+  //     title: res.errorMessage,
+  //     icon: "none",
+  //   });
+  // }
 };
 </script>
 

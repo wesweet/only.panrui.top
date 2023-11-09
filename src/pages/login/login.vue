@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { fetchLogin } from "@/api/app";
+// import { fetchLogin } from "@/api/app";
 import { onReady } from "@dcloudio/uni-app";
 // 定义接口
 interface IFormData {
@@ -78,20 +78,20 @@ const login = async () => {
   }
 
   // 发送请求
-  const res = await fetchLogin(formData);
+  // const res = await fetchLogin(formData);
 
-  if (res.errorCode === 0) {
-    uni.setStorageSync("token", res.data.token);
-    uni.setStorageSync("userId", res.data.userId);
-    uni.switchTab({
-      url: "/pages/index/index",
-    });
-  } else {
-    uni.showToast({
-      title: res.errorMessage,
-      icon: "none",
-    });
-  }
+  // if (res.errorCode === 0) {
+  //   uni.setStorageSync("token", res.data.token);
+  //   uni.setStorageSync("userId", res.data.userId);
+  //   uni.switchTab({
+  //     url: "/pages/index/index",
+  //   });
+  // } else {
+  //   uni.showToast({
+  //     title: res.errorMessage,
+  //     icon: "none",
+  //   });
+  // }
 };
 
 // 点击注册事情

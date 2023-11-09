@@ -1,7 +1,7 @@
 <template>
   <StatusBar></StatusBar>
   <template v-for="(item, index) in wanderList">
-    <uni-section :title="item.title + item.date" type="line">
+    <uni-section :title="item.title + '(' + item.date + ')'" type="line">
       <uni-card @click="onClick">
         <text class="uni-body">{{ item.content }}</text>
         <view slot="actions" class="card-actions">
@@ -122,7 +122,8 @@ interface Wander {
   content: string;
   date: string;
 }
-let wanderList: Wander[] = [];
+// 定义显示的数据
+const wanderList = ref<Wander[]>([]);
 // 获取流浪列表
 const getWanderList = () => {
   request(appApi.getWanderList, {
@@ -137,7 +138,7 @@ const getWanderList = () => {
           duration: 2000,
         });
         if (data) {
-          wanderList = data.list;
+          wanderList.value = data.list;
           total.value = data.total;
         }
       }
