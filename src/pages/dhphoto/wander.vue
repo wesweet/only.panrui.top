@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-10 11:19:41
+ * @LastEditTime: 2023-11-10 21:37:54
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -163,8 +163,9 @@ const onSubmit = () => {
       // 文件上传成功回调函数
       success(result: any) {
         console.log(result);
+        const data = JSON.parse(result.data);
         // 从结果中获取errorCode和message
-        const { errorCode, message } = result;
+        const { errorCode, message } = data;
         // 如果errorCode为0，表示上传成功
         if (errorCode == 0) {
           // 显示成功提示信息

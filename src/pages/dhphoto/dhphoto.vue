@@ -7,7 +7,8 @@
           v-show="item.photo"
           slot="cover"
           style="width: 100%"
-          src="http://nest.panrui.top:8008/head_logo.jpg"
+          :src="item.photo"
+          mode="widthFix"
         ></image>
         <text class="uni-body">{{ item.content }}</text>
         <view slot="actions" class="card-actions">
