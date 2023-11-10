@@ -1543,6 +1543,32 @@
   box-sizing: border-box;
   padding: 0.3125rem 1.25rem 0;
 }
+.form-box .file-picker__box[data-v-d524397b] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.6875rem;
+  height: 4.6875rem;
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: rgb(238, 238, 238);
+  border-radius: 0.1875rem;
+}
+.form-box .file-picker__box .is-add[data-v-d524397b] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-box .file-picker__box .is-add .icon-add[data-v-d524397b] {
+  width: 50px;
+  height: 5px;
+  background-color: #f1f1f1;
+  border-radius: 2px;
+}
+.form-box .file-picker__box .is-add .icon-add.rotate[data-v-d524397b] {
+  position: absolute;
+  transform: rotate(90deg);
+}
 .form-box .primary-btn[data-v-d524397b] {
   background-color: #4263eb;
   color: aliceblue;

@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from "vue";
-import { ref } from "vue";
 // 导入配置接口
 import { HTTP_REQUEST_URL } from "@/config/app";
 // 导入接口
