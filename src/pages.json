@@ -87,8 +87,8 @@
     {
       "path": "pages/dhphoto/dhphoto",
       "style": {
-        "navigationBarTitleText": "瑞瑞和叮叮的流浪日记",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "流浪日记",
+        "enablePullDownRefresh": true
       }
     },
     {

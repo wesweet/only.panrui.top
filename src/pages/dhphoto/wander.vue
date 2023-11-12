@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-10 21:37:54
+ * @LastEditTime: 2023-11-12 12:21:34
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -57,6 +57,7 @@ import { request } from "@/utils/request";
 // 导入域名
 import { HTTP_REQUEST_URL } from "@/config/app";
 import { appApi } from "@/api/app";
+import { onLoad, onShow } from "@dcloudio/uni-app";
 // 使用ts 定义表单数据类型接口
 interface BaseFormData {
   title: string;
@@ -85,9 +86,49 @@ const rules = reactive({
 
 // 定义图片地址
 const src = ref("");
+const id = ref("");
 
 const maskClick = () => {};
 
+// 判断上一个页面传递过来的id
+onLoad((options: any) => {
+  // 页面显示时，判断是否有传递过来的id
+  if (options.id) {
+    // 有传递过来的id，则将id赋值给baseFormData.id
+    id.value = options.id;
+    // 调用接口获取数据
+    getWanderDetail();
+  }
+});
+
+const getWanderDetail = () => {
+  request(appApi.getWanderDetail, {
+    method: "GET",
+    data: {
+      id: id.value,
+    },
+  })
+   .then((res: any) => {
+      const { errorCode, errorMessage, data } = res;
+      if (errorCode == 0) {
+        uni.showToast({
+          title: errorMessage,
+          duration: 2000,
+          icon: "none",
+        });
+        console.log(data);
+        if (data) {
+          baseFormData.title = data.title;
+          baseFormData.date = data.date;
+          baseFormData.content = data.content;
+          src.value = data.photo;
+        }
+      }
+    })
+   .catch((err: any) => {
+      console.log(err);
+    });
+};
 // 图片选择
 // const s4 = () => {
 //   return Math.floor((1 + Math.random()) * 0x10000)

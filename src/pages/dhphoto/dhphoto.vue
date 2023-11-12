@@ -1,33 +1,35 @@
 <template>
   <StatusBar></StatusBar>
-  <template v-for="(item, index) in wanderList">
-    <uni-section :title="item.title + '(' + item.date + ')'" type="line">
-      <uni-card @click="onClick">
-        <image
-          v-show="item.photo"
-          slot="cover"
-          style="width: 100%"
-          :src="item.photo"
-          mode="widthFix"
-        ></image>
-        <text class="uni-body">{{ item.content }}</text>
-        <view slot="actions" class="card-actions">
-          <view class="card-actions-item" @click="actionsClick('分享')">
-            <uni-icons type="redo" size="18" color="#999"></uni-icons>
-            <text class="card-actions-item-text">分享</text>
+  <view class="wander-list">
+    <template v-for="(item, index) in wanderList">
+      <uni-section :title="item.title + '(' + item.date + ')'" type="line">
+        <uni-card @click="onClick(item.id)">
+          <image
+            v-show="item.photo"
+            slot="cover"
+            style="width: 100%"
+            :src="item.photo"
+            mode="widthFix"
+          ></image>
+          <text class="uni-body">{{ item.content }}</text>
+          <view slot="actions" class="card-actions">
+            <view class="card-actions-item" @click="actionsClick('分享')">
+              <uni-icons type="redo" size="18" color="#999"></uni-icons>
+              <text class="card-actions-item-text">分享</text>
+            </view>
+            <view class="card-actions-item" @click="actionsClick('点赞')">
+              <uni-icons type="heart" size="18" color="#999"></uni-icons>
+              <text class="card-actions-item-text">点赞</text>
+            </view>
+            <view class="card-actions-item" @click="actionsClick('评论')">
+              <uni-icons type="comment" size="18" color="#999"></uni-icons>
+              <text class="card-actions-item-text">评论</text>
+            </view>
           </view>
-          <view class="card-actions-item" @click="actionsClick('点赞')">
-            <uni-icons type="heart" size="18" color="#999"></uni-icons>
-            <text class="card-actions-item-text">点赞</text>
-          </view>
-          <view class="card-actions-item" @click="actionsClick('评论')">
-            <uni-icons type="comment" size="18" color="#999"></uni-icons>
-            <text class="card-actions-item-text">评论</text>
-          </view>
-        </view>
-      </uni-card>
-    </uni-section>
-  </template>
+        </uni-card>
+      </uni-section>
+    </template>
+  </view>
   <view class="icon-add" @click="addWander"> </view>
 </template>
 
@@ -36,16 +38,12 @@ import StatusBar from "@/components/StatusBar.vue";
 import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { appApi } from "@/api/app";
+import { onPullDownRefresh, onReachBottom } from "@dcloudio/uni-app";
 
-const jpgs = reactive([
-  "/static/20231016101236.jpg",
-  "/static/20231016101204.jpg",
-  "/static/20231030090420.jpg",
-  "/static/20231030090547.jpg",
-]);
-
-const onClick = () => {
-  console.log("onClick");
+const onClick = (id: string) => {
+  // uni.navigateTo({
+  //   url: "/pages/dhphoto/wander?id=" + id,
+  // });
 };
 
 const addWander = () => {
@@ -73,6 +71,7 @@ const pagination = reactive({
 let total = ref(0);
 // 定义数组中数据的接口
 interface Wander {
+  id: string;
   title: string;
   content: string;
   photo?: string;
@@ -94,7 +93,7 @@ const getWanderList = () => {
           duration: 2000,
         });
         if (data) {
-          wanderList.value = data.list;
+          wanderList.value = wanderList.value.concat(data.list);
           total.value = data.total;
         }
       }
@@ -106,6 +105,26 @@ const getWanderList = () => {
 
 // 执行获取流浪列表
 getWanderList();
+
+// 定义页面下拉刷新方法
+onPullDownRefresh(() => {
+  pagination.page = 1;
+  wanderList.value = [];
+  getWanderList();
+  uni.stopPullDownRefresh();
+});
+
+onReachBottom(() => {
+  if (pagination.page * pagination.limit >= total.value) {
+    uni.showToast({
+      title: "没有更多数据了",
+      duration: 2000,
+    });
+    return;
+  }
+  pagination.page++;
+  getWanderList();
+});
 </script>
 
 <style lang="scss">
@@ -129,5 +148,8 @@ getWanderList();
     flex: 1;
     justify-content: center;
   }
+}
+.wander-list {
+  padding-bottom: 100rpx;
 }
 </style>
