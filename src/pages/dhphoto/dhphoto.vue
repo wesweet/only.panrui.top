@@ -10,6 +10,7 @@
             style="width: 100%"
             :src="item.photo"
             mode="widthFix"
+            @click.stop="previewImage(item.photo)"
           ></image>
           <text class="uni-body">{{ item.content }}</text>
           <view slot="actions" class="card-actions">
@@ -41,9 +42,9 @@ import { appApi } from "@/api/app";
 import { onPullDownRefresh, onReachBottom } from "@dcloudio/uni-app";
 
 const onClick = (id: string) => {
-  // uni.navigateTo({
-  //   url: "/pages/dhphoto/wander?id=" + id,
-  // });
+  uni.navigateTo({
+    url: "/pages/dhphoto/wander?id=" + id,
+  });
 };
 
 const addWander = () => {
@@ -125,6 +126,13 @@ onReachBottom(() => {
   pagination.page++;
   getWanderList();
 });
+
+const previewImage = (photo: any) => {
+  uni.previewImage({
+    current: photo,
+    urls: [photo],
+  });
+};
 </script>
 
 <style lang="scss">

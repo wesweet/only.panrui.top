@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-12 12:21:34
+ * @LastEditTime: 2023-11-13 13:42:51
  * @LastEditors: panrui
  * 不忘初心,不负梦想
 -->
@@ -47,7 +47,14 @@
         />
       </uni-forms-item>
     </uni-forms>
-    <button class="primary-btn" @click="onSubmit">提交</button>
+    <button
+      class="primary-btn"
+      @click="onSubmit"
+      :loading="loading"
+      :disabled="loading"
+    >
+      提交
+    </button>
   </view>
 </template>
 
@@ -84,6 +91,9 @@ const rules = reactive({
   },
 });
 
+// 定义按钮状态
+const loading = ref(false);
+
 // 定义图片地址
 const src = ref("");
 const id = ref("");
@@ -108,7 +118,7 @@ const getWanderDetail = () => {
       id: id.value,
     },
   })
-   .then((res: any) => {
+    .then((res: any) => {
       const { errorCode, errorMessage, data } = res;
       if (errorCode == 0) {
         uni.showToast({
@@ -116,7 +126,6 @@ const getWanderDetail = () => {
           duration: 2000,
           icon: "none",
         });
-        console.log(data);
         if (data) {
           baseFormData.title = data.title;
           baseFormData.date = data.date;
@@ -125,7 +134,7 @@ const getWanderDetail = () => {
         }
       }
     })
-   .catch((err: any) => {
+    .catch((err: any) => {
       console.log(err);
     });
 };
@@ -191,7 +200,12 @@ const valiForm = ref<any>(null);
 const onSubmit = () => {
   // 验证valiForm对象的值，并返回结果
   valiForm.value.validate().then((res: any) => {
+    // 如果存在id，将id赋值给baseFormData.id
+    if (id.value) {
+      res.id = id.value;
+    }
     // 调用uni.uploadFile方法上传文件
+    loading.value = true;
     uni.uploadFile({
       // 请求的url
       url: HTTP_REQUEST_URL + appApi.addWander,
@@ -203,7 +217,7 @@ const onSubmit = () => {
       formData: res,
       // 文件上传成功回调函数
       success(result: any) {
-        console.log(result);
+        loading.value = false;
         const data = JSON.parse(result.data);
         // 从结果中获取errorCode和message
         const { errorCode, message } = data;
@@ -226,6 +240,7 @@ const onSubmit = () => {
       },
       // 文件上传失败回调函数
       fail(err: any) {
+        loading.value = false;
         console.log(err);
       },
     });
