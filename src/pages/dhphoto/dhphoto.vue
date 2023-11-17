@@ -4,14 +4,28 @@
     <template v-for="(item, index) in wanderList">
       <uni-section :title="item.title + '(' + item.date + ')'" type="line">
         <uni-card @click="onClick(item.id)">
-          <image
+          <view class="grid-box">
+            <view
+              class="grid-box-item"
+              v-for="(src, srcIndex) in item.photo"
+              :index="srcIndex"
+              :key="srcIndex"
+            >
+              <image
+                :src="src"
+                mode="aspectFill"
+                @click="previewImage(index, srcIndex)"
+              ></image>
+            </view>
+          </view>
+          <!-- <image
             v-show="item.photo"
             slot="cover"
             style="width: 100%"
             :src="item.photo"
             mode="widthFix"
             @click.stop="previewImage(item.photo)"
-          ></image>
+          ></image> -->
           <text class="uni-body">{{ item.content }}</text>
           <view slot="actions" class="card-actions">
             <view class="card-actions-item" @click="actionsClick('分享')">
@@ -75,7 +89,7 @@ interface Wander {
   id: string;
   title: string;
   content: string;
-  photo?: string;
+  photo?: [];
   date: string;
 }
 // 定义显示的数据
@@ -94,6 +108,9 @@ const getWanderList = () => {
           duration: 2000,
         });
         if (data) {
+          data.list.forEach((item: any) => {
+            item.photo = item.photo.split(",");
+          });
           wanderList.value = wanderList.value.concat(data.list);
           total.value = data.total;
         }
@@ -127,10 +144,10 @@ onReachBottom(() => {
   getWanderList();
 });
 
-const previewImage = (photo: any) => {
+const previewImage = (index: number, srcIndex: number) => {
   uni.previewImage({
-    current: photo,
-    urls: [photo],
+    current: wanderList.value[index].photo?.[srcIndex],
+    urls: wanderList.value[index].photo || [],
   });
 };
 </script>

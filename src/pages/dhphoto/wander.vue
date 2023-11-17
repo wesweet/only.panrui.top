@@ -2,8 +2,8 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-13 13:42:51
- * @LastEditors: panrui
+ * @LastEditTime: 2023-11-17 16:42:27
+ * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
 <template>
@@ -26,11 +26,26 @@
         />
       </uni-forms-item>
       <uni-forms-item label="图片" name="photo">
-        <view v-if="src">
-          <image :src="src" mode="widthFix" @click="previewImage"></image>
-          <button size="mini" @click="deleteImage">删除</button>
+        <view class="grid-box">
+          <view
+            class="grid-box-item"
+            v-for="(item, index) in imageList"
+            :index="index"
+            :key="index"
+          >
+            <image
+              :src="item.uri"
+              mode="aspectFill"
+              @click="previewImage(index)"
+            ></image>
+            <button size="mini" @click="deleteImage(index)">删除</button></view
+          >
         </view>
-        <view v-else class="file-picker__box" @click="uploadFile">
+        <view
+          v-show="imageList.length < 9"
+          class="file-picker__box"
+          @click="uploadFile"
+        >
           <view class="is-add">
             <view class="icon-add"></view>
             <view class="icon-add rotate"></view>
@@ -95,11 +110,11 @@ const rules = reactive({
 const loading = ref(false);
 
 // 定义图片地址
-const src = ref("");
-const id = ref("");
 
+// 定义一个名为 maskClick 的箭头函数
 const maskClick = () => {};
 
+const id = ref("");
 // 判断上一个页面传递过来的id
 onLoad((options: any) => {
   // 页面显示时，判断是否有传递过来的id
@@ -130,7 +145,6 @@ const getWanderDetail = () => {
           baseFormData.title = data.title;
           baseFormData.date = data.date;
           baseFormData.content = data.content;
-          src.value = data.photo;
         }
       }
     })
@@ -166,31 +180,36 @@ const getWanderDetail = () => {
 //   );
 // };
 
+const imageList: Array<{ uri: string; name: string }> = reactive([]);
+
 // 调用 uni 模块的 chooseImage 方法选择图片
 const uploadFile = () => {
   uni.chooseImage({
-    // 选择的图片数量为 1
-    count: 1,
-    // 当选择的图片获取成功后执行的回调函数
     success(res: any) {
-      // 将选择的图片的临时文件路径赋值给 src
-      src.value = res.tempFilePaths[0];
+      // 将当前选择的图片的临时文件路径赋值给 src
+      for (let i = 0; i < res.tempFilePaths.length; i++) {
+        const uniqueSuffix = `${Date.now()}${Math.round(Math.random() * 1e9)}`;
+        imageList.push({
+          name: uniqueSuffix,
+          uri: res.tempFilePaths[i],
+        });
+      }
     },
   });
 };
 
 // 预览图片
-const previewImage = () => {
+const previewImage = (index: number) => {
   uni.previewImage({
     // 当前显示图片的URL
-    current: src.value,
+    current: imageList[index].uri,
     // 图片的URL数组
-    urls: [src.value],
+    urls: imageList.map((item) => item.uri),
   });
 };
 
-const deleteImage = () => {
-  src.value = ""; // 清空图片源
+const deleteImage = (index: number) => {
+  imageList.splice(index, 1);
 };
 
 // 定义一个ref对象valiForm，并初始化为null
@@ -210,9 +229,7 @@ const onSubmit = () => {
       // 请求的url
       url: HTTP_REQUEST_URL + appApi.addWander,
       // 文件的路径
-      filePath: src.value,
-      // 文件表单的name属性
-      name: "file",
+      files: imageList,
       // 文件上传的formData数据
       formData: res,
       // 文件上传成功回调函数
@@ -252,6 +269,14 @@ const onSubmit = () => {
 .form-box {
   box-sizing: border-box;
   padding: 10rpx 40rpx 0;
+  .grid-box {
+    display: flex;
+    flex-wrap: wrap;
+    .grid-box-item {
+      width: 33%;
+      height: 300rpx;
+    }
+  }
   .file-picker__box {
     display: flex;
     align-items: center;
@@ -284,5 +309,10 @@ const onSubmit = () => {
     background-color: #4263eb;
     color: aliceblue;
   }
+}
+image {
+  width: 100%;
+  height: 70%;
+  will-change: transform;
 }
 </style>
