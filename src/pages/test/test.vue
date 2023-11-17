@@ -11,13 +11,17 @@ import { HTTP_REQUEST_URL } from "@/config/app";
 import { appApi } from "@/api/app";
 const uploadFile = () => {
   uni.chooseImage({
-    count: 1,
     success: (res) => {
-      console.log(res);
+      let files = [];
+      for (let i = 0; i < res.tempFilePaths.length; i++) {
+        files.push({
+          name: "file" + i,
+          uri: res.tempFilePaths[i],
+        });
+      }
       uni.uploadFile({
         url: HTTP_REQUEST_URL + appApi.uploadFile,
-        filePath: res.tempFilePaths[0],
-        name: "file",
+        files: files,
         formData: {
           a: 1,
           b: 2,
