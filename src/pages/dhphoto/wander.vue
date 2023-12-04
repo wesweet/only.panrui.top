@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-11-17 16:42:27
+ * @LastEditTime: 2023-12-04 23:13:54
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -35,14 +35,14 @@
           >
             <image
               :src="item.uri"
-              mode="aspectFill"
+              mode="widthFix"
               @click="previewImage(index)"
             ></image>
             <button size="mini" @click="deleteImage(index)">删除</button></view
           >
         </view>
         <view
-          v-show="imageList.length < 9"
+          v-show="imageList.length < 1"
           class="file-picker__box"
           @click="uploadFile"
         >
@@ -57,7 +57,7 @@
           v-model="baseFormData.content"
           placeholder="请输入内容"
           type="textarea"
-          :rows="4"
+          :rows="10"
           maxlength="500"
         />
       </uni-forms-item>
@@ -145,6 +145,12 @@ const getWanderDetail = () => {
           baseFormData.title = data.title;
           baseFormData.date = data.date;
           baseFormData.content = data.content;
+          if (data.photo) {
+            imageList.push({
+              name: "image",
+              uri: data.photo,
+            });
+          }
         }
       }
     })
@@ -152,39 +158,13 @@ const getWanderDetail = () => {
       console.log(err);
     });
 };
-// 图片选择
-// const s4 = () => {
-//   return Math.floor((1 + Math.random()) * 0x10000)
-//     .toString(16)
-//     .substring(1);
-// };
-
-/**
- * 生成一个UUID
- * @returns {string} 生成的UUID
- */
-// const generateUUID = () => {
-//   return (
-//     s4() +
-//     s4() +
-//     "-" +
-//     s4() +
-//     "-" +
-//     s4() +
-//     "-" +
-//     s4() +
-//     "-" +
-//     s4() +
-//     s4() +
-//     s4()
-//   );
-// };
 
 const imageList: Array<{ uri: string; name: string }> = reactive([]);
 
 // 调用 uni 模块的 chooseImage 方法选择图片
 const uploadFile = () => {
   uni.chooseImage({
+    count: 1,
     success(res: any) {
       // 将当前选择的图片的临时文件路径赋值给 src
       for (let i = 0; i < res.tempFilePaths.length; i++) {
@@ -273,8 +253,7 @@ const onSubmit = () => {
     display: flex;
     flex-wrap: wrap;
     .grid-box-item {
-      width: 33%;
-      height: 300rpx;
+      width: 100%;
     }
   }
   .file-picker__box {
