@@ -2,8 +2,8 @@
     "name" : "唯一",
     "appid" : "__UNI__5575494",
     "description" : "初心开发的小工具",
-    "versionName" : "1.1.0",
-    "versionCode" : 1100,
+    "versionName" : "1.1.2",
+    "versionCode" : 1120,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
