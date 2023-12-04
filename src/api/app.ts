@@ -1,9 +1,9 @@
 /*
- * @Description:
+ * @Description: 应用接口地址
  * @Author: panrui
  * @Date: 2023-05-25 15:24:31
- * @LastEditTime: 2023-11-09 10:17:51
- * @LastEditors: panrui
+ * @LastEditTime: 2023-12-04 23:31:12
+ * @LastEditors: prui
  * 不忘初心,不负梦想
  */
 export const appApi = {
@@ -31,4 +31,8 @@ export const appApi = {
   getWanderCommentDetail: "/app/getWanderCommentDetail",
   // 文件上传
   uploadFile: "/app/uploadFile",
+  // 获取日历
+  calendar: "/app/calendar",
+  // 获取天气
+  weather: "/app/weather",
 };
