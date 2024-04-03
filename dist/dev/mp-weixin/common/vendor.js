@@ -1498,7 +1498,7 @@ function populateParameters(fromRes, toRes) {
   const hostLanguage = language.replace(/_/g, "-");
   const parameters = {
     appId: "__UNI__5575494",
-    appName: "唯一",
+    appName: "初心杂货铺呀",
     appVersion: "1.1.2",
     appVersionCode: 1120,
     appLanguage: getAppLanguage(hostLanguage),
@@ -1642,7 +1642,7 @@ const getAppBaseInfo = {
       hostSDKVersion: SDKVersion,
       hostTheme: theme,
       appId: "__UNI__5575494",
-      appName: "唯一",
+      appName: "初心杂货铺呀",
       appVersion: "1.1.2",
       appVersionCode: 1120,
       appLanguage: getAppLanguage(hostLanguage)

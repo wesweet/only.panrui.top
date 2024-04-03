@@ -10,7 +10,7 @@
   <StatusBar></StatusBar>
   <uni-notice-bar
     is-shadow="true"
-    background-color="#e60033"
+    background-color="#333333"
     color="#ffffff"
     show-icon
     scrollable
