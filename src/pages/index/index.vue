@@ -2,7 +2,7 @@
  * @Description: 首页
  * @Author: panrui
  * @Date: 2023-05-25 14:12:37
- * @LastEditTime: 2024-04-03 20:27:11
+ * @LastEditTime: 2024-04-03 21:00:57
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -16,7 +16,7 @@
     scrollable
     text="初心不负App正式发布了、欢迎大家下载体验、有问题请联系我(1547177202)、谢谢！"
   />
-  <uni-card @click="onClick" title="今日日历">
+  <uni-card title="今日日历">
     <view class="uni-body">
       <image
         class="thumbnail"
@@ -30,11 +30,11 @@
 
 <script setup lang="ts">
 import StatusBar from "@/components/StatusBar.vue";
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 import { request } from "@/utils/request";
 import { appApi } from "@/api/app";
-import { onLoad, onShow } from "@dcloudio/uni-app";
-const onClick = () => {};
+import { onLoad } from "@dcloudio/uni-app";
+// 日历图片
 const moyu_url = ref();
 onLoad(() => {
   getCalendar();
