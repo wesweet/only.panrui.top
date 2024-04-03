@@ -1,0 +1,1 @@
+import{o as a,b as e,h as s}from"./index-9939d84f.js";/* empty css                                                                  */import{_ as t}from"./_plugin-vue_export-helper.1b428a4d.js";const r=t({name:"StatusBar",data:()=>({})},[["render",function(t,r,_,o,n,p){const u=s;return a(),e(u,{class:"status_bar"})}],["__scopeId","data-v-1a71e663"]]);export{r as S};
