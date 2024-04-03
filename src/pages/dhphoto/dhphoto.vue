@@ -13,7 +13,7 @@
             @click.stop="previewImage(item.photo)"
           ></image>
           <text class="uni-body">{{ item.content }}</text>
-          <view slot="actions" class="card-actions">
+          <!-- <view slot="actions" class="card-actions">
             <view class="card-actions-item" @click="actionsClick('分享')">
               <uni-icons type="redo" size="18" color="#999"></uni-icons>
               <text class="card-actions-item-text">分享</text>
@@ -26,7 +26,7 @@
               <uni-icons type="comment" size="18" color="#999"></uni-icons>
               <text class="card-actions-item-text">评论</text>
             </view>
-          </view>
+          </view> -->
         </uni-card>
       </uni-section>
     </template>

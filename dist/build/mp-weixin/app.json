@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/login/login",
+    "pages/treasure/treasure",
+    "pages/ditie/ditie",
+    "pages/dianzishu/dianzishu",
+    "pages/wendang/wendang",
+    "pages/gouwu/gouwu",
+    "pages/chatgpt/chatgpt",
+    "pages/reg/reg",
+    "pages/bluetooth/bluetooth",
+    "pages/dhphoto/dhphoto",
+    "pages/dhphoto/wander",
+    "pages/test/test"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "百宝箱",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/-tongue-.png",
+        "selectedIconPath": "static/-tongue-.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/treasure/treasure",
+        "iconPath": "static/-tongue-_1.png",
+        "selectedIconPath": "static/-tongue-_1.png",
+        "text": "百宝箱"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/-tongue.png",
+        "selectedIconPath": "static/-tongue.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

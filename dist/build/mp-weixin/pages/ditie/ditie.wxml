@@ -1,0 +1,1 @@
+<uni-nav-bar wx:if="{{a}}" class="data-v-a27f6699" u-i="a27f6699-0" bind:__l="__l" u-p="{{a}}"/><web-view class="data-v-a27f6699" src="/hybrid/html/metro.html" fullscreen="{{b}}"></web-view>

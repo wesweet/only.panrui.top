@@ -1,0 +1,1 @@
+<view><button bindtap="{{a}}">上传文件</button></view>

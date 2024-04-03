@@ -2,37 +2,37 @@
  * @Description: 应用接口地址
  * @Author: panrui
  * @Date: 2023-05-25 15:24:31
- * @LastEditTime: 2023-12-04 23:31:12
+ * @LastEditTime: 2024-04-03 20:11:21
  * @LastEditors: prui
  * 不忘初心,不负梦想
  */
 export const appApi = {
   // 登录
-  login: "/app/login",
+  login: "/login",
   // 注册
-  register: "/app/register",
+  register: "/register",
   // 退出登录
-  logout: "/app/logout",
+  logout: "/logout",
   // 获取用户信息
-  getUserInfo: "/app/getUserInfo",
+  getUserInfo: "/getUserInfo",
   // 上传流浪日记
-  addWander: "/app/addWander",
+  addWander: "/addWander",
   // 获取流浪日记列表
-  getWanderList: "/app/getWanderList",
+  getWanderList: "/getWanderList",
   // 获取流浪日记详情
-  getWanderDetail: "/app/getWanderDetail",
+  getWanderDetail: "/getWanderDetail",
   // 更新流浪日记
-  updateWander: "/app/updateWander",
+  updateWander: "/updateWander",
   // 上传流浪日记评论
-  addWanderComment: "/app/addWanderComment",
+  addWanderComment: "/addWanderComment",
   // 获取流浪日记评论列表
-  getWanderCommentList: "/app/getWanderCommentList",
+  getWanderCommentList: "/getWanderCommentList",
   // 获取流浪日记评论详情
-  getWanderCommentDetail: "/app/getWanderCommentDetail",
+  getWanderCommentDetail: "/getWanderCommentDetail",
   // 文件上传
-  uploadFile: "/app/uploadFile",
+  uploadFile: "/uploadFile",
   // 获取日历
-  calendar: "/app/calendar",
+  calendar: "/calendar",
   // 获取天气
-  weather: "/app/weather",
+  weather: "/weather",
 };
