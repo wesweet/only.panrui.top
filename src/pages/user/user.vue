@@ -2,22 +2,26 @@
  * @Description: 
  * @Author: panrui
  * @Date: 2023-05-25 16:11:02
- * @LastEditTime: 2023-07-05 10:05:51
- * @LastEditors: panrui
+ * @LastEditTime: 2024-04-04 08:16:54
+ * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
 <template>
   <StatusBar></StatusBar>
+  <!-- #ifdef H5 -->
+  <uni-nav-bar shadow dark title="功能正在开发中" />
+  <!-- #endif -->
+  <!-- #ifdef APP-PLUS -->
   <view class="hd">
     <view class="logout">
-<!--      <uni-button
+     <uni-button
         type="primary"
         size="mini"
         @click="logout"
         style="margin-right: 20rpx"
       >
         退出登录
-      </uni-button> -->
+      </uni-button>
     </view>
   </view>
   <view class="list">
@@ -53,6 +57,7 @@
       ></uni-list-item>
     </uni-list>
   </view>
+  <!-- #endif -->
 </template>
 
 <script lang="ts" setup>
