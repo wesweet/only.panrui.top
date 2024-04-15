@@ -47,12 +47,11 @@ const getCalendar = () => {
     .then((res: any) => {
       const { errorCode, errorMessage, data } = res;
       if (errorCode == 0) {
-        uni.showToast({
-          title: errorMessage,
-          duration: 2000,
-          icon: "none",
-        });
-        console.log(data);
+        // uni.showToast({
+        //   title: errorMessage,
+        //   duration: 2000,
+        //   icon: "none",
+        // });
         if (data) {
           moyu_url.value = data.moyu_url;
         }

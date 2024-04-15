@@ -15,6 +15,16 @@ const getToken = () => {
 };
 
 export const request = (url: string, options: any) => {
+  // 构建 options
+  options = Object.assign(
+    {
+      method: "GET",
+      data: {},
+      header: {},
+    },
+    options
+  );
+
   // 检查请求是否有效
   checkRequestValidity(url);
 

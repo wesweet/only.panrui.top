@@ -2,7 +2,7 @@
     "name" : "初心杂货铺呀",
     "appid" : "__UNI__5575494",
     "description" : "初心开发的小工具",
-    "versionName" : "1.1.2",
+    "versionName" : "1.1.3",
     "versionCode" : 1120,
     "transformPx" : false,
     /* 5+App特有相关 */
@@ -17,7 +17,7 @@
             "delay" : 0
         },
         "compatible" : {
-            "runtimeVersion" : "3.96", //可选，字符串类型，兼容的uni-app运行环境版本号，多个版本使用,分割
+            "runtimeVersion" : "4.08", //可选，字符串类型，兼容的uni-app运行环境版本号，多个版本使用,分割
             "compilerVersion" : "3.7.4"
         },
         /* 模块配置 */

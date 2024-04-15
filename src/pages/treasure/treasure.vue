@@ -46,47 +46,48 @@ const h5List = reactive([
   },
 ]);
 const appList = reactive([
-  {
-    text: "地铁",
-    url: "/static/ditie.png",
-    page: "/pages/ditie/ditie",
-  },
-  {
-    text: "王者",
-    url: "/static/wzry.jpg",
-  },
+  // {
+  //   text: "地铁",
+  //   url: "/static/ditie.png",
+  //   page: "/pages/ditie/ditie",
+  // },
+  // {
+  //   text: "王者",
+  //   url: "/static/wzry.jpg",
+  // },
   {
     text: "小说",
     url: "/static/dianzishu.png",
+    page: "/pages/xiaoshuo/xiaoshuo",
   },
-  {
-    text: "购物",
-    url: "/static/gouwu-2.png",
-  },
-  {
-    text: "瑞瑞和叮叮的流浪日记",
-    url: "/static/love.png",
-    page: "/pages/dhphoto/dhphoto",
-  },
-  {
-    text: "文档",
-    url: "/static/wendang.png",
-    page: "/pages/wendang/wendang",
-  },
-  {
-    text: "chatgpt",
-    url: "/static/chat.png",
-    page: "/pages/chatgpt/chatgpt",
-  },
-  {
-    text: "功能测试",
-    url: "/static/mieba.png",
-    page: "/pages/test/test",
-  },
-  {
-    text: "电影",
-    url: "/static/mieba.png",
-  },
+  // {
+  //   text: "购物",
+  //   url: "/static/gouwu-2.png",
+  // },
+  // {
+  //   text: "瑞瑞和叮叮的流浪日记",
+  //   url: "/static/love.png",
+  //   page: "/pages/dhphoto/dhphoto",
+  // },
+  // {
+  //   text: "文档",
+  //   url: "/static/wendang.png",
+  //   page: "/pages/wendang/wendang",
+  // },
+  // {
+  //   text: "chatgpt",
+  //   url: "/static/chat.png",
+  //   page: "/pages/chatgpt/chatgpt",
+  // },
+  // {
+  //   text: "功能测试",
+  //   url: "/static/mieba.png",
+  //   page: "/pages/test/test",
+  // },
+  // {
+  //   text: "电影",
+  //   url: "/static/mieba.png",
+  // },
 ]);
 const change = (e: any) => {
   // 将page声明为string或者undefined

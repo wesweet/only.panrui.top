@@ -106,6 +106,14 @@
     		"navigationBarTitleText" : "功能测试页面",
     		"enablePullDownRefresh" : false
     	}
+    },
+    {
+    	"path" : "pages/xiaoshuo/xiaoshuo",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "",
+    		"enablePullDownRefresh" : false
+    	}
     }
   ],
   "tabBar": {

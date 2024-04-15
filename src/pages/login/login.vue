@@ -1,32 +1,41 @@
 <template>
-  <view class="box">
-    <uni-forms ref="form" class="uni-forms" :rules="rules" :model="formData">
-      <uni-forms-item label="账号" name="username" required>
-        <uni-easyinput
-          class="uni-mt-5"
-          trim="all"
-          v-model="formData.username"
-          placeholder="请输入账号"
-        ></uni-easyinput>
-      </uni-forms-item>
-      <uni-forms-item label="密码" name="password" required>
-        <uni-easyinput
-          type="password"
-          v-model="formData.password"
-          placeholder="请输入密码"
-        ></uni-easyinput>
-      </uni-forms-item>
-    </uni-forms>
-    <view class="uni-flex-pack-around">
-      <button size="mini" @click="login">登录</button>
-      <button size="mini" @click="register">注册</button>
-    </view>
+  <StatusBar></StatusBar>
+  <uni-nav-bar
+    left-icon="left"
+    left-text="返回"
+    @clickLeft="back"
+    shadow
+    dark
+    title="登录"
+  />
+  <uni-forms ref="form" class="uni-forms" :rules="rules" :model="formData">
+    <uni-forms-item label="账号" name="username" required>
+      <uni-easyinput
+        class="uni-mt-5"
+        trim="all"
+        v-model="formData.username"
+        placeholder="请输入账号"
+      ></uni-easyinput>
+    </uni-forms-item>
+    <uni-forms-item label="密码" name="password" required>
+      <uni-easyinput
+        type="password"
+        v-model="formData.password"
+        placeholder="请输入密码"
+      ></uni-easyinput>
+    </uni-forms-item>
+  </uni-forms>
+  <view class="uni-flex-pack-around">
+    <button size="mini" @click="login">登录</button>
+    <!-- <button size="mini" @click="register">注册</button> -->
   </view>
 </template>
 
 <script lang="ts" setup>
+import StatusBar from "@/components/StatusBar.vue";
 import { reactive, ref } from "vue";
-// import { fetchLogin } from "@/api/app";
+import { request } from "@/utils/request";
+import { appApi } from "@/api/app";
 import { onReady } from "@dcloudio/uni-app";
 // 定义接口
 interface IFormData {
@@ -76,28 +85,34 @@ const login = async () => {
   if (!valid) {
     return;
   }
-
-  // 发送请求
-  // const res = await fetchLogin(formData);
-
-  // if (res.errorCode === 0) {
-  //   uni.setStorageSync("token", res.data.token);
-  //   uni.setStorageSync("userId", res.data.userId);
-  //   uni.switchTab({
-  //     url: "/pages/index/index",
-  //   });
-  // } else {
-  //   uni.showToast({
-  //     title: res.errorMessage,
-  //     icon: "none",
-  //   });
-  // }
+  request(appApi.login, {
+    data: formData,
+    method: "POST",
+  }).then((res: any) => {
+    if (res.errorCode == 0) {
+      uni.setStorageSync("token", res.data.access_token);
+      uni.setStorageSync("userId", res.data.userId);
+      back();
+    } else {
+      uni.showToast({
+        title: res.errorMessage,
+        icon: "none",
+      });
+    }
+  });
 };
 
 // 点击注册事情
 const register = () => {
   uni.navigateTo({
     url: "/pages/reg/reg",
+  });
+};
+
+const back = () => {
+  // 关闭当前页面返回上一个面
+  uni.navigateBack({
+    delta: 1,
   });
 };
 </script>
@@ -108,17 +123,17 @@ uni-page-body {
 }
 .box {
   height: 100%;
-  background-image: linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d);
+  // background-color: #333333;
+  // background-image: linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d);
 }
 .uni-forms {
-  padding: 300rpx 50rpx 0;
+  padding: 200rpx 50rpx 0;
 }
-.uni-flex {
-  display: flex;
-}
+// .uni-flex {
+//   // display: flex;
+// }
 .uni-flex-pack-around {
   display: flex;
-  margin-left: 65px;
   padding: 50rpx 50rpx 0;
   justify-content: space-between;
 }
