@@ -8,7 +8,7 @@
 -->
 <template>
   <StatusBar></StatusBar>
-  <uni-nav-bar shadow dark title="小说板块" />
+  <uni-nav-bar left-icon="left" @clickLeft="back" shadow dark title="小说板块" />
   <view class="searchBox">
     <uni-easyinput
       prefixIcon="search"
@@ -105,6 +105,13 @@ const toDetail = (item: any) => {
     url: `/pages/xiaoshuo/xiaoshuodetail?href=${item.href}`,
   });
 };
+
+const back = () => {
+  // 跳转到tabbar
+  uni.switchTab({
+    url: "/pages/treasure/treasure",
+  })
+}
 </script>
 
 <style lang="scss">
