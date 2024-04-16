@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: prui
  * @Date: 2024-04-16 08:49:21
- * @LastEditTime: 2024-04-16 10:36:43
+ * @LastEditTime: 2024-04-16 14:32:46
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -16,17 +16,37 @@
       placeholder="左侧图标"
       @input="search"
     ></uni-easyinput>
-    <uni-section :title="value" type="line" v-if="value">
-      <uni-list :border="false">
-        <uni-list-item
-          v-for="(item, index) in list"
-          :key="index"
-          :title="item"
-          clickable
-          @click="toDetail(item)"
-        />
-      </uni-list>
-    </uni-section>
+    <view class="scroll-view-box">
+      <scroll-view class="scroll-view" scroll-y="true">
+        <uni-section :title="value" type="line" v-if="value">
+          <uni-list :border="false">
+            <uni-list-item
+              v-for="(item, index) in searchList"
+              clickable
+              @click="toDetail(item)"
+            >
+              <template v-slot:header>
+                <image
+                  class="slot-image"
+                  :src="item.img"
+                  mode="widthFix"
+                ></image>
+              </template>
+              <template v-slot:body>
+                <view class="slot-body">
+                  <view class="slot-body-title">{{ item.title }}</view>
+                  <view class="slot-body-type">{{ item.type }}</view>
+                  <view class="slot-body-author">{{ item.author }}</view>
+                  <view class="slot-body-newContent">{{
+                    item.newContent
+                  }}</view>
+                </view>
+              </template>
+            </uni-list-item>
+          </uni-list>
+        </uni-section>
+      </scroll-view>
+    </view>
   </view>
 </template>
 
@@ -35,12 +55,13 @@ import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { appApi } from "@/api/app";
 import StatusBar from "@/components/StatusBar.vue";
+import { onLoad } from "@dcloudio/uni-app";
 
 // 定义搜索条件
 const value = ref("");
 
 // 定义结果列表
-const list = ref([]);
+const searchList = ref<any[]>([]);
 
 // 设置一个定时器变量
 let timer: any = null;
@@ -58,15 +79,13 @@ const search = (value: any) => {
     request(appApi.novel, {
       method: "GET",
       data: {
-        name: value,
+        q: value,
       },
     })
       .then((res: any) => {
         const { errorCode, errorMessage, data } = res;
-        console.log(res);
         if (errorCode == 0) {
-          // 通过\n 将data中的内容进行分割
-          list.value = data.split("\n");
+          searchList.value = data;
         }
       })
       .catch((err: any) => {
@@ -75,18 +94,53 @@ const search = (value: any) => {
   }, 3000);
 };
 
+onLoad(() => {
+  value.value = "万古神帝";
+  search("万古神帝");
+});
+
 // 跳转详情
 const toDetail = (item: any) => {
-  // 获取首字母
-  const firstLetter = item.substr(0, 1);
   uni.navigateTo({
-    url: `/pages/xiaoshuo/xiaoshuodetail?name=${value.value}&n=${firstLetter}`,
+    url: `/pages/xiaoshuo/xiaoshuodetail?href=${item.href}`,
   });
 };
 </script>
 
 <style lang="scss">
+uni-page-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .searchBox {
-  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 8rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  .scroll-view-box {
+    height: 100%;
+    box-sizing: border-box;
+    padding-bottom: 60rpx;
+    .scroll-view {
+      height: 100%;
+    }
+  }
+}
+.slot-body {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+  .slot-body-title {
+    font-size: 32rpx;
+    font-weight: bolder;
+    color: #333;
+  }
+}
+.slot-image {
+  width: 160rpx;
+  height: 200rpx;
 }
 </style>
