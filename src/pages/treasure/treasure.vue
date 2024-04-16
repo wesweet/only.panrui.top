@@ -44,6 +44,11 @@ const h5List = reactive([
     url: "/static/ditie.png",
     page: "/pages/ditie/ditie",
   },
+  {
+    text: "小说",
+    url: "/static/ditie.png",
+    page: "/pages/xiaoshuo/xiaoshuo",
+  },
 ]);
 const appList = reactive([
   // {

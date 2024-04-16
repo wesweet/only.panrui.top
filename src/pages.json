@@ -111,6 +111,15 @@
     	"path" : "pages/xiaoshuo/xiaoshuo",
     	"style" : 
     	{
+        "navigationBarTitleText": "小说",
+        "navigationStyle": "custom",
+    		"enablePullDownRefresh" : false
+    	}
+    },
+    {
+    	"path" : "pages/xiaoshuo/xiaoshuodetail",
+    	"style" : 
+    	{
     		"navigationBarTitleText" : "",
     		"enablePullDownRefresh" : false
     	}

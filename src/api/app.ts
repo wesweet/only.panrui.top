@@ -35,4 +35,8 @@ export const appApi = {
   calendar: "/calendar",
   // 获取天气
   weather: "/weather",
+  // 获取小说
+  novel: "/novel",
+  // 获取音乐
+  music: "/music",
 };
