@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: prui
  * @Date: 2024-04-16 08:49:21
- * @LastEditTime: 2024-04-16 10:10:08
+ * @LastEditTime: 2024-04-16 10:36:43
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -12,16 +12,18 @@
   <view class="searchBox">
     <uni-easyinput
       prefixIcon="search"
-      v-model="searchData.name"
+      v-model="value"
       placeholder="左侧图标"
       @input="search"
     ></uni-easyinput>
-    <uni-section :title="searchData.name" type="line" v-if="searchData.name">
+    <uni-section :title="value" type="line" v-if="value">
       <uni-list :border="false">
         <uni-list-item
           v-for="(item, index) in list"
           :key="index"
           :title="item"
+          clickable
+          @click="toDetail(item)"
         />
       </uni-list>
     </uni-section>
@@ -35,10 +37,7 @@ import { appApi } from "@/api/app";
 import StatusBar from "@/components/StatusBar.vue";
 
 // 定义搜索条件
-const searchData = reactive({
-  name: "",
-  n: "",
-});
+const value = ref("");
 
 // 定义结果列表
 const list = ref([]);
@@ -47,9 +46,9 @@ const list = ref([]);
 let timer: any = null;
 
 // 搜索事件
-const search = () => {
+const search = (value: any) => {
   // 使用函数防抖 如果300毫秒之内继续触发，则取消上次的定时器，重新开始计时
-  if (!searchData.name) {
+  if (!value) {
     return;
   }
   if (timer) {
@@ -58,7 +57,9 @@ const search = () => {
   timer = setTimeout(() => {
     request(appApi.novel, {
       method: "GET",
-      data: searchData,
+      data: {
+        name: value,
+      },
     })
       .then((res: any) => {
         const { errorCode, errorMessage, data } = res;
@@ -71,7 +72,16 @@ const search = () => {
       .catch((err: any) => {
         console.log(err);
       });
-  }, 300);
+  }, 3000);
+};
+
+// 跳转详情
+const toDetail = (item: any) => {
+  // 获取首字母
+  const firstLetter = item.substr(0, 1);
+  uni.navigateTo({
+    url: `/pages/xiaoshuo/xiaoshuodetail?name=${value.value}&n=${firstLetter}`,
+  });
 };
 </script>
 
