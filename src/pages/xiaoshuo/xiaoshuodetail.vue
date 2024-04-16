@@ -1,45 +1,48 @@
 <template>
   <StatusBar></StatusBar>
-  <uni-nav-bar left-icon="left" shadow dark title="小说板块" @clickLeft="back" />
-
-  <div class="web-view-container">
-    <web-view ref="myWebView" :src="href"></web-view>
-  </div>
+  <uni-nav-bar left-icon="left" shadow dark title="小说板块" />
+  <div class="web-view-container"></div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from "vue";
-import { onMounted, getCurrentInstance } from "vue";
-import { onLoad } from "@dcloudio/uni-app";
+<script>
+// 导入 StatusBar
 import StatusBar from "@/components/StatusBar.vue";
-const href = ref("");
-const fullscreen = ref(false);
+import { ref, onMounted } from "vue";
+import { onLoad } from "@dcloudio/uni-app";
+export default {
+  components: {
+    StatusBar,
+  },
+  setup() {
+    const wv = ref(null); // 计划创建的 webview
+    let href = ''
+    onLoad((option) => {
+      href = option.href
+    })
 
-// 获取url参数
-onLoad((option: any) => {
-  href.value = option.href;
-});
-const instance: any = getCurrentInstance();
-onMounted(() => {
-});
-const back = () => {
-  uni.navigateBack();
-}
+    onMounted(() => {
+      // #ifdef APP-PLUS
+      wv.value = plus.webview.create("", "custom-webview", {
+        plusrequire: "none", // 禁止远程网页使用 plus 的 API
+        "uni-app": "none", // 不加载 uni-app 渲染层框架，避免样式冲突
+        top: uni.getSystemInfoSync().statusBarHeight + 44, // 放置在 titleNView 下方
+      });
+
+      wv.value.loadURL(href);
+      const currentWebview = getCurrentPages()[0].$getAppWebview();
+
+      currentWebview.append(wv.value); // 一定要 append 到当前的页面里
+      // #endif
+    });
+    return {
+      wv,
+    };
+  },
+};
 </script>
-
 <style lang="scss">
-uni-page-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.web-view-container {
-  flex: 1;
-  display: flex;
-}
-
-web-view {
+.status_bar {
+  height: var(--status-bar-height);
   width: 100%;
-  height: 100%;
 }
 </style>
