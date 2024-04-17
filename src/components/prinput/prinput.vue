@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: prui
+ * @Date: 2024-04-17 19:52:53
+ * @LastEditTime: 2024-04-17 19:56:03
+ * @LastEditors: prui
+ * 不忘初心,不负梦想
+-->
 <template>
   <view class="main-list oBorder">
     <input class="main-input" :placeholder="placeholder" />

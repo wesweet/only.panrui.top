@@ -86,15 +86,15 @@
     },
     "statusbar": {
       "immersed": "supportedDevice",
-      "style": "dark",
-      "background": "#F8F8F8"
+      "style": "light",
+      "background": "#ffffff"
     },
     "uniStatistics": {
       "enable": false
     },
     "allowsInlineMediaPlayback": true,
     "safearea": {
-      "background": "#ffffff",
+      "background": "#161823",
       "bottom": {
         "offset": "auto"
       }
@@ -115,32 +115,32 @@
     },
     "tabBar": {
       "position": "bottom",
-      "color": "#7A7E83",
-      "selectedColor": "#3cc51f",
+      "color": "#ffffff",
+      "selectedColor": "#ff7500",
       "borderStyle": "rgba(0,0,0,0.4)",
       "blurEffect": "none",
       "fontSize": "10px",
       "iconWidth": "24px",
       "spacing": "3px",
       "height": "50px",
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#161823",
       "list": [
         {
-          "pagePath": "pages/index/index",
-          "iconPath": "/static/-tongue-.png",
-          "selectedIconPath": "/static/-tongue-.png",
+          "pagePath": "pages/tabPage/home",
+          "iconPath": "/static/home.png",
+          "selectedIconPath": "/static/home.png",
           "text": "首页"
         },
         {
-          "pagePath": "pages/treasure/treasure",
-          "iconPath": "/static/-tongue-_1.png",
-          "selectedIconPath": "/static/-tongue-_1.png",
-          "text": "百宝箱"
+          "pagePath": "pages/tabPage/find",
+          "iconPath": "/static/find.png",
+          "selectedIconPath": "/static/find.png",
+          "text": "发现"
         },
         {
-          "pagePath": "pages/user/user",
-          "iconPath": "/static/-tongue.png",
-          "selectedIconPath": "/static/-tongue.png",
+          "pagePath": "pages/tabPage/user",
+          "iconPath": "/static/user.png",
+          "selectedIconPath": "/static/user.png",
           "text": "个人中心"
         }
       ],

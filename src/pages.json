@@ -4,7 +4,22 @@
     {
       "path": "pages/tabPage/home",
       "style": {
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": true,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/novel/index",
+      "style": {
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/novel/detail",
+      "style": {
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
       }
     },
     {
@@ -120,14 +135,6 @@
       "path": "pages/test/test",
       "style": {
         "navigationBarTitleText": "功能测试页面",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/xiaoshuo/xiaoshuo",
-      "style": {
-        "navigationBarTitleText": "小说",
-        "navigationStyle": "custom",
         "enablePullDownRefresh": false
       }
     },

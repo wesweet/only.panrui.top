@@ -2,12 +2,12 @@
  * @Description: 应用首页
  * @Author: prui
  * @Date: 2024-04-17 13:49:25
- * @LastEditTime: 2024-04-17 16:27:39
+ * @LastEditTime: 2024-04-17 19:58:29
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
 <template>
-  <view>
+    <prstatus></prstatus>
     <uni-notice-bar
       is-shadow="true"
       background-color="#161823"
@@ -56,11 +56,11 @@
         </view>
       </uni-grid-item>
     </uni-grid>
-  </view>
 </template>
 
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
+
 // 定义轮播图样式
 const dotStyle = ref(true);
 
@@ -78,7 +78,7 @@ const list = reactive([
   {
     text: "小说",
     url: "/static/novel.png",
-    page: "/pages/xiaoshuo/xiaoshuo",
+    page: "/pages/novel/index",
   },
   {
     text: "电影",

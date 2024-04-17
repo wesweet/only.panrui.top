@@ -5,7 +5,10 @@
 <script>
 var wv; //计划创建的webview
 export default {
-  data() {},
+  data() {
+    return {};
+  },
+  name: "prwebview",
   props: {
     url: {
       type: String,
@@ -17,7 +20,9 @@ export default {
     },
   },
   monted() {
+    console.log("webview");
     // #ifdef APP-PLUS
+    console.log(this.url);
     wv = plus.webview.create(this.url, "webview", {
       plusrequire: "none", // 禁止远程网页使用plus的API，有些使用mui制作的网页可能会监听plus.key，造成关闭页面混乱，可以通过这种方式禁止
       "uni-app": "none", // 不加载uni-app渲染层框架，避免样式冲突
