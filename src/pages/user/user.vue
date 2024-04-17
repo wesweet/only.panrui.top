@@ -1,8 +1,8 @@
 <!--
- * @Description: 
+ * @Description: 用户中心
  * @Author: panrui
  * @Date: 2023-05-25 16:11:02
- * @LastEditTime: 2024-04-15 22:04:38
+ * @LastEditTime: 2024-04-17 09:46:15
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -44,6 +44,21 @@
         <image
           class="slot-image"
           src="/static/ditie.png"
+          mode="aspectFill"
+        ></image>
+      </template>
+    </uni-list-item>
+    <uni-list-item
+      :show-extra-icon="true"
+      showArrow
+      link="navigateTo"
+      to="/pages/xiaoshuo/xiaoshuo"
+      title="小说"
+    >
+      <template v-slot:header>
+        <image
+          class="slot-image"
+          src="/static/dianzishu.png"
           mode="aspectFill"
         ></image>
       </template>

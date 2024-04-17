@@ -1284,7 +1284,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -1297,7 +1297,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$o], ["__scopeId", "data-v-b40d096c"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
+  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$p], ["__scopeId", "data-v-b40d096c"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
   const _sfc_main$A = {
     name: "UniNoticeBar",
     emits: ["click", "getmore", "close"],
@@ -1436,7 +1436,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$4);
     return $data.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
@@ -1534,7 +1534,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$n], ["__scopeId", "data-v-15b4e47c"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar.vue"]]);
+  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$o], ["__scopeId", "data-v-15b4e47c"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar.vue"]]);
   const _sfc_main$z = {
     name: "UniCard",
     emits: ["click"],
@@ -1596,7 +1596,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1697,20 +1697,20 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$m], ["__scopeId", "data-v-69fdc3f6"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
+  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$n], ["__scopeId", "data-v-69fdc3f6"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
   const _sfc_main$y = {
     name: "StatusBar",
     data() {
       return {};
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "status_bar" }, [
       vue.createCommentVNode(" 这里是状态栏 ")
     ]);
   }
-  const StatusBar = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$l], ["__scopeId", "data-v-c3dfd30e"], ["__file", "C:/code/app-vue3-ts/src/components/StatusBar.vue"]]);
-  const HTTP_REQUEST_URL = `http://192.168.31.83:9008/app`;
+  const StatusBar = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$m], ["__scopeId", "data-v-c3dfd30e"], ["__file", "D:/gitee/app-vue3-ts/src/components/StatusBar.vue"]]);
+  const HTTP_REQUEST_URL = `http://192.168.97.22:9008/app`;
   const checkRequestValidity = (url) => {
     if (!url) {
       throw new Error("请求地址不能为空");
@@ -1852,7 +1852,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["__scopeId", "data-v-83a5a03c"], ["__file", "C:/code/app-vue3-ts/src/pages/index/index.vue"]]);
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["__scopeId", "data-v-83a5a03c"], ["__file", "D:/gitee/app-vue3-ts/src/pages/index/index.vue"]]);
   const _sfc_main$w = {
     name: "UniBadge",
     emits: ["click"],
@@ -1976,7 +1976,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-badge--x" }, [
       vue.renderSlot(_ctx.$slots, "default", {}, void 0, true),
       $props.text ? (vue.openBlock(), vue.createElementBlock(
@@ -1993,7 +1993,7 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$k], ["__scopeId", "data-v-cd618ef3"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-badge/components/uni-badge/uni-badge.vue"]]);
+  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$l], ["__scopeId", "data-v-cd618ef3"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-badge/components/uni-badge/uni-badge.vue"]]);
   const _sfc_main$v = {
     name: "UniListItem",
     emits: ["click", "switchChange"],
@@ -2231,7 +2231,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$4);
     const _component_uni_badge = resolveEasycom(vue.resolveDynamicComponent("uni-badge"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock("view", {
@@ -2360,7 +2360,7 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ], 14, ["hover-class"]);
   }
-  const __easycom_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$j], ["__scopeId", "data-v-549c0327"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue"]]);
+  const __easycom_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$k], ["__scopeId", "data-v-549c0327"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue"]]);
   const _sfc_main$u = {
     name: "uniList",
     "mp-weixin": {
@@ -2407,7 +2407,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-list uni-border-top-bottom" }, [
       $props.border ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 0,
@@ -2420,7 +2420,7 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$i], ["__scopeId", "data-v-31cc9eed"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-list/components/uni-list/uni-list.vue"]]);
+  const __easycom_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$j], ["__scopeId", "data-v-31cc9eed"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-list/components/uni-list/uni-list.vue"]]);
   const _sfc_main$t = /* @__PURE__ */ vue.defineComponent({
     __name: "user",
     setup(__props) {
@@ -2488,6 +2488,23 @@ if (uni.restoreGlobal) {
                   _: 1
                   /* STABLE */
                 }),
+                vue.createVNode(_component_uni_list_item, {
+                  "show-extra-icon": true,
+                  showArrow: "",
+                  link: "navigateTo",
+                  to: "/pages/xiaoshuo/xiaoshuo",
+                  title: "小说"
+                }, {
+                  header: vue.withCtx(() => [
+                    vue.createElementVNode("image", {
+                      class: "slot-image",
+                      src: "/static/dianzishu.png",
+                      mode: "aspectFill"
+                    })
+                  ]),
+                  _: 1
+                  /* STABLE */
+                }),
                 isLogin.value ? (vue.openBlock(), vue.createElementBlock(
                   vue.Fragment,
                   { key: 0 },
@@ -2540,7 +2557,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesUserUser = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["__scopeId", "data-v-99b0ba47"], ["__file", "C:/code/app-vue3-ts/src/pages/user/user.vue"]]);
+  const PagesUserUser = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["__scopeId", "data-v-99b0ba47"], ["__file", "D:/gitee/app-vue3-ts/src/pages/user/user.vue"]]);
   const _sfc_main$s = {
     name: "UniStatusBar",
     data() {
@@ -2549,7 +2566,7 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -2563,7 +2580,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const statusBar = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$h], ["__scopeId", "data-v-5abec205"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.vue"]]);
+  const statusBar = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$i], ["__scopeId", "data-v-5abec205"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.vue"]]);
   const getVal = (val) => typeof val === "number" ? val + "px" : val;
   const _sfc_main$r = {
     name: "UniNavBar",
@@ -2685,7 +2702,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_status_bar = vue.resolveComponent("status-bar");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$4);
     return vue.openBlock(), vue.createElementBlock(
@@ -2840,7 +2857,7 @@ if (uni.restoreGlobal) {
       /* CLASS */
     );
   }
-  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$g], ["__scopeId", "data-v-d4cf53b3"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue"]]);
+  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$h], ["__scopeId", "data-v-d4cf53b3"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue"]]);
   function obj2strClass(obj) {
     let classess = "";
     for (let key in obj) {
@@ -3192,7 +3209,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$4);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -3313,7 +3330,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$f], ["__scopeId", "data-v-af395001"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput.vue"]]);
+  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$g], ["__scopeId", "data-v-af395001"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput.vue"]]);
   const _sfc_main$p = {
     name: "uniFormsItem",
     options: {
@@ -3646,7 +3663,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -3702,7 +3719,7 @@ if (uni.restoreGlobal) {
       /* CLASS */
     );
   }
-  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$e], ["__scopeId", "data-v-4c3fe719"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue"]]);
+  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$f], ["__scopeId", "data-v-4c3fe719"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue"]]);
   var pattern = {
     email: /^\S+?@\S+?\.\S+?$/,
     idcard: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
@@ -4563,14 +4580,14 @@ if (uni.restoreGlobal) {
       _isEqual: isEqual
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-forms" }, [
       vue.createElementVNode("form", null, [
         vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
       ])
     ]);
   }
-  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$d], ["__scopeId", "data-v-df3c5a01"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms/uni-forms.vue"]]);
+  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$e], ["__scopeId", "data-v-df3c5a01"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-forms/components/uni-forms/uni-forms.vue"]]);
   const _sfc_main$n = /* @__PURE__ */ vue.defineComponent({
     __name: "login",
     setup(__props) {
@@ -4709,7 +4726,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["__scopeId", "data-v-cdfe2409"], ["__file", "C:/code/app-vue3-ts/src/pages/login/login.vue"]]);
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["__scopeId", "data-v-cdfe2409"], ["__file", "D:/gitee/app-vue3-ts/src/pages/login/login.vue"]]);
   const _sfc_main$m = {
     name: "UniGridItem",
     inject: ["grid"],
@@ -4760,7 +4777,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     return $data.width ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -4787,7 +4804,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$c], ["__scopeId", "data-v-645c48f3"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid-item/uni-grid-item.vue"]]);
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$d], ["__scopeId", "data-v-645c48f3"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid-item/uni-grid-item.vue"]]);
   const _sfc_main$l = {
     name: "UniGrid",
     emits: ["change"],
@@ -4858,7 +4875,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-grid-wrap" }, [
       vue.createElementVNode("view", {
         id: $data.elId,
@@ -4870,7 +4887,7 @@ if (uni.restoreGlobal) {
       ], 14, ["id"])
     ]);
   }
-  const __easycom_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$b], ["__scopeId", "data-v-d803be04"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid/uni-grid.vue"]]);
+  const __easycom_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$c], ["__scopeId", "data-v-d803be04"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-grid/components/uni-grid/uni-grid.vue"]]);
   const _sfc_main$k = /* @__PURE__ */ vue.defineComponent({
     __name: "treasure",
     setup(__props) {
@@ -4906,11 +4923,11 @@ if (uni.restoreGlobal) {
         //   text: "王者",
         //   url: "/static/wzry.jpg",
         // },
-        {
-          text: "小说",
-          url: "/static/dianzishu.png",
-          page: "/pages/xiaoshuo/xiaoshuo"
-        }
+        // {
+        //   text: "小说",
+        //   url: "/static/dianzishu.png",
+        //   page: "/pages/xiaoshuo/xiaoshuo",
+        // },
         // {
         //   text: "购物",
         //   url: "/static/gouwu-2.png",
@@ -5017,7 +5034,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesTreasureTreasure = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["__file", "C:/code/app-vue3-ts/src/pages/treasure/treasure.vue"]]);
+  const PagesTreasureTreasure = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["__file", "D:/gitee/app-vue3-ts/src/pages/treasure/treasure.vue"]]);
   const _sfc_main$j = /* @__PURE__ */ vue.defineComponent({
     __name: "ditie",
     setup(__props) {
@@ -5048,29 +5065,29 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesDitieDitie = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["__scopeId", "data-v-5a09347e"], ["__file", "C:/code/app-vue3-ts/src/pages/ditie/ditie.vue"]]);
+  const PagesDitieDitie = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["__scopeId", "data-v-5a09347e"], ["__file", "D:/gitee/app-vue3-ts/src/pages/ditie/ditie.vue"]]);
   const _sfc_main$i = {};
-  function _sfc_render$a(_ctx, _cache) {
+  function _sfc_render$b(_ctx, _cache) {
     return vue.openBlock(), vue.createElementBlock("web-view", { src: "https://novel.html5.qq.com/qbread/intro?bookid=1100648963" });
   }
-  const PagesDianzishuDianzishu = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$a], ["__file", "C:/code/app-vue3-ts/src/pages/dianzishu/dianzishu.vue"]]);
+  const PagesDianzishuDianzishu = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$b], ["__file", "D:/gitee/app-vue3-ts/src/pages/dianzishu/dianzishu.vue"]]);
   const _sfc_main$h = {
     data() {
       return {};
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode("web-view", { src: "http://wesweet_admin.gitee.io/docs.panrui.top/" })
     ]);
   }
-  const PagesWendangWendang = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$9], ["__file", "C:/code/app-vue3-ts/src/pages/wendang/wendang.vue"]]);
+  const PagesWendangWendang = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$a], ["__file", "D:/gitee/app-vue3-ts/src/pages/wendang/wendang.vue"]]);
   const _sfc_main$g = {
     data() {
       return {};
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_nav_bar = resolveEasycom(vue.resolveDynamicComponent("uni-nav-bar"), __easycom_0$1);
     return vue.openBlock(), vue.createBlock(_component_uni_nav_bar, {
       shadow: "",
@@ -5078,14 +5095,14 @@ if (uni.restoreGlobal) {
       title: "购物指南"
     });
   }
-  const PagesGouwuGouwu = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$8], ["__file", "C:/code/app-vue3-ts/src/pages/gouwu/gouwu.vue"]]);
+  const PagesGouwuGouwu = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$9], ["__file", "D:/gitee/app-vue3-ts/src/pages/gouwu/gouwu.vue"]]);
   const _sfc_main$f = {};
-  function _sfc_render$7(_ctx, _cache) {
+  function _sfc_render$8(_ctx, _cache) {
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode("web-view", { src: "https://chat.panrui.top" })
     ]);
   }
-  const PagesChatgptChatgpt = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$7], ["__file", "C:/code/app-vue3-ts/src/pages/chatgpt/chatgpt.vue"]]);
+  const PagesChatgptChatgpt = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$8], ["__file", "D:/gitee/app-vue3-ts/src/pages/chatgpt/chatgpt.vue"]]);
   const isObject = (val) => val !== null && typeof val === "object";
   const defaultDelimiters = ["{", "}"];
   class BaseFormatter {
@@ -8024,7 +8041,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", {
       class: "uni-load-more",
       onClick: _cache[0] || (_cache[0] = (...args) => $options.onClick && $options.onClick(...args))
@@ -8099,7 +8116,7 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$6], ["__scopeId", "data-v-db9a50fe"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$7], ["__scopeId", "data-v-db9a50fe"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
   const _sfc_main$d = {
     name: "uniDataChecklist",
     mixins: [Ls.mixinDatacom || {}],
@@ -8443,7 +8460,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_load_more = resolveEasycom(vue.resolveDynamicComponent("uni-load-more"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -8657,7 +8674,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$5], ["__scopeId", "data-v-84808e80"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue"]]);
+  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$6], ["__scopeId", "data-v-84808e80"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue"]]);
   const _sfc_main$c = /* @__PURE__ */ vue.defineComponent({
     __name: "reg",
     setup(__props) {
@@ -8838,7 +8855,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesRegReg = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-4dc59264"], ["__file", "C:/code/app-vue3-ts/src/pages/reg/reg.vue"]]);
+  const PagesRegReg = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-4dc59264"], ["__file", "D:/gitee/app-vue3-ts/src/pages/reg/reg.vue"]]);
   const _sfc_main$b = /* @__PURE__ */ vue.defineComponent({
     __name: "bluetooth",
     setup(__props) {
@@ -8919,7 +8936,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesBluetoothBluetooth = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__file", "C:/code/app-vue3-ts/src/pages/bluetooth/bluetooth.vue"]]);
+  const PagesBluetoothBluetooth = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__file", "D:/gitee/app-vue3-ts/src/pages/bluetooth/bluetooth.vue"]]);
   const _sfc_main$a = {
     name: "UniSection",
     emits: ["click"],
@@ -8979,7 +8996,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-section" }, [
       vue.createElementVNode("view", {
         class: "uni-section-header",
@@ -9036,7 +9053,7 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const __easycom_4 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$4], ["__scopeId", "data-v-391c54fc"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-section/components/uni-section/uni-section.vue"]]);
+  const __easycom_4 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$5], ["__scopeId", "data-v-391c54fc"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-section/components/uni-section/uni-section.vue"]]);
   const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
     __name: "dhphoto",
     setup(__props) {
@@ -9176,7 +9193,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesDhphotoDhphoto = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__file", "C:/code/app-vue3-ts/src/pages/dhphoto/dhphoto.vue"]]);
+  const PagesDhphotoDhphoto = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__file", "D:/gitee/app-vue3-ts/src/pages/dhphoto/dhphoto.vue"]]);
   let Calendar$1 = class Calendar {
     constructor({
       selected,
@@ -9560,7 +9577,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -9616,7 +9633,7 @@ if (uni.restoreGlobal) {
       /* CLASS, HYDRATE_EVENTS */
     );
   }
-  const calendarItem = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$3], ["__scopeId", "data-v-c8f15d81"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar-item.vue"]]);
+  const calendarItem = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$4], ["__scopeId", "data-v-c8f15d81"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar-item.vue"]]);
   const en = {
     "uni-datetime-picker.selectDate": "select date",
     "uni-datetime-picker.selectTime": "select time",
@@ -10297,7 +10314,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-datetime-picker" }, [
       vue.createElementVNode("view", {
         onClick: _cache[0] || (_cache[0] = (...args) => $options.initTimePicker && $options.initTimePicker(...args))
@@ -10574,7 +10591,7 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const TimePicker = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$2], ["__scopeId", "data-v-728dc013"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/time-picker.vue"]]);
+  const TimePicker = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$3], ["__scopeId", "data-v-728dc013"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/time-picker.vue"]]);
   const { t } = initVueI18n(i18nMessages);
   const _sfc_main$6 = {
     components: {
@@ -11061,7 +11078,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_calendar_item = vue.resolveComponent("calendar-item");
     const _component_time_picker = vue.resolveComponent("time-picker");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$4);
@@ -11354,7 +11371,7 @@ if (uni.restoreGlobal) {
       /* HYDRATE_EVENTS */
     );
   }
-  const Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$1], ["__scopeId", "data-v-5c549568"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar.vue"]]);
+  const Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$2], ["__scopeId", "data-v-5c549568"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar.vue"]]);
   const _sfc_main$5 = {
     name: "UniDatetimePicker",
     options: {
@@ -11997,7 +12014,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$4);
     const _component_time_picker = vue.resolveComponent("time-picker");
     const _component_Calendar = vue.resolveComponent("Calendar");
@@ -12340,7 +12357,7 @@ if (uni.restoreGlobal) {
       }, null, 8, ["date", "defTime", "start-date", "end-date", "selectableTimes", "startPlaceholder", "endPlaceholder", "default-value", "pleStatus", "range", "hasTime", "hideSecond", "onConfirm", "onMaskClose"])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render], ["__scopeId", "data-v-98991aff"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue"]]);
+  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$1], ["__scopeId", "data-v-98991aff"], ["__file", "D:/gitee/app-vue3-ts/src/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue"]]);
   const _sfc_main$4 = /* @__PURE__ */ vue.defineComponent({
     __name: "wander",
     setup(__props) {
@@ -12593,7 +12610,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesDhphotoWander = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-d524397b"], ["__file", "C:/code/app-vue3-ts/src/pages/dhphoto/wander.vue"]]);
+  const PagesDhphotoWander = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-d524397b"], ["__file", "D:/gitee/app-vue3-ts/src/pages/dhphoto/wander.vue"]]);
   const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
     __name: "test",
     setup(__props) {
@@ -12628,7 +12645,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesTestTest = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__file", "C:/code/app-vue3-ts/src/pages/test/test.vue"]]);
+  const PagesTestTest = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__file", "D:/gitee/app-vue3-ts/src/pages/test/test.vue"]]);
   const _sfc_main$2 = /* @__PURE__ */ vue.defineComponent({
     __name: "xiaoshuo",
     setup(__props) {
@@ -12783,45 +12800,56 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const PagesXiaoshuoXiaoshuo = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__file", "C:/code/app-vue3-ts/src/pages/xiaoshuo/xiaoshuo.vue"]]);
-  const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
-    __name: "xiaoshuodetail",
-    setup(__props) {
-      let href = vue.ref("");
-      onLoad((option) => {
-        if (option == null ? void 0 : option.href) {
-          href.value = option.href;
-        }
+  const PagesXiaoshuoXiaoshuo = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__file", "D:/gitee/app-vue3-ts/src/pages/xiaoshuo/xiaoshuo.vue"]]);
+  var wv;
+  const _sfc_main$1 = {
+    data() {
+    },
+    components: { StatusBar },
+    onLoad() {
+      wv = plus.webview.create("", "custom-webview", {
+        plusrequire: "none",
+        //禁止远程网页使用plus的API，有些使用mui制作的网页可能会监听plus.key，造成关闭页面混乱，可以通过这种方式禁止
+        "uni-app": "none",
+        //不加载uni-app渲染层框架，避免样式冲突
+        top: uni.getSystemInfoSync().statusBarHeight + 44
+        //放置在titleNView下方。如果还想在webview上方加个地址栏的什么的，可以继续降低TOP值
       });
-      vue.onMounted(() => {
-        formatAppLog("log", "at pages/xiaoshuo/xiaoshuodetail.vue:24", "onMounted");
-        const currentWebview = getCurrentPages()[0].$getAppWebview();
-        formatAppLog("log", "at pages/xiaoshuo/xiaoshuodetail.vue:26", currentWebview.children());
-      });
-      return (_ctx, _cache) => {
-        const _component_uni_nav_bar = resolveEasycom(vue.resolveDynamicComponent("uni-nav-bar"), __easycom_0$1);
-        return vue.openBlock(), vue.createElementBlock(
-          vue.Fragment,
-          null,
-          [
-            vue.createVNode(StatusBar),
-            vue.createVNode(_component_uni_nav_bar, {
-              "left-icon": "left",
-              shadow: "",
-              dark: "",
-              title: "小说板块"
-            }),
-            vue.createElementVNode("div", { class: "web-view-container" }, [
-              vue.createElementVNode("web-view", { src: vue.unref(href) }, null, 8, ["src"])
-            ])
-          ],
-          64
-          /* STABLE_FRAGMENT */
-        );
-      };
+      wv.loadURL("https://www.baidu.com");
+      var currentWebview = this.$scope.$getAppWebview();
+      currentWebview.append(wv);
+      setTimeout(function() {
+        formatAppLog("log", "at pages/xiaoshuo/xiaoshuodetail.vue:26", wv.getStyle());
+      }, 1e3);
+    },
+    methods: {
+      back() {
+        uni.navigateBack();
+      }
     }
-  });
-  const PagesXiaoshuoXiaoshuodetail = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__file", "C:/code/app-vue3-ts/src/pages/xiaoshuo/xiaoshuodetail.vue"]]);
+  };
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_StatusBar = vue.resolveComponent("StatusBar");
+    const _component_uni_nav_bar = resolveEasycom(vue.resolveDynamicComponent("uni-nav-bar"), __easycom_0$1);
+    return vue.openBlock(), vue.createElementBlock(
+      vue.Fragment,
+      null,
+      [
+        vue.createVNode(_component_StatusBar),
+        vue.createVNode(_component_uni_nav_bar, {
+          "left-icon": "left",
+          onClickLeft: $options.back,
+          shadow: "",
+          dark: "",
+          title: "小说详情"
+        }, null, 8, ["onClickLeft"]),
+        vue.createElementVNode("view")
+      ],
+      64
+      /* STABLE_FRAGMENT */
+    );
+  }
+  const PagesXiaoshuoXiaoshuodetail = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "D:/gitee/app-vue3-ts/src/pages/xiaoshuo/xiaoshuodetail.vue"]]);
   __definePage("pages/index/index", PagesIndexIndex);
   __definePage("pages/user/user", PagesUserUser);
   __definePage("pages/login/login", PagesLoginLogin);
@@ -12860,7 +12888,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:/code/app-vue3-ts/src/App.vue"]]);
+  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:/gitee/app-vue3-ts/src/App.vue"]]);
   function createApp() {
     const app = vue.createVueApp(App);
     return {

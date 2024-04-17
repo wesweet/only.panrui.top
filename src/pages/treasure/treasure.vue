@@ -50,7 +50,7 @@ const h5List = reactive([
     page: "/pages/xiaoshuo/xiaoshuo",
   },
 ]);
-const appList = reactive([
+const appList: any[] = reactive([
   // {
   //   text: "地铁",
   //   url: "/static/ditie.png",
@@ -60,11 +60,11 @@ const appList = reactive([
   //   text: "王者",
   //   url: "/static/wzry.jpg",
   // },
-  {
-    text: "小说",
-    url: "/static/dianzishu.png",
-    page: "/pages/xiaoshuo/xiaoshuo",
-  },
+  // {
+  //   text: "小说",
+  //   url: "/static/dianzishu.png",
+  //   page: "/pages/xiaoshuo/xiaoshuo",
+  // },
   // {
   //   text: "购物",
   //   url: "/static/gouwu-2.png",
