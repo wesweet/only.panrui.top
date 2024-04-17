@@ -2,6 +2,24 @@
   "pages": [
     //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
+      "path": "pages/tabPage/home",
+      "style": {
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/tabPage/find",
+      "style": {
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/tabPage/user",
+      "style": {
+        "enablePullDownRefresh": true
+      }
+    },
+    {
       "path": "pages/index/index",
       "style": {
         "navigationBarTitleText": "首页",
@@ -92,92 +110,84 @@
       }
     },
     {
-    	"path" : "pages/dhphoto/wander",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/dhphoto/wander",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
     },
     {
-    	"path" : "pages/test/test",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "功能测试页面",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/test/test",
+      "style": {
+        "navigationBarTitleText": "功能测试页面",
+        "enablePullDownRefresh": false
+      }
     },
     {
-    	"path" : "pages/xiaoshuo/xiaoshuo",
-    	"style" : 
-    	{
+      "path": "pages/xiaoshuo/xiaoshuo",
+      "style": {
         "navigationBarTitleText": "小说",
         "navigationStyle": "custom",
-    		"enablePullDownRefresh" : false
-    	}
+        "enablePullDownRefresh": false
+      }
     },
     {
-    	"path" : "pages/xiaoshuo/xiaoshuodetail",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
+      "path": "pages/xiaoshuo/xiaoshuodetail",
+      "style": {
+        "navigationBarTitleText": "",
         "navigationStyle": "custom",
-    		"enablePullDownRefresh" : false
-    	}
+        "enablePullDownRefresh": false
+      }
     },
     {
-    	"path" : "pages/music/music",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/music/music",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
     },
     {
-    	"path" : "pages/movie/movie",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/movie/movie",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
     },
     {
-    	"path" : "pages/login/register",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/login/register",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
     },
     {
-    	"path" : "pages/login/forget",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/login/forget",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "color": "#ffffff",
+    "selectedColor": "#ff7500",
     "borderStyle": "black",
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "#161823",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/tabPage/home",
         "iconPath": "static/-tongue-.png",
         "selectedIconPath": "static/-tongue-.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/treasure/treasure",
+        "pagePath": "pages/tabPage/find",
         "iconPath": "static/-tongue-_1.png",
         "selectedIconPath": "static/-tongue-_1.png",
-        "text": "百宝箱"
+        "text": "发现"
       },
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/tabPage/user",
         "iconPath": "static/-tongue.png",
         "selectedIconPath": "static/-tongue.png",
         "text": "个人中心"
@@ -185,9 +195,6 @@
     ]
   },
   "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "百宝箱",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarBackgroundColor": "#ffffff"
   }
 }
