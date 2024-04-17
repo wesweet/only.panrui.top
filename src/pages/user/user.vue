@@ -8,11 +8,6 @@
 -->
 <template>
   <StatusBar></StatusBar>
-  <!-- #ifdef H5 -->
-  <uni-nav-bar shadow dark title="功能正在开发中" />
-  <!-- #endif -->
-
-  <!-- #ifdef APP-PLUS -->
   <view class="user">
     <view class="user-img"></view>
     <view class="user-info"></view>
@@ -99,7 +94,6 @@
       />
     </template>
   </uni-list>
-  <!-- #endif -->
 </template>
 
 <script lang="ts" setup>

@@ -124,6 +124,38 @@
         "navigationStyle": "custom",
     		"enablePullDownRefresh" : false
     	}
+    },
+    {
+    	"path" : "pages/music/music",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "",
+    		"enablePullDownRefresh" : false
+    	}
+    },
+    {
+    	"path" : "pages/movie/movie",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "",
+    		"enablePullDownRefresh" : false
+    	}
+    },
+    {
+    	"path" : "pages/login/register",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "",
+    		"enablePullDownRefresh" : false
+    	}
+    },
+    {
+    	"path" : "pages/login/forget",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "",
+    		"enablePullDownRefresh" : false
+    	}
     }
   ],
   "tabBar": {
