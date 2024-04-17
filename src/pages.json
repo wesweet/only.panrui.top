@@ -166,6 +166,14 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
+    },
+    {
+    	"path" : "pages/novel/novel",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "",
+    		"enablePullDownRefresh" : false
+    	}
     }
   ],
   "tabBar": {
@@ -176,20 +184,20 @@
     "list": [
       {
         "pagePath": "pages/tabPage/home",
-        "iconPath": "static/-tongue-.png",
-        "selectedIconPath": "static/-tongue-.png",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/tabPage/find",
-        "iconPath": "static/-tongue-_1.png",
-        "selectedIconPath": "static/-tongue-_1.png",
+        "iconPath": "static/find.png",
+        "selectedIconPath": "static/find.png",
         "text": "发现"
       },
       {
         "pagePath": "pages/tabPage/user",
-        "iconPath": "static/-tongue.png",
-        "selectedIconPath": "static/-tongue.png",
+        "iconPath": "static/user.png",
+        "selectedIconPath": "static/user.png",
         "text": "个人中心"
       }
     ]

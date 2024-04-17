@@ -2,7 +2,7 @@
  * @Description: 应用首页
  * @Author: prui
  * @Date: 2024-04-17 13:49:25
- * @LastEditTime: 2024-04-17 15:08:45
+ * @LastEditTime: 2024-04-17 16:27:39
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -40,30 +40,70 @@
         </view>
       </swiper-item>
     </swiper>
+
+    <!-- 功能模块 -->
+    <uni-grid
+      :column="3"
+      :show-border="false"
+      :square="false"
+      :highlight="false"
+      @change="change"
+    >
+      <uni-grid-item v-for="(item, index) in list" :index="index" :key="index">
+        <view class="grid-item-box">
+          <image class="image" :src="item.url" mode="aspectFill" />
+          <text class="text">{{ item.text }}</text>
+        </view>
+      </uni-grid-item>
+    </uni-grid>
   </view>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 // 定义轮播图样式
 const dotStyle = ref(true);
 
 const swiperList = ref([
   {
     type: "image",
-    url: "/static/mmexport1710765206106.jpg",
-  },
-  {
-    type: "image",
     url: "/static/fengjing1.jpg",
-  },
-  {
-    type: "image",
-    url: "/static/mmexport1710765211570.jpg",
   },
 ]);
 const toInfo = (item: any) => {
   console.log(item);
+};
+
+const list = reactive([
+  {
+    text: "小说",
+    url: "/static/novel.png",
+    page: "/pages/xiaoshuo/xiaoshuo",
+  },
+  {
+    text: "电影",
+    url: "/static/movie.png",
+  },
+  {
+    text: "音乐",
+    url: "/static/music.png",
+    page: "/pages/music/music",
+  },
+]);
+const change = (e: any) => {
+  // 将page声明为string或者undefined
+  let page = list[e.detail.index].page;
+  if (!page) {
+    uni.showToast({
+      title: "功能正在开发中",
+      duration: 2000,
+    });
+  } else {
+    // 判断当前执行环境
+    uni.navigateTo({
+      url: page,
+    });
+  }
 };
 </script>
 
@@ -77,6 +117,7 @@ swiper-item {
   border-radius: 20rpx;
 }
 .screen-swiper {
+  margin-bottom: 40rpx;
   border-radius: 20rpx;
 }
 .swiper-box {
@@ -88,5 +129,25 @@ swiper-item {
     height: 100%;
     border-radius: 20rpx;
   }
+}
+.grid-item-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .image {
+    width: 25px;
+    height: 25px;
+  }
+  .text {
+    margin-top: 10rpx;
+    font-size: 20rpx;
+  }
+}
+.line {
+  margin: 20rpx 10rpx;
+  height: 10rpx;
+  background-color: #808080;
+  border-radius: 10rpx;
 }
 </style>
