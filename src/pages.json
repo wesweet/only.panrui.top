@@ -25,7 +25,8 @@
     {
       "path": "pages/tabPage/find",
       "style": {
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": true,
+        "navigationStyle": "custom"
       }
     },
     {
