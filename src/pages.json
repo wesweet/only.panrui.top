@@ -75,14 +75,14 @@
       }
     },
     {
-      "path": "pages/dianzishu/dianzishu",
+      "path": "pages/webview/wendang",
       "style": {
-        "navigationBarTitleText": "盗版小说",
+        "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
     },
     {
-      "path": "pages/wendang/wendang",
+      "path": "pages/webview/photo",
       "style": {
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
@@ -140,14 +140,6 @@
       }
     },
     {
-      "path": "pages/xiaoshuo/xiaoshuodetail",
-      "style": {
-        "navigationBarTitleText": "",
-        "navigationStyle": "custom",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
       "path": "pages/music/music",
       "style": {
         "navigationBarTitleText": "",
@@ -174,14 +166,6 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
-    },
-    {
-    	"path" : "pages/novel/novel",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
     }
   ],
   "tabBar": {

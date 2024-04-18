@@ -2,14 +2,15 @@
  * @Description: 发现页
  * @Author: prui
  * @Date: 2024-04-17 13:49:41
- * @LastEditTime: 2024-04-17 21:55:22
+ * @LastEditTime: 2024-04-18 08:56:01
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
 <template>
   <view class="page">
     <prstatus></prstatus>
-    <uni-section title="基础卡片" type="line">
+	<!-- 功能模块 -->
+    <uni-section title="功能模块" type="line">
       <uni-card>
         <!-- 功能模块 -->
         <uni-grid
@@ -32,6 +33,32 @@
         </uni-grid>
       </uni-card>
     </uni-section>
+	
+	<!-- 恋爱模块 -->
+    <uni-section title="恋爱模块" type="line">
+      <uni-card>
+        <!-- 恋爱模块 -->
+        <uni-grid
+          :column="3"
+          :show-border="false"
+          :square="false"
+          :highlight="false"
+          @change="change"
+        >
+          <uni-grid-item
+            v-for="(item, index) in loveList"
+            :index="index"
+            :key="index"
+          >
+            <view class="grid-item-box">
+              <image class="image" :src="item.url" mode="aspectFill" />
+              <text class="text">{{ item.text }}</text>
+            </view>
+          </uni-grid-item>
+        </uni-grid>
+      </uni-card>
+    </uni-section>
+	
   </view>
 </template>
 
@@ -57,10 +84,23 @@ const list = reactive([
   },
   {
     text: "文档",
-    url: "/static/document.png",
-    page: "/pages/document/document",
+    url: "/static/wendang.png",
+    page: "/pages/webview/wendang",
     isApp: true,
   },
+]);
+
+const loveList = reactive([
+	{
+		text: "时光机",
+		url: "/static/dhphoto.png",
+    page: "/pages/dhphoto/dhphoto",
+	},
+  {
+    text: '照片墙',
+    url: '/static/photo.png',
+    page: '/pages/webview/photo'
+  }
 ]);
 let change: any = null;
 // #ifdef H5
@@ -119,5 +159,8 @@ change = (e: any) => {
     margin-top: 10rpx;
     font-size: 20rpx;
   }
+}
+.uni-grid-item {
+	margin-bottom: 20rpx;
 }
 </style>
