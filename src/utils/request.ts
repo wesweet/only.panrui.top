@@ -38,6 +38,11 @@ export const request = (url: string, options: any) => {
   }
 
   return new Promise((resolve, reject) => {
+    // 添加loading
+    uni.showLoading({
+      title: "加载中",
+      mask: true,
+    });
     uni.request({
       url: HTTP_REQUEST_URL + url,
       method: options.method || "GET",
@@ -55,6 +60,10 @@ export const request = (url: string, options: any) => {
       },
       fail: (error: any) => {
         reject(error);
+      },
+      complete: () => {
+        // 关闭loading
+        uni.hideLoading();
       },
     });
   });

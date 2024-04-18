@@ -1,41 +1,42 @@
 <template>
-  <StatusBar></StatusBar>
-  <view class="wander-list">
-    <template v-for="(item, index) in wanderList">
-      <uni-section :title="item.title + '(' + item.date + ')'" type="line">
-        <uni-card @click="onClick(item.id)">
-          <image
-            v-show="item.photo"
-            slot="cover"
-            style="width: 100%"
-            :src="item.photo"
-            mode="widthFix"
-            @click.stop="previewImage(item.photo)"
-          ></image>
-          <text class="uni-body">{{ item.content }}</text>
-          <!-- <view slot="actions" class="card-actions">
-            <view class="card-actions-item" @click="actionsClick('分享')">
-              <uni-icons type="redo" size="18" color="#999"></uni-icons>
-              <text class="card-actions-item-text">分享</text>
-            </view>
-            <view class="card-actions-item" @click="actionsClick('点赞')">
-              <uni-icons type="heart" size="18" color="#999"></uni-icons>
-              <text class="card-actions-item-text">点赞</text>
-            </view>
-            <view class="card-actions-item" @click="actionsClick('评论')">
-              <uni-icons type="comment" size="18" color="#999"></uni-icons>
-              <text class="card-actions-item-text">评论</text>
-            </view>
-          </view> -->
-        </uni-card>
-      </uni-section>
-    </template>
+  <view class="page">
+    <prstatus></prstatus>
+    <view class="wander-list">
+      <template v-for="(item, index) in wanderList">
+        <uni-section :title="item.title + '(' + item.date + ')'" type="line">
+          <uni-card @click="onClick(item.id)">
+            <image
+              v-show="item.photo"
+              slot="cover"
+              style="width: 100%"
+              :src="item.photo"
+              mode="widthFix"
+              @click.stop="previewImage(item.photo)"
+            ></image>
+            <text class="uni-body">{{ item.content }}</text>
+            <!-- <view slot="actions" class="card-actions">
+              <view class="card-actions-item" @click="actionsClick('分享')">
+                <uni-icons type="redo" size="18" color="#999"></uni-icons>
+                <text class="card-actions-item-text">分享</text>
+              </view>
+              <view class="card-actions-item" @click="actionsClick('点赞')">
+                <uni-icons type="heart" size="18" color="#999"></uni-icons>
+                <text class="card-actions-item-text">点赞</text>
+              </view>
+              <view class="card-actions-item" @click="actionsClick('评论')">
+                <uni-icons type="comment" size="18" color="#999"></uni-icons>
+                <text class="card-actions-item-text">评论</text>
+              </view>
+            </view> -->
+          </uni-card>
+        </uni-section>
+      </template>
+    </view>
+    <view class="icon-add" @click="addWander"> </view>
   </view>
-  <view class="icon-add" @click="addWander"> </view>
 </template>
 
 <script setup lang="ts">
-import StatusBar from "@/components/StatusBar.vue";
 import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { appApi } from "@/api/app";

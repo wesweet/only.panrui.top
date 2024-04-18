@@ -8,19 +8,33 @@
 -->
 <template>
   <view class="main-list oBorder">
-    <input class="main-input" :placeholder="placeholder" />
+    <input
+      class="main-input"
+      :placeholder="placeholder"
+      :maxlength="maxlength"
+      :value="value"
+      @input="$emit('update:modelValue', $event.detail.value)"
+    />
   </view>
 </template>
 
 <script lang="ts" setup>
 // 定义proops
 const props = defineProps({
-    placeholder: {
-        type: String,
-        default: '请输入内容'
-    }
-})
-
+  placeholder: {
+    type: String,
+    default: "请输入内容",
+  },
+  maxlength: {
+    //最大长度
+    type: [Number, String],
+    default: 20,
+  },
+  value: {
+    type: [String, Number],
+    default: "",
+  }, //值
+});
 </script>
 
 <style lang="scss" scoped>

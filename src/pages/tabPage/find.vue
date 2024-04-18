@@ -1,12 +1,4 @@
 <!--
- * @Description: 
- * @Author: prui
- * @Date: 2024-04-17 13:49:41
- * @LastEditTime: 2024-04-18 10:06:48
- * @LastEditors: prui
- * 不忘初心,不负梦想
--->
-<!--
  * @Description: 发现页
  * @Author: prui
  * @Date: 2024-04-17 13:49:41
@@ -126,6 +118,7 @@ const loveList = reactive([
     text: "照片墙",
     url: "/static/photo.png",
     page: "/pages/webview/photo",
+    isApp: true,
   },
 ]);
 
@@ -204,4 +197,3 @@ const testChange = (e: { detail: { index: number } }) => {
   margin-bottom: 20rpx;
 }
 </style>
-: string | number: string

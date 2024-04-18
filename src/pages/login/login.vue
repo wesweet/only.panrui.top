@@ -6,38 +6,23 @@
         <image :src="logoImage"></image>
       </view>
       <view class="main">
-        <prinput placeholder="请输入账号"></prinput>
-        <prinput placeholder="请输入密码"></prinput>
+        <prinput placeholder="请输入账号" v-model="formData.username"></prinput>
+        <prinput placeholder="请输入密码" v-model="formData.password"></prinput>
       </view>
-      <prbutton text="登 录" :rotate="isRotate" class="prbutton"></prbutton>
+      <prbutton
+        text="登 录"
+        :rotate="isRotate"
+        class="prbutton"
+        @click="login"
+      ></prbutton>
     </view>
   </view>
-
-  <!-- <uni-forms ref="form" class="uni-forms" :rules="rules" :model="formData">
-    <uni-forms-item label="账号" name="username" required>
-      <uni-easyinput
-        class="uni-mt-5"
-        trim="all"
-        v-model="formData.username"
-        placeholder="请输入账号"
-      ></uni-easyinput>
-    </uni-forms-item>
-    <uni-forms-item label="密码" name="password" required>
-      <uni-easyinput
-        type="password"
-        v-model="formData.password"
-        placeholder="请输入密码"
-      ></uni-easyinput>
-    </uni-forms-item>
-  </uni-forms>
-  <view class="uni-flex-pack-around">
-    <button size="mini" @click="login">登录</button>
-    <button size="mini" @click="register">注册</button>
-  </view> -->
 </template>
 
 <script lang="ts" setup>
+import { appApi } from "@/api/app";
 import StatusBar from "@/components/StatusBar.vue";
+import { request } from "@/utils/request";
 import { reactive, ref } from "vue";
 
 const logoImage = ref("/static/login.png");
@@ -45,16 +30,17 @@ let isRotate = ref(false); // 是否加载loading
 // import { request } from "@/utils/request";
 // import { appApi } from "@/api/app";
 // import { onReady } from "@dcloudio/uni-app";
-// // 定义接口
-// interface IFormData {
-//   username: string;
-//   password: string;
-// }
-// // 使用定义的接口创建一个响应式对象
-// const formData: IFormData = reactive({
-//   username: "wesweet",
-//   password: "Pr338535",
-// });
+// 定义接口
+interface IFormData {
+  username: string;
+  password: string;
+}
+  
+// 使用定义的接口创建一个响应式对象
+const formData: IFormData = reactive({
+  username: "",
+  password: "",
+});
 // // 定义表单校验规则
 // const rules = {
 //   username: {
@@ -86,36 +72,49 @@ let isRotate = ref(false); // 是否加载loading
 // onReady(() => {
 //   form.value.setRules(rules);
 // });
-// // 点击登录事情,对表单进行校验
-// const login = async () => {
-//   // 校验表单
-//   const valid = await form.value.validate();
-//   if (!valid) {
-//     return;
-//   }
-//   request(appApi.login, {
-//     data: formData,
-//     method: "POST",
-//   }).then((res: any) => {
-//     if (res.errorCode == 0) {
-//       uni.setStorageSync("token", res.data.access_token);
-//       uni.setStorageSync("userId", res.data.userId);
-//       back();
-//     } else {
-//       uni.showToast({
-//         title: res.errorMessage,
-//         icon: "none",
-//       });
-//     }
-//   });
-// };
+// 点击登录事情,对表单进行校验
+const login = () => {
+  if (
+    !formData.username ||
+    formData.username.length < 3 ||
+    formData.username.length > 10
+  ) {
+    uni.showToast({
+      title: "用户名长度在3-10之间",
+      icon: "none",
+      duration: 2000,
+    });
+    return;
+  }
+  if (
+    !formData.password ||
+    formData.password.length < 6 ||
+    formData.password.length > 20
+  ) {
+    uni.showToast({
+      title: "密码长度在6-20之间",
+      icon: "none",
+      duration: 2000,
+    });
+    return;
+  }
 
-// // 点击注册事情
-// const register = () => {
-//   uni.navigateTo({
-//     url: "/pages/reg/reg",
-//   });
-// };
+  request(appApi.login, {
+    data: formData,
+    method: "POST",
+  }).then((res: any) => {
+    if (res.errorCode == 0) {
+      uni.setStorageSync("token", res.data.access_token);
+      uni.setStorageSync("userId", res.data.userId);
+      back();
+    } else {
+      uni.showToast({
+        title: res.errorMessage,
+        icon: "none",
+      });
+    }
+  });
+};
 
 const back = () => {
   // 关闭当前页面返回上一个面
@@ -156,23 +155,4 @@ const back = () => {
     margin-top: 96rpx;
   }
 }
-// uni-page-body {
-//   height: 100%;
-// }
-// .box {
-//   height: 100%;
-//   // background-color: #333333;
-//   // background-image: linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d);
-// }
-// .uni-forms {
-//   padding: 200rpx 50rpx 0;
-// }
-// // .uni-flex {
-// //   // display: flex;
-// // }
-// .uni-flex-pack-around {
-//   display: flex;
-//   padding: 50rpx 50rpx 0;
-//   justify-content: space-between;
-// }
 </style>

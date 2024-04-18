@@ -3,6 +3,7 @@
     <button
       :class="['buttonBorder', !_rotate ? 'dlbutton' : 'dlbutton_loading']"
       :style="{ background: bgColor, color: fontColor }"
+      @click="$emit('click', $event)"
     >
       <view :class="_rotate ? 'rotate_loop' : ''">
         <text v-if="_rotate" class="cuIcon cuIcon-loading1"></text>
