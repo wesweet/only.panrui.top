@@ -43,14 +43,6 @@
       }
     },
     {
-      "path": "pages/user/user",
-      "style": {
-        "navigationBarTitleText": "个人中心",
-        "enablePullDownRefresh": false,
-        "navigationStyle": "custom"
-      }
-    },
-    {
       "path": "pages/login/login",
       "style": {
         "navigationBarTitleText": "登录",

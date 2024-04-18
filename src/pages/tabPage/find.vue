@@ -1,16 +1,24 @@
 <!--
+ * @Description: 
+ * @Author: prui
+ * @Date: 2024-04-17 13:49:41
+ * @LastEditTime: 2024-04-18 10:06:48
+ * @LastEditors: prui
+ * 不忘初心,不负梦想
+-->
+<!--
  * @Description: 发现页
  * @Author: prui
  * @Date: 2024-04-17 13:49:41
- * @LastEditTime: 2024-04-18 08:56:01
+ * @LastEditTime: 2024-04-18 10:05:30
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
 <template>
   <view class="page">
     <prstatus></prstatus>
-	<!-- 功能模块 -->
-    <uni-section title="功能模块" type="line">
+    <!-- 功能模块 -->
+    <uni-section title="摸鱼" type="line">
       <uni-card>
         <!-- 功能模块 -->
         <uni-grid
@@ -18,7 +26,7 @@
           :show-border="false"
           :square="false"
           :highlight="false"
-          @change="change"
+          @change="listChange"
         >
           <uni-grid-item
             v-for="(item, index) in list"
@@ -33,9 +41,9 @@
         </uni-grid>
       </uni-card>
     </uni-section>
-	
-	<!-- 恋爱模块 -->
-    <uni-section title="恋爱模块" type="line">
+
+    <!-- 恋爱模块 -->
+    <uni-section title="我与小丁的那些事" type="line">
       <uni-card>
         <!-- 恋爱模块 -->
         <uni-grid
@@ -43,7 +51,7 @@
           :show-border="false"
           :square="false"
           :highlight="false"
-          @change="change"
+          @change="loveListChange"
         >
           <uni-grid-item
             v-for="(item, index) in loveList"
@@ -58,7 +66,31 @@
         </uni-grid>
       </uni-card>
     </uni-section>
-	
+
+    <!-- 测试模块 -->
+    <uni-section title="测试模块" type="line">
+      <uni-card>
+        <!-- 恋爱模块 -->
+        <uni-grid
+          :column="3"
+          :show-border="false"
+          :square="false"
+          :highlight="false"
+          @change="testChange"
+        >
+          <uni-grid-item
+            v-for="(item, index) in testList"
+            :index="index"
+            :key="index"
+          >
+            <view class="grid-item-box">
+              <image class="image" :src="item.url" mode="aspectFill" />
+              <text class="text">{{ item.text }}</text>
+            </view>
+          </uni-grid-item>
+        </uni-grid>
+      </uni-card>
+    </uni-section>
   </view>
 </template>
 
@@ -82,6 +114,22 @@ const list = reactive([
     page: "/pages/music/music",
     isApp: true,
   },
+]);
+
+const loveList = reactive([
+  {
+    text: "时光机",
+    url: "/static/dhphoto.png",
+    page: "/pages/dhphoto/dhphoto",
+  },
+  {
+    text: "照片墙",
+    url: "/static/photo.png",
+    page: "/pages/webview/photo",
+  },
+]);
+
+const testList = reactive([
   {
     text: "文档",
     url: "/static/wendang.png",
@@ -90,59 +138,51 @@ const list = reactive([
   },
 ]);
 
-const loveList = reactive([
-	{
-		text: "时光机",
-		url: "/static/dhphoto.png",
-    page: "/pages/dhphoto/dhphoto",
-	},
-  {
-    text: '照片墙',
-    url: '/static/photo.png',
-    page: '/pages/webview/photo'
+const change = (index: number, type: string) => {
+  let info: any = null;
+  if (type == "list") {
+    info = list[index];
+  } else if (type == "loveList") {
+    info = loveList[index];
+  } else if (type == "testList") {
+    info = testList[index];
   }
-]);
-let change: any = null;
-// #ifdef H5
-change = (e: any) => {
-  let page = list[e.detail.index].page;
-  let isApp = list[e.detail.index].isApp;
-  if (isApp) {
+  // #ifdef H5
+  if (info.isApp || !info.page) {
     uni.showToast({
-      title: "请先下载APP",
+      title: "功能正在开发中",
       duration: 2000,
       icon: "error",
     });
     return;
   }
-  if (!page) {
-    uni.showToast({
-      title: "功能正在开发中",
-      duration: 2000,
-    });
-  } else {
-    uni.navigateTo({
-      url: page,
-    });
-  }
-};
-// #endif
+  // #endif
 
-// #ifdef APP-PLUS
-change = (e: any) => {
-  let page = list[e.detail.index].page;
-  if (!page) {
+  // #ifdef APP-PLUS
+  if (!info.page) {
     uni.showToast({
       title: "功能正在开发中",
       duration: 2000,
+      icon: "error",
     });
-  } else {
-    uni.navigateTo({
-      url: page,
-    });
+    return;
   }
+  // #endif
+
+  uni.navigateTo({
+    url: info.page,
+  });
 };
-// #endif
+
+const listChange = (e: { detail: { index: number } }) => {
+  change(e.detail.index, "list");
+};
+const loveListChange = (e: { detail: { index: number } }) => {
+  change(e.detail.index, "loveList");
+};
+const testChange = (e: { detail: { index: number } }) => {
+  change(e.detail.index, "testList");
+};
 </script>
 
 <style lang="scss">
@@ -161,6 +201,7 @@ change = (e: any) => {
   }
 }
 .uni-grid-item {
-	margin-bottom: 20rpx;
+  margin-bottom: 20rpx;
 }
 </style>
+: string | number: string
