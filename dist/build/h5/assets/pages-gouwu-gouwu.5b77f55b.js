@@ -1,1 +1,0 @@
-import{_ as r}from"./uni-nav-bar.a40520b0.js";import{o as a,b as n,r as o,a as s}from"./index-03734e0c.js";import{_ as t}from"./_plugin-vue_export-helper.1b428a4d.js";import"./uni-icons.c8179ee2.js";const i=t({data:()=>({})},[["render",function(t,i,e,p,u,m){const d=o(s("uni-nav-bar"),r);return a(),n(d,{shadow:"",dark:"",title:"购物指南"})}]]);export{i as default};

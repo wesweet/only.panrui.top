@@ -1,0 +1,1 @@
+import{o as s,h as t,w as a,j as r,a as e,Q as o}from"./index-1b6864a7.js";import{_ as n}from"./_plugin-vue_export-helper.1b428a4d.js";const p=n({},[["render",function(n,p){const u=o,i=r;return s(),t(i,null,{default:a((()=>[e(u,{src:"https://chat.panrui.top"})])),_:1})}]]);export{p as default};

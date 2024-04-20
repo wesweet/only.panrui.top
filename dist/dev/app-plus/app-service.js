@@ -3073,7 +3073,7 @@ if (uni.restoreGlobal) {
     ]);
   }
   const __easycom_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$l], ["__scopeId", "data-v-391c54fc"], ["__file", "C:/code/app-vue3-ts/src/uni_modules/uni-section/components/uni-section/uni-section.vue"]]);
-  const HTTP_REQUEST_URL = `http://nest.panrui.top:8008/app`;
+  const HTTP_REQUEST_URL = `http://nest.panrui.top:8008/h5`;
   const checkRequestValidity = (url) => {
     if (!url) {
       throw new Error("请求地址不能为空");
