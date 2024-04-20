@@ -136,11 +136,6 @@ const getWanderDetail = () => {
     .then((res: any) => {
       const { errorCode, errorMessage, data } = res;
       if (errorCode == 0) {
-        uni.showToast({
-          title: errorMessage,
-          duration: 2000,
-          icon: "none",
-        });
         if (data) {
           baseFormData.title = data.title;
           baseFormData.date = data.date;
@@ -224,7 +219,7 @@ const onSubmit = () => {
           uni.showToast({
             title: message,
             icon: "success",
-            duration: 1500,
+            duration: 500,
             // 成功提示框关闭后的回调函数
             success() {
               // 跳转到其他页面

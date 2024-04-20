@@ -1,18 +1,16 @@
 <template>
-  <view>
-    <button
-      :class="['buttonBorder', !_rotate ? 'dlbutton' : 'dlbutton_loading']"
-      :style="{ background: bgColor, color: fontColor }"
-      @click="$emit('click', $event)"
-    >
-      <view :class="_rotate ? 'rotate_loop' : ''">
-        <text v-if="_rotate" class="cuIcon cuIcon-loading1"></text>
-        <view v-if="!_rotate"
-          ><slot name="text">{{ text }}</slot></view
-        >
-      </view>
-    </button>
-  </view>
+  <button
+    :class="['buttonBorder', !_rotate ? 'dlbutton' : 'dlbutton_loading']"
+    :style="{ background: bgColor, color: fontColor }"
+    @click="handClick"
+  >
+    <view :class="_rotate ? 'rotate_loop' : ''">
+      <text v-if="_rotate" class="cuIcon cuIcon-loading1"></text>
+      <view v-if="!_rotate"
+        ><slot name="text">{{ text }}</slot></view
+      >
+    </view>
+  </button>
 </template>
 
 <script lang="ts" setup>
@@ -36,6 +34,12 @@ const props = defineProps({
     default: false,
   },
 });
+
+// 触发父组件事件
+const emit = defineEmits(["click"]);
+const handClick = () => {
+  emit("click");
+}
 
 // 添加计算属性
 const _rotate = computed(() => {

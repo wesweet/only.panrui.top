@@ -32,7 +32,8 @@
     {
       "path": "pages/tabPage/user",
       "style": {
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": true,
+		"navigationStyle": "custom"
       }
     },
     {
@@ -70,14 +71,16 @@
       "path": "pages/webview/wendang",
       "style": {
         "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": false,
+		"navigationStyle": "custom"
       }
     },
     {
       "path": "pages/webview/photo",
       "style": {
         "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": false,
+		"navigationStyle": "custom"
       }
     },
     {
@@ -113,8 +116,9 @@
     {
       "path": "pages/dhphoto/dhphoto",
       "style": {
-        "navigationBarTitleText": "流浪日记",
-        "enablePullDownRefresh": true
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true,
+		"navigationStyle": "custom"
       }
     },
     {

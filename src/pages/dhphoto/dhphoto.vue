@@ -1,36 +1,50 @@
 <template>
   <view class="page">
     <prstatus></prstatus>
+    <uni-nav-bar
+      left-icon="left"
+      shadow
+      dark
+      title="时光机"
+      @clickLeft="back"
+    />
     <view class="wander-list">
-      <template v-for="(item, index) in wanderList">
-        <uni-section :title="item.title + '(' + item.date + ')'" type="line">
-          <uni-card @click="onClick(item.id)">
-            <image
-              v-show="item.photo"
-              slot="cover"
-              style="width: 100%"
-              :src="item.photo"
-              mode="widthFix"
-              @click.stop="previewImage(item.photo)"
-            ></image>
-            <text class="uni-body">{{ item.content }}</text>
-            <!-- <view slot="actions" class="card-actions">
-              <view class="card-actions-item" @click="actionsClick('分享')">
-                <uni-icons type="redo" size="18" color="#999"></uni-icons>
-                <text class="card-actions-item-text">分享</text>
-              </view>
-              <view class="card-actions-item" @click="actionsClick('点赞')">
-                <uni-icons type="heart" size="18" color="#999"></uni-icons>
-                <text class="card-actions-item-text">点赞</text>
-              </view>
-              <view class="card-actions-item" @click="actionsClick('评论')">
-                <uni-icons type="comment" size="18" color="#999"></uni-icons>
-                <text class="card-actions-item-text">评论</text>
-              </view>
-            </view> -->
-          </uni-card>
-        </uni-section>
-      </template>
+      <view class="scroll-view-box">
+        <scroll-view class="scroll-view" scroll-y="true" @scrolltolower="handScrolltolower" @scrolltoupper="handScrolltoupper">
+          <template v-for="(item, index) in wanderList">
+            <uni-section
+              :title="item.title + '(' + item.date + ')'"
+              type="line"
+            >
+              <uni-card @click="onClick(item.id)">
+                <image
+                  v-show="item.photo"
+                  slot="cover"
+                  style="width: 100%"
+                  :src="item.photo"
+                  mode="widthFix"
+                  @click.stop="previewImage(item.photo)"
+                ></image>
+                <text class="uni-body">{{ item.content }}</text>
+                <!-- <view slot="actions" class="card-actions">
+					  <view class="card-actions-item" @click="actionsClick('分享')">
+						<uni-icons type="redo" size="18" color="#999"></uni-icons>
+						<text class="card-actions-item-text">分享</text>
+					  </view>
+					  <view class="card-actions-item" @click="actionsClick('点赞')">
+						<uni-icons type="heart" size="18" color="#999"></uni-icons>
+						<text class="card-actions-item-text">点赞</text>
+					  </view>
+					  <view class="card-actions-item" @click="actionsClick('评论')">
+						<uni-icons type="comment" size="18" color="#999"></uni-icons>
+						<text class="card-actions-item-text">评论</text>
+					  </view>
+					</view> -->
+              </uni-card>
+            </uni-section>
+          </template>
+        </scroll-view>
+      </view>
     </view>
     <view class="icon-add" @click="addWander"> </view>
   </view>
@@ -41,6 +55,10 @@ import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { appApi } from "@/api/app";
 import { onPullDownRefresh, onReachBottom } from "@dcloudio/uni-app";
+
+const back = () => {
+  uni.navigateBack();
+};
 
 const onClick = (id: string) => {
   uni.navigateTo({
@@ -90,10 +108,6 @@ const getWanderList = () => {
     .then((res: any) => {
       const { errorCode, errorMessage, data } = res;
       if (errorCode == 0) {
-        uni.showToast({
-          title: errorMessage,
-          duration: 2000,
-        });
         if (data) {
           wanderList.value = wanderList.value.concat(data.list);
           total.value = data.total;
@@ -108,6 +122,25 @@ const getWanderList = () => {
 // 执行获取流浪列表
 getWanderList();
 
+const handScrolltolower = () => {
+  if (pagination.page * pagination.limit >= total.value) {
+    uni.showToast({
+      title: "没有更多数据了",
+      duration: 2000,
+    });
+    return;
+  }
+  pagination.page++;
+  getWanderList();
+}
+
+const handScrolltoupper = () => {
+	pagination.page = 1;
+	wanderList.value = [];
+	getWanderList();
+	uni.stopPullDownRefresh();
+}
+
 // 定义页面下拉刷新方法
 onPullDownRefresh(() => {
   pagination.page = 1;
@@ -120,7 +153,7 @@ onReachBottom(() => {
   if (pagination.page * pagination.limit >= total.value) {
     uni.showToast({
       title: "没有更多数据了",
-      duration: 2000,
+      duration: 300,
     });
     return;
   }
@@ -137,6 +170,26 @@ const previewImage = (photo: any) => {
 </script>
 
 <style lang="scss">
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.wander-list {
+  flex: 1;
+  padding: 8rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  .scroll-view-box {
+    height: 100%;
+    box-sizing: border-box;
+    padding-bottom: 60rpx;
+    .scroll-view {
+      height: 100%;
+    }
+  }
+}
 .icon-add {
   position: fixed;
   right: 20rpx;

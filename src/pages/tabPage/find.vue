@@ -113,6 +113,7 @@ const loveList = reactive([
     text: "时光机",
     url: "/static/dhphoto.png",
     page: "/pages/dhphoto/dhphoto",
+    secret: 1111,
   },
   {
     text: "照片墙",
@@ -144,7 +145,7 @@ const change = (index: number, type: string) => {
   if (info.isApp || !info.page) {
     uni.showToast({
       title: "功能正在开发中",
-      duration: 2000,
+      duration: 300,
       icon: "error",
     });
     return;
@@ -155,15 +156,32 @@ const change = (index: number, type: string) => {
   if (!info.page) {
     uni.showToast({
       title: "功能正在开发中",
-      duration: 2000,
+      duration: 300,
       icon: "error",
     });
     return;
   }
   // #endif
-
-  uni.navigateTo({
-    url: info.page,
+  if (!info.secret) {
+    uni.navigateTo({
+      url: info.page,
+    });
+    return;
+  }
+  uni.showModal({
+    title: "校验",
+    content: "请输入密钥进入",
+    editable: true,
+    success: function (res) {
+      if (res.confirm) {
+        if (res.content == info.secret) {
+          uni.navigateTo({
+            url: info.page,
+          });
+        }
+      } else if (res.cancel) {
+      }
+    },
   });
 };
 
