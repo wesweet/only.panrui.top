@@ -8,3 +8,17 @@ uni-page-body,
   margin: 0;
   overflow: hidden;
 }
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.scroll-view-box {
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 60rpx;
+  .scroll-view {
+    height: 100%;
+  }
+}

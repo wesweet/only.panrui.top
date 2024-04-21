@@ -2,7 +2,7 @@
  * @Description: 发现页
  * @Author: prui
  * @Date: 2024-04-17 13:49:41
- * @LastEditTime: 2024-04-18 10:05:30
+ * @LastEditTime: 2024-04-21 13:01:18
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -35,7 +35,7 @@
     </uni-section>
 
     <!-- 恋爱模块 -->
-    <uni-section title="我与小丁的那些事" type="line">
+    <uni-section title="小丁与小蝴蝶" type="line">
       <uni-card>
         <!-- 恋爱模块 -->
         <uni-grid
@@ -110,10 +110,15 @@ const list = reactive([
 
 const loveList = reactive([
   {
-    text: "时光机",
+    text: "平凡之路",
     url: "/static/dhphoto.png",
     page: "/pages/dhphoto/dhphoto",
     secret: 1111,
+  },
+  {
+    text: "时光机",
+    url: "/static/time.png",
+    page: "/pages/dhphoto/time",
   },
   {
     text: "照片墙",

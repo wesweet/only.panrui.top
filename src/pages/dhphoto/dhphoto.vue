@@ -5,12 +5,17 @@
       left-icon="left"
       shadow
       dark
-      title="时光机"
+      title="平凡之路"
       @clickLeft="back"
     />
     <view class="wander-list">
       <view class="scroll-view-box">
-        <scroll-view class="scroll-view" scroll-y="true" @scrolltolower="handScrolltolower" @scrolltoupper="handScrolltoupper">
+        <scroll-view
+          class="scroll-view"
+          scroll-y="true"
+          @scrolltolower="handScrolltolower"
+          @scrolltoupper="handScrolltoupper"
+        >
           <template v-for="(item, index) in wanderList">
             <uni-section
               :title="item.title + '(' + item.date + ')'"
@@ -57,7 +62,7 @@ import { appApi } from "@/api/app";
 import { onPullDownRefresh, onReachBottom } from "@dcloudio/uni-app";
 
 const back = () => {
-  uni.navigateBack();
+  uni.switchTab({ url: "/pages/tabPage/find" });
 };
 
 const onClick = (id: string) => {
@@ -132,14 +137,14 @@ const handScrolltolower = () => {
   }
   pagination.page++;
   getWanderList();
-}
+};
 
 const handScrolltoupper = () => {
-	pagination.page = 1;
-	wanderList.value = [];
-	getWanderList();
-	uni.stopPullDownRefresh();
-}
+  pagination.page = 1;
+  wanderList.value = [];
+  getWanderList();
+  uni.stopPullDownRefresh();
+};
 
 // 定义页面下拉刷新方法
 onPullDownRefresh(() => {
