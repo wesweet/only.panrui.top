@@ -1,0 +1,1 @@
+import{o as s,b as a,w as r,d as t,h as e}from"./index-0d80777a.js";import{_ as o}from"./_plugin-vue_export-helper.1b428a4d.js";const n=o({},[["render",function(o,n){const _=e;return s(),a(_,{class:"status_bar"},{default:r((()=>[t(" 这里是状态栏 ")])),_:1})}],["__scopeId","data-v-f6f1b6f2"]]);export{n as _};
