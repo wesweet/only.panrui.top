@@ -2,7 +2,7 @@
  * @Description: 发现页
  * @Author: prui
  * @Date: 2024-04-17 13:49:41
- * @LastEditTime: 2024-04-21 13:01:18
+ * @LastEditTime: 2024-05-06 11:00:30
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -175,7 +175,7 @@ const change = (index: number, type: string) => {
   }
   uni.showModal({
     title: "校验",
-    content: "请输入密钥进入",
+    content: "",
     editable: true,
     success: function (res) {
       if (res.confirm) {

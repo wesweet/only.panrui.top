@@ -2,7 +2,7 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-12-04 23:13:54
+ * @LastEditTime: 2024-05-06 10:58:53
  * @LastEditors: prui
  * 不忘初心,不负梦想
 -->
@@ -242,6 +242,8 @@ const onSubmit = () => {
 
 <style lang="scss" scoped>
 .form-box {
+  height: 100%;
+  overflow: auto;
   box-sizing: border-box;
   padding: 10rpx 40rpx 0;
   .grid-box {
