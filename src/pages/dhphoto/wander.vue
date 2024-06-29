@@ -2,50 +2,27 @@
  * @Description: 新增流浪日记
  * @Author: panrui
  * @Date: 2023-11-03 08:52:58
- * @LastEditTime: 2023-12-04 23:13:54
- * @LastEditors: prui
+ * @LastEditTime: 2024-06-29 21:00:06
+ * @LastEditors: panrui 1547177202@qq.com
  * 不忘初心,不负梦想
 -->
 <template>
   <view class="form-box">
-    <uni-forms
-      ref="valiForm"
-      :rules="rules"
-      :modelValue="baseFormData"
-      label-position="top"
-    >
+    <uni-forms ref="valiForm" :rules="rules" :modelValue="baseFormData" label-position="top">
       <uni-forms-item label="标题" name="title">
         <uni-easyinput v-model="baseFormData.title" placeholder="请输入标题" />
       </uni-forms-item>
       <uni-forms-item label="日期" name="date">
-        <uni-datetime-picker
-          type="date"
-          :clear-icon="false"
-          v-model="baseFormData.date"
-          @maskClick="maskClick"
-        />
+        <uni-datetime-picker type="date" :clear-icon="false" v-model="baseFormData.date" @maskClick="maskClick" />
       </uni-forms-item>
       <uni-forms-item label="图片" name="photo">
         <view class="grid-box">
-          <view
-            class="grid-box-item"
-            v-for="(item, index) in imageList"
-            :index="index"
-            :key="index"
-          >
-            <image
-              :src="item.uri"
-              mode="widthFix"
-              @click="previewImage(index)"
-            ></image>
-            <button size="mini" @click="deleteImage(index)">删除</button></view
-          >
+          <view class="grid-box-item" v-for="(item, index) in imageList" :index="index" :key="index">
+            <image :src="item.uri" mode="widthFix" @click="previewImage(index)"></image>
+            <button size="mini" @click="deleteImage(index)">删除</button>
+          </view>
         </view>
-        <view
-          v-show="imageList.length < 1"
-          class="file-picker__box"
-          @click="uploadFile"
-        >
+        <view v-show="imageList.length < 1" class="file-picker__box" @click="uploadFile">
           <view class="is-add">
             <view class="icon-add"></view>
             <view class="icon-add rotate"></view>
@@ -53,21 +30,10 @@
         </view>
       </uni-forms-item>
       <uni-forms-item label="内容" name="content">
-        <uni-easyinput
-          v-model="baseFormData.content"
-          placeholder="请输入内容"
-          type="textarea"
-          :rows="10"
-          maxlength="500"
-        />
+        <uni-easyinput v-model="baseFormData.content" placeholder="请输入内容" type="textarea" :rows="10" maxlength="500" />
       </uni-forms-item>
     </uni-forms>
-    <button
-      class="primary-btn"
-      @click="onSubmit"
-      :loading="loading"
-      :disabled="loading"
-    >
+    <button class="primary-btn" @click="onSubmit" :loading="loading" :disabled="loading">
       提交
     </button>
   </view>
@@ -112,7 +78,7 @@ const loading = ref(false);
 // 定义图片地址
 
 // 定义一个名为 maskClick 的箭头函数
-const maskClick = () => {};
+const maskClick = () => { };
 
 const id = ref("");
 // 判断上一个页面传递过来的id
@@ -242,15 +208,23 @@ const onSubmit = () => {
 
 <style lang="scss" scoped>
 .form-box {
+  height: 100%;
   box-sizing: border-box;
-  padding: 10rpx 40rpx 0;
+  overflow: auto;
+
+  .uni-forms {
+    padding: 0 40rpx 100rpx;
+  }
+
   .grid-box {
     display: flex;
     flex-wrap: wrap;
+
     .grid-box-item {
       width: 100%;
     }
   }
+
   .file-picker__box {
     display: flex;
     align-items: center;
@@ -261,15 +235,18 @@ const onSubmit = () => {
     border-style: solid;
     border-color: rgb(238, 238, 238);
     border-radius: 6rpx;
+
     .is-add {
       display: flex;
       align-items: center;
       justify-content: center;
+
       .icon-add {
         width: 50px;
         height: 5px;
         background-color: #f1f1f1;
         border-radius: 2px;
+
         &.rotate {
           position: absolute;
           -webkit-transform: rotate(90deg);
@@ -280,10 +257,14 @@ const onSubmit = () => {
   }
 
   .primary-btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #4263eb;
     color: aliceblue;
   }
 }
+
 image {
   width: 100%;
   height: 70%;
