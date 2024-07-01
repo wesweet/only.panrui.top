@@ -10,15 +10,15 @@
     {
       "path": "pages/tabBar/tool",
       "style": {
-        "enablePullDownRefresh": true,
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "工具",
+        "enablePullDownRefresh": false
       }
     },
     {
       "path": "pages/tabBar/user",
       "style": {
-        "enablePullDownRefresh": true,
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "我的",
+        "enablePullDownRefresh": false
       }
     }
     // {
@@ -178,41 +178,29 @@
     // }
   ],
   "tabBar": {
-    "color": "#ffffff",
-    "selectedColor": "#ff7500",
-    "borderStyle": "black",
-    "backgroundColor": "#161823",
+    // "color": "#ffffff",
+    // "selectedColor": "#ff7500",
+    // "borderStyle": "black",
+    // "backgroundColor": "#161823",
     "list": [
       {
-        "pagePath": "pages/tabBar/index"
-        // "iconPath": "static/home.png",
-        // "selectedIconPath": "static/home.png",
-        // "text": "首页"
+        "pagePath": "pages/tabBar/index",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home.png",
+        "text": "首页"
       },
       {
-        "pagePath": "pages/tabBar/tool"
-        // "iconPath": "static/home.png",
-        // "selectedIconPath": "static/home.png",
-        // "text": "首页"
+        "pagePath": "pages/tabBar/tool",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home.png",
+        "text": "唯一"
       },
       {
-        "pagePath": "pages/tabBar/user"
-        // "iconPath": "static/home.png",
-        // "selectedIconPath": "static/home.png",
-        // "text": "首页"
+        "pagePath": "pages/tabBar/user",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home.png",
+        "text": "我的"
       }
-      // {
-      //   "pagePath": "pages/tabPage/find",
-      //   "iconPath": "static/find.png",
-      //   "selectedIconPath": "static/find.png",
-      //   "text": "发现"
-      // },
-      // {
-      //   "pagePath": "pages/tabPage/user",
-      //   "iconPath": "static/user.png",
-      //   "selectedIconPath": "static/user.png",
-      //   "text": "个人中心"
-      // }
     ]
   },
   "globalStyle": {
