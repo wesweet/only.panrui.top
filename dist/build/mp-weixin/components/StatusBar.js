@@ -1,1 +1,0 @@
-"use strict";const e={name:"StatusBar",data:()=>({})};const t=require("../common/vendor.js")._export_sfc(e,[["render",function(e,t,n,r,o,a){return{}}],["__scopeId","data-v-1a71e663"]]);wx.createComponent(t);

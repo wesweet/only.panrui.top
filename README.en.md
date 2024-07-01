@@ -1,36 +1,21 @@
-# only.panrui.top
+<!--
+ * @Description: 项目文档说明
+ * @Author: panrui
+ * @Date: 2023-11-02 21:32:25
+ * @LastEditTime: 2024-04-30 17:30:43
+ * @LastEditors: prui
+ * 不忘初心,不负梦想
+-->
 
-#### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+# 项目技术栈
 
-#### Software Architecture
-Software architecture description
+- [x] vue3.0
+- [x] piana
 
-#### Installation
+# 提供功能
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+# 版本记录
 
-#### Instructions
+### 2.0.0 
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+##### 1. 项目使用v-view-plus 组件库进行重构

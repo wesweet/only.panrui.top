@@ -6,7 +6,7 @@
  * @LastEditors: panrui 1547177202@qq.com
  * 不忘初心,不负梦想
  */
-// export const HTTP_REQUEST_URL = `http://nest.panrui.top:8008/app`; // 线上环境
-export const HTTP_REQUEST_URL = `https://work.panrui.top:8443/h5`; // 线上环境
-// export const HTTP_REQUEST_URL = `http://192.168.31.83:9008/app`; // 开发环境
-// export const HTTP_REQUEST_URL = `http://localhost:9008/h5`; // 开发环境
+
+// 定义接口环境
+const env = 'h5';
+export const BaseUrl = `https://work.panrui.top:8443/${env}/}`

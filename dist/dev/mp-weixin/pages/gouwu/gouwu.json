@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "指南",
-  "enablePullDownRefresh": false,
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "uni-nav-bar": "../../uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar"
-  }
-}

@@ -1,3 +1,10 @@
+<!--
+ * @Author: panr99 1547177202@qq.com
+ * @Date: 2024-07-01 09:44:52
+ * @LastEditors: panr99 1547177202@qq.com
+ * @LastEditTime: 2024-07-01 15:58:38
+ * @FilePath: \only.panrui.top\src\App.vue
+-->
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
 onLaunch(() => {
@@ -22,5 +29,6 @@ onHide(() => {
 </script>
 
 <style lang="scss">
+@import "@/uni_modules/uview-plus/index.scss";
 @import "@/global.scss";
 </style>
