@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
 onLaunch(() => {
-//   console.log("App Launch");
   const app = getApp({ allowDefault: true });
   app.globalData = {
     geoUrl: "https://restapi.amap.com/v3", // 高德地图接口服务路径
@@ -24,7 +23,6 @@ onShow(() => {
   // }
 });
 onHide(() => {
-  // console.log("App Hide");
 });
 </script>
 
