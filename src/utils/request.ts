@@ -1,4 +1,3 @@
-import { HTTP_REQUEST_URL } from "@/config/app";
 const checkRequestValidity = (url: string) => {
   if (!url) {
     throw new Error("请求地址不能为空");
@@ -44,7 +43,7 @@ export const request = (url: string, options: any) => {
       mask: true,
     });
     uni.request({
-      url: HTTP_REQUEST_URL + url,
+      url: url,
       method: options.method || "GET",
       data: options.data,
       header: Object.assign(
@@ -56,12 +55,24 @@ export const request = (url: string, options: any) => {
       ),
       success: (response: any) => {
         // 对返回的结果进行统一处理
-        resolve(response.data);
+        const { statusCode, data, errMsg } = response;
+        if (statusCode == 200) {
+          resolve(data);
+        } else {
+          uni.showToast({
+            title: errMsg,
+            duration: 2000,
+            icon: "error",
+          });
+          reject(data);
+        }
       },
       fail: (error: any) => {
+        console.log(error);
         reject(error);
       },
       complete: () => {
+        console.log(123);
         // 关闭loading
         uni.hideLoading();
       },
@@ -114,7 +125,7 @@ export const request = (url: string, options: any) => {
 // ) {
 //   const ajaxdata = Object.assign({}, data); // 克隆data对象到ajaxdata对象
 //   const token = uni.getStorageSync("token"); // 获取token
-//   const Url = HTTP_REQUEST_URL; // 请求的URL地址
+//   const Url = BaseUrl; // 请求的URL地址
 //   let header = JSON.parse(JSON.stringify(HEADER)); // 复制HEADER对象到header对象
 //   if (params != undefined) {
 //     header = HEADERPARAMS; // 如果params不为空，则使用HEADERPARAMS对象
