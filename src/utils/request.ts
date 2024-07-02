@@ -37,7 +37,6 @@ export const request = (url: string, options: any) => {
   }
 
   return new Promise((resolve, reject) => {
-    // 添加loading
     uni.showLoading({
       title: "加载中",
       mask: true,
@@ -54,6 +53,7 @@ export const request = (url: string, options: any) => {
         options.header
       ),
       success: (response: any) => {
+        uni.hideLoading();
         // 对返回的结果进行统一处理
         const { statusCode, data, errMsg } = response;
         if (statusCode == 200) {
@@ -68,11 +68,10 @@ export const request = (url: string, options: any) => {
         }
       },
       fail: (error: any) => {
-        console.log(error);
+        uni.hideLoading();
         reject(error);
       },
       complete: () => {
-        console.log(123);
         // 关闭loading
         uni.hideLoading();
       },

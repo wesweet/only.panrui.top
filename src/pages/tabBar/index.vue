@@ -1,8 +1,8 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-02 11:38:37
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-07-02 22:08:15
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -115,16 +115,16 @@ const inputStyle = {};
 const keyword = ref(""); // 搜素关键词
 const tagList = ref([
   {
-    title: "相遇",
+    title: "旅行",
   },
   {
-    title: "相知",
+    title: "生活",
   },
   {
-    title: "相爱",
+    title: "纪念",
   },
   {
-    title: "相守",
+    title: "爱的碎片",
   },
   {
     title: "相伴",

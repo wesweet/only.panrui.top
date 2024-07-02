@@ -26,7 +26,16 @@
       "path": "pages/wander/index",
       "style": {
         "navigationBarTitleText": "时光机",
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 10
+      }
+    },
+    {
+      "path": "pages/wander/detail",
+      "style": {
+        "navigationBarTitleText": "时光机详情",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 10
       }
     }
     // {
