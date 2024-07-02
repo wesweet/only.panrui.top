@@ -139,7 +139,7 @@ const navList = ref([
   {
     title: "时光机",
     image: "/static/dhphoto.png",
-    page: "/pages/dhphoto/dhphoto",
+    page: "/pages/wander/index",
   },
   {
     title: "时光机",
