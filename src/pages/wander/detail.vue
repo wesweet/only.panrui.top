@@ -1,4 +1,5 @@
 <template>
+  <prstatus></prstatus>
   <view class="page-wrap">
     <view class="form-box">
       <up-form
@@ -21,80 +22,15 @@
           </view>
         </up-form-item>
         <up-form-item label="图片" prop="photo" borderBottom>
-          <up-upload
-            :fileList="imageList"
-            name="1"
-            :maxCount="10"
-          ></up-upload>
+          <up-upload :fileList="imageList" name="1" :maxCount="1" width="300" height="300" @delete="deleteImage"></up-upload>
+        </up-form-item>
+        <up-form-item label="内容" prop="content" borderBottom>
+          <up-textarea v-model="baseFormData.content" placeholder="请输入内容" ></up-textarea>
         </up-form-item>
       </up-form>
 
-      <uni-forms
-        ref="valiForm"
-        :rules="rules"
-        :modelValue="baseFormData"
-        label-position="top"
-      >
-        <!-- <uni-forms-item label="标题" name="title">
-          <uni-easyinput
-            v-model="baseFormData.title"
-            placeholder="请输入标题"
-          />
-        </uni-forms-item> -->
-        <!-- <uni-forms-item label="日期" name="date">
-          <uni-datetime-picker
-            type="date"
-            :clear-icon="false"
-            v-model="baseFormData.date"
-            @maskClick="maskClick"
-          />
-        </uni-forms-item> -->
-        <uni-forms-item label="图片" name="photo">
-          <view class="grid-box">
-            <view
-              class="grid-box-item"
-              v-for="(item, index) in imageList"
-              :index="index"
-              :key="index"
-            >
-              <image
-                :src="item.uri"
-                mode="widthFix"
-                @click="previewImage(index)"
-              ></image>
-              <!-- <button class="primary-btn" size="mini" @click="deleteImage(index)">删除</button> -->
-            </view>
-          </view>
-          <view
-            v-show="imageList.length < 1"
-            class="file-picker__box"
-            @click="uploadFile"
-          >
-            <view class="is-add">
-              <view class="icon-add"></view>
-              <view class="icon-add rotate"></view>
-            </view>
-          </view>
-        </uni-forms-item>
-        <uni-forms-item label="内容" name="content">
-          <uni-easyinput
-            v-model="baseFormData.content"
-            placeholder="请输入内容"
-            type="textarea"
-            :rows="10"
-            maxlength="500"
-          />
-        </uni-forms-item>
-      </uni-forms>
       <view class="btn-box">
-        <button
-          class="primary-btn"
-          @click="onSubmit"
-          :loading="loading"
-          :disabled="loading"
-        >
-          提交
-        </button>
+        <up-button class="primary-btn" text="提交"></up-button>
       </view>
     </view>
     <up-calendar
@@ -180,7 +116,7 @@ const getWanderDetail = () => {
           if (data.photo) {
             imageList.push({
               name: "image",
-              uri: data.photo,
+              url: data.photo,
             });
           }
         }
@@ -191,33 +127,27 @@ const getWanderDetail = () => {
     });
 };
 
-const imageList: Array<{ uri: string; name: string }> = reactive([]);
+const imageList: Array<{ url: string; name: string }> = reactive([]);
 
-const uploadFile = () => {
-  uni.chooseImage({
-    count: 1,
-    success(res: any) {
-      for (let i = 0; i < res.tempFilePaths.length; i++) {
-        const uniqueSuffix = `${Date.now()}${Math.round(Math.random() * 1e9)}`;
-        imageList.push({
-          name: uniqueSuffix,
-          uri: res.tempFilePaths[i],
-        });
-      }
-    },
-  });
+// const uploadFile = () => {
+//   uni.chooseImage({
+//     count: 1,
+//     success(res: any) {
+//       for (let i = 0; i < res.tempFilePaths.length; i++) {
+//         const uniqueSuffix = `${Date.now()}${Math.round(Math.random() * 1e9)}`;
+//         imageList.push({
+//           name: uniqueSuffix,
+//           url: res.tempFilePaths[i],
+//         });
+//       }
+//     },
+//   });
+// };
+// 删除图片
+const deleteImage = (event: { index: number; }) => {
+  imageList.splice(event.index, 1);
 };
 
-const previewImage = (index: number) => {
-  uni.previewImage({
-    current: imageList[index].uri,
-    urls: imageList.map((item) => item.uri),
-  });
-};
-
-const deleteImage = (index: number) => {
-  imageList.splice(index, 1);
-};
 
 const valiForm = ref<any>(null);
 
@@ -256,6 +186,9 @@ const onSubmit = () => {
 .page-wrap {
   .form-box {
     padding: 0 24px;
+    /* #ifdef H5 */
+    padding-top: 50px;
+    /* #endif */
 
     .up-form-item__content {
       display: flex;
@@ -263,19 +196,20 @@ const onSubmit = () => {
       height: 40px;
     }
 
-    ::v-deep .uni-forms-item__label {
+    ::v-deep .u-form-item__body__left__content__label {
       margin-bottom: 8px;
       color: #0a0a0a;
       font-size: 18px;
       font-weight: bold;
     }
-    ::v-deep .is-input-border {
+    ::v-deep .u-border {
       border: 1px solid #71717a;
     }
   }
 }
 .btn-box {
   width: 100px;
+  margin-top: 30px;
 }
 .primary-btn {
   background-color: #181818;

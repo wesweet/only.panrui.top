@@ -26,6 +26,7 @@
       "path": "pages/wander/index",
       "style": {
         "navigationBarTitleText": "时光机",
+        "navigationStyle": "custom",
         "enablePullDownRefresh": true,
         "onReachBottomDistance": 10
       }
@@ -34,6 +35,7 @@
       "path": "pages/wander/detail",
       "style": {
         "navigationBarTitleText": "时光机详情",
+        "navigationStyle": "custom",
         "enablePullDownRefresh": true,
         "onReachBottomDistance": 10
       }

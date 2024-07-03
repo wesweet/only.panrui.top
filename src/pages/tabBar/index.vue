@@ -1,8 +1,8 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-07-02 22:08:15
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-07-03 22:50:31
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -181,7 +181,10 @@ const navClick = (index: number) => {
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
   .page-wrap__top {
-    padding: 50px 24px 0;
+    padding: 0 24px 0;
+    /* #ifdef H5 */
+    padding-top: 50px;
+    /* #endif */
     ::v-deep .u-search__content {
       border-radius: 10px !important;
     }

@@ -6,6 +6,7 @@
  * @FilePath: \only.panrui.top\src\pages\wander\index.vue
 -->
 <template>
+  <prstatus></prstatus>
   <view class="page-wrap">
     <view class="album-list">
       <view class="album" v-for="(item, index) in wanderList" :key="index" @click="toDetail(item.id)">
@@ -130,14 +131,14 @@ const onPageScroll = (e: { scrollTop: number }) => {
 
 <style lang="scss" scoped>
 .page-wrap {
-  // height: 100%;
   overflow: auto;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
 }
 .album-list {
-  // height: 100%;
-  // overflow: auto;
   padding: 0 24px;
+  /* #ifdef H5 */
+  padding-top: 50px;
+  /* #endif */
   .scroll-view {
     height: 100%;
   }
