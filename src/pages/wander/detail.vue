@@ -1,67 +1,108 @@
 <template>
-  <view class="form-box">
-    <uni-forms
-      ref="valiForm"
-      :rules="rules"
-      :modelValue="baseFormData"
-      label-position="top"
-    >
-      <uni-forms-item label="标题" name="title">
-        <uni-easyinput v-model="baseFormData.title" placeholder="请输入标题" />
-      </uni-forms-item>
-      <uni-forms-item label="日期" name="date">
-        <uni-datetime-picker
-          type="date"
-          :clear-icon="false"
-          v-model="baseFormData.date"
-          @maskClick="maskClick"
-        />
-      </uni-forms-item>
-      <uni-forms-item label="图片" name="photo">
-        <view class="grid-box">
-          <view
-            class="grid-box-item"
-            v-for="(item, index) in imageList"
-            :index="index"
-            :key="index"
-          >
-            <image
-              :src="item.uri"
-              mode="widthFix"
-              @click="previewImage(index)"
-            ></image>
-            <button size="mini" @click="deleteImage(index)">删除</button>
-          </view>
-        </view>
-        <view
-          v-show="imageList.length < 1"
-          class="file-picker__box"
-          @click="uploadFile"
+  <view class="page-wrap">
+    <view class="form-box">
+      <up-form
+        :model="baseFormData"
+        :rules="rules"
+        ref="valiForm"
+        labelPosition="top"
+      >
+        <up-form-item label="标题" prop="title" borderBottom>
+          <up-input v-model="baseFormData.title"></up-input>
+        </up-form-item>
+        <up-form-item
+          label="日期"
+          prop="date"
+          borderBottom
+          @click="show = true"
         >
-          <view class="is-add">
-            <view class="icon-add"></view>
-            <view class="icon-add rotate"></view>
+          <view class="up-form-item__content" @click="show = true">
+            {{ baseFormData.date }}
           </view>
-        </view>
-      </uni-forms-item>
-      <uni-forms-item label="内容" name="content">
-        <uni-easyinput
-          v-model="baseFormData.content"
-          placeholder="请输入内容"
-          type="textarea"
-          :rows="10"
-          maxlength="500"
-        />
-      </uni-forms-item>
-    </uni-forms>
-    <button
-      class="primary-btn"
-      @click="onSubmit"
-      :loading="loading"
-      :disabled="loading"
-    >
-      提交
-    </button>
+        </up-form-item>
+        <up-form-item label="图片" prop="photo" borderBottom>
+          <up-upload
+            :fileList="imageList"
+            name="1"
+            :maxCount="10"
+          ></up-upload>
+        </up-form-item>
+      </up-form>
+
+      <uni-forms
+        ref="valiForm"
+        :rules="rules"
+        :modelValue="baseFormData"
+        label-position="top"
+      >
+        <!-- <uni-forms-item label="标题" name="title">
+          <uni-easyinput
+            v-model="baseFormData.title"
+            placeholder="请输入标题"
+          />
+        </uni-forms-item> -->
+        <!-- <uni-forms-item label="日期" name="date">
+          <uni-datetime-picker
+            type="date"
+            :clear-icon="false"
+            v-model="baseFormData.date"
+            @maskClick="maskClick"
+          />
+        </uni-forms-item> -->
+        <uni-forms-item label="图片" name="photo">
+          <view class="grid-box">
+            <view
+              class="grid-box-item"
+              v-for="(item, index) in imageList"
+              :index="index"
+              :key="index"
+            >
+              <image
+                :src="item.uri"
+                mode="widthFix"
+                @click="previewImage(index)"
+              ></image>
+              <!-- <button class="primary-btn" size="mini" @click="deleteImage(index)">删除</button> -->
+            </view>
+          </view>
+          <view
+            v-show="imageList.length < 1"
+            class="file-picker__box"
+            @click="uploadFile"
+          >
+            <view class="is-add">
+              <view class="icon-add"></view>
+              <view class="icon-add rotate"></view>
+            </view>
+          </view>
+        </uni-forms-item>
+        <uni-forms-item label="内容" name="content">
+          <uni-easyinput
+            v-model="baseFormData.content"
+            placeholder="请输入内容"
+            type="textarea"
+            :rows="10"
+            maxlength="500"
+          />
+        </uni-forms-item>
+      </uni-forms>
+      <view class="btn-box">
+        <button
+          class="primary-btn"
+          @click="onSubmit"
+          :loading="loading"
+          :disabled="loading"
+        >
+          提交
+        </button>
+      </view>
+    </view>
+    <up-calendar
+      :show="show"
+      :mode="mode"
+      @confirm="confirm"
+      @close="show = false"
+    ></up-calendar>
   </view>
 </template>
 
@@ -70,6 +111,13 @@ import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
 import { WANDER_API } from "@/api/wander";
+
+const show = ref(false);
+const mode = ref("single");
+const confirm = (e: any) => {
+  baseFormData.date = e[0];
+  show.value = false;
+};
 // 使用ts 定义表单数据类型接口
 interface BaseFormData {
   title: string;
@@ -203,3 +251,34 @@ const onSubmit = () => {
   });
 };
 </script>
+
+<style lang="scss" scoped>
+.page-wrap {
+  .form-box {
+    padding: 0 24px;
+
+    .up-form-item__content {
+      display: flex;
+      align-items: center;
+      height: 40px;
+    }
+
+    ::v-deep .uni-forms-item__label {
+      margin-bottom: 8px;
+      color: #0a0a0a;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    ::v-deep .is-input-border {
+      border: 1px solid #71717a;
+    }
+  }
+}
+.btn-box {
+  width: 100px;
+}
+.primary-btn {
+  background-color: #181818;
+  color: #fff;
+}
+</style>
