@@ -1,5 +1,6 @@
 <template>
   <prstatus></prstatus>
+  <up-navbar title="时光机" :autoBack="false" @leftClick="back"> </up-navbar>
   <view class="page-wrap">
     <view class="form-box">
       <up-form
@@ -66,6 +67,9 @@ import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
 import { WANDER_API } from "@/api/wander";
 
+/**
+ * 页面初始化时获取传入的id，并根据id加载游记详情
+ */
 const id = ref("");
 onLoad((options: any) => {
   if (options.id) {
@@ -74,6 +78,9 @@ onLoad((options: any) => {
   }
 });
 
+/**
+ * 获取游记详情
+ */
 const getWanderDetail = () => {
   request(WANDER_API.getWanderDetail, {
     method: "GET",
@@ -107,7 +114,13 @@ const getWanderDetail = () => {
     });
 };
 
+/**
+ * 控制加载状态的ref
+ */
 const loading = ref(false);
+/**
+ * 定义表单验证规则
+ */
 const rules = reactive({
   title: {
     type: "string",
@@ -128,10 +141,19 @@ const rules = reactive({
     trigger: ["blur", "change"],
   },
 });
+/**
+ * 图片列表
+ */
 const imageList: Array<{ url: string; name: string }> = reactive([]);
 
+/**
+ * 表单验证实例ref
+ */
 const valiForm = ref<any>(null);
 
+/**
+ * 提交表单
+ */
 const onSubmit = () => {
   valiForm.value.validate().then((res: any) => {
     if (!res) {
@@ -170,31 +192,56 @@ const onSubmit = () => {
   });
 };
 
+/**
+ * 日期选择器的回调，设置选中的日期
+ */
 const show = ref(false);
 const mode = ref("single");
 const confirm = (e: any) => {
   baseFormData.date = e[0];
   show.value = false;
 };
+
+/**
+ * 定义基础表单数据类型
+ */
 interface BaseFormData {
   title: string;
   date: string;
   content: string;
 }
+
+/**
+ * 基础表单数据
+ */
 const baseFormData: BaseFormData = reactive({
   title: "",
   date: "",
   content: "",
 });
 
+/**
+ * 图片上传回调，将上传的图片添加到列表
+ */
 const afterRead = (event: any) => {
   imageList.push({
     name: event.file.name,
     url: event.file.url,
   });
 };
+
+/**
+ * 删除图片
+ * @param event 删除操作携带的索引信息
+ */
 const deleteImage = (event: { index: number }) => {
   imageList.splice(event.index, 1);
+};
+
+const back = () => {
+  uni.redirectTo({
+    url: "/pages/wander/index",
+  });
 };
 </script>
 

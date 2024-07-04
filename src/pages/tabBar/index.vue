@@ -109,10 +109,16 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
+// 初始化一个布尔值，用于后续逻辑判断
 const flagTrue = true;
-// const flagFalse = false;
+
+// 初始化一个空对象，用于存放输入框的样式
 const inputStyle = {};
-const keyword = ref(""); // 搜素关键词
+
+// 使用ref创建一个响应式字符串，用于搜索关键字的输入
+const keyword = ref("");
+
+// 使用ref创建一个响应式数组，包含标签列表
 const tagList = ref([
   {
     title: "旅行",
@@ -130,37 +136,34 @@ const tagList = ref([
     title: "相伴",
   },
 ]);
+
+// 使用ref创建一个响应式整数，用于记录当前选中的标签索引
 const currentTagIndex = ref(0);
+
+/**
+ * 点击标签时触发的函数
+ * @param {number} index - 被点击标签的索引
+ */
 const tagClick = (index: number) => {
   currentTagIndex.value = index;
 };
 
+// 使用ref创建一个响应式数组，包含导航列表
 const navList = ref([
   {
     title: "时光机",
     image: "/static/dhphoto.png",
     page: "/pages/wander/index",
   },
-  {
-    title: "时光机",
-    image: "/static/dhphoto.png",
-  },
-  {
-    title: "时光机",
-    image: "/static/dhphoto.png",
-  },
-  {
-    title: "时光机",
-    image: "/static/dhphoto.png",
-  },
-  {
-    title: "时光机",
-    image: "/static/dhphoto.png",
-  },
 ]);
 
+/**
+ * 点击导航项时触发的函数
+ * @param {number} index - 被点击导航项的索引
+ */
 const navClick = (index: number) => {
   const info = navList.value[index];
+  // 如果导航项没有页面链接，则显示提示信息
   if (!info.page) {
     uni.showToast({
       title: "功能正在开发中",
@@ -169,6 +172,7 @@ const navClick = (index: number) => {
     });
     return;
   }
+  // 导航到对应的页面
   uni.navigateTo({
     url: info.page,
   });
