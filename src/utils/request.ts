@@ -4,17 +4,13 @@ const checkRequestValidity = (url: string) => {
   }
 };
 
-const autoLoginIfRequired = (options: any) => {
-  // 校验是否需要登录
-};
+const autoLoginIfRequired = (options: any) => {};
 
 const getToken = () => {
-  // 获取token
   return uni.getStorageSync("token");
 };
 
 export const request = (url: string, options: any) => {
-  // 构建 options
   options = Object.assign(
     {
       method: "GET",
@@ -24,13 +20,10 @@ export const request = (url: string, options: any) => {
     options
   );
 
-  // 检查请求是否有效
   checkRequestValidity(url);
 
-  // 如果需要登录，则尝试登录
   autoLoginIfRequired(options);
 
-  // 获取token
   const token = getToken();
   if (token) {
     options.header.Authorization = `Bearer ${token}`;
@@ -41,7 +34,7 @@ export const request = (url: string, options: any) => {
       title: "加载中",
       mask: true,
     });
-    uni.request({
+    let option: any = {
       url: url,
       method: options.method || "GET",
       data: options.data,
@@ -54,7 +47,6 @@ export const request = (url: string, options: any) => {
       ),
       success: (response: any) => {
         uni.hideLoading();
-        // 对返回的结果进行统一处理
         const { statusCode, data, errMsg } = response;
         if (statusCode == 200) {
           resolve(data);
@@ -72,10 +64,14 @@ export const request = (url: string, options: any) => {
         reject(error);
       },
       complete: () => {
-        // 关闭loading
         uni.hideLoading();
       },
-    });
+    };
+    // #ifdef APP-PLUS
+    option.sslVerify = false;
+    // option.enableHttp2 = true;
+    // #endif
+    uni.request(option);
   });
 };
 

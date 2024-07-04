@@ -2,7 +2,7 @@
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-07-02 20:07:21
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-04 12:43:02
+ * @LastEditTime: 2024-07-04 15:47:05
  * @FilePath: \only.panrui.top\src\pages\wander\index.vue
 -->
 <template>
@@ -27,7 +27,7 @@
             ></up-text>
             <up-text margin="5px 0 15px 0" :text="item.content"></up-text>
           </view>
-          <up-album :urls="item.urls" keyName="src2"></up-album>
+          <up-album :urls="item.urls" keyName="index" singleMode="aspectFit"></up-album>
           <up-text margin="10px 0 0 0" :text="item.date"></up-text>
         </view>
       </view>

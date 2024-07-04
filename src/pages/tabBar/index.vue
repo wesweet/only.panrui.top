@@ -1,12 +1,13 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
- * @LastEditors: panrui 1547177202@qq.com
- * @LastEditTime: 2024-07-03 22:50:31
+ * @LastEditors: panr99 1547177202@qq.com
+ * @LastEditTime: 2024-07-04 15:29:57
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
   <prstatus></prstatus>
+  <up-navbar title="" leftIcon="" :autoBack="false"> </up-navbar>
   <view class="page-wrap">
     <view class="page-wrap__top">
       <up-text
@@ -82,6 +83,48 @@
     </view>
 
     <view class="page-wrap__bottom">
+      <up-text
+        text="时光隧道"
+        color="#121212"
+        size="20px"
+        :block="flagTrue"
+        :bold="flagTrue"
+      ></up-text>
+
+      <view class="na-box">
+        <up-grid :border="false" col="3">
+          <up-grid-item
+            v-for="(listItem, listIndex) in navList"
+            :key="listIndex"
+            @click="navClick(listIndex)"
+          >
+            <up-icon :name="listItem.image" :size="22"></up-icon>
+            <text class="grid-text">{{ listItem.title }}</text>
+          </up-grid-item>
+        </up-grid>
+      </view>
+
+      <up-text
+        text="时光隧道"
+        color="#121212"
+        size="20px"
+        :block="flagTrue"
+        :bold="flagTrue"
+      ></up-text>
+
+      <view class="na-box">
+        <up-grid :border="false" col="3">
+          <up-grid-item
+            v-for="(listItem, listIndex) in navList"
+            :key="listIndex"
+            @click="navClick(listIndex)"
+          >
+            <up-icon :name="listItem.image" :size="22"></up-icon>
+            <text class="grid-text">{{ listItem.title }}</text>
+          </up-grid-item>
+        </up-grid>
+      </view>
+
       <up-text
         text="时光隧道"
         color="#121212"
@@ -181,14 +224,12 @@ const navClick = (index: number) => {
 
 <style lang="scss" scoped>
 .page-wrap {
-  height: 100%;
+  padding: 44px 0;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
   .page-wrap__top {
-    padding: 0 24px 0;
-    /* #ifdef H5 */
-    padding-top: 50px;
-    /* #endif */
+    box-sizing: border-box;
+    padding: 0 24px;
     ::v-deep .u-search__content {
       border-radius: 10px !important;
     }
@@ -197,7 +238,8 @@ const navClick = (index: number) => {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    margin: 30px 24px;
+    margin: 30px 0;
+    padding: 0 0 0 24px;
     overflow: auto;
     width: 100%;
     box-sizing: border-box;
@@ -214,16 +256,14 @@ const navClick = (index: number) => {
         color: #ffffff;
         border-radius: 20px;
       }
-      &:last-child {
-        margin-right: 30px;
-      }
     }
   }
   .card-box {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    margin: 30px 24px;
+    margin: 30px 0;
+    padding: 0 0 0 24px;
     overflow: auto;
     width: 100%;
     box-sizing: border-box;
@@ -246,7 +286,7 @@ const navClick = (index: number) => {
   .page-wrap__bottom {
     padding: 0 24px 0;
     .na-box {
-      margin-top: 20px;
+      margin: 20px 0;
       background-color: #fff;
       border-radius: 10px;
       box-sizing: border-box;
