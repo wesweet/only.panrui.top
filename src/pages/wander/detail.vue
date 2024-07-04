@@ -50,6 +50,7 @@
         ></up-button>
       </view>
     </view>
+
     <up-calendar
       :show="show"
       :mode="mode"
@@ -66,13 +67,9 @@ import { onLoad, onShow } from "@dcloudio/uni-app";
 import { WANDER_API } from "@/api/wander";
 
 const id = ref("");
-// 判断上一个页面传递过来的id
 onLoad((options: any) => {
-  // 页面显示时，判断是否有传递过来的id
   if (options.id) {
-    // 有传递过来的id，则将id赋值给baseFormData.id
     id.value = options.id;
-    // 调用接口获取数据
     getWanderDetail();
   }
 });
@@ -110,9 +107,7 @@ const getWanderDetail = () => {
     });
 };
 
-// 定义按钮状态
 const loading = ref(false);
-// 定义表单验证规则
 const rules = reactive({
   title: {
     type: "string",
@@ -133,6 +128,8 @@ const rules = reactive({
     trigger: ["blur", "change"],
   },
 });
+const imageList: Array<{ url: string; name: string }> = reactive([]);
+
 const valiForm = ref<any>(null);
 
 const onSubmit = () => {
@@ -143,8 +140,13 @@ const onSubmit = () => {
     loading.value = true;
     uni.uploadFile({
       url: WANDER_API.addWander,
-      files: imageList,
-      formData: Object.assign({},baseFormData, {
+      files: imageList.map((item) => {
+        return {
+          uri: item.url,
+          name: item.name,
+        };
+      }),
+      formData: Object.assign({}, baseFormData, {
         id: id.value,
       }),
       success(result: any) {
@@ -174,20 +176,16 @@ const confirm = (e: any) => {
   baseFormData.date = e[0];
   show.value = false;
 };
-// 使用ts 定义表单数据类型接口
 interface BaseFormData {
   title: string;
   date: string;
   content: string;
 }
-// 定义表单数据
 const baseFormData: BaseFormData = reactive({
   title: "",
   date: "",
   content: "",
 });
-
-const imageList: Array<{ url: string; name: string }> = reactive([]);
 
 const afterRead = (event: any) => {
   imageList.push({
@@ -195,7 +193,6 @@ const afterRead = (event: any) => {
     url: event.file.url,
   });
 };
-// 删除图片
 const deleteImage = (event: { index: number }) => {
   imageList.splice(event.index, 1);
 };
