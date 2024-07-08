@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-04 15:29:57
+ * @LastEditTime: 2024-07-08 14:12:20
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -44,7 +44,10 @@
     </view>
 
     <view class="card-box">
-      <view class="item" @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')">
+      <view
+        class="item"
+        @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')"
+      >
         <up-image
           class="image"
           width="100%"
@@ -57,7 +60,7 @@
 
     <view class="page-wrap__bottom">
       <up-text
-        text="时光隧道"
+        text="时光"
         color="#121212"
         size="20px"
         :block="flagTrue"
@@ -71,14 +74,14 @@
             :key="listIndex"
             @click="navClick(listIndex)"
           >
-            <up-icon :name="listItem.image" :size="22"></up-icon>
+            <!-- <up-icon :name="listItem.image" :size="22"></up-icon> -->
             <text class="grid-text">{{ listItem.title }}</text>
           </up-grid-item>
         </up-grid>
       </view>
 
       <up-text
-        text="时光隧道"
+        text="记忆"
         color="#121212"
         size="20px"
         :block="flagTrue"
@@ -92,28 +95,7 @@
             :key="listIndex"
             @click="navClick(listIndex)"
           >
-            <up-icon :name="listItem.image" :size="22"></up-icon>
-            <text class="grid-text">{{ listItem.title }}</text>
-          </up-grid-item>
-        </up-grid>
-      </view>
-
-      <up-text
-        text="时光隧道"
-        color="#121212"
-        size="20px"
-        :block="flagTrue"
-        :bold="flagTrue"
-      ></up-text>
-
-      <view class="na-box">
-        <up-grid :border="false" col="3">
-          <up-grid-item
-            v-for="(listItem, listIndex) in navList"
-            :key="listIndex"
-            @click="navClick(listIndex)"
-          >
-            <up-icon :name="listItem.image" :size="22"></up-icon>
+            <!-- <up-icon :name="listItem.image" :size="22"></up-icon> -->
             <text class="grid-text">{{ listItem.title }}</text>
           </up-grid-item>
         </up-grid>
@@ -167,7 +149,17 @@ const tagClick = (index: number) => {
 // 使用ref创建一个响应式数组，包含导航列表
 const navList = ref([
   {
-    title: "时光机",
+    title: "日常",
+    image: "/static/dhphoto.png",
+    page: "/pages/wander/index",
+  },
+  {
+    title: "吐槽",
+    image: "/static/dhphoto.png",
+    page: "/pages/wander/index",
+  },
+  {
+    title: "甜蜜",
     image: "/static/dhphoto.png",
     page: "/pages/wander/index",
   },
@@ -200,10 +192,9 @@ const navClick = (index: number) => {
  */
 const cardClick = (url: string) => {
   uni.navigateTo({
-    url: '/pages/webview/blogPhoto',
+    url: "/pages/webview/blogPhoto",
   });
 };
-
 </script>
 
 <style lang="scss" scoped>
@@ -236,7 +227,7 @@ const cardClick = (url: string) => {
       height: 40px;
       color: #aaaaaa;
       &.active {
-        background-color: #0069ef;
+        background-color: #121212;
         color: #ffffff;
         border-radius: 20px;
       }
@@ -254,7 +245,7 @@ const cardClick = (url: string) => {
     .item {
       flex-shrink: 0;
       width: 250px;
-      height: 232px;
+      height: 170px;
       padding: 10px;
       box-sizing: border-box;
       margin-right: 20px;
@@ -276,10 +267,10 @@ const cardClick = (url: string) => {
       box-sizing: border-box;
       padding: 15px;
       ::v-deep .u-grid-item {
-        height: 60px;
+        height: 40px;
         .grid-text {
           margin-top: 5px;
-          font-size: 12px;
+          font-size: 16px;
         }
       }
     }
