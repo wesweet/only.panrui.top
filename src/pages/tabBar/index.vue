@@ -44,40 +44,13 @@
     </view>
 
     <view class="card-box">
-      <view class="item">
+      <view class="item" @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')">
         <up-image
           class="image"
           width="100%"
           height="150"
           radius="20"
-          src="/static/fengjing1.jpg"
-        ></up-image>
-      </view>
-      <view class="item">
-        <up-image
-          class="image"
-          width="100%"
-          height="150"
-          radius="20"
-          src="/static/fengjing1.jpg"
-        ></up-image>
-      </view>
-      <view class="item">
-        <up-image
-          class="image"
-          width="100%"
-          height="150"
-          radius="20"
-          src="/static/fengjing1.jpg"
-        ></up-image>
-      </view>
-      <view class="item">
-        <up-image
-          class="image"
-          width="100%"
-          height="150"
-          radius="20"
-          src="/static/fengjing1.jpg"
+          src="https://static.panrui.top/images/blog/gallery/file-169959676574915050522.jpg"
         ></up-image>
       </view>
     </view>
@@ -220,6 +193,17 @@ const navClick = (index: number) => {
     url: info.page,
   });
 };
+
+/**
+ * 点击卡片时触发的函数
+ * @param {string} url - 被点击卡片的链接
+ */
+const cardClick = (url: string) => {
+  uni.navigateTo({
+    url: '/pages/webview/blogPhoto',
+  });
+};
+
 </script>
 
 <style lang="scss" scoped>

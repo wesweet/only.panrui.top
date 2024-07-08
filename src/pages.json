@@ -39,7 +39,15 @@
         "enablePullDownRefresh": true,
         "onReachBottomDistance": 10
       }
-    }
+    },
+    {
+      "path": "pages/webview/blogPhoto",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
     // {
     //   "path": "pages/novel/index",
     //   "style": {
@@ -101,14 +109,6 @@
     // },
     // {
     //   "path": "pages/webview/wendang",
-    //   "style": {
-    //     "navigationBarTitleText": "",
-    //     "enablePullDownRefresh": false,
-    // "navigationStyle": "custom"
-    //   }
-    // },
-    // {
-    //   "path": "pages/webview/photo",
     //   "style": {
     //     "navigationBarTitleText": "",
     //     "enablePullDownRefresh": false,
