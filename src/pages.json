@@ -19,6 +19,7 @@
       "path": "pages/tabBar/user",
       "style": {
         "navigationBarTitleText": "我的",
+        "navigationStyle": "custom",
         "enablePullDownRefresh": false
       }
     },
