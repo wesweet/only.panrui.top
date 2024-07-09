@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from "vue";
+import { ref, computed, defineProps, defineEmits } from "vue";
 // 接受props
 const props = defineProps({
   bgColor: {

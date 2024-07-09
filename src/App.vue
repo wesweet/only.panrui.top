@@ -2,31 +2,25 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 09:44:52
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-01 15:58:38
+ * @LastEditTime: 2024-07-09 10:57:10
  * @FilePath: \only.panrui.top\src\App.vue
 -->
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
+import { GEO_URL, MAP_KEY, METRO_KEY } from "@/config/app";
 onLaunch(() => {
   const app = getApp({ allowDefault: true });
   app.globalData = {
-    geoUrl: "https://restapi.amap.com/v3", // 高德地图接口服务路径
-    key: "eef520430048905703a89eef94f73d23", // 高德地图web_key
-    metrokey: "2676091421668dc3a8b7534e5cc3b502", //高德地铁 key
+    geoUrl: GEO_URL,
+    key: MAP_KEY,
+    metrokey: METRO_KEY,
   };
 });
-onShow(() => {
-  // console.log("App Show");
-  // 判断本地缓存是否存在token: 不存在则跳转到登录页
-  // if (!uni.getStorageSync("token")) {
-  //   uni.redirectTo({ url: "/pages/login/login" });
-  // }
-});
-onHide(() => {
-});
+onShow(() => {});
+onHide(() => {});
 </script>
 
 <style lang="scss">
 @import "@/uni_modules/uview-plus/index.scss";
-@import "@/global.scss";
+@import "@/static/css/iconfont.css";
 </style>

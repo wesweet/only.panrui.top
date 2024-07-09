@@ -1,6 +1,14 @@
 {
   "pages": [
     {
+      "path": "pages/start/index",
+      "style": {
+        "navigationBarTitleText": "启动页",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
       "path": "pages/tabBar/index",
       "style": {
         "navigationBarTitleText": "首页",
