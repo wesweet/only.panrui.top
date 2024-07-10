@@ -23,7 +23,7 @@ const login = () => {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url(@/static/images/start.png);
+  background-image: url("https://static.panrui.top/images/only/start.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

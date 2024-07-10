@@ -13,7 +13,7 @@
       <view class="album" v-for="(item, index) in wanderList" :key="index">
         <view class="album__avatar" @click="toDetail(item.id)">
           <image
-            src="/static/login.png"
+            src="/static/images/login.png"
             style="width: 24px; height: 24px"
           ></image>
         </view>
@@ -52,41 +52,41 @@ import {
 
 // 在应用显示时检查密码，如果正确则加载漫游列表
 onShow(() => {
-  const wanderPassword = uni.getStorageSync("wanderPassword");
-  if (!wanderPassword) {
-    uni.showModal({
-      title: "校验",
-      content: "请输入密钥进入",
-      editable: true,
-      success: function (res: any) {
-        if (res.confirm) {
-          if (res.content == 1111) {
-            uni.setStorageSync("wanderPassword", 1111);
-            getWanderList();
-          } else {
-            uni.showToast({
-              title: "密码错误",
-              duration: 2000,
-              icon: "error",
-              complete: () => {
-                uni.switchTab({
-                  url: "/pages/tabBar/index",
-                });
-              },
-            });
-          }
-        } else if (res.cancel) {
-          uni.switchTab({
-            url: "/pages/tabBar/index",
-          });
-        }
-      },
-    });
-    return;
-  }
-  if (wanderPassword === 1111 && total.value == 0) {
-    getWanderList();
-  }
+  // const wanderPassword = uni.getStorageSync("wanderPassword");
+  // if (!wanderPassword) {
+  //   uni.showModal({
+  //     title: "校验",
+  //     content: "请输入密钥进入",
+  //     editable: true,
+  //     success: function (res: any) {
+  //       if (res.confirm) {
+  //         if (res.content == 1111) {
+  //           uni.setStorageSync("wanderPassword", 1111);
+  //           getWanderList();
+  //         } else {
+  //           uni.showToast({
+  //             title: "密码错误",
+  //             duration: 2000,
+  //             icon: "error",
+  //             complete: () => {
+  //               uni.switchTab({
+  //                 url: "/pages/tabBar/index",
+  //               });
+  //             },
+  //           });
+  //         }
+  //       } else if (res.cancel) {
+  //         uni.switchTab({
+  //           url: "/pages/tabBar/index",
+  //         });
+  //       }
+  //     },
+  //   });
+  //   return;
+  // }
+  // if (wanderPassword === 1111 && total.value == 0) {
+  // }
+  getWanderList();
 });
 
 // 定义分页参数

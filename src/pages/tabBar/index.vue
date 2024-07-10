@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-08 14:12:20
+ * @LastEditTime: 2024-07-10 13:18:28
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -21,13 +21,14 @@
       <up-search
         style="margin-top: 30px"
         :inputStyle="inputStyle"
-        placeholder="搜索你想去的地方"
+        placeholder="你知道我想去的地方"
         shape="square"
         :show-action="false"
         height="48"
         borderColor="#E7EAF0"
         bgColor="#FFFFFF"
         v-model="keyword"
+        @change="search"
       ></up-search>
     </view>
 
@@ -43,7 +44,7 @@
       </view>
     </view>
 
-    <view class="card-box">
+    <view class="card-box" v-if="currentTagIndex == 0">
       <view
         class="item"
         @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')"
@@ -58,7 +59,7 @@
       </view>
     </view>
 
-    <view class="page-wrap__bottom">
+    <!-- <view class="page-wrap__bottom">
       <up-text
         text="时光"
         color="#121212"
@@ -74,33 +75,11 @@
             :key="listIndex"
             @click="navClick(listIndex)"
           >
-            <!-- <up-icon :name="listItem.image" :size="22"></up-icon> -->
             <text class="grid-text">{{ listItem.title }}</text>
           </up-grid-item>
         </up-grid>
       </view>
-
-      <up-text
-        text="记忆"
-        color="#121212"
-        size="20px"
-        :block="flagTrue"
-        :bold="flagTrue"
-      ></up-text>
-
-      <view class="na-box">
-        <up-grid :border="false" col="3">
-          <up-grid-item
-            v-for="(listItem, listIndex) in navList"
-            :key="listIndex"
-            @click="navClick(listIndex)"
-          >
-            <!-- <up-icon :name="listItem.image" :size="22"></up-icon> -->
-            <text class="grid-text">{{ listItem.title }}</text>
-          </up-grid-item>
-        </up-grid>
-      </view>
-    </view>
+    </view> -->
   </view>
 </template>
 
@@ -119,16 +98,16 @@ const keyword = ref("");
 // 使用ref创建一个响应式数组，包含标签列表
 const tagList = ref([
   {
-    title: "旅行",
+    title: "相遇",
   },
   {
-    title: "生活",
+    title: "相识",
   },
   {
-    title: "纪念",
+    title: "相知",
   },
   {
-    title: "爱的碎片",
+    title: "相爱",
   },
   {
     title: "相伴",
@@ -153,16 +132,16 @@ const navList = ref([
     image: "/static/dhphoto.png",
     page: "/pages/wander/index",
   },
-  {
-    title: "吐槽",
-    image: "/static/dhphoto.png",
-    page: "/pages/wander/index",
-  },
-  {
-    title: "甜蜜",
-    image: "/static/dhphoto.png",
-    page: "/pages/wander/index",
-  },
+  // {
+  //   title: "吐槽",
+  //   image: "/static/dhphoto.png",
+  //   page: "/pages/wander/index",
+  // },
+  // {
+  //   title: "甜蜜",
+  //   image: "/static/dhphoto.png",
+  //   page: "/pages/wander/index",
+  // },
 ]);
 
 /**
@@ -195,6 +174,14 @@ const cardClick = (url: string) => {
     url: "/pages/webview/blogPhoto",
   });
 };
+
+const search = () => {
+  if (["我爱丁晗", "我爱潘锐"].includes(keyword.value)) {
+    uni.navigateTo({
+      url: "/pages/wander/index",
+    });
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -202,6 +189,7 @@ const cardClick = (url: string) => {
   padding: 44px 0;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+  min-height: 100vh;
   .page-wrap__top {
     box-sizing: border-box;
     padding: 0 24px;

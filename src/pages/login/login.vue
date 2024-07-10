@@ -18,7 +18,7 @@
       <up-input
         placeholder="请输入账号"
         v-model="formData.username"
-        clearable="true"
+        :clearable="clearable"
       >
         <template #prefix>
           <span class="iconfont icon-mobile"></span>
@@ -28,7 +28,7 @@
         placeholder="请输入密码"
         type="password"
         v-model="formData.password"
-        clearable="true"
+        :clearable="clearable"
       >
         <template #prefix>
           <span class="iconfont icon-safetycertificate"></span>
@@ -57,8 +57,9 @@ import { request } from "@/utils/request";
 import { reactive, ref } from "vue";
 import { LOGIN_API } from "@/api/login";
 
-const logoImage = ref("/static/login.png");
+const logoImage = ref("/static/images/login.png");
 let isRotate = ref(false); // 是否加载loading
+const clearable = true
 // 定义接口
 interface IFormData {
   username: string;
