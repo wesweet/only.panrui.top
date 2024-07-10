@@ -10,8 +10,11 @@
 <script lang="ts" setup>
 // 跳转登录页面
 const login = () => {
-  uni.navigateTo({
-    url: "/pages/login/login",
+  // uni.navigateTo({
+  //   url: "/pages/login/login",
+  // });
+  uni.switchTab({
+    url: "/pages/tabBar/index",
   });
 };
 </script>

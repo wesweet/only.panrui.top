@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-10 13:18:28
+ * @LastEditTime: 2024-07-10 14:25:44
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -57,11 +57,36 @@
           src="https://static.panrui.top/images/blog/gallery/file-169959676574915050522.jpg"
         ></up-image>
       </view>
+      <view
+        class="item"
+        @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')"
+      >
+        <up-image
+          class="image"
+          width="100%"
+          height="150"
+          radius="20"
+          src="https://static.panrui.top/images/blog/gallery/file-1699623187090149144654.jpg"
+        ></up-image>
+      </view>
+      <view
+        class="item"
+        @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')"
+      >
+        <up-image
+          class="image"
+          width="100%"
+          height="150"
+          radius="20"
+          src="https://static.panrui.top/images/blog/gallery/1702043226886556360593.jpg"
+        ></up-image>
+      </view>
     </view>
 
-    <!-- <view class="page-wrap__bottom">
+    <!-- #ifdef APP-PLUS -->
+    <view class="page-wrap__bottom">
       <up-text
-        text="时光"
+        text="潘潘的工具箱"
         color="#121212"
         size="20px"
         :block="flagTrue"
@@ -79,7 +104,8 @@
           </up-grid-item>
         </up-grid>
       </view>
-    </view> -->
+    </view>
+    <!-- #endif -->
   </view>
 </template>
 
@@ -128,9 +154,9 @@ const tagClick = (index: number) => {
 // 使用ref创建一个响应式数组，包含导航列表
 const navList = ref([
   {
-    title: "日常",
+    title: "文档",
     image: "/static/dhphoto.png",
-    page: "/pages/wander/index",
+    page: "/pages/webview/wendang",
   },
   // {
   //   title: "吐槽",
@@ -185,11 +211,16 @@ const search = () => {
 </script>
 
 <style lang="scss" scoped>
+body,
+uni-page-body {
+  height: 100%;
+}
 .page-wrap {
   padding: 44px 0;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
-  min-height: 100vh;
+  min-height: 100%;
+  box-sizing: border-box;
   .page-wrap__top {
     box-sizing: border-box;
     padding: 0 24px;

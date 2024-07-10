@@ -27,7 +27,11 @@
             ></up-text>
             <up-text margin="5px 0 15px 0" :text="item.content"></up-text>
           </view>
-          <up-album :urls="item.urls" keyName="index" singleMode="aspectFit"></up-album>
+          <up-album
+            :urls="item.urls"
+            keyName="index"
+            singleMode="aspectFit"
+          ></up-album>
           <up-text margin="10px 0 0 0" :text="item.date"></up-text>
         </view>
       </view>
@@ -86,7 +90,9 @@ onShow(() => {
   // }
   // if (wanderPassword === 1111 && total.value == 0) {
   // }
-  getWanderList();
+  if (total.value == 0) {
+    getWanderList();
+  }
 });
 
 // 定义分页参数

@@ -256,7 +256,12 @@ const back = () => {
     .up-form-item__content {
       display: flex;
       align-items: center;
-      height: 40px;
+      height: 34px;
+      width: 100%;
+      border: 1px solid #dadbde;
+      border-radius: 5px;
+      padding: 6px;
+      box-sizing: border-box;
     }
 
     ::v-deep .u-form-item__body__left__content__label {

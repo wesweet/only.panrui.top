@@ -20,7 +20,7 @@
         <up-text
           text="初心不負"
           align="center"
-          bold="true"
+          :bold="bold"
           color="#020202"
           size="28"
         ></up-text>
@@ -33,7 +33,7 @@
           text="0"
           align="center"
           color="#121212"
-          bold="true"
+          :bold="bold"
           size="22"
         ></up-text>
         <up-text text="收藏" align="center" color="#606060" size="14"></up-text>
@@ -43,7 +43,7 @@
           text="0"
           align="center"
           color="#121212"
-          bold="true"
+          :bold="bold"
           size="22"
         ></up-text>
         <up-text
@@ -58,7 +58,7 @@
           text="0"
           align="center"
           color="#121212"
-          bold="true"
+          :bold="bold"
           size="22"
         ></up-text>
         <up-text text="下载" align="center" color="#606060" size="14"></up-text>
@@ -68,7 +68,9 @@
   </view>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const bold = true;
+</script>
 
 <style lang="scss" scoped>
 .page-wrap {
