@@ -111,12 +111,25 @@ const search = () => {
   });
 };
 const songInfo: any = ref({});
+
+// 使用innerAudioContext 播放歌曲
+let innerAudioContext: any = null;
 const getMusic = (n: any) => {
   const info: any = channelList.find(
     (item: any) => item.value == channel.value
   );
   info.params.gm = keyword.value;
   info.params.n = n;
+  if (innerAudioContext) {
+    try {
+      console.log(innerAudioContext);
+      innerAudioContext.pause();
+      innerAudioContext.destroy();
+      innerAudioContext = null;
+    } catch (e) {
+      //TODO handle the exception
+    }
+  }
   songInfo.value = {};
   uni.request({
     url: info.api_url,
@@ -133,19 +146,9 @@ const getMusic = (n: any) => {
   });
 };
 
-// 使用innerAudioContext 播放歌曲
-let innerAudioContext: any = null;
 const paused = ref(true);
 const play = () => {
-  if (innerAudioContext) {
-    try {
-      innerAudioContext.pause();
-      innerAudioContext.destroy();
-      innerAudioContext = null;
-    } catch (e) {
-      //TODO handle the exception
-    }
-  }
+  paused.value = true;
   innerAudioContext = uni.createInnerAudioContext();
   // innerAudioContext.autoplay = true;
   innerAudioContext.src = songInfo.value.music_url;
@@ -158,7 +161,7 @@ const play = () => {
     paused.value = innerAudioContext.paused;
   });
   innerAudioContext.onError((res: any) => {
-    // alert("音频播放错误事件");
+    alert("音频播放错误事件");
   });
   innerAudioContext.onCanplay((res: any) => {
     songInfo.value.duration = formatTime(innerAudioContext.duration);
@@ -213,17 +216,6 @@ const channelList = [
       type: "json",
     },
   },
-  {
-    label: "网易云音乐",
-    value: 2,
-    api_url: "https://www.hhlqilongzhu.cn/api/dg_qqmusic.php",
-    params: {
-      gm: "",
-      n: "",
-      num: 60,
-      type: "json",
-    },
-  },
 ];
 const change = (value: any) => {
   title.value = channelList.find((item: any) => item.value == value)?.label;
@@ -247,11 +239,11 @@ uni-page-body {
   .page-wrap__top {
   }
   .u-dropdown {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .song-list {
     height: 40vh;
-    margin: 20px 0;
+    margin: 10px 0;
     border: 1px solid #e7eaf0;
     border-radius: 10px;
     overflow: auto;
@@ -284,7 +276,7 @@ uni-page-body {
     margin-top: 20px;
     .iconfont {
       padding: 0 10px;
-      font-size: 30px;
+      font-size: 40px;
     }
   }
 }
