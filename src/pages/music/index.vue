@@ -1,22 +1,7 @@
 <template>
-  <prstatus></prstatus>
   <up-navbar title="音乐播放器" :autoBack="false" @leftClick="back">
   </up-navbar>
   <view class="page-wrap">
-    <view class="page-wrap__top"> </view>
-    <up-search
-      style="margin-top: 30px"
-      :inputStyle="inputStyle"
-      placeholder="搜索歌曲名称或歌手"
-      shape="square"
-      :show-action="true"
-      actionText="搜索"
-      height="48"
-      borderColor="#E7EAF0"
-      bgColor="#FFFFFF"
-      v-model="keyword"
-      @custom="search"
-    ></up-search>
     <u-dropdown>
       <u-dropdown-item
         v-model="channel"
@@ -35,6 +20,20 @@
         :options="channelList"
       ></u-dropdown-item>
     </u-dropdown>
+    <up-search
+      style="margin-top: 30px"
+      :inputStyle="inputStyle"
+      placeholder="搜索歌曲名称或歌手"
+      shape="square"
+      :show-action="true"
+      actionText="搜索"
+      height="48"
+      borderColor="#E7EAF0"
+      bgColor="#FFFFFF"
+      v-model="keyword"
+      @custom="search"
+    ></up-search>
+
     <view class="song-list" v-if="songList.length">
       <view
         class="item"
@@ -154,6 +153,9 @@ const play = (type: boolean) => {
   paused.value = true;
   innerAudioContext = uni.createInnerAudioContext();
   innerAudioContext.autoplay = type;
+  // #ifdef APP-PLUS
+  innerAudioContext.autoplay = true;
+  // #endif
   innerAudioContext.src = songInfo.value.music_url;
   innerAudioContext.onPlay(() => {
     // alert("音频播放事件");
@@ -237,16 +239,11 @@ uni-page-body {
   height: 100%;
 }
 .page-wrap {
-  padding: 50px 24px 0;
+  padding: calc(var(--status-bar-height) + 50px) 24px 0;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
   min-height: 100%;
   box-sizing: border-box;
-  .page-wrap__top {
-  }
-  .u-dropdown {
-    margin-top: 10px;
-  }
   .song-list {
     height: 40vh;
     margin: 10px 0;
@@ -257,9 +254,12 @@ uni-page-body {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 40px;
-      padding: 4px 10px;
+      height: 50px;
+      padding: 4px 15px;
       box-sizing: border-box;
+      &:nth-of-type(2n + 1) {
+        background-color: #f7f7f7;
+      }
     }
   }
   .song-info {
