@@ -65,6 +65,14 @@
         "navigationStyle": "custom"
       }
     },
+    {
+      "path": "pages/music/index",
+      "style": {
+        "navigationBarTitleText": "音乐",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+    },
     // {
     //   "path": "pages/novel/index",
     //   "style": {
@@ -123,7 +131,7 @@
         "enablePullDownRefresh": false,
         "navigationStyle": "custom"
       }
-    },
+    }
     // {
     //   "path": "pages/gouwu/gouwu",
     //   "style": {

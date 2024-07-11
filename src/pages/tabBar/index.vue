@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-10 14:25:44
+ * @LastEditTime: 2024-07-11 09:51:01
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -202,10 +202,20 @@ const cardClick = (url: string) => {
 };
 
 const search = () => {
-  if (["我爱丁晗", "我爱潘锐"].includes(keyword.value)) {
-    uni.navigateTo({
-      url: "/pages/wander/index",
-    });
+  switch (keyword.value) {
+    case "我爱丁晗":
+    case "我爱潘潘":
+      uni.navigateTo({
+        url: "/pages/wander/index",
+      });
+      break;
+    case "音乐世界":
+      uni.navigateTo({
+        url: "/pages/music/index",
+      });
+      break;
+    default:
+      break;
   }
 };
 </script>
@@ -215,19 +225,23 @@ body,
 uni-page-body {
   height: 100%;
 }
+
 .page-wrap {
   padding: 44px 0;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
   min-height: 100%;
   box-sizing: border-box;
+
   .page-wrap__top {
     box-sizing: border-box;
     padding: 0 24px;
+
     ::v-deep .u-search__content {
       border-radius: 10px !important;
     }
   }
+
   .tag-box {
     display: flex;
     align-items: center;
@@ -237,6 +251,7 @@ uni-page-body {
     overflow: auto;
     width: 100%;
     box-sizing: border-box;
+
     .item {
       display: flex;
       align-items: center;
@@ -245,6 +260,7 @@ uni-page-body {
       width: 100px;
       height: 40px;
       color: #aaaaaa;
+
       &.active {
         background-color: #121212;
         color: #ffffff;
@@ -252,6 +268,7 @@ uni-page-body {
       }
     }
   }
+
   .card-box {
     display: flex;
     align-items: center;
@@ -261,6 +278,7 @@ uni-page-body {
     overflow: auto;
     width: 100%;
     box-sizing: border-box;
+
     .item {
       flex-shrink: 0;
       width: 250px;
@@ -271,22 +289,27 @@ uni-page-body {
       background-color: #ffffff;
       border-radius: 20px;
       box-shadow: 1px 1px 10px rgba($color: #ffffff, $alpha: 0.1);
+
       .image {
         width: 100%;
         border-radius: 20px;
       }
     }
   }
+
   .page-wrap__bottom {
     padding: 0 24px 0;
+
     .na-box {
       margin: 20px 0;
       background-color: #fff;
       border-radius: 10px;
       box-sizing: border-box;
       padding: 15px;
+
       ::v-deep .u-grid-item {
         height: 40px;
+
         .grid-text {
           margin-top: 5px;
           font-size: 16px;
