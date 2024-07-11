@@ -40,11 +40,11 @@
         class="item"
         v-for="(item, index) in songList"
         :key="index"
-        @click="getMusic(item.n)"
+        @click="getMusic(item.n, false)"
       >
         <up-text :text="item.n" class="id"></up-text>
         <up-text :text="item.song_title" lines="1"></up-text>
-        <up-text :text="item.song_singer" align="right"></up-text>
+        <up-text :text="item.song_singer" lines="1" align="right"></up-text>
       </view>
     </view>
     <view class="song-info" v-if="songInfo.music_url">
@@ -98,7 +98,9 @@ const search = () => {
     (item: any) => item.value == channel.value
   );
   info.params.gm = keyword.value;
+  info.params.n = "";
   songList.value = [];
+  songInfo.value = {};
   uni.request({
     url: info.api_url,
     data: info.params,
@@ -114,15 +116,16 @@ const songInfo: any = ref({});
 
 // 使用innerAudioContext 播放歌曲
 let innerAudioContext: any = null;
-const getMusic = (n: any) => {
+const currentN = ref(1);
+const getMusic = (n: any, type = false) => {
   const info: any = channelList.find(
     (item: any) => item.value == channel.value
   );
   info.params.gm = keyword.value;
   info.params.n = n;
+  currentN.value = n;
   if (innerAudioContext) {
     try {
-      console.log(innerAudioContext);
       innerAudioContext.pause();
       innerAudioContext.destroy();
       innerAudioContext = null;
@@ -140,17 +143,17 @@ const getMusic = (n: any) => {
         data.duration = 0;
         data.currentTime = 0;
         songInfo.value = data;
-        play();
+        play(type);
       }
     },
   });
 };
 
 const paused = ref(true);
-const play = () => {
+const play = (type: boolean) => {
   paused.value = true;
   innerAudioContext = uni.createInnerAudioContext();
-  // innerAudioContext.autoplay = true;
+  innerAudioContext.autoplay = type;
   innerAudioContext.src = songInfo.value.music_url;
   innerAudioContext.onPlay(() => {
     // alert("音频播放事件");
@@ -169,6 +172,9 @@ const play = () => {
   innerAudioContext.onTimeUpdate((res: any) => {
     songInfo.value.currentTime = formatTime(innerAudioContext.currentTime);
     songInfo.value.duration = formatTime(innerAudioContext.duration);
+  });
+  innerAudioContext.onEnded((res: any) => {
+    getMusic(currentN.value + 1, true);
   });
 };
 
