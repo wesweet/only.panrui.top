@@ -103,7 +103,6 @@ const login = () => {
     data: formData,
     method: "POST",
   }).then((res: any) => {
-    console.log(res);
     if (res.errorCode == 0) {
       uni.setStorageSync("token", res.data.access_token);
       uni.setStorageSync("userId", res.data.userId);
@@ -118,6 +117,12 @@ const login = () => {
     }
   });
 };
+
+if (uni.getStorageSync("token")) {
+  uni.switchTab({
+    url: "/pages/tabBar/index",
+  });
+}
 
 const back = () => {
   // 关闭当前页面返回上一个面

@@ -136,6 +136,7 @@ getTagList();
 // 获取旅行列表
 const travelList: any = ref([]);
 const getTravelList = (id: string | number) => {
+  travelList.value = [];
   request(TRAVEL_API.getTravelList, {
     method: "GET",
     data: {
@@ -152,6 +153,11 @@ const getTravelList = (id: string | number) => {
     }
     if (data && data.list && data.list.length > 0) {
       travelList.value = data.list;
+    } else {
+      uni.showToast({
+        title: "暂无内容",
+        duration: 2000,
+      });
     }
   });
 };
@@ -213,9 +219,13 @@ const navClick = (index: number) => {
  * @param {string} url - 被点击卡片的链接
  */
 const cardClick = (url: string) => {
-  uni.navigateTo({
-    url: "/pages/webview/blogPhoto",
+  uni.showToast({
+    title: "功能即将上线",
+    icon: "none",
   });
+  // uni.navigateTo({
+  //   url: "/pages/webview/blogPhoto",
+  // });
 };
 
 const search = () => {
