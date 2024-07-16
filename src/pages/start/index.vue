@@ -1,3 +1,11 @@
+<!--
+ * @Author: panrui 1547177202@qq.com
+ * @Date: 2024-07-10 19:41:41
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-07-16 22:10:12
+ * @FilePath: \only.panrui.top\src\pages\start\index.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <view class="page-wrap">
     <view class="text">打开唯一，发现美好</view>
@@ -10,12 +18,12 @@
 <script lang="ts" setup>
 // 跳转登录页面
 const login = () => {
-  // uni.navigateTo({
-  //   url: "/pages/login/login",
-  // });
-  uni.switchTab({
-    url: "/pages/tabBar/index",
+  uni.navigateTo({
+    url: "/pages/login/login",
   });
+  // uni.switchTab({
+  //   url: "/pages/tabBar/index",
+  // });
 };
 </script>
 

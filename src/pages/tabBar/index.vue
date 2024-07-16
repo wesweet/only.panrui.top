@@ -1,8 +1,8 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-11 09:51:01
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-07-16 23:01:06
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -36,49 +36,26 @@
       <view
         class="item"
         :class="{ active: index == currentTagIndex }"
-        @click="tagClick(index)"
         v-for="(item, index) in tagList"
+        @click="tagClick(index, item)"
         :key="index"
       >
-        {{ item.title }}
+        {{ item.name }}
       </view>
     </view>
 
-    <view class="card-box" v-if="currentTagIndex == 0">
+    <view class="card-box">
       <view
         class="item"
-        @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')"
+        v-for="(item, index) in travelList"
+        @click="cardClick(item)"
       >
         <up-image
           class="image"
           width="100%"
           height="150"
           radius="20"
-          src="https://static.panrui.top/images/blog/gallery/file-169959676574915050522.jpg"
-        ></up-image>
-      </view>
-      <view
-        class="item"
-        @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')"
-      >
-        <up-image
-          class="image"
-          width="100%"
-          height="150"
-          radius="20"
-          src="https://static.panrui.top/images/blog/gallery/file-1699623187090149144654.jpg"
-        ></up-image>
-      </view>
-      <view
-        class="item"
-        @click="cardClick('https://blog.panrui.top/box/gallery/firstMeet')"
-      >
-        <up-image
-          class="image"
-          width="100%"
-          height="150"
-          radius="20"
-          src="https://static.panrui.top/images/blog/gallery/1702043226886556360593.jpg"
+          :src="item.photos[0].url"
         ></up-image>
       </view>
     </view>
@@ -111,6 +88,9 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { request } from "@/utils/request";
+import { TAG_API } from "@/api/tag";
+import { TRAVEL_API } from "@/api/travel";
 
 // 初始化一个布尔值，用于后续逻辑判断
 const flagTrue = true;
@@ -122,23 +102,59 @@ const inputStyle = {};
 const keyword = ref("");
 
 // 使用ref创建一个响应式数组，包含标签列表
-const tagList = ref([
-  {
-    title: "相遇",
-  },
-  {
-    title: "相识",
-  },
-  {
-    title: "相知",
-  },
-  {
-    title: "相爱",
-  },
-  {
-    title: "相伴",
-  },
-]);
+const tagList: any = ref([]);
+
+// 获取标签列表
+const getTagList = () => {
+  request(TAG_API.getTagList, {
+    method: "GET",
+    data: {
+      useType: "唯一",
+    },
+  }).then((res: any) => {
+    const { errorCode, errorMessage, data } = res;
+    if (errorCode != 0) {
+      uni.showToast({
+        title: errorMessage,
+        duration: 2000,
+        icon: "error",
+      });
+      return;
+    }
+    data.sort((a: any, b: any) => {
+      return a.sort - b.sort;
+    });
+    if (data && data.length > 0) {
+      tagList.value = data;
+      getTravelList(data[0].id);
+    }
+  });
+};
+
+getTagList();
+
+// 获取旅行列表
+const travelList: any = ref([]);
+const getTravelList = (id: string | number) => {
+  request(TRAVEL_API.getTravelList, {
+    method: "GET",
+    data: {
+      tag: id,
+    },
+  }).then((res: any) => {
+    const { errorCode, errorMessage, data } = res;
+    if (errorCode != 0) {
+      uni.showToast({
+        title: errorMessage,
+        duration: 2000,
+        icon: "error",
+      });
+    }
+    if (data && data.list && data.list.length > 0) {
+      travelList.value = data.list;
+    }
+  });
+};
 
 // 使用ref创建一个响应式整数，用于记录当前选中的标签索引
 const currentTagIndex = ref(0);
@@ -147,8 +163,9 @@ const currentTagIndex = ref(0);
  * 点击标签时触发的函数
  * @param {number} index - 被点击标签的索引
  */
-const tagClick = (index: number) => {
+const tagClick = (index: number, item: any) => {
   currentTagIndex.value = index;
+  getTravelList(item.id);
 };
 
 // 使用ref创建一个响应式数组，包含导航列表

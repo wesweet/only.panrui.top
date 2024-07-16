@@ -73,54 +73,50 @@ const formData: IFormData = reactive({
 });
 
 const login = () => {
-  uni.switchTab({
-    url: "/pages/tabBar/index",
-  });
-  return;
-  // if (
-  //   !formData.username ||
-  //   formData.username.length < 3 ||
-  //   formData.username.length > 10
-  // ) {
-  //   uni.showToast({
-  //     title: "用户名长度在3-10之间",
-  //     icon: "none",
-  //     duration: 2000,
-  //   });
-  //   return;
-  // }
-  // if (
-  //   !formData.password ||
-  //   formData.password.length < 6 ||
-  //   formData.password.length > 20
-  // ) {
-  //   uni.showToast({
-  //     title: "密码长度在6-20之间",
-  //     icon: "none",
-  //     duration: 2000,
-  //   });
-  //   return;
-  // }
-  // isRotate.value = true;
+  if (
+    !formData.username ||
+    formData.username.length < 3 ||
+    formData.username.length > 10
+  ) {
+    uni.showToast({
+      title: "用户名长度在3-10之间",
+      icon: "none",
+      duration: 2000,
+    });
+    return;
+  }
+  if (
+    !formData.password ||
+    formData.password.length < 6 ||
+    formData.password.length > 20
+  ) {
+    uni.showToast({
+      title: "密码长度在6-20之间",
+      icon: "none",
+      duration: 2000,
+    });
+    return;
+  }
+  isRotate.value = true;
 
-  // request(LOGIN_API.login, {
-  //   data: formData,
-  //   method: "POST",
-  // }).then((res: any) => {
-  //   console.log(res);
-  //   if (res.errorCode == 0) {
-  //     uni.setStorageSync("token", res.data.access_token);
-  //     uni.setStorageSync("userId", res.data.userId);
-  //     uni.switchTab({
-  //       url: "/pages/tabBar/index",
-  //     });
-  //   } else {
-  //     uni.showToast({
-  //       title: res.errorMessage,
-  //       icon: "none",
-  //     });
-  //   }
-  // });
+  request(LOGIN_API.login, {
+    data: formData,
+    method: "POST",
+  }).then((res: any) => {
+    console.log(res);
+    if (res.errorCode == 0) {
+      uni.setStorageSync("token", res.data.access_token);
+      uni.setStorageSync("userId", res.data.userId);
+      uni.switchTab({
+        url: "/pages/tabBar/index",
+      });
+    } else {
+      uni.showToast({
+        title: res.errorMessage,
+        icon: "none",
+      });
+    }
+  });
 };
 
 const back = () => {
