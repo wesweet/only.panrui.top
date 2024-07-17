@@ -16,7 +16,7 @@
 //   // 获取用户信息
 //   getUserInfo: "/getUserInfo",
 //   // 上传流浪日记
-//   addWander: "/addWander",
+//   saveWander: "/saveWander",
 //   // 获取流浪日记列表
 //   getWanderList: "/getWanderList",
 //   // 获取流浪日记详情
@@ -24,7 +24,7 @@
 //   // 更新流浪日记
 //   updateWander: "/updateWander",
 //   // 上传流浪日记评论
-//   addWanderComment: "/addWanderComment",
+//   saveWanderComment: "/saveWanderComment",
 //   // 获取流浪日记评论列表
 //   getWanderCommentList: "/getWanderCommentList",
 //   // 获取流浪日记评论详情

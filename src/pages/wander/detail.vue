@@ -161,13 +161,15 @@ const onSubmit = () => {
     }
     loading.value = true;
     uni.uploadFile({
-      url: WANDER_API.addWander,
+      url: WANDER_API.saveWander,
       files: imageList.map((item) => {
         return {
           uri: item.url,
-          name: item.name,
         };
       }),
+      header: {
+        Authorization: `Bearer ${uni.getStorageSync("token")}`,
+      },
       formData: Object.assign({}, baseFormData, {
         id: id.value,
       }),
@@ -179,6 +181,18 @@ const onSubmit = () => {
             title: message,
             icon: "success",
             duration: 500,
+            success: () => {
+              if (!id.value) {
+                uni.navigateBack({
+                  delta: 1,
+                });
+              }
+            },
+          });
+        } else {
+          uni.showToast({
+            title: message,
+            icon: "none",
           });
         }
       },

@@ -118,11 +118,6 @@ const login = () => {
   });
 };
 
-if (uni.getStorageSync("token")) {
-  uni.switchTab({
-    url: "/pages/tabBar/index",
-  });
-}
 
 const back = () => {
   // 关闭当前页面返回上一个面

@@ -18,12 +18,15 @@
 <script lang="ts" setup>
 // 跳转登录页面
 const login = () => {
-  uni.navigateTo({
-    url: "/pages/login/login",
-  });
-  // uni.switchTab({
-  //   url: "/pages/tabBar/index",
-  // });
+  if (uni.getStorageSync("token")) {
+    uni.switchTab({
+      url: "/pages/tabBar/index",
+    });
+  } else {
+    uni.navigateTo({
+      url: "/pages/login/login",
+    });
+  }
 };
 </script>
 
