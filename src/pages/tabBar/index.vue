@@ -216,16 +216,16 @@ const navClick = (index: number) => {
 
 /**
  * 点击卡片时触发的函数
- * @param {string} url - 被点击卡片的链接
  */
-const cardClick = (url: string) => {
-  uni.showToast({
-    title: "功能即将上线",
-    icon: "none",
-  });
-  // uni.navigateTo({
-  //   url: "/pages/webview/blogPhoto",
+const cardClick = (item: any) => {
+  uni.setStorageSync("photos", item.photos);
+  // uni.showToast({
+  //   title: "功能即将上线",
+  //   icon: "none",
   // });
+  uni.navigateTo({
+    url: "/pages/travel/index",
+  });
 };
 
 const search = () => {

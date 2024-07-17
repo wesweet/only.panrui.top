@@ -50,6 +50,13 @@
       }
     },
     {
+      "path": "pages/travel/index",
+      "style": {
+        "navigationBarTitleText": "照片墙",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/webview/blogPhoto",
       "style": {
         "navigationBarTitleText": "",
