@@ -105,7 +105,7 @@ const login = () => {
   }).then((res: any) => {
     if (res.errorCode == 0) {
       uni.setStorageSync("token", res.data.access_token);
-      uni.setStorageSync("userId", res.data.userId);
+      uni.setStorageSync("userInfo", JSON.stringify(res.data.user));
       uni.switchTab({
         url: "/pages/tabBar/index",
       });

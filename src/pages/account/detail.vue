@@ -46,6 +46,7 @@
 import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
+import { ACCOUNT_API } from "@/api/account";
 /**
  * 定义基础表单数据类型
  */
@@ -113,6 +114,29 @@ const onSubmit = () => {
       return;
     }
     loading.value = true;
+    const userInfo = JSON.parse(uni.getStorageSync("userInfo"));
+    request(ACCOUNT_API.saveAccount, {
+      data: Object.assign({}, baseFormData, { userId: userInfo.id }),
+      method: "POST",
+    }).then((res: any) => {
+      const data = JSON.parse(res.data);
+      const { errorCode, message } = data;
+      if (errorCode == 0) {
+        uni.showToast({
+          title: message,
+          icon: "success",
+          duration: 500,
+          success: () => {
+            back();
+          },
+        });
+      } else {
+        uni.showToast({
+          title: message,
+          icon: "none",
+        });
+      }
+    });
   });
 };
 const back = () => {
