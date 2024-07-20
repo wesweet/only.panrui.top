@@ -241,6 +241,11 @@ const search = () => {
         url: "/pages/music/index",
       });
       break;
+    case "账号管理":
+      uni.navigateTo({
+        url: "/pages/account/index",
+      });
+      break;
     default:
       break;
   }

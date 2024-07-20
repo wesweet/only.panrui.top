@@ -48,7 +48,7 @@ export const request = (url: string, options: any) => {
       success: (response: any) => {
         uni.hideLoading();
         const { statusCode, data, errMsg } = response;
-        console.log("response", response);
+        // console.log("response", response);
         if (statusCode == 200) {
           resolve(data);
         } else if (statusCode == 401) {

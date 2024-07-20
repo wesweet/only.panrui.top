@@ -77,6 +77,15 @@
       "style": {
         "navigationBarTitleText": "账号管理",
         "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 10
+      }
+    },
+    {
+      "path": "pages/account/add",
+      "style": {
+        "navigationBarTitleText": "新增账号",
+        "navigationStyle": "custom",
         "enablePullDownRefresh": false
       }
     },
