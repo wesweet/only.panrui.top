@@ -99,6 +99,24 @@
       }
     },
     {
+      "path": "pages/website/index",
+      "style": {
+        "navigationBarTitleText": "网址管理",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 10
+      }
+    },
+    {
+      "path": "pages/website/detail",
+      "style": {
+        "navigationBarTitleText": "网址详情",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 10
+      }
+    },
+    {
       "path": "pages/webview/blogPhoto",
       "style": {
         "navigationBarTitleText": "",
