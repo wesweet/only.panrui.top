@@ -10,7 +10,7 @@
 # 项目技术栈
 
 - [x] vue3.0
-- [x] piana
+- [x] pinia
 - [x] vue-router4.0
 - [x] uniapp
 
