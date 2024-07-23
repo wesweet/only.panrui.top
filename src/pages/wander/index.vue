@@ -123,7 +123,7 @@ const getWanderList = () => {
       if (errorCode != 0) {
         uni.showToast({
           title: errorMessage,
-          duration: 2000,
+          duration: 500,
           icon: "error",
         });
         return;

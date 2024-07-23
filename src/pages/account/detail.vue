@@ -119,8 +119,7 @@ const onSubmit = () => {
       data: Object.assign({}, baseFormData, { userId: userInfo.id }),
       method: "POST",
     }).then((res: any) => {
-      const data = JSON.parse(res.data);
-      const { errorCode, message } = data;
+      const { errorCode, message, data } = res;
       if (errorCode == 0) {
         uni.showToast({
           title: message,
@@ -150,9 +149,7 @@ const back = () => {
 .page-wrap {
   .form-box {
     padding: 0 24px;
-    /* #ifdef H5 */
     padding-top: 50px;
-    /* #endif */
 
     .up-form-item__content {
       display: flex;
