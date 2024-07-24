@@ -1,8 +1,8 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
- * @LastEditors: panrui 1547177202@qq.com
- * @LastEditTime: 2024-07-16 23:01:06
+ * @LastEditors: panr99 1547177202@qq.com
+ * @LastEditTime: 2024-07-24 10:17:32
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -87,10 +87,26 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, computed, watch } from "vue";
 import { request } from "@/utils/request";
 import { TAG_API } from "@/api/tag";
 import { TRAVEL_API } from "@/api/travel";
+import { useTagStore } from "@/stores/tag";
+
+const tagStore = useTagStore();
+tagStore.getTagList();
+
+const tagList = computed(() => {
+  return tagStore.tags.filter((item: any) => {
+    return item.useType === "唯一";
+  });
+});
+
+watch(tagList, (newVal) => {
+  if (newVal.length) {
+    getTravelList(newVal[0].id);
+  }
+});
 
 // 初始化一个布尔值，用于后续逻辑判断
 const flagTrue = true;
@@ -100,38 +116,6 @@ const inputStyle = {};
 
 // 使用ref创建一个响应式字符串，用于搜索关键字的输入
 const keyword = ref("");
-
-// 使用ref创建一个响应式数组，包含标签列表
-const tagList: any = ref([]);
-
-// 获取标签列表
-const getTagList = () => {
-  request(TAG_API.getTagList, {
-    method: "GET",
-    data: {
-      useType: "唯一",
-    },
-  }).then((res: any) => {
-    const { errorCode, errorMessage, data } = res;
-    if (errorCode != 0) {
-      uni.showToast({
-        title: errorMessage,
-        duration: 2000,
-        icon: "error",
-      });
-      return;
-    }
-    data.sort((a: any, b: any) => {
-      return a.sort - b.sort;
-    });
-    if (data && data.length > 0) {
-      tagList.value = data;
-      getTravelList(data[0].id);
-    }
-  });
-};
-
-getTagList();
 
 // 获取旅行列表
 const travelList: any = ref([]);

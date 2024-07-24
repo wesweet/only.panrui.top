@@ -62,7 +62,6 @@ import { onLoad, onShow } from "@dcloudio/uni-app";
 import { useTagStore } from "@/stores/tag";
 
 const tagStore = useTagStore();
-console.log(tagStore);
 /**
  * 定义基础表单数据类型
  */

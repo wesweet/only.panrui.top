@@ -48,7 +48,7 @@ export const request = (url: string, options: any) => {
       success: (response: any) => {
         uni.hideLoading();
         const { statusCode, data, errMsg } = response;
-        // console.log("response", response);
+        console.log("response", response);
         if (statusCode == 200) {
           resolve(data);
         } else if (statusCode == 401) {
@@ -71,6 +71,11 @@ export const request = (url: string, options: any) => {
       },
       fail: (error: any) => {
         uni.hideLoading();
+        uni.showToast({
+          title: '请求失败',
+          duration: 200,
+          icon: 'none'
+        });
         reject(error);
       },
       complete: () => {

@@ -8,6 +8,8 @@
  */
 
 import { defineStore } from "pinia";
+import { request } from "@/utils/request";
+import { TAG_API } from "@/api/tag";
 
 export const useTagStore = defineStore("tag", {
   state: () => {
@@ -15,5 +17,19 @@ export const useTagStore = defineStore("tag", {
       tags: [],
     };
   },
-  actions: {},
+  actions: {
+    async getTagList() {
+      const res: any = await request(TAG_API.getTagList, {
+        method: "GET",
+        data: {
+          page: 1,
+          limit: 100,
+        },
+      });
+      const { errorCode, errorMessage, data } = res;
+      if (errorCode == 0) {
+        this.tags = data;
+      }
+    },
+  },
 });
