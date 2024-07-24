@@ -2,8 +2,8 @@
  * @Description:
  * @Author: panrui
  * @Date: 2023-05-25 15:26:42
- * @LastEditTime: 2024-07-16 22:28:24
- * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-07-24 10:43:47
+ * @LastEditors: panr99 1547177202@qq.com
  * 不忘初心,不负梦想
  */
 
@@ -19,7 +19,6 @@ env = "h5";
 env = "h5";
 // #endif
 
-console.log("当前环境：", env);
 export const NEST_API_URL = `https://work.panrui.top:8443/${env}`; // h5生产环境
 // export const NEST_API_URL = `https://app.panrui.top:8443/${env}`; // app生产环境
 // export const NEST_API_URL = `http://localhost:3000/${env}`; // 本地

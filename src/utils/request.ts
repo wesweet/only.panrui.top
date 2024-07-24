@@ -84,7 +84,7 @@ export const request = (url: string, options: any) => {
     };
     // #ifdef APP-PLUS
     option.sslVerify = false;
-    // option.enableHttp2 = true;
+    // option.firstIpv4 = true;
     // #endif
     uni.request(option);
   });

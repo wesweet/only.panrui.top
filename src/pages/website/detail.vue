@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-23 13:49:31
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-24 09:54:03
+ * @LastEditTime: 2024-07-24 10:53:36
  * @FilePath: \only.panrui.top\src\pages\website\detail.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -35,8 +35,10 @@
           <up-input v-model="baseFormData.chart"></up-input>
         </up-form-item>
         <up-form-item label="关联账号" prop="accountId" borderBottom>
+          <up-input v-model="baseFormData.accountId" disabled placeholder="请选择关联账号"></up-input>
         </up-form-item>
-        <up-form-item label="关联类别" prop="tagId" borderBottom>
+        <up-form-item label="所属类别" prop="tagId" borderBottom @click="tagShow = true">
+          <up-input v-model="baseFormData.tagId" disabled placeholder="请选择所属类别"></up-input>
         </up-form-item>
       </up-form>
 
@@ -51,17 +53,23 @@
       </view>
     </view>
 
-    <up-picker :show="tagShow" :columns="tagColumns" keyName="name"></up-picker>
+    <up-picker :show="tagShow" :columns="tagList" keyName="name" @cancel="tagShow = false" @confirm="confirmTag" @change="changeTag"></up-picker>
   </view>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
 import { useTagStore } from "@/stores/tag";
 
 const tagStore = useTagStore();
+const tagList = computed(() => {
+  return tagStore.tags.filter((item: any) => {
+    return item.useType === "网址收藏";
+  });
+});
+console.log(tagList);
 /**
  * 定义基础表单数据类型
  */
@@ -134,7 +142,11 @@ const back = () => {
 
 const tagShow = ref(false);
 
-const tagColumns = ref([]);
+const confirmTag = (item: any) => {
+};
+
+const changeTag = (index: number) => {
+};
 </script>
 
 <style lang="scss" scoped>
