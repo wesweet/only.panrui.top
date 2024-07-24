@@ -2,7 +2,7 @@
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-07-02 20:07:21
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-04 15:47:05
+ * @LastEditTime: 2024-07-24 09:02:21
  * @FilePath: \only.panrui.top\src\pages\wander\index.vue
 -->
 <template>
@@ -193,11 +193,16 @@ const back = () => {
 
 <style lang="scss" scoped>
 .page-wrap {
-  overflow: auto;
-  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
-}
-.album-list {
+  /* #ifdef H5 */
+  padding: calc(var(--status-bar-height) + 50px) 24px 0;
+  /* #endif */
+  /* #ifdef APP-PLUS */
   padding: 50px 24px 0;
+  /* #endif */
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+  min-height: 100%;
+  box-sizing: border-box;
 }
 .album {
   @include flex;

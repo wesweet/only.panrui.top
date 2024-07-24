@@ -1,10 +1,10 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-18 17:15:31
- * @LastEditors: panrui 1547177202@qq.com
- * @LastEditTime: 2024-07-20 13:38:52
+ * @LastEditors: panr99 1547177202@qq.com
+ * @LastEditTime: 2024-07-24 09:43:49
  * @FilePath: \only.panrui.top\src\pages\account\index.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 账号管理列表界面
 -->
 
 <template>
@@ -12,7 +12,6 @@
   <up-navbar title="账号" :autoBack="false" @leftClick="back"> </up-navbar>
   <view class="page-wrap">
     <up-search
-      style="margin-top: 30px"
       :inputStyle="inputStyle"
       placeholder="请输入关键字"
       shape="square"
@@ -107,7 +106,12 @@ uni-page-body {
 .page-wrap {
   display: flex;
   flex-direction: column;
-  padding: calc(50px) 24px 0;
+  /* #ifdef H5 */
+  padding: calc(var(--status-bar-height) + 50px) 24px 0;
+  /* #endif */
+  /* #ifdef APP-PLUS */
+  padding: 50px 24px 0;
+  /* #endif */
   box-sizing: border-box;
   height: 100%;
   overflow: hidden;

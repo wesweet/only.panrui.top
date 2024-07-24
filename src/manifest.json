@@ -17,7 +17,7 @@
             "delay" : 0
         },
         "compatible" : {
-            "runtimeVersion" : "4.23", //可选，字符串类型，兼容的uni-app运行环境版本号，多个版本使用,分割
+            "runtimeVersion" : "4.24", //可选，字符串类型，兼容的uni-app运行环境版本号，多个版本使用,分割
             "compilerVersion" : "3.7.4"
         },
         /* 模块配置 */

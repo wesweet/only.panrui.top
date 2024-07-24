@@ -21,7 +21,7 @@
       <up-search
         style="margin-top: 30px"
         :inputStyle="inputStyle"
-        placeholder="你知道我想去的地方"
+        placeholder="搜索你想去的世界"
         shape="square"
         :show-action="false"
         height="48"
@@ -241,9 +241,14 @@ const search = () => {
         url: "/pages/music/index",
       });
       break;
-    case "账号管理":
+    case "账号世界":
       uni.navigateTo({
         url: "/pages/account/index",
+      });
+      break;
+    case "网站世界":
+      uni.navigateTo({
+        url: "/pages/website/index",
       });
       break;
     default:

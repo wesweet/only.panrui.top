@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-23 13:49:31
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-23 14:12:49
+ * @LastEditTime: 2024-07-24 09:54:03
  * @FilePath: \only.panrui.top\src\pages\website\detail.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -13,7 +13,8 @@
   <view class="page-wrap">
     <view class="form-box">
       <up-form
-        labelPosition="left"
+        labelPosition="top"
+        labelWidth="200"
         :model="baseFormData"
         :rules="rules"
         ref="valiForm"
@@ -21,20 +22,21 @@
         <up-form-item label="网站名称" prop="name" borderBottom>
           <up-input v-model="baseFormData.name"></up-input>
         </up-form-item>
-        <up-form-item label="网站地址" prop="account" borderBottom>
-          <up-input v-model="baseFormData.account"></up-input>
+        <up-form-item label="网站地址" prop="url" borderBottom>
+          <up-input v-model="baseFormData.url"></up-input>
         </up-form-item>
-        <up-form-item label="网站描述" prop="password" borderBottom>
-          <up-input v-model="baseFormData.password"></up-input>
+        <up-form-item label="网站描述" prop="desc" borderBottom>
+          <up-input v-model="baseFormData.desc"></up-input>
         </up-form-item>
-        <up-form-item label="网站关键字" prop="phone" borderBottom>
-          <up-textarea v-model="baseFormData.phone"></up-textarea>
+        <up-form-item label="网站关键字" prop="keyword" borderBottom>
+          <up-textarea v-model="baseFormData.keyword"></up-textarea>
         </up-form-item>
-        <up-form-item label="网站图标" prop="email" borderBottom>
-          <up-input v-model="baseFormData.email"></up-input>
+        <up-form-item label="网站图标" prop="chart" borderBottom>
+          <up-input v-model="baseFormData.chart"></up-input>
         </up-form-item>
-        <up-form-item label="备注" prop="remark" borderBottom>
-          <up-textarea v-model="baseFormData.remark"></up-textarea>
+        <up-form-item label="关联账号" prop="accountId" borderBottom>
+        </up-form-item>
+        <up-form-item label="关联类别" prop="tagId" borderBottom>
         </up-form-item>
       </up-form>
 
@@ -66,11 +68,12 @@ console.log(tagStore);
  */
 interface BaseFormData {
   name: string;
-  account: string;
-  password: string;
-  phone: string;
-  email: string;
-  remark: string;
+  url: string;
+  desc: string;
+  keyword: string;
+  chart: string;
+  accountId: number;
+  tagId: number;
 }
 
 /**
@@ -92,19 +95,13 @@ const rules = reactive({
   name: {
     type: "string",
     required: true,
-    message: "名称不能为空",
+    message: "网站名称不能为空",
     trigger: ["blur", "change"],
   },
-  account: {
+  url: {
     type: "string",
     required: true,
-    message: "账号不能为空",
-    trigger: ["blur", "change"],
-  },
-  password: {
-    type: "string",
-    required: true,
-    message: "密码不能为空",
+    message: "网站地址不能为空",
     trigger: ["blur", "change"],
   },
 });
@@ -143,12 +140,13 @@ const tagColumns = ref([]);
 
 <style lang="scss" scoped>
 .page-wrap {
+  /* #ifdef H5 */
+  padding: calc(var(--status-bar-height) + 50px) 24px 50px;
+  /* #endif */
+  /* #ifdef APP-PLUS */
+  padding: 50px 24px;
+  /* #endif */
   .form-box {
-    padding: 0 24px;
-    /* #ifdef H5 */
-    padding-top: 50px;
-    /* #endif */
-
     .up-form-item__content {
       display: flex;
       align-items: center;

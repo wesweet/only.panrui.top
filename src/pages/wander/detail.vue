@@ -261,12 +261,17 @@ const back = () => {
 
 <style lang="scss" scoped>
 .page-wrap {
+  /* #ifdef H5 */
+  padding: calc(var(--status-bar-height) + 50px) 24px 50px;
+  /* #endif */
+  /* #ifdef APP-PLUS */
+  padding: 50px 24px;
+  /* #endif */
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+  min-height: 100%;
+  box-sizing: border-box;
   .form-box {
-    padding: 0 24px;
-    /* #ifdef H5 */
-    padding-top: 50px;
-    /* #endif */
-
     .up-form-item__content {
       display: flex;
       align-items: center;

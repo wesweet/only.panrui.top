@@ -226,7 +226,10 @@ const channelList = [
   },
 ];
 const change = (value: any) => {
-  title.value = channelList.find((item: any) => item.value == value)?.label;
+  const channel = channelList.find((item: any) => item.value == value)
+  if (channel && channel.label) {
+    title.value = channel.label;
+  }
   if (keyword.value) {
     search();
   }
