@@ -119,6 +119,7 @@ const onSubmit = () => {
       data: Object.assign({}, baseFormData, { userId: userInfo.id }),
       method: "POST",
     }).then((res: any) => {
+      loading.value = false;
       const { errorCode, message, data } = res;
       if (errorCode == 0) {
         uni.showToast({

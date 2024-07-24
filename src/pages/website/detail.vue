@@ -1,8 +1,8 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-23 13:49:31
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-24 17:02:22
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-07-24 21:39:53
  * @FilePath: \only.panrui.top\src\pages\website\detail.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -41,7 +41,7 @@
           @click="accountShow = true"
         >
           <up-input
-            v-model="baseFormData.accountId"
+            v-model="accountName"
             disabled
             placeholder="请选择关联账号"
           ></up-input>
@@ -53,7 +53,7 @@
           @click="tagShow = true"
         >
           <up-input
-            v-model="baseFormData.tagId"
+            v-model="tagName"
             disabled
             placeholder="请选择所属类别"
           ></up-input>
@@ -96,13 +96,21 @@ import { reactive, ref, computed, watch } from "vue";
 import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
 import { ACCOUNT_API } from "@/api/account";
+import { WEBSITE_API } from "@/api/website";
 import { useTagStore } from "@/stores/tag";
 
 const userInfo = JSON.parse(uni.getStorageSync("userInfo"));
 
+const accountName = ref("");
+const tagName = ref("");
+
 const tagShow = ref(false);
-const confirmTag = (item: any) => {};
-const changeTag = (index: number) => {};
+const confirmTag = (item: any) => {
+  tagName.value = item.value[0].name;
+  baseFormData.tagId = item.value[0].id;
+  tagShow.value = false;
+};
+const changeTag = (item: any) => {};
 const tagStore = useTagStore();
 const tagList = computed(() => {
   if (!tagStore.tags || tagStore.tags.length === 0) {
@@ -115,8 +123,14 @@ const tagList = computed(() => {
 });
 
 const accountShow = ref(false);
-const confirmAccount = (item: any) => {};
-const changeAccount = (index: number) => {};
+const confirmAccount = (item: any) => {
+  accountName.value = item.value[0].name;
+  baseFormData.accountId = item.value[0].id;
+  accountShow.value = false;
+};
+const changeAccount = (item: any) => {
+  console.log(item);
+};
 const accountList = ref<any[]>([]);
 const getAccountList = () => {
   request(ACCOUNT_API.getAccountList, {
@@ -136,7 +150,7 @@ const getAccountList = () => {
       });
       return;
     }
-    accountList.value = accountList.value.concat(data.list);
+    accountList.value = [data.list];
   });
 };
 getAccountList();
@@ -161,7 +175,6 @@ const baseFormData: BaseFormData = reactive({
   name: "",
   url: "",
   desc: "",
-  phone: "",
   keyword: "",
   chart: "",
 });
@@ -203,11 +216,33 @@ const onSubmit = () => {
       return;
     }
     loading.value = true;
+    request(WEBSITE_API.website, {
+      data: Object.assign({}, baseFormData),
+      method: "POST",
+    }).then((res: any) => {
+      loading.value = false;
+      const { errorCode, message, data } = res;
+      if (errorCode == 0) {
+        uni.showToast({
+          title: message,
+          icon: "success",
+          duration: 500,
+          success: () => {
+            back();
+          },
+        });
+      } else {
+        uni.showToast({
+          title: message,
+          icon: "none",
+        });
+      }
+    });
   });
 };
 const back = () => {
   uni.redirectTo({
-    url: "/pages/account/index",
+    url: "/pages/website/index",
   });
 };
 </script>

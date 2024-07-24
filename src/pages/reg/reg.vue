@@ -53,7 +53,6 @@
 <script lang="ts" setup>
 import StatusBar from "@/components/StatusBar.vue";
 import { reactive, ref } from "vue";
-// import { fetchRegister } from "@/api/app";
 import { onReady } from "@dcloudio/uni-app";
 // 定义接口
 interface IFormData {

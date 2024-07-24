@@ -54,7 +54,6 @@
 import { onLoad } from "@dcloudio/uni-app";
 import { ref } from "vue";
 import { request } from "@/utils/request";
-import { appApi } from "@/api/app";
 
 // 定义搜索条件
 const value = ref("");
@@ -72,21 +71,21 @@ const search = (value: any) => {
     clearTimeout(timer);
   }
   timer = setTimeout(() => {
-    request(appApi.novel, {
-      method: "GET",
-      data: {
-        q: value,
-      },
-    })
-      .then((res: any) => {
-        const { errorCode, errorMessage, data } = res;
-        if (errorCode == 0) {
-          searchList.value = data;
-        }
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
+    // request(appApi.novel, {
+    //   method: "GET",
+    //   data: {
+    //     q: value,
+    //   },
+    // })
+    //   .then((res: any) => {
+    //     const { errorCode, errorMessage, data } = res;
+    //     if (errorCode == 0) {
+    //       searchList.value = data;
+    //     }
+    //   })
+    //   .catch((err: any) => {
+    //     console.log(err);
+    //   });
   }, 3000);
 };
 onLoad(() => {
