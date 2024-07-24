@@ -91,7 +91,7 @@ const back = () => {
   });
 };
 const inputStyle = {};
-const songList = ref([]);
+const songList = ref<any[]>([]);
 const search = () => {
   const info: any = channelList.find(
     (item: any) => item.value == channel.value
@@ -226,7 +226,7 @@ const channelList = [
   },
 ];
 const change = (value: any) => {
-  const channel = channelList.find((item: any) => item.value == value)
+  const channel = channelList.find((item: any) => item.value == value);
   if (channel && channel.label) {
     title.value = channel.label;
   }

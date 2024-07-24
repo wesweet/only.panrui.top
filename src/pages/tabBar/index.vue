@@ -96,13 +96,13 @@ import { useTagStore } from "@/stores/tag";
 const tagStore = useTagStore();
 tagStore.getTagList();
 
-const tagList = computed(() => {
+const tagList: any = computed(() => {
   return tagStore.tags.filter((item: any) => {
     return item.useType === "唯一";
   });
 });
 
-watch(tagList, (newVal) => {
+watch(tagList, (newVal: any) => {
   if (newVal.length) {
     getTravelList(newVal[0].id);
   }

@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-23 15:03:42
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-23 15:03:45
+ * @LastEditTime: 2024-07-24 15:05:09
  * @FilePath: \only.panrui.top\src\stores\tag.ts
  * @Description: 标签管理器
  */
@@ -26,6 +26,7 @@ export const useTagStore = defineStore("tag", {
           limit: 100,
         },
       });
+      
       const { errorCode, errorMessage, data } = res;
       if (errorCode == 0) {
         this.tags = data;

@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-18 17:15:31
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-24 09:43:49
+ * @LastEditTime: 2024-07-24 16:55:57
  * @FilePath: \only.panrui.top\src\pages\account\index.vue
  * @Description: 账号管理列表界面
 -->
@@ -21,7 +21,7 @@
       borderColor="#E7EAF0"
       bgColor="#FFFFFF"
       v-model="keyword"
-      @custom="search"
+      @custom="searchData"
     ></up-search>
 
     <view class="account-list">
@@ -57,12 +57,14 @@ const pagination = reactive({
   page: 1,
   limit: 10,
 });
-const accountList = ref([]);
+const accountList = ref<any[]>([]);
+// 初始化一个空对象，用于存放输入框的样式
+const inputStyle = {};
 
 let total = ref(0);
 const keyword = ref("");
+const userInfo = JSON.parse(uni.getStorageSync("userInfo"));
 const search = () => {
-  const userInfo = JSON.parse(uni.getStorageSync("userInfo"));
   request(ACCOUNT_API.getAccountList, {
     data: Object.assign({}, pagination, {
       keyword: keyword.value,
@@ -82,7 +84,12 @@ const search = () => {
   });
 };
 
-search()
+search();
+
+const searchData = () => {
+  accountList.value = [];
+  search();
+};
 const back = () => {
   uni.switchTab({
     url: "/pages/tabBar/index",

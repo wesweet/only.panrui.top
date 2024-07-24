@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-23 13:49:31
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-24 10:53:36
+ * @LastEditTime: 2024-07-24 17:02:22
  * @FilePath: \only.panrui.top\src\pages\website\detail.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -34,11 +34,29 @@
         <up-form-item label="网站图标" prop="chart" borderBottom>
           <up-input v-model="baseFormData.chart"></up-input>
         </up-form-item>
-        <up-form-item label="关联账号" prop="accountId" borderBottom>
-          <up-input v-model="baseFormData.accountId" disabled placeholder="请选择关联账号"></up-input>
+        <up-form-item
+          label="关联账号"
+          prop="accountId"
+          borderBottom
+          @click="accountShow = true"
+        >
+          <up-input
+            v-model="baseFormData.accountId"
+            disabled
+            placeholder="请选择关联账号"
+          ></up-input>
         </up-form-item>
-        <up-form-item label="所属类别" prop="tagId" borderBottom @click="tagShow = true">
-          <up-input v-model="baseFormData.tagId" disabled placeholder="请选择所属类别"></up-input>
+        <up-form-item
+          label="所属类别"
+          prop="tagId"
+          borderBottom
+          @click="tagShow = true"
+        >
+          <up-input
+            v-model="baseFormData.tagId"
+            disabled
+            placeholder="请选择所属类别"
+          ></up-input>
         </up-form-item>
       </up-form>
 
@@ -53,34 +71,87 @@
       </view>
     </view>
 
-    <up-picker :show="tagShow" :columns="tagList" keyName="name" @cancel="tagShow = false" @confirm="confirmTag" @change="changeTag"></up-picker>
+    <up-picker
+      :show="tagShow"
+      :columns="tagList"
+      keyName="name"
+      @cancel="tagShow = false"
+      @confirm="confirmTag"
+      @change="changeTag"
+    ></up-picker>
+
+    <up-picker
+      :show="accountShow"
+      :columns="accountList"
+      keyName="name"
+      @cancel="accountShow = false"
+      @confirm="confirmAccount"
+      @change="changeAccount"
+    ></up-picker>
   </view>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, computed } from "vue";
+import { reactive, ref, computed, watch } from "vue";
 import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
+import { ACCOUNT_API } from "@/api/account";
 import { useTagStore } from "@/stores/tag";
 
+const userInfo = JSON.parse(uni.getStorageSync("userInfo"));
+
+const tagShow = ref(false);
+const confirmTag = (item: any) => {};
+const changeTag = (index: number) => {};
 const tagStore = useTagStore();
 const tagList = computed(() => {
-  return tagStore.tags.filter((item: any) => {
+  if (!tagStore.tags || tagStore.tags.length === 0) {
+    return [];
+  }
+  const tagList = tagStore.tags.filter((item: any) => {
     return item.useType === "网址收藏";
   });
+  return [tagList];
 });
-console.log(tagList);
+
+const accountShow = ref(false);
+const confirmAccount = (item: any) => {};
+const changeAccount = (index: number) => {};
+const accountList = ref<any[]>([]);
+const getAccountList = () => {
+  request(ACCOUNT_API.getAccountList, {
+    data: Object.assign(
+      {},
+      {
+        userId: userInfo.id,
+      }
+    ),
+    method: "GET",
+  }).then((res: any) => {
+    const { errorCode, errorMessage, data } = res;
+    if (errorCode != 0) {
+      uni.showToast({
+        title: errorMessage,
+        duration: 500,
+      });
+      return;
+    }
+    accountList.value = accountList.value.concat(data.list);
+  });
+};
+getAccountList();
+
 /**
  * 定义基础表单数据类型
  */
 interface BaseFormData {
   name: string;
   url: string;
-  desc: string;
-  keyword: string;
-  chart: string;
-  accountId: number;
-  tagId: number;
+  desc?: string;
+  keyword?: string;
+  chart?: string;
+  accountId?: number;
+  tagId?: number;
 }
 
 /**
@@ -88,11 +159,11 @@ interface BaseFormData {
  */
 const baseFormData: BaseFormData = reactive({
   name: "",
-  account: "",
-  password: "",
+  url: "",
+  desc: "",
   phone: "",
-  email: "",
-  remark: "",
+  keyword: "",
+  chart: "",
 });
 
 /**
@@ -138,14 +209,6 @@ const back = () => {
   uni.redirectTo({
     url: "/pages/account/index",
   });
-};
-
-const tagShow = ref(false);
-
-const confirmTag = (item: any) => {
-};
-
-const changeTag = (index: number) => {
 };
 </script>
 
