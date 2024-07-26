@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-18 17:15:31
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-26 11:36:15
+ * @LastEditTime: 2024-07-26 14:20:59
  * @FilePath: \only.panrui.top\src\pages\account\index.vue
  * @Description: 账号管理列表界面
 -->
@@ -27,13 +27,13 @@
     </view>
 
     <view class="account-list">
-      <up-collapse :border="false">
+      <up-collapse :border="false" accordion>
         <up-collapse-item
           v-for="(item, index) in accountList"
           :title="item.name + '(' + item.account + ')'"
           name="Docs guide"
         >
-          <view class="u-collapse-content">
+          <view class="u-collapse-content" @click="toDetail(item.id)">
             <up-text :text="'账号：' + item.account"></up-text>
             <up-text :text="'密码：' + item.password"></up-text>
             <up-text :text="'手机：' + item.phone"></up-text>
