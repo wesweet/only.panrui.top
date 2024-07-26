@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-18 17:15:31
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-24 16:55:57
+ * @LastEditTime: 2024-07-26 11:36:15
  * @FilePath: \only.panrui.top\src\pages\account\index.vue
  * @Description: 账号管理列表界面
 -->
@@ -11,18 +11,20 @@
   <prstatus></prstatus>
   <up-navbar title="账号" :autoBack="false" @leftClick="back"> </up-navbar>
   <view class="page-wrap">
-    <up-search
-      :inputStyle="inputStyle"
-      placeholder="请输入关键字"
-      shape="square"
-      :show-action="true"
-      actionText="搜索"
-      height="48"
-      borderColor="#E7EAF0"
-      bgColor="#FFFFFF"
-      v-model="keyword"
-      @custom="searchData"
-    ></up-search>
+    <view class="search-box">
+      <up-search
+        :inputStyle="inputStyle"
+        placeholder="请输入关键字"
+        shape="square"
+        :show-action="true"
+        actionText="搜索"
+        height="48"
+        borderColor="#E7EAF0"
+        bgColor="#FFFFFF"
+        v-model="keyword"
+        @custom="searchData"
+      ></up-search>
+    </view>
 
     <view class="account-list">
       <up-collapse :border="false">
@@ -52,14 +54,17 @@
 import { ref, reactive } from "vue";
 import { request } from "@/utils/request";
 import { ACCOUNT_API } from "@/api/account";
+import { onPullDownRefresh, onReachBottom } from '@dcloudio/uni-app';
 // 定义分页参数
 const pagination = reactive({
   page: 1,
-  limit: 10,
+  limit: 20,
 });
 const accountList = ref<any[]>([]);
 // 初始化一个空对象，用于存放输入框的样式
-const inputStyle = {};
+const inputStyle = {
+
+};
 
 let total = ref(0);
 const keyword = ref("");
@@ -81,6 +86,7 @@ const search = () => {
       return;
     }
     accountList.value = accountList.value.concat(data.list);
+    total.value = data.total;
   });
 };
 
@@ -88,6 +94,8 @@ search();
 
 const searchData = () => {
   accountList.value = [];
+  pagination.page = 1;
+  pagination.limit = 20;
   search();
 };
 const back = () => {
@@ -103,6 +111,26 @@ const toDetail = (id: string) => {
 };
 
 const scrolltolower = () => {};
+
+onPullDownRefresh(() => {
+  pagination.page = 1;
+  accountList.value = [];
+  search();
+  uni.stopPullDownRefresh();
+});
+
+onReachBottom(() => {
+  if (pagination.page * pagination.limit >= total.value) {
+    uni.showToast({
+      title: "没有更多数据了",
+      duration: 300,
+      icon: "none",
+    });
+    return;
+  }
+  pagination.page++;
+  search();
+});
 </script>
 
 <style lang="scss" scoped>
@@ -111,23 +139,38 @@ uni-page-body {
   height: 100%;
 }
 .page-wrap {
-  display: flex;
-  flex-direction: column;
-  /* #ifdef H5 */
-  padding: calc(var(--status-bar-height) + 50px) 24px 0;
-  /* #endif */
-  /* #ifdef APP-PLUS */
-  padding: 50px 24px 0;
-  /* #endif */
-  box-sizing: border-box;
-  height: 100%;
-  overflow: hidden;
+  position: relative;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
-  .account-list {
-    flex: 1;
+  .search-box {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    padding: 0 24px;
     box-sizing: border-box;
-    padding: 20px 0;
-    overflow: auto;
+    /* #ifdef H5 */
+    top: calc(var(--status-bar-height) + 44px);
+    /* #endif */
+    
+    /* #ifdef APP-PLUS */
+    top: calc(var(--status-bar-height) + 44px);
+    /* #endif */
+
+    background-color: #fff;
+  }
+  .account-list {
+    
+    /* #ifdef H5 */
+    padding-top: calc(var(--status-bar-height) + 94px + 20px);
+    /* #endif */
+
+    /* #ifdef APP-PLUS */
+    padding-top: calc(var(--status-bar-height) + 74px);
+    /* #endif */
+
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
   }
 }
 .icon-add {

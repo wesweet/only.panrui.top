@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-24 10:17:32
+ * @LastEditTime: 2024-07-26 10:50:04
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -160,21 +160,26 @@ const tagClick = (index: number, item: any) => {
 
 // 使用ref创建一个响应式数组，包含导航列表
 const navList = ref([
+  // {
+  //   title: "文档",
+  //   image: "/static/dhphoto.png",
+  //   page: "/pages/webview/wendang",
+  // },
   {
-    title: "文档",
+    title: "账号",
     image: "/static/dhphoto.png",
-    page: "/pages/webview/wendang",
+    page: "/pages/account/index",
   },
-  // {
-  //   title: "吐槽",
-  //   image: "/static/dhphoto.png",
-  //   page: "/pages/wander/index",
-  // },
-  // {
-  //   title: "甜蜜",
-  //   image: "/static/dhphoto.png",
-  //   page: "/pages/wander/index",
-  // },
+  {
+    title: "网站",
+    image: "/static/dhphoto.png",
+    page: "/pages/website/index",
+  },
+  {
+    title: "音乐",
+    image: "/static/dhphoto.png",
+    page: "/pages/music/index",
+  },
 ]);
 
 /**
