@@ -8,13 +8,17 @@
  */
 
 // 定义接口环境
-let env = "";
+let env = "app";
 
 // #ifdef H5
 env = "h5";
 // #endif
 
 // #ifdef APP-PLUS
+env = "app";
+// #endif
+
+// #ifdef MP-WEIXIN
 env = "app";
 // #endif
 
