@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-26 10:50:04
+ * @LastEditTime: 2024-07-30 10:24:47
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
@@ -17,14 +17,15 @@
         :block="flagTrue"
         :bold="flagTrue"
       ></up-text>
+      
+      <view class="height20"></view>
 
       <up-search
-        style="margin-top: 30px"
         :inputStyle="inputStyle"
         placeholder="搜索你想去的世界"
         shape="square"
         :show-action="false"
-        height="48"
+        height="40"
         borderColor="#E7EAF0"
         bgColor="#FFFFFF"
         v-model="keyword"
@@ -112,7 +113,8 @@ watch(tagList, (newVal: any) => {
 const flagTrue = true;
 
 // 初始化一个空对象，用于存放输入框的样式
-const inputStyle = {};
+const inputStyle = {
+};
 
 // 使用ref创建一个响应式字符串，用于搜索关键字的输入
 const keyword = ref("");
@@ -253,7 +255,6 @@ uni-page-body {
 }
 
 .page-wrap {
-  padding: 44px 0;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
   min-height: 100%;
@@ -261,7 +262,9 @@ uni-page-body {
 
   .page-wrap__top {
     box-sizing: border-box;
-    padding: 0 24px;
+    /* #ifdef MP-WEIXIN */
+    padding: calc(var(--status-bar-height) + 44px) 24px 0;
+    /* #endif */
 
     ::v-deep .u-search__content {
       border-radius: 10px !important;
@@ -342,6 +345,10 @@ uni-page-body {
         }
       }
     }
+  }
+
+  .height20 {
+    height: 20px;
   }
 }
 </style>

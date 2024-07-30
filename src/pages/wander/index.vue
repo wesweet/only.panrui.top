@@ -27,11 +27,13 @@
             ></up-text>
             <up-text margin="5px 0 15px 0" :text="item.content"></up-text>
           </view>
-          <up-album
-            :urls="item.urls"
-            keyName="index"
-            singleMode="aspectFit"
-          ></up-album>
+          <template v-if="item.urls && item.urls.length">
+            <up-album
+              :urls="item.urls"
+              keyName="index"
+              singleMode="aspectFit"
+            ></up-album>
+          </template>
           <up-text margin="10px 0 0 0" :text="item.date"></up-text>
         </view>
       </view>
@@ -198,6 +200,9 @@ const back = () => {
   /* #endif */
   /* #ifdef APP-PLUS */
   padding: 50px 24px 0;
+  /* #endif */
+  /* #ifdef MP-WEIXIN */
+  padding: calc(var(--status-bar-height) + 50px) 24px 0;
   /* #endif */
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
