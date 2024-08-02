@@ -2,31 +2,31 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-30 10:24:47
+ * @LastEditTime: 2024-08-02 17:23:16
  * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
 -->
 <template>
-  <prstatus></prstatus>
-  <up-navbar title="" leftIcon="" :autoBack="false"> </up-navbar>
+  <up-navbar title="" leftIcon="" :autoBack="false" :placeholder="true">
+  </up-navbar>
   <view class="page-wrap">
     <view class="page-wrap__top">
-      <up-text
+      <!-- <up-text
         text="你想去那里？"
         color="#121212"
         size="24px"
         :block="flagTrue"
         :bold="flagTrue"
-      ></up-text>
-      
-      <view class="height20"></view>
+      ></up-text> -->
+      <!-- <view class="height20"></view> -->
 
+      <!-- borderColor="#E7EAF0"
+      bgColor="#FFFFFF" -->
       <up-search
         :inputStyle="inputStyle"
         placeholder="搜索你想去的世界"
         shape="square"
         :show-action="false"
         height="40"
-        borderColor="#E7EAF0"
         bgColor="#FFFFFF"
         v-model="keyword"
         @change="search"
@@ -61,6 +61,16 @@
       </view>
     </view>
 
+    <view class="tool-box">
+      <up-text text="那年今日" size="18" color="#121212" :bold="bold"></up-text>
+    </view>
+
+    <view style="height: 200px"></view>
+
+    <up-divider text="已经到底部，别再滑了"></up-divider>
+
+    <view class="tip-box"> 恋爱长跑：{{ lovetime }} </view>
+
     <!-- #ifdef APP-PLUS -->
     <view class="page-wrap__bottom">
       <up-text
@@ -93,6 +103,7 @@ import { request } from "@/utils/request";
 import { TAG_API } from "@/api/tag";
 import { TRAVEL_API } from "@/api/travel";
 import { useTagStore } from "@/stores/tag";
+import dayjs from "dayjs";
 
 const tagStore = useTagStore();
 tagStore.getTagList();
@@ -113,8 +124,8 @@ watch(tagList, (newVal: any) => {
 const flagTrue = true;
 
 // 初始化一个空对象，用于存放输入框的样式
-const inputStyle = {
-};
+const inputStyle = {};
+const bold = true;
 
 // 使用ref创建一个响应式字符串，用于搜索关键字的输入
 const keyword = ref("");
@@ -246,28 +257,67 @@ const search = () => {
       break;
   }
 };
+
+const pastDateStr = "2023-10-04";
+const lovetime = ref("");
+
+const pollSince = (pastDateStr: any) => {
+  const pastDate = dayjs(pastDateStr);
+
+  function loop() {
+    const currentDate = dayjs();
+    const years = currentDate.diff(pastDate, "year");
+    const months = currentDate.diff(pastDate.add(years, "year"), "month");
+    const days = currentDate.diff(
+      pastDate.add(years, "year").add(months, "month"),
+      "day"
+    );
+    const hours = currentDate.diff(
+      pastDate.add(years, "year").add(months, "month").add(days, "day"),
+      "hour"
+    );
+    const minutes = currentDate.diff(
+      pastDate
+        .add(years, "year")
+        .add(months, "month")
+        .add(days, "day")
+        .add(hours, "hour"),
+      "minute"
+    );
+    const seconds = currentDate.diff(
+      pastDate
+        .add(years, "year")
+        .add(months, "month")
+        .add(days, "day")
+        .add(hours, "hour")
+        .add(minutes, "minute"),
+      "second"
+    );
+    lovetime.value = `${years}年${months}月${days}日${hours}时${minutes}分${seconds}秒`;
+  }
+  // 设置定时器，每秒执行一次
+  const intervalId = setInterval(loop, 1000);
+};
+pollSince(pastDateStr);
 </script>
 
 <style lang="scss" scoped>
-body,
-uni-page-body {
-  height: 100%;
-}
+// body,
+// uni-page-body {
+//   height: 100%;
+// }
 
 .page-wrap {
-  box-sizing: border-box;
-  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
-  min-height: 100%;
-  box-sizing: border-box;
-
   .page-wrap__top {
+    padding: 20px 24px;
     box-sizing: border-box;
-    /* #ifdef MP-WEIXIN */
-    padding: calc(var(--status-bar-height) + 44px) 24px 0;
-    /* #endif */
-
-    ::v-deep .u-search__content {
-      border-radius: 10px !important;
+    ::v-deep .u-search {
+      box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.09),
+        0px -4px 27px rgba(63, 63, 63, 0.06);
+      border-radius: 100px !important;
+      .u-search__content {
+        border-radius: 100px !important;
+      }
     }
   }
 
@@ -275,7 +325,7 @@ uni-page-body {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    margin: 30px 0;
+    margin: 20px 0;
     padding: 0 0 0 24px;
     overflow: auto;
     width: 100%;
@@ -302,7 +352,7 @@ uni-page-body {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    margin: 30px 0;
+    margin: 20px 0;
     padding: 0 0 0 24px;
     overflow: auto;
     width: 100%;
@@ -324,6 +374,20 @@ uni-page-body {
         border-radius: 20px;
       }
     }
+  }
+
+  .tool-box {
+    margin: 20px 0;
+    padding: 0 24px;
+  }
+
+  .tip-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size: 12px;
+    color: #000;
   }
 
   .page-wrap__bottom {
