@@ -12,11 +12,7 @@
         <up-form-item label="标题" prop="title">
           <up-input v-model="baseFormData.title"></up-input>
         </up-form-item>
-        <up-form-item
-          label="日期"
-          prop="date"
-          @click="show = true"
-        >
+        <up-form-item label="日期" prop="date" @click="show = true">
           <view class="up-form-item__content" @click="show = true">
             {{ baseFormData.date }}
           </view>
@@ -159,25 +155,18 @@ const onSubmit = () => {
       return;
     }
     loading.value = true;
-    uni.uploadFile({
-      url: WANDER_API.saveWander,
-      files: imageList.map((item) => {
-        return {
-          uri: item.url,
-        };
-      }),
-      header: {
-        Authorization: `Bearer ${uni.getStorageSync("token")}`,
-      },
-      formData: Object.assign({}, baseFormData, {
-        id: id.value,
-      }),
-      success(result: any) {
-        const data = JSON.parse(result.data);
-        const { errorCode, message } = data;
+    const options: any = {
+      success(res: any) {
+        let result: any = {};
+        if (id.value) {
+          result = JSON.parse(res.data);
+        } else {
+          result = JSON.parse(res.data);
+        }
+        const { errorMessage, errorCode, data } = result;
         if (errorCode == 0) {
           uni.showToast({
-            title: message,
+            title: errorMessage,
             icon: "success",
             duration: 500,
             success: () => {
@@ -190,7 +179,7 @@ const onSubmit = () => {
           });
         } else {
           uni.showToast({
-            title: message,
+            title: errorMessage,
             icon: "none",
           });
         }
@@ -201,7 +190,56 @@ const onSubmit = () => {
       complete() {
         loading.value = false;
       },
-    });
+    };
+
+    // #ifdef MP-WEIXIN
+    if (imageList.length && !imageList[0].name) {
+      options.url = WANDER_API.saveWander;
+      options.filePath = imageList[0].url;
+      options.name = "file";
+      options.header = {
+        Authorization: `Bearer ${uni.getStorageSync("token")}`,
+      };
+      options.formData = Object.assign({}, baseFormData, {
+        id: id.value,
+      });
+      uni.uploadFile(options);
+    } else {
+      request(WANDER_API.saveWanderWx, {
+        method: "POST",
+        data: Object.assign({}, baseFormData, {
+          id: id.value,
+        }),
+      })
+        .then(options.success)
+        .catch(options.fail)
+        .finally(options.complete);
+    }
+
+    // #endif
+
+    // #ifndef MP-WEIXIN
+    uni.uploadFile(
+      Object.assign(
+        {},
+        {
+          url: WANDER_API.saveWander,
+          files: imageList.map((item) => {
+            return {
+              uri: item.url,
+            };
+          }),
+          header: {
+            Authorization: `Bearer ${uni.getStorageSync("token")}`,
+          },
+          formData: Object.assign({}, baseFormData, {
+            id: id.value,
+          }),
+        },
+        options
+      )
+    );
+    // #endif
   });
 };
 
@@ -258,8 +296,8 @@ const back = () => {
 };
 
 const customStyle = reactive({
-  backgroundColor: '#181818',
-  color: '#fff'
+  backgroundColor: "#181818",
+  color: "#fff",
 });
 </script>
 
@@ -288,10 +326,10 @@ const customStyle = reactive({
       border-radius: 5px;
       padding: 6px;
       box-sizing: border-box;
-      
+
       /* #ifdef MP-WEIXIN */
       .u-line {
-        display: none!important;
+        display: none !important;
       }
       /* #endif */
     }
