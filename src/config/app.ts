@@ -8,7 +8,7 @@
  */
 
 // 定义接口环境
-let env = "";
+let env = "app";
 
 // #ifdef H5
 env = "h5";
@@ -18,8 +18,12 @@ env = "h5";
 env = "app";
 // #endif
 
-export const NEST_API_URL = `https://work.panrui.top:8443/${env}`; // h5生产环境
-// export const NEST_API_URL = `https://app.panrui.top:8443/${env}`; // app生产环境
+// #ifdef MP-WEIXIN
+env = "app";
+// #endif
+
+// export const NEST_API_URL = `https://work.panrui.top:8443/${env}`; // h5生产环境
+export const NEST_API_URL = `https://app.panrui.top:8443/${env}`; // app生产环境
 // export const NEST_API_URL = `http://localhost:3000/${env}`; // 本地
 export const GEO_URL = "https://restapi.amap.com/v3"; // 高德地图接口服务路径
 export const MAP_KEY = "eef520430048905703a89eef94f73d23"; // 高德地图web_key

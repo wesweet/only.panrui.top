@@ -47,6 +47,42 @@ import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
 import { ACCOUNT_API } from "@/api/account";
+
+const id = ref("");
+onLoad((options: any) => {
+  if (options.id) {
+    id.value = options.id;
+    getAccountDetail();
+  }
+});
+
+// 获取账号详情
+const getAccountDetail = () => {
+  request(`${ACCOUNT_API.getAccountById}/${id.value}`, {
+    method: "GET",
+  })
+    .then((res: any) => {
+      const { errorCode, errorMessage, data } = res;
+      if (errorCode != 0) {
+        uni.showToast({
+          title: errorMessage,
+          duration: 500,
+          icon: "none",
+        });
+        return;
+      }
+      baseFormData.name = data.name;
+      baseFormData.account = data.account;
+      baseFormData.password = data.password;
+      baseFormData.phone = data.phone;
+      baseFormData.email = data.email;
+      baseFormData.remark = data.remark;
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
+};
+
 /**
  * 定义基础表单数据类型
  */
@@ -116,7 +152,10 @@ const onSubmit = () => {
     loading.value = true;
     const userInfo = JSON.parse(uni.getStorageSync("userInfo"));
     request(ACCOUNT_API.saveAccount, {
-      data: Object.assign({}, baseFormData, { userId: userInfo.id }),
+      data: Object.assign({}, baseFormData, {
+        userId: userInfo.id,
+        id: id.value,
+      }),
       method: "POST",
     }).then((res: any) => {
       loading.value = false;
