@@ -135,10 +135,10 @@
   ],
   "tabBar": {
     "color": "#aaaaaa",
-    "selectedColor": "#fff",
-    "fontSize": "16px",
+    "selectedColor": "#000000",
+    "fontSize": "20px",
     "borderStyle": "black",
-    "backgroundColor": "#121212",
+    // "backgroundColor": "#121212",
     "list": [
       {
         "pagePath": "pages/tabBar/index",
@@ -161,7 +161,7 @@
     ]
   },
   "globalStyle": {
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarTextStyle": "black"
   },
   "easycom": {
     "autoscan": true,

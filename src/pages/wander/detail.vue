@@ -9,20 +9,15 @@
         ref="valiForm"
         labelPosition="top"
       >
-        <up-form-item label="标题" prop="title" borderBottom>
+        <up-form-item label="标题" prop="title">
           <up-input v-model="baseFormData.title"></up-input>
         </up-form-item>
-        <up-form-item
-          label="日期"
-          prop="date"
-          borderBottom
-          @click="show = true"
-        >
+        <up-form-item label="日期" prop="date" @click="show = true">
           <view class="up-form-item__content" @click="show = true">
             {{ baseFormData.date }}
           </view>
         </up-form-item>
-        <up-form-item label="图片" prop="photo" borderBottom>
+        <up-form-item label="图片" prop="photo">
           <up-upload
             :fileList="imageList"
             name="1"
@@ -33,7 +28,7 @@
             @delete="deleteImage"
           ></up-upload>
         </up-form-item>
-        <up-form-item label="内容" prop="content" borderBottom>
+        <up-form-item label="内容" prop="content">
           <up-textarea
             v-model="baseFormData.content"
             placeholder="请输入内容"
@@ -45,7 +40,7 @@
         <up-button
           :loading="loading"
           loadingText="加载中"
-          class="primary-btn"
+          :custom-style="customStyle"
           text="提交"
           @click="onSubmit"
         ></up-button>
@@ -160,25 +155,18 @@ const onSubmit = () => {
       return;
     }
     loading.value = true;
-    uni.uploadFile({
-      url: WANDER_API.saveWander,
-      files: imageList.map((item) => {
-        return {
-          uri: item.url,
-        };
-      }),
-      header: {
-        Authorization: `Bearer ${uni.getStorageSync("token")}`,
-      },
-      formData: Object.assign({}, baseFormData, {
-        id: id.value,
-      }),
-      success(result: any) {
-        const data = JSON.parse(result.data);
-        const { errorCode, message } = data;
+    const options: any = {
+      success(res: any) {
+        let result: any = {};
+        if (id.value) {
+          result = JSON.parse(res.data);
+        } else {
+          result = JSON.parse(res.data);
+        }
+        const { errorMessage, errorCode, data } = result;
         if (errorCode == 0) {
           uni.showToast({
-            title: message,
+            title: errorMessage,
             icon: "success",
             duration: 500,
             success: () => {
@@ -191,7 +179,7 @@ const onSubmit = () => {
           });
         } else {
           uni.showToast({
-            title: message,
+            title: errorMessage,
             icon: "none",
           });
         }
@@ -202,7 +190,56 @@ const onSubmit = () => {
       complete() {
         loading.value = false;
       },
-    });
+    };
+
+    // #ifdef MP-WEIXIN
+    if (imageList.length && !imageList[0].name) {
+      options.url = WANDER_API.saveWander;
+      options.filePath = imageList[0].url;
+      options.name = "file";
+      options.header = {
+        Authorization: `Bearer ${uni.getStorageSync("token")}`,
+      };
+      options.formData = Object.assign({}, baseFormData, {
+        id: id.value,
+      });
+      uni.uploadFile(options);
+    } else {
+      request(WANDER_API.saveWanderWx, {
+        method: "POST",
+        data: Object.assign({}, baseFormData, {
+          id: id.value,
+        }),
+      })
+        .then(options.success)
+        .catch(options.fail)
+        .finally(options.complete);
+    }
+
+    // #endif
+
+    // #ifndef MP-WEIXIN
+    uni.uploadFile(
+      Object.assign(
+        {},
+        {
+          url: WANDER_API.saveWander,
+          files: imageList.map((item) => {
+            return {
+              uri: item.url,
+            };
+          }),
+          header: {
+            Authorization: `Bearer ${uni.getStorageSync("token")}`,
+          },
+          formData: Object.assign({}, baseFormData, {
+            id: id.value,
+          }),
+        },
+        options
+      )
+    );
+    // #endif
   });
 };
 
@@ -257,6 +294,11 @@ const back = () => {
     url: "/pages/wander/index",
   });
 };
+
+const customStyle = reactive({
+  backgroundColor: "#181818",
+  color: "#fff",
+});
 </script>
 
 <style lang="scss" scoped>
@@ -266,6 +308,9 @@ const back = () => {
   /* #endif */
   /* #ifdef APP-PLUS */
   padding: 50px 24px;
+  /* #endif */
+  /* #ifdef MP-WEIXIN */
+  padding: calc(var(--status-bar-height) + 50px) 24px 50px;
   /* #endif */
   box-sizing: border-box;
   background: linear-gradient(to bottom, #ffffff, #f8f8f8);
@@ -281,6 +326,12 @@ const back = () => {
       border-radius: 5px;
       padding: 6px;
       box-sizing: border-box;
+
+      /* #ifdef MP-WEIXIN */
+      .u-line {
+        display: none !important;
+      }
+      /* #endif */
     }
 
     ::v-deep .u-form-item__body__left__content__label {
@@ -297,9 +348,5 @@ const back = () => {
 .btn-box {
   width: 100px;
   margin-top: 30px;
-}
-.primary-btn {
-  background-color: #181818;
-  color: #fff;
 }
 </style>
