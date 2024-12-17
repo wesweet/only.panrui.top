@@ -1,8 +1,8 @@
 <!--
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-07-02 20:07:21
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-24 09:02:21
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-12-17 21:36:05
  * @FilePath: \only.panrui.top\src\pages\wander\index.vue
 -->
 <template>
@@ -47,8 +47,8 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-import { request } from "@/utils/request";
-import { WANDER_API } from "@/api/wander";
+import { route, toast } from "@/uni_modules/uview-plus";
+import { getWanderList } from "@/common/api/wander";
 import {
   onPullDownRefresh,
   onReachBottom,
@@ -92,9 +92,10 @@ onShow(() => {
   // }
   // if (wanderPassword === 1111 && total.value == 0) {
   // }
-  if (total.value == 0) {
-    getWanderList();
-  }
+  // if (total.value == 0) {
+  //   getWanderList();
+  // }
+  fetchGetWanderList();
 });
 
 // 定义分页参数
@@ -115,27 +116,20 @@ interface Wander {
 }
 const wanderList = ref<Wander[]>([]);
 // 加载漫游列表数据
-const getWanderList = () => {
-  request(WANDER_API.getWanderList, {
-    method: "GET",
-    data: pagination,
-  })
+const fetchGetWanderList = () => {
+  uni.showLoading({
+    title: "加载中",
+  });
+  getWanderList(pagination)
     .then((res: any) => {
       const { errorCode, errorMessage, data } = res;
       if (errorCode != 0) {
-        uni.showToast({
-          title: errorMessage,
-          duration: 500,
-          icon: "error",
-        });
+        toast(errorMessage);
         return;
       }
       if (!data || (data && data.list.length == 0)) {
-        uni.showToast({
-          title: "暂无更多内容",
-          duration: 2000,
-          icon: "error",
-        });
+        toast("暂无更多内容");
+        return;
       }
       for (let index = 0; index < data.list.length; index++) {
         const element = data.list[index];
@@ -144,12 +138,49 @@ const getWanderList = () => {
         }
       }
       wanderList.value = wanderList.value.concat(data.list);
+      pagination.page++;
       total.value = data.total;
     })
-    .catch((err: any) => {
-      console.log(err);
+    .catch((err: any) => {})
+    .finally(() => {
+      uni.hideLoading();
     });
 };
+// const getWanderList = () => {
+//   request(WANDER_API.getWanderList, {
+//     method: "GET",
+//     data: pagination,
+//   })
+//     .then((res: any) => {
+//       const { errorCode, errorMessage, data } = res;
+//       if (errorCode != 0) {
+//         uni.showToast({
+//           title: errorMessage,
+//           duration: 500,
+//           icon: "error",
+//         });
+//         return;
+//       }
+//       if (!data || (data && data.list.length == 0)) {
+//         uni.showToast({
+//           title: "暂无更多内容",
+//           duration: 2000,
+//           icon: "error",
+//         });
+//       }
+//       for (let index = 0; index < data.list.length; index++) {
+//         const element = data.list[index];
+//         if (element.photo) {
+//           element.urls = [element.photo];
+//         }
+//       }
+//       wanderList.value = wanderList.value.concat(data.list);
+//       total.value = data.total;
+//     })
+//     .catch((err: any) => {
+//       console.log(err);
+//     });
+// };
 
 // 下拉刷新时重置分页并加载漫游列表
 onPullDownRefresh(() => {

@@ -1,3 +1,11 @@
+/*
+ * @Author: panrui 1547177202@qq.com
+ * @Date: 2024-12-17 20:53:17
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-12-17 21:47:38
+ * @FilePath: \only.panrui.top\src\utils\request\interceptors.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { http, toast } from "@/uni_modules/uview-plus";
 
 const getToken = () => {
@@ -10,13 +18,18 @@ const requestInterceptors = (vm: any) => {
    * @param {Object} http
    */
   http.interceptors.request.use(
-    (config: { data: {} }) => {
+    (config: any) => {
       // 可使用async await 做异步操作
       // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}
-      console.log("请求拦截器", config);
+      console.log("传入配置", config);
       config.data = config.data || {};
+      // 添加token
+      config.header = {
+        ...config.header,
+        Authorization: `Bearer ${getToken()}`,
+      };
       // console.log(store.state);
-      // console.log(config)
+      console.log("最终配置", config);
       return config;
     },
     (

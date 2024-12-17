@@ -37,7 +37,7 @@
       ></up-search>
     </view>
 
-    <view class="tag-box">
+    <!-- <view class="tag-box">
       <view
         class="item"
         :class="{ active: index == currentTagIndex }"
@@ -47,9 +47,9 @@
       >
         {{ item.name }}
       </view>
-    </view>
+    </view> -->
 
-    <view class="card-box">
+    <!-- <view class="card-box">
       <view
         class="item"
         v-for="(item, index) in travelList"
@@ -63,17 +63,17 @@
           :src="item.photos[0].url"
         ></up-image>
       </view>
-    </view>
+    </view> -->
 
-    <view class="tool-box">
+    <!-- <view class="tool-box">
       <up-text text="那年今日" size="18" color="#121212" :bold="bold"></up-text>
-    </view>
+    </view> -->
 
-    <view style="height: 200px"></view>
+    <!-- <view style="height: 200px"></view> -->
 
-    <up-divider text="已经到底部，别再滑了"></up-divider>
+    <!-- <up-divider text="已经到底部，别再滑了"></up-divider> -->
 
-    <view class="tip-box"> 恋爱长跑：{{ lovetime }} </view>
+    <!-- <view class="tip-box"> 恋爱长跑：{{ lovetime }} </view> -->
 
     <!-- #ifdef APP-PLUS -->
     <view class="page-wrap__bottom">
