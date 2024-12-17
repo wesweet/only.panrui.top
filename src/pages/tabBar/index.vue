@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-12-17 17:02:00
+ * @LastEditTime: 2024-12-17 17:26:19
  * @FilePath: 首页
 -->
 <template>
@@ -108,9 +108,12 @@ import { TAG_API } from "@/api/tag";
 import { TRAVEL_API } from "@/api/travel";
 import { useTagStore } from "@/stores/tag";
 import dayjs from "dayjs";
+import { getTravelDetail } from "@/common/api/travel";
 
 const tagStore = useTagStore();
 // tagStore.getTagList();
+
+// 页面加载完成
 
 const tagList: any = computed(() => {
   return tagStore.tags.filter((item: any) => {
