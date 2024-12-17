@@ -2,12 +2,16 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-08-02 17:23:16
- * @FilePath: \only.panrui.top\src\pages\tabbar\index.vue
+ * @LastEditTime: 2024-12-17 17:02:00
+ * @FilePath: 首页
 -->
 <template>
-  <up-navbar title="" leftIcon="" :autoBack="false" :placeholder="true">
-  </up-navbar>
+  <up-navbar
+    title=""
+    leftIcon=""
+    :autoBack="false"
+    :placeholder="true"
+  ></up-navbar>
   <view class="page-wrap">
     <view class="page-wrap__top">
       <!-- <up-text
@@ -106,7 +110,7 @@ import { useTagStore } from "@/stores/tag";
 import dayjs from "dayjs";
 
 const tagStore = useTagStore();
-tagStore.getTagList();
+// tagStore.getTagList();
 
 const tagList: any = computed(() => {
   return tagStore.tags.filter((item: any) => {

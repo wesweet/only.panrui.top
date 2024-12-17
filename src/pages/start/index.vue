@@ -4,7 +4,7 @@
  * @LastEditors: panrui 1547177202@qq.com
  * @LastEditTime: 2024-07-16 22:10:12
  * @FilePath: \only.panrui.top\src\pages\start\index.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 启动页
 -->
 <template>
   <view class="page-wrap">
@@ -16,17 +16,19 @@
 </template>
 
 <script lang="ts" setup>
+import { route } from "@/uni_modules/uview-plus";
 // 跳转登录页面
 const login = () => {
-  if (uni.getStorageSync("token")) {
-    uni.switchTab({
-      url: "/pages/tabBar/index",
-    });
-  } else {
-    uni.navigateTo({
+  if (!uni.getStorageSync("token")) {
+    route({
       url: "/pages/login/login",
     });
+    return;
   }
+  route({
+    type: "switchTab",
+    url: "/pages/tabBar/index",
+  });
 };
 </script>
 

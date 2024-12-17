@@ -1,3 +1,11 @@
+<!--
+ * @Author: panr99 1547177202@qq.com
+ * @Date: 2024-07-01 09:44:52
+ * @LastEditors: panr99 1547177202@qq.com
+ * @LastEditTime: 2024-12-17 16:56:35
+ * @FilePath: \only.panrui.top\src\pages\login\login.vue
+ * @Description: 登录页
+-->
 <template>
   <StatusBar></StatusBar>
   <view class="page-wrap">
@@ -44,7 +52,7 @@
       <up-button
         text="登录"
         color="#020202"
-        @click="login"
+        @click="submit"
         :loading="isRotate"
       ></up-button>
     </view>
@@ -53,13 +61,14 @@
 
 <script lang="ts" setup>
 import StatusBar from "@/components/StatusBar.vue";
-import { request } from "@/utils/request";
 import { reactive, ref } from "vue";
-import { LOGIN_API } from "@/api/login";
+import { route, toast } from "@/uni_modules/uview-plus";
+import { login } from "@/common/api/login";
 
 const logoImage = ref("/static/images/login.png");
-let isRotate = ref(false); // 是否加载loading
-const clearable = true
+// 是否加载loading
+let isRotate = ref(false);
+const clearable = true;
 // 定义接口
 interface IFormData {
   username: string;
@@ -72,17 +81,13 @@ const formData: IFormData = reactive({
   password: "",
 });
 
-const login = () => {
+const submit = () => {
   if (
     !formData.username ||
     formData.username.length < 3 ||
     formData.username.length > 10
   ) {
-    uni.showToast({
-      title: "用户名长度在3-10之间",
-      icon: "none",
-      duration: 2000,
-    });
+    toast("用户名长度在3-10之间");
     return;
   }
   if (
@@ -90,34 +95,34 @@ const login = () => {
     formData.password.length < 6 ||
     formData.password.length > 20
   ) {
-    uni.showToast({
-      title: "密码长度在6-20之间",
-      icon: "none",
-      duration: 2000,
-    });
+    toast("密码长度在6-20之间");
     return;
   }
-  isRotate.value = true;
-
-  request(LOGIN_API.login, {
-    data: formData,
-    method: "POST",
-  }).then((res: any) => {
-    if (res.errorCode == 0) {
-      uni.setStorageSync("token", res.data.access_token);
-      uni.setStorageSync("userInfo", JSON.stringify(res.data.user));
-      uni.switchTab({
-        url: "/pages/tabBar/index",
+  try {
+    isRotate.value = true;
+    login(formData)
+      .then((res: any) => {
+        const { errorCode, data, errorMessage } = res;
+        if (errorCode != 0) {
+          toast(errorMessage);
+          return;
+        }
+        const { access_token, user } = data;
+        uni.setStorageSync("token", access_token);
+        uni.setStorageSync("userInfo", JSON.stringify(user));
+        route({
+          type: "switchTab",
+          url: "/pages/tabBar/index",
+        });
+      })
+      .catch((err: any) => {
+        toast(err.errMsg);
+      })
+      .finally(() => {
+        isRotate.value = false;
       });
-    } else {
-      uni.showToast({
-        title: res.errorMessage,
-        icon: "none",
-      });
-    }
-  });
+  } catch (error) {}
 };
-
 
 const back = () => {
   // 关闭当前页面返回上一个面

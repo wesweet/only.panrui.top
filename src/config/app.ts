@@ -19,7 +19,7 @@ env = "app";
 // #endif
 
 // #ifdef MP-WEIXIN
-env = "app";
+env = "wx";
 // #endif
 
 // export const NEST_API_URL = `https://work.panrui.top:8443/${env}`; // h5生产环境

@@ -155,90 +155,98 @@ const onSubmit = () => {
       return;
     }
     loading.value = true;
-    const options: any = {
-      success(res: any) {
-        let result: any = {};
-        if (id.value) {
-          result = JSON.parse(res.data);
-        } else {
-          result = JSON.parse(res.data);
-        }
-        const { errorMessage, errorCode, data } = result;
-        if (errorCode == 0) {
-          uni.showToast({
-            title: errorMessage,
-            icon: "success",
-            duration: 500,
-            success: () => {
-              if (!id.value) {
-                uni.navigateBack({
-                  delta: 1,
-                });
-              }
-            },
-          });
-        } else {
-          uni.showToast({
-            title: errorMessage,
-            icon: "none",
-          });
-        }
-      },
-      fail(err: any) {
-        console.log(err);
-      },
-      complete() {
-        loading.value = false;
-      },
-    };
+    // 1：如果没有上传图片
+    // 2：有图片
+    // 3：没有新图片
+    
+
+
+
+    
+    // const options: any = {
+    //   success(res: any) {
+    //     let result: any = {};
+    //     if (id.value) {
+    //       result = JSON.parse(res.data);
+    //     } else {
+    //       result = JSON.parse(res.data);
+    //     }
+    //     const { errorMessage, errorCode, data } = result;
+    //     if (errorCode == 0) {
+    //       uni.showToast({
+    //         title: errorMessage,
+    //         icon: "success",
+    //         duration: 500,
+    //         success: () => {
+    //           if (!id.value) {
+    //             uni.navigateBack({
+    //               delta: 1,
+    //             });
+    //           }
+    //         },
+    //       });
+    //     } else {
+    //       uni.showToast({
+    //         title: errorMessage,
+    //         icon: "none",
+    //       });
+    //     }
+    //   },
+    //   fail(err: any) {
+    //     console.log(err);
+    //   },
+    //   complete() {
+    //     loading.value = false;
+    //   },
+    // };
 
     // #ifdef MP-WEIXIN
-    if (imageList.length && !imageList[0].name) {
-      options.url = WANDER_API.saveWander;
-      options.filePath = imageList[0].url;
-      options.name = "file";
-      options.header = {
-        Authorization: `Bearer ${uni.getStorageSync("token")}`,
-      };
-      options.formData = Object.assign({}, baseFormData, {
-        id: id.value,
-      });
-      uni.uploadFile(options);
-    } else {
-      request(WANDER_API.saveWanderWx, {
-        method: "POST",
-        data: Object.assign({}, baseFormData, {
-          id: id.value,
-        }),
-      })
-        .then(options.success)
-        .catch(options.fail)
-        .finally(options.complete);
-    }
+    // if (imageList.length && !imageList[0].name) {
+    //   options.url = WANDER_API.saveWander;
+    //   options.filePath = imageList[0].url;
+    //   options.name = "file";
+    //   options.header = {
+    //     Authorization: `Bearer ${uni.getStorageSync("token")}`,
+    //   };
+    //   options.formData = Object.assign({}, baseFormData, {
+    //     id: id.value,
+    //   });
+    //   uni.uploadFile(options);
+    // } else {
+    //   request(WANDER_API.saveWanderWx, {
+    //     method: "POST",
+    //     data: Object.assign({}, baseFormData, {
+    //       id: id.value,
+    //     }),
+    //   })
+    //     .then(options.success)
+    //     .catch(options.fail)
+    //     .finally(options.complete);
+    // }
 
     // #endif
 
     // #ifndef MP-WEIXIN
-    uni.uploadFile(
-      Object.assign(
-        {},
-        {
-          url: WANDER_API.saveWander,
-          files: imageList.map((item) => {
-            return {
-              uri: item.url,
-            };
-          }),
-          header: {
-            Authorization: `Bearer ${uni.getStorageSync("token")}`,
-          },
-          formData: Object.assign({}, baseFormData, {
-            id: id.value,
-          }),
-        },
-        options
-      )
-    );
+    // uni.uploadFile(
+    //   Object.assign(
+    //     {},
+    //     {
+    //       url: WANDER_API.saveWander,
+    //       files: imageList.map((item) => {
+    //         return {
+    //           uri: item.url,
+    //         };
+    //       }),
+    //       header: {
+    //         Authorization: `Bearer ${uni.getStorageSync("token")}`,
+    //       },
+    //       formData: Object.assign({}, baseFormData, {
+    //         id: id.value,
+    //       }),
+    //     },
+    //     options
+    //   )
+    // );
     // #endif
   });
 };
