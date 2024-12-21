@@ -61,6 +61,12 @@ import { reactive, ref } from "vue";
 import { request } from "@/utils/request";
 import { onLoad, onShow } from "@dcloudio/uni-app";
 import { WANDER_API } from "@/api/wander";
+import { route, toast } from "@/uni_modules/uview-plus";
+import {
+  getWanderDetail,
+  saveWander,
+  saveWanderNoPhoto,
+} from "@/common/api/wander";
 
 /**
  * 页面初始化时获取传入的id，并根据id加载游记详情
@@ -69,31 +75,21 @@ const id = ref("");
 onLoad((options: any) => {
   if (options.id) {
     id.value = options.id;
-    getWanderDetail();
+    fetchGetWanderDetail();
   }
 });
 
 /**
  * 获取游记详情
  */
-const getWanderDetail = () => {
-  request(WANDER_API.getWanderDetail, {
-    method: "GET",
-    data: {
-      id: id.value,
-    },
-  })
+const fetchGetWanderDetail = () => {
+  getWanderDetail({ id: id.value })
     .then((res: any) => {
       const { errorCode, errorMessage, data } = res;
       if (errorCode != 0 || !data) {
-        uni.showToast({
-          title: errorMessage,
-          duration: 2000,
-          icon: "error",
-        });
+        toast(errorMessage);
         return;
       }
-
       baseFormData.title = data.title;
       baseFormData.date = data.date;
       baseFormData.content = data.content;
@@ -106,7 +102,8 @@ const getWanderDetail = () => {
     })
     .catch((err: any) => {
       console.log(err);
-    });
+    })
+    .finally(() => {});
 };
 
 /**
@@ -154,100 +151,51 @@ const onSubmit = () => {
     if (!res) {
       return;
     }
-    loading.value = true;
-    // 1：如果没有上传图片
-    // 2：有图片
-    // 3：没有新图片
-    
-
-
-
-    
-    // const options: any = {
-    //   success(res: any) {
-    //     let result: any = {};
-    //     if (id.value) {
-    //       result = JSON.parse(res.data);
-    //     } else {
-    //       result = JSON.parse(res.data);
-    //     }
-    //     const { errorMessage, errorCode, data } = result;
-    //     if (errorCode == 0) {
-    //       uni.showToast({
-    //         title: errorMessage,
-    //         icon: "success",
-    //         duration: 500,
-    //         success: () => {
-    //           if (!id.value) {
-    //             uni.navigateBack({
-    //               delta: 1,
-    //             });
-    //           }
-    //         },
-    //       });
-    //     } else {
-    //       uni.showToast({
-    //         title: errorMessage,
-    //         icon: "none",
-    //       });
-    //     }
-    //   },
-    //   fail(err: any) {
-    //     console.log(err);
-    //   },
-    //   complete() {
-    //     loading.value = false;
-    //   },
-    // };
-
-    // #ifdef MP-WEIXIN
-    // if (imageList.length && !imageList[0].name) {
-    //   options.url = WANDER_API.saveWander;
-    //   options.filePath = imageList[0].url;
-    //   options.name = "file";
-    //   options.header = {
-    //     Authorization: `Bearer ${uni.getStorageSync("token")}`,
-    //   };
-    //   options.formData = Object.assign({}, baseFormData, {
-    //     id: id.value,
-    //   });
-    //   uni.uploadFile(options);
-    // } else {
-    //   request(WANDER_API.saveWanderWx, {
-    //     method: "POST",
-    //     data: Object.assign({}, baseFormData, {
-    //       id: id.value,
-    //     }),
-    //   })
-    //     .then(options.success)
-    //     .catch(options.fail)
-    //     .finally(options.complete);
-    // }
-
-    // #endif
-
-    // #ifndef MP-WEIXIN
-    // uni.uploadFile(
-    //   Object.assign(
-    //     {},
-    //     {
-    //       url: WANDER_API.saveWander,
-    //       files: imageList.map((item) => {
-    //         return {
-    //           uri: item.url,
-    //         };
-    //       }),
-    //       header: {
-    //         Authorization: `Bearer ${uni.getStorageSync("token")}`,
-    //       },
-    //       formData: Object.assign({}, baseFormData, {
-    //         id: id.value,
-    //       }),
-    //     },
-    //     options
-    //   )
-    // );
-    // #endif
+    const data: any = Object.assign({}, baseFormData, {
+      id: id.value,
+      photo: [],
+    });
+    // 直接上传新图片
+    if (imageList.length && !imageList[0].name) {
+      saveWander({
+        filePath: imageList.length && imageList[0].url,
+        name: "file",
+        formData: Object.assign({}, baseFormData, {
+          id: id.value,
+        }),
+      })
+        .then((res: any) => {
+          const { errorCode, errorMessage } = res;
+          if (errorCode != 0) {
+            toast(errorMessage);
+            return;
+          }
+          toast("提交成功");
+          uni.navigateBack({
+            delta: 1,
+          });
+        })
+        .catch((err: any) => {})
+        .finally(() => {});
+    }
+    // 原有图片没有修改 或者不存在图片
+    if ((imageList.length && imageList[0].name) || imageList.length == 0) {
+      data.photo = imageList.length > 0 ? imageList[0].url : "";
+      saveWanderNoPhoto(data)
+        .then((res: any) => {
+          const { errorCode, errorMessage } = res;
+          if (errorCode != 0) {
+            toast(errorMessage);
+            return;
+          }
+          toast("提交成功");
+          uni.navigateBack({
+            delta: 1,
+          });
+        })
+        .catch((err: any) => {})
+        .finally(() => {});
+    }
   });
 };
 

@@ -30,6 +30,10 @@ const requestInterceptors = (vm: any) => {
       };
       // console.log(store.state);
       console.log("最终配置", config);
+      uni.showLoading({
+        title: "加载中",
+        mask: true,
+      });
       return config;
     },
     (
@@ -47,6 +51,7 @@ const responseInterceptors = (vm: any) => {
     (response: any) => {
       /* 对响应成功做点什么 可使用async await 做异步操作*/
       console.log("响应拦截器", response);
+      uni.hideLoading();
       const data = response.data;
       // 自定义参数
       const custom = response.config?.custom;
@@ -64,6 +69,7 @@ const responseInterceptors = (vm: any) => {
           return new Promise(() => {});
         }
       }
+      // 对于所有statusCode 为401的统一跳转至登录界面
       return data || {};
     },
     (response: any) => {

@@ -3,7 +3,7 @@
  * @Date: 2024-07-02 20:07:21
  * @LastEditors: panrui 1547177202@qq.com
  * @LastEditTime: 2024-12-17 21:36:05
- * @FilePath: \only.panrui.top\src\pages\wander\index.vue
+ * @FilePath: 流浪列表页面
 -->
 <template>
   <prstatus></prstatus>
@@ -57,6 +57,25 @@ import {
 } from "@dcloudio/uni-app";
 
 // 在应用显示时检查密码，如果正确则加载漫游列表
+
+
+// 定义分页参数
+const pagination = reactive({
+  page: 1,
+  limit: 10,
+});
+let total = ref(0);
+// 定义漫游数据接口
+interface Wander {
+  id: string;
+  title: string;
+  content: string;
+  photo?: string;
+  date: string;
+  urls?: string[];
+}
+const wanderList = ref<Wander[]>([]);
+
 onShow(() => {
   // const wanderPassword = uni.getStorageSync("wanderPassword");
   // if (!wanderPassword) {
@@ -95,31 +114,15 @@ onShow(() => {
   // if (total.value == 0) {
   //   getWanderList();
   // }
+  pagination.page = 1;
+  wanderList.value = [];
+  total.value = 0;
   fetchGetWanderList();
 });
 
-// 定义分页参数
-const pagination = reactive({
-  page: 1,
-  limit: 10,
-});
 
-let total = ref(0);
-// 定义漫游数据接口
-interface Wander {
-  id: string;
-  title: string;
-  content: string;
-  photo?: string;
-  date: string;
-  urls?: string[];
-}
-const wanderList = ref<Wander[]>([]);
 // 加载漫游列表数据
 const fetchGetWanderList = () => {
-  uni.showLoading({
-    title: "加载中",
-  });
   getWanderList(pagination)
     .then((res: any) => {
       const { errorCode, errorMessage, data } = res;
@@ -143,7 +146,7 @@ const fetchGetWanderList = () => {
     })
     .catch((err: any) => {})
     .finally(() => {
-      uni.hideLoading();
+      // uni.hideLoading();
     });
 };
 // const getWanderList = () => {
@@ -186,27 +189,24 @@ const fetchGetWanderList = () => {
 onPullDownRefresh(() => {
   pagination.page = 1;
   wanderList.value = [];
-  getWanderList();
+  fetchGetWanderList();
   uni.stopPullDownRefresh();
 });
 
 // 上拉触底时加载更多漫游列表数据
 onReachBottom(() => {
   if (pagination.page * pagination.limit >= total.value) {
-    uni.showToast({
-      title: "没有更多数据了",
-      duration: 300,
-    });
+    toast("没有更多数据了", 300);
     return;
   }
-  pagination.page++;
-  getWanderList();
+  fetchGetWanderList();
 });
 
 // 跳转到详情页面
 const toDetail = (id: string) => {
-  uni.navigateTo({
-    url: `/pages/wander/detail?id=${id}`,
+  route({
+    url: "/pages/wander/detail",
+    params: { id },
   });
 };
 

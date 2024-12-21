@@ -8,6 +8,10 @@ export const getWanderList = (params: any) =>
 export const getWanderDetail = (params: any) =>
   http.get("wander/getWanderDetail", { params });
 
-// 保存流浪信息接口
-export const saveWander = (params: any, config = {}) =>
-  http.post("wander/saveWander", params, config);
+// 保存流浪信息接口不带照片
+export const saveWanderNoPhoto = (params: any, config = {}) =>
+  http.post("wander/saveWanderNoPhoto", params, config);
+
+// 流浪信息接口带照片
+export const saveWander = (config: any) =>
+  http.upload("wander/saveWander", config);
