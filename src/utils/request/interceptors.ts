@@ -2,11 +2,11 @@
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-12-17 20:53:17
  * @LastEditors: panrui 1547177202@qq.com
- * @LastEditTime: 2024-12-17 21:47:38
+ * @LastEditTime: 2024-12-21 20:51:48
  * @FilePath: \only.panrui.top\src\utils\request\interceptors.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { http, toast } from "@/uni_modules/uview-plus";
+import { http, toast, route } from "@/uni_modules/uview-plus";
 
 const getToken = () => {
   return uni.getStorageSync("token");
@@ -75,6 +75,13 @@ const responseInterceptors = (vm: any) => {
     (response: any) => {
       /*  对响应错误做点什么 （statusCode !== 200）*/
       console.log("response error", response);
+      if (response.statusCode == 401) {
+        route({
+          url: "/pages/login/login",
+          type: "redirect",
+        })
+        return Promise.reject(response);
+      }
       toast(response.errMsg);
       return Promise.reject(response);
     }
