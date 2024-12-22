@@ -1,8 +1,8 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:45
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-12-17 17:26:19
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-12-22 22:55:43
  * @FilePath: 首页
 -->
 <template>
@@ -14,27 +14,73 @@
   ></up-navbar>
   <view class="page-wrap">
     <view class="page-wrap__top">
-      <!-- <up-text
-        text="你想去那里？"
-        color="#121212"
-        size="24px"
-        :block="flagTrue"
-        :bold="flagTrue"
-      ></up-text> -->
-      <!-- <view class="height20"></view> -->
-
-      <!-- borderColor="#E7EAF0"
-      bgColor="#FFFFFF" -->
       <up-search
         :inputStyle="inputStyle"
         placeholder="搜索你想去的世界"
         shape="square"
         :show-action="false"
         height="40"
-        bgColor="#FFFFFF"
         v-model="keyword"
         @change="search"
       ></up-search>
+    </view>
+
+    <view class="page-wrap__swiper">
+      <up-swiper :list="bannerList" height="220" radius="0"></up-swiper>
+    </view>
+
+    <view class="page-wrap__menu">
+      <up-grid :border="false" col="4">
+        <up-grid-item
+          v-for="(listItem, listIndex) in navList"
+          :key="listIndex"
+          @click="navClick(listIndex)"
+        >
+          <up-image
+            :src="listItem.image"
+            width="30px"
+            height="30px"
+            radius="10"
+          ></up-image>
+          <view style="height: 10px"></view>
+          <up-text align="center" :text="listItem.title" size="14"></up-text>
+        </up-grid-item>
+      </up-grid>
+    </view>
+
+    <view class="page-wrap__recommend">
+      <up-text text="为您推荐" :bold="bold" size="18"></up-text>
+      <view class="recommend-list">
+        <view
+          class="recommend-list-item"
+          v-for="(item, index) in travelList"
+          :key="index"
+        >
+          <up-image
+            :show-loading="true"
+            :src="item.photos"
+            width="90px"
+            height="90px"
+            radius="10"
+          ></up-image>
+          <view class="item-right">
+            <view style="flex: 1">
+              <up-text :text="item.theme" :bold="bold" size="18"></up-text>
+              <up-text
+                :text="item.content"
+                :lines="2"
+                size="14"
+                style="margin-top: 10px"
+              ></up-text>
+            </view>
+            <up-text
+              :text="item.updateDate"
+              size="12"
+              lineHeight="20"
+            ></up-text>
+          </view>
+        </view>
+      </view>
     </view>
 
     <!-- <view class="tag-box">
@@ -65,55 +111,69 @@
       </view>
     </view> -->
 
-    <!-- <view class="tool-box">
-      <up-text text="那年今日" size="18" color="#121212" :bold="bold"></up-text>
-    </view> -->
-
-    <!-- <view style="height: 200px"></view> -->
-
-    <!-- <up-divider text="已经到底部，别再滑了"></up-divider> -->
-
-    <!-- <view class="tip-box"> 恋爱长跑：{{ lovetime }} </view> -->
-
-    <!-- #ifdef APP-PLUS -->
-    <view class="page-wrap__bottom">
-      <up-text
-        text="潘潘的工具箱"
-        color="#121212"
-        size="20px"
-        :block="flagTrue"
-        :bold="flagTrue"
-      ></up-text>
-
-      <view class="na-box">
-        <up-grid :border="false" col="3">
-          <up-grid-item
-            v-for="(listItem, listIndex) in navList"
-            :key="listIndex"
-            @click="navClick(listIndex)"
-          >
-            <text class="grid-text">{{ listItem.title }}</text>
-          </up-grid-item>
-        </up-grid>
-      </view>
+    <view class="page-wrap__bottomTip">
+      <up-divider text="已经到底部，别再滑了"></up-divider>
+      <view class="tip-box"> 恋爱长跑：{{ lovetime }} </view>
     </view>
-    <!-- #endif -->
   </view>
 </template>
 
 <script lang="ts" setup>
 import { ref, computed, watch } from "vue";
-import { request } from "@/utils/request";
-import { TAG_API } from "@/api/tag";
-import { TRAVEL_API } from "@/api/travel";
 import { useTagStore } from "@/stores/tag";
 import dayjs from "dayjs";
-import { getTravelDetail } from "@/common/api/travel";
+import { getTravelDetail, getTravelList } from "@/common/api/travel";
+import { onLoad } from "@dcloudio/uni-app";
+import { route, toast } from "@/uni_modules/uview-plus";
 
 const tagStore = useTagStore();
 // tagStore.getTagList();
 
-// 页面加载完成
+const bannerList: any = ref([]);
+
+const bold = true;
+
+// 获取旅行列表
+const travelList: any = ref([]);
+
+onLoad(() => {
+  getTravelDetail({})
+    .then((res: any) => {
+      const { errorCode, errorMessage, data } = res;
+      if (errorCode != 0) {
+        toast(errorMessage);
+        return;
+      }
+      if (data && data.photos && data.photos.length > 0) {
+        bannerList.value = data.photos.map((item: { url: any }) => item.url);
+      }
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
+
+  getTravelList({
+    page: 1,
+    limit: 5,
+  })
+    .then((res: any) => {
+      const { errorCode, errorMessage, data } = res;
+      if (errorCode != 0) {
+        toast(errorMessage);
+        return;
+      }
+      travelList.value = data.list.map((item: any) => {
+        return {
+          ...item,
+          updateDate: dayjs(item.updateDate).format("YYYY-MM-DD HH:mm:ss"),
+          photos: item.photos.length ? item.photos[0].url : "",
+        };
+      });
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
+});
 
 const tagList: any = computed(() => {
   return tagStore.tags.filter((item: any) => {
@@ -132,39 +192,9 @@ const flagTrue = true;
 
 // 初始化一个空对象，用于存放输入框的样式
 const inputStyle = {};
-const bold = true;
 
 // 使用ref创建一个响应式字符串，用于搜索关键字的输入
 const keyword = ref("");
-
-// 获取旅行列表
-const travelList: any = ref([]);
-const getTravelList = (id: string | number) => {
-  travelList.value = [];
-  request(TRAVEL_API.getTravelList, {
-    method: "GET",
-    data: {
-      tag: id,
-    },
-  }).then((res: any) => {
-    const { errorCode, errorMessage, data } = res;
-    if (errorCode != 0) {
-      uni.showToast({
-        title: errorMessage,
-        duration: 2000,
-        icon: "error",
-      });
-    }
-    if (data && data.list && data.list.length > 0) {
-      travelList.value = data.list;
-    } else {
-      uni.showToast({
-        title: "暂无内容",
-        duration: 2000,
-      });
-    }
-  });
-};
 
 // 使用ref创建一个响应式整数，用于记录当前选中的标签索引
 const currentTagIndex = ref(0);
@@ -181,23 +211,28 @@ const tagClick = (index: number, item: any) => {
 // 使用ref创建一个响应式数组，包含导航列表
 const navList = ref([
   // {
+  //   title: "时光笔记",
+  //   image: "/static/images/dhphoto.png",
+  //   page: "/pages/wander/index",
+  // },
+  // {
   //   title: "文档",
   //   image: "/static/dhphoto.png",
   //   page: "/pages/webview/wendang",
   // },
-  {
-    title: "账号",
-    image: "/static/dhphoto.png",
-    page: "/pages/account/index",
-  },
+  // {
+  //   title: "账号",
+  //   image: "/static/dhphoto.png",
+  //   page: "/pages/account/index",
+  // },
   {
     title: "网站",
-    image: "/static/dhphoto.png",
+    image: "/static/images/dhphoto.png",
     page: "/pages/website/index",
   },
   {
     title: "音乐",
-    image: "/static/dhphoto.png",
+    image: "/static/images/dhphoto.png",
     page: "/pages/music/index",
   },
 ]);
@@ -265,6 +300,7 @@ const search = () => {
   }
 };
 
+// 计算恋爱长跑时间
 const pastDateStr = "2023-10-04";
 const lovetime = ref("");
 
@@ -309,22 +345,67 @@ pollSince(pastDateStr);
 </script>
 
 <style lang="scss" scoped>
-// body,
-// uni-page-body {
-//   height: 100%;
-// }
-
 .page-wrap {
+  background-color: #eee;
   .page-wrap__top {
     padding: 20px 24px;
     box-sizing: border-box;
+    background-color: #fff;
     ::v-deep .u-search {
-      box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.09),
-        0px -4px 27px rgba(63, 63, 63, 0.06);
+      // box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.09),
+      //   0px -4px 27px rgba(63, 63, 63, 0.06);
       border-radius: 100px !important;
       .u-search__content {
         border-radius: 100px !important;
       }
+    }
+  }
+
+  .page-wrap__swiper {
+    margin-bottom: 2px;
+  }
+
+  .page-wrap__menu {
+    padding: 30px 12px;
+    background-color: #fff;
+    margin-top: 2px;
+    box-sizing: border-box;
+  }
+
+  .page-wrap__recommend {
+    padding: 10px 12px;
+    background-color: #fff;
+    margin-top: 4px;
+    box-sizing: border-box;
+    .recommend-list {
+      .recommend-list-item {
+        display: flex;
+        padding: 15px 0;
+        .item-right {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex: 1;
+          margin-left: 10px;
+        }
+        ::v-deep .u-text {
+          flex: 0;
+        }
+      }
+    }
+  }
+
+  .page-wrap__bottomTip {
+    padding: 10px 0;
+    background-color: #fff;
+    // margin-top: 4px;
+    box-sizing: border-box;
+    .tip-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #000;
     }
   }
 
