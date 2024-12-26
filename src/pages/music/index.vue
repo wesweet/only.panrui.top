@@ -103,15 +103,14 @@ let songInfo: any = reactive({
   duration: 0,
   currentTime: 0,
 });
-onHide(() => {
+onHide(() => {});
+
+const back = () => {
   if (innerAudioContext) {
     innerAudioContext.pause();
     innerAudioContext.destroy();
     innerAudioContext = null;
   }
-});
-
-const back = () => {
   route({
     type: "switchTab",
     url: "/pages/tabBar/index",

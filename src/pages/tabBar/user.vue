@@ -1,115 +1,84 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:58
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-07-08 16:23:35
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2024-12-26 23:17:28
  * @FilePath: \only.panrui.top\src\pages\tabBar\user.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 个人中心页
 -->
 <template>
-  <prstatus></prstatus>
+  <up-navbar
+    title=""
+    leftIcon=""
+    :autoBack="false"
+    :placeholder="true"
+  ></up-navbar>
   <view class="page-wrap">
-    <view class="page-top">
-      <view class="page-top__avatar">
-        <up-avatar
-          size="100"
-          src="https://static.panrui.top/images/blog/gallery/file-169959676574915050522.jpg"
-        ></up-avatar>
-      </view>
-      <view class="page-top__info">
-        <up-text
-          text="初心不負"
-          align="center"
-          :bold="bold"
-          color="#020202"
-          size="28"
-        ></up-text>
-        <up-text text="@panrui" align="center" size="18"></up-text>
-      </view>
+    <view class="page-wrap__top"></view>
+    <view class="page-wrap__content"></view>
+    <view class="page-wrap__content"></view>
+    <view class="page-wrap__content"></view>
+    <view class="page-wrap__btn">
+      <up-button text="退出登录" @click="handleLogout"></up-button>
     </view>
-    <view class="page-center">
-      <view class="item">
-        <up-text
-          text="0"
-          align="center"
-          color="#121212"
-          :bold="bold"
-          size="22"
-        ></up-text>
-        <up-text text="收藏" align="center" color="#606060" size="14"></up-text>
-      </view>
-      <view class="item">
-        <up-text
-          text="0"
-          align="center"
-          color="#121212"
-          :bold="bold"
-          size="22"
-        ></up-text>
-        <up-text
-          text="观看历史"
-          align="center"
-          color="#606060"
-          size="14"
-        ></up-text>
-      </view>
-      <view class="item">
-        <up-text
-          text="0"
-          align="center"
-          color="#121212"
-          :bold="bold"
-          size="22"
-        ></up-text>
-        <up-text text="下载" align="center" color="#606060" size="14"></up-text>
-      </view>
-    </view>
-    <view class="page-bottom"></view>
   </view>
 </template>
 
 <script lang="ts" setup>
-const bold = true;
+import { getUserInfo, logout } from "@/common/api/login";
+import { reactive } from "vue";
+import { route, toast } from "@/uni_modules/uview-plus";
+
+const userInfo = reactive({
+  nickname: "",
+  avatar: "",
+  username: "",
+});
+
+const data = uni.getStorageSync("userInfo");
+if (data) {
+  const id = JSON.parse(data).id;
+  getUserInfo({
+    params: { id },
+  }).then((res: any) => {
+    const { errorCode, data, errorMessage } = res;
+    if (errorCode != 0) {
+      toast(errorMessage);
+      return;
+    }
+    userInfo.nickname = data.nickname;
+    userInfo.avatar = data.avatar;
+    userInfo.username = data.username;
+  });
+}
+
+/**
+ * 退出登录
+ * 后期需要在服务端维护一个黑名单，避免这样token被滥用
+ */
+const handleLogout = () => {
+  uni.removeStorageSync("token");
+  uni.removeStorageSync("userInfo");
+  route({
+    type: "reLaunch",
+    url: "/pages/login/login",
+  });
+  // logout({}).then((res: any) => {
+  //   const { errorCode, errorMessage } = res;
+  //   if (errorCode != 0) {
+  //     toast(errorMessage);
+  //     return;
+  //   }
+  // });
+};
 </script>
 
 <style lang="scss" scoped>
 .page-wrap {
-  padding: 44px 0 0;
-  box-sizing: border-box;
-  background-color: #f5f6f7;
-  .page-top {
-    .page-top__avatar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .page-top__info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 20px 0 10px;
-    }
-  }
-  .page-center {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 20px 34px;
-    height: 77px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
-  }
-  .page-bottom {
-    // position: fixed;
-    // left: 0;
-    // right: 0;
-    // bottom: 0;
-    width: 100%;
-    height: 450px;
-    background-color: #fff;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+  background-color: #eee;
+  .page-wrap__top {
+    height: 168px;
+    background-color: #000;
   }
 }
 </style>

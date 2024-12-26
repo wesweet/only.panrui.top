@@ -2,7 +2,7 @@
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-07-10 19:41:41
  * @LastEditors: panrui 1547177202@qq.com
- * @LastEditTime: 2024-07-16 22:10:12
+ * @LastEditTime: 2024-12-26 22:25:17
  * @FilePath: \only.panrui.top\src\pages\start\index.vue
  * @Description: 启动页
 -->
@@ -17,7 +17,6 @@
 
 <script lang="ts" setup>
 import { route } from "@/uni_modules/uview-plus";
-// 跳转登录页面
 const login = () => {
   if (!uni.getStorageSync("token")) {
     route({
