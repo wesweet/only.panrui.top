@@ -8,7 +8,7 @@
         shape="square"
         :show-action="false"
         placeholder="搜索歌手或歌曲名称"
-        @change="debounce(handleChange, 1000)"
+        @change="debounce(search, 4000)"
       ></up-search>
     </view>
 
@@ -51,6 +51,9 @@
           <up-text :text="songInfo.title" color="#000"></up-text>
           <up-text :text="songInfo.singer" color="#6B7280" size="12"></up-text>
         </view>
+        <view class="time" v-if="songInfo.duration != 0">
+          {{ songInfo.currentTime }} / {{ songInfo.duration }}
+        </view>
       </view>
       <view class="song-controller">
         <span
@@ -84,7 +87,7 @@ import { debounce } from "@/uni_modules/uview-plus";
 import { searchMusic } from "@/common/api/music";
 import { onHide } from "@dcloudio/uni-app";
 const params = reactive({
-  title: "周杰伦",
+  title: "",
   n: "",
   num: 60,
 });
@@ -117,7 +120,17 @@ const back = () => {
 // 使用innerAudioContext 播放歌曲
 let innerAudioContext: any = null;
 const paused = ref(true);
+const search = () => {
+  params.n = "";
+  handleChange();
+};
 
+/**
+ * 1：params.n可以用来区分是搜索歌曲还是播放歌曲
+ * 2：params.n为空时，表示搜索歌曲
+ * 2.1 如果搜索的歌曲存在于数据库 则会直接播放
+ * 2.2 如果搜索的歌曲不存在于数据库 则会返回搜索结果列表
+ */
 const handleChange = () => {
   searchMusic(params).then((res: any) => {
     const { errorCode, data, errorMessage } = res;
@@ -126,7 +139,6 @@ const handleChange = () => {
       return;
     }
     if (Array.isArray(data)) {
-      params.n = "";
       songList.value = data;
     } else {
       if (innerAudioContext) {
@@ -147,6 +159,15 @@ const handleChange = () => {
       songInfo.duration = 0;
       songInfo.currentTime = 0;
       play(true);
+
+      // 判读搜索到的歌曲是否存在于歌曲列表中
+      const index = songList.value.findIndex(
+        (item: any) => item.title === data.title
+      );
+      // 如果存在则不更新歌曲列表
+      if (index === -1) {
+        songList.value = [];
+      }
     }
   });
 };
@@ -184,14 +205,16 @@ const play = (type: boolean) => {
   });
   innerAudioContext.onEnded((res: any) => {
     if (songList.value.length > 0) {
-      const currentN = songList.value.find((item: any) => item.n == params.n);
-      if (currentN) {
-        handleClickSong(currentN.value + 1);
+      if (params.n && Number(params.n) + 1 > songList.value.length) {
+        params.n = songList.value[0].n;
       } else {
-        innerAudioContext.pause();
-        innerAudioContext.destroy();
-        innerAudioContext = null;
+        params.n = params.n + 1;
       }
+      handleChange();
+    } else {
+      innerAudioContext.pause();
+      innerAudioContext.destroy();
+      innerAudioContext = null;
     }
   });
 };
@@ -271,6 +294,12 @@ const formatTime = (time: any) => {
       padding: 10px 20px;
       .title {
         margin-left: 10px;
+      }
+      .time {
+        flex: 1;
+        text-align: right;
+        color: #6b7280;
+        font-size: 12px;
       }
     }
     .song-controller {
