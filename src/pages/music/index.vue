@@ -82,7 +82,7 @@ import { reactive, ref } from "vue";
 import { route, toast } from "@/uni_modules/uview-plus";
 import { debounce } from "@/uni_modules/uview-plus";
 import { searchMusic } from "@/common/api/music";
-const keyword = ref("");
+import { onHide } from "@dcloudio/uni-app";
 const params = reactive({
   title: "周杰伦",
   n: "",
@@ -99,6 +99,13 @@ let songInfo: any = reactive({
   music_url: "",
   duration: 0,
   currentTime: 0,
+});
+onHide(() => {
+  if (innerAudioContext) {
+    innerAudioContext.pause();
+    innerAudioContext.destroy();
+    innerAudioContext = null;
+  }
 });
 
 const back = () => {
