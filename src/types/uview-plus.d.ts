@@ -6,6 +6,7 @@ declare module "@/uni_modules/uview-plus" {
   const http: AxiosInstance;
   const toast: (options: ToastOptions) => void;
   const route: uni.$u.route;
+  const debounce: uni.$u.debounce;
 
-  export { http, toast, route };
+  export { http, toast, route, debounce };
 }

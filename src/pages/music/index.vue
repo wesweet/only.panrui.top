@@ -2,153 +2,153 @@
   <up-navbar title="音乐播放器" :autoBack="false" @leftClick="back">
   </up-navbar>
   <view class="page-wrap">
-    <u-dropdown>
-      <u-dropdown-item
-        v-model="channel"
-        :title="title"
-        :options="channelList"
-        @change="change"
-      ></u-dropdown-item>
-      <u-dropdown-item
-        v-model="channel"
-        title="版本"
-        :options="channelList"
-      ></u-dropdown-item>
-      <u-dropdown-item
-        v-model="channel"
-        title="接口"
-        :options="channelList"
-      ></u-dropdown-item>
-    </u-dropdown>
-    <up-search
-      style="margin-top: 30px"
-      :inputStyle="inputStyle"
-      placeholder="搜索歌曲名称或歌手"
-      shape="square"
-      :show-action="true"
-      actionText="搜索"
-      height="48"
-      borderColor="#E7EAF0"
-      bgColor="#FFFFFF"
-      v-model="keyword"
-      @custom="search"
-    ></up-search>
+    <view class="page-wrap-top">
+      <up-search
+        v-model="params.title"
+        shape="square"
+        :show-action="false"
+        placeholder="搜索歌手或歌曲名称"
+        @change="debounce(handleChange, 1000)"
+      ></up-search>
+    </view>
 
-    <view class="song-list" v-if="songList.length">
-      <view
-        class="item"
-        v-for="(item, index) in songList"
-        :key="index"
-        @click="getMusic(item.n, false)"
-      >
-        <up-text :text="item.n" class="id"></up-text>
-        <up-text :text="item.song_title" lines="1"></up-text>
-        <up-text :text="item.song_singer" lines="1" align="right"></up-text>
-      </view>
+    <view class="page-wrap-list">
+      <up-list height="100%" width="100%">
+        <up-list-item
+          v-for="(item, index) in songList"
+          :key="index"
+          @click="handleClickSong(item.n)"
+        >
+          <view @click="handleClickSong(item.n)" class="page-wrap-listItem">
+            <up-image
+              :show-loading="true"
+              :src="src"
+              width="40px"
+              height="40px"
+              radius="5"
+            ></up-image>
+            <view style="margin-left: 5px">
+              <up-text :text="item.title" color="#000"></up-text>
+              <up-text :text="item.singer" color="#6B7280" size="12"></up-text>
+            </view>
+          </view>
+        </up-list-item>
+      </up-list>
     </view>
-    <view class="song-info" v-if="songInfo.music_url">
-      <view class="cover">
-        <up-image :src="songInfo.cover" width="80px" height="80px"></up-image>
+
+    <view class="page-wrap-bottom" v-if="songInfo.music_url">
+      <view class="song-info">
+        <view class="cover">
+          <up-image
+            :show-loading="true"
+            :src="songInfo.cover"
+            width="60px"
+            height="60px"
+            radius="5"
+          ></up-image>
+        </view>
+        <view class="title">
+          <up-text :text="songInfo.title" color="#000"></up-text>
+          <up-text :text="songInfo.singer" color="#6B7280" size="12"></up-text>
+        </view>
       </view>
-      <view class="title">
-        <up-text :text="songInfo.song_name"></up-text>
-        <up-text :text="songInfo.song_singer"></up-text>
+      <view class="song-controller">
+        <span
+          class="iconfont icon-left-circle"
+          @click="controller('left')"
+        ></span>
+        <span
+          v-if="paused"
+          class="iconfont icon-play-circle"
+          @click="controller('play')"
+        ></span>
+        <span
+          v-else
+          class="iconfont icon-timeout"
+          @click="controller('paused')"
+        ></span>
+        <span
+          class="iconfont icon-right-circle"
+          @click="controller('right')"
+        ></span>
+        <span class="iconfont icon-reload" @click="controller('reload')"></span>
       </view>
-      <view class="time">
-        {{ songInfo.currentTime }} / {{ songInfo.duration }}
-      </view>
-    </view>
-    <view class="song-controller" v-if="songInfo.music_url">
-      <span
-        class="iconfont icon-left-circle"
-        @click="controller('left')"
-      ></span>
-      <span
-        v-if="paused"
-        class="iconfont icon-play-circle"
-        @click="controller('play')"
-      ></span>
-      <span
-        v-else
-        class="iconfont icon-timeout"
-        @click="controller('paused')"
-      ></span>
-      <span
-        class="iconfont icon-right-circle"
-        @click="controller('right')"
-      ></span>
-      <span class="iconfont icon-reload" @click="controller('reload')"></span>
     </view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
+import { route, toast } from "@/uni_modules/uview-plus";
+import { debounce } from "@/uni_modules/uview-plus";
+import { searchMusic } from "@/common/api/music";
 const keyword = ref("");
+const params = reactive({
+  title: "周杰伦",
+  n: "",
+  num: 60,
+});
+const src = ref("https://cdn.uviewui.com/uview/album/1.jpg");
+const songList = ref<any[]>([]);
+let songInfo: any = reactive({
+  id: "",
+  title: "",
+  singer: "",
+  cover: "",
+  lrc_url: "",
+  music_url: "",
+  duration: 0,
+  currentTime: 0,
+});
+
 const back = () => {
-  uni.switchTab({
+  route({
+    type: "switchTab",
     url: "/pages/tabBar/index",
   });
 };
-const inputStyle = {};
-const songList = ref<any[]>([]);
-const search = () => {
-  const info: any = channelList.find(
-    (item: any) => item.value == channel.value
-  );
-  info.params.gm = keyword.value;
-  info.params.n = "";
-  songList.value = [];
-  songInfo.value = {};
-  uni.request({
-    url: info.api_url,
-    data: info.params,
-    success: (res: any) => {
-      const { code, data } = res.data;
-      if (code == 200) {
-        songList.value = data;
-      }
-    },
-  });
-};
-const songInfo: any = ref({});
-
 // 使用innerAudioContext 播放歌曲
 let innerAudioContext: any = null;
-const currentN = ref(1);
-const getMusic = (n: any, type = false) => {
-  const info: any = channelList.find(
-    (item: any) => item.value == channel.value
-  );
-  info.params.gm = keyword.value;
-  info.params.n = n;
-  currentN.value = n;
-  if (innerAudioContext) {
-    try {
-      innerAudioContext.pause();
-      innerAudioContext.destroy();
-      innerAudioContext = null;
-    } catch (e) {
-      //TODO handle the exception
+const paused = ref(true);
+
+const handleChange = () => {
+  searchMusic(params).then((res: any) => {
+    const { errorCode, data, errorMessage } = res;
+    if (errorCode != 0) {
+      toast(errorMessage);
+      return;
     }
-  }
-  songInfo.value = {};
-  uni.request({
-    url: info.api_url,
-    data: info.params,
-    success: (res: any) => {
-      const { code, data } = res.data;
-      if (code == 200) {
-        data.duration = 0;
-        data.currentTime = 0;
-        songInfo.value = data;
-        play(type);
+    if (Array.isArray(data)) {
+      params.n = "";
+      songList.value = data;
+    } else {
+      if (innerAudioContext) {
+        try {
+          innerAudioContext.pause();
+          innerAudioContext.destroy();
+          innerAudioContext = null;
+        } catch (e) {
+          //TODO handle the exception
+        }
       }
-    },
+      songInfo.id = data.id;
+      songInfo.title = data.title;
+      songInfo.singer = data.singer;
+      songInfo.cover = data.cover;
+      songInfo.lrc_url = data.lrc_url;
+      songInfo.music_url = data.music_url;
+      songInfo.duration = 0;
+      songInfo.currentTime = 0;
+      play(true);
+    }
   });
 };
 
-const paused = ref(true);
+const handleClickSong = (n: string) => {
+  params.n = n;
+  handleChange();
+};
+
 const play = (type: boolean) => {
   paused.value = true;
   innerAudioContext = uni.createInnerAudioContext();
@@ -156,7 +156,7 @@ const play = (type: boolean) => {
   // #ifdef APP-PLUS
   innerAudioContext.autoplay = true;
   // #endif
-  innerAudioContext.src = songInfo.value.music_url;
+  innerAudioContext.src = songInfo.music_url;
   innerAudioContext.onPlay(() => {
     // alert("音频播放事件");
     paused.value = innerAudioContext.paused;
@@ -169,14 +169,23 @@ const play = (type: boolean) => {
     alert("音频播放错误事件");
   });
   innerAudioContext.onCanplay((res: any) => {
-    songInfo.value.duration = formatTime(innerAudioContext.duration);
+    songInfo.duration = formatTime(innerAudioContext.duration);
   });
   innerAudioContext.onTimeUpdate((res: any) => {
-    songInfo.value.currentTime = formatTime(innerAudioContext.currentTime);
-    songInfo.value.duration = formatTime(innerAudioContext.duration);
+    songInfo.currentTime = formatTime(innerAudioContext.currentTime);
+    songInfo.duration = formatTime(innerAudioContext.duration);
   });
   innerAudioContext.onEnded((res: any) => {
-    getMusic(currentN.value + 1, true);
+    if (songList.value.length > 0) {
+      const currentN = songList.value.find((item: any) => item.n == params.n);
+      if (currentN) {
+        handleClickSong(currentN.value + 1);
+      } else {
+        innerAudioContext.pause();
+        innerAudioContext.destroy();
+        innerAudioContext = null;
+      }
+    }
   });
 };
 
@@ -208,84 +217,65 @@ const formatTime = (time: any) => {
   const sec = Math.floor(time % 60);
   return `${min}:${sec < 10 ? "0" + sec : sec}`;
 };
-
-// 渠道列表
-const channel = ref(1);
-const title: any = ref("QQ音乐");
-const channelList = [
-  {
-    label: "QQ音乐",
-    value: 1,
-    api_url: "https://www.hhlqilongzhu.cn/api/dg_qqmusic.php",
-    params: {
-      gm: "",
-      n: "",
-      num: 60,
-      type: "json",
-    },
-  },
-];
-const change = (value: any) => {
-  const channel = channelList.find((item: any) => item.value == value);
-  if (channel && channel.label) {
-    title.value = channel.label;
-  }
-  if (keyword.value) {
-    search();
-  }
-};
 </script>
 
 <style lang="scss" scoped>
-body,
-uni-page-body {
-  height: 100%;
-}
 .page-wrap {
-  padding: calc(var(--status-bar-height) + 50px) 24px 0;
-  box-sizing: border-box;
-  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
-  min-height: 100%;
-  box-sizing: border-box;
-  .song-list {
-    height: 40vh;
-    margin: 10px 0;
-    border: 1px solid #e7eaf0;
-    border-radius: 10px;
-    overflow: auto;
-    .item {
+  padding-top: calc(var(--status-bar-height) + 70px);
+  .page-wrap-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    padding: 12px 20px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .page-wrap-list {
+    height: 45vh;
+    .page-wrap-listItem {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      height: 50px;
-      padding: 4px 15px;
+      height: 70px;
+      padding: 0 20px;
       box-sizing: border-box;
-      &:nth-of-type(2n + 1) {
-        background-color: #f7f7f7;
+      &::after {
+        position: absolute;
+        content: "";
+        left: 20px;
+        right: 20px;
+        bottom: 0;
+        height: 1px;
+        background-color: #f3f4f6;
       }
     }
   }
-  .song-info {
-    display: flex;
-    align-items: center;
-    border: 1px solid #e7eaf0;
-    .title {
-      margin-left: 15px;
+  .page-wrap-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    border-top: 1px solid #f3f4f6;
+    .song-info {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      .title {
+        margin-left: 10px;
+      }
     }
-    .time {
-      flex: 1;
-      text-align: right;
-      padding-right: 10px;
-    }
-  }
-  .song-controller {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    .iconfont {
-      padding: 0 10px;
-      font-size: 40px;
+    .song-controller {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      margin-top: 10px;
+      .iconfont {
+        font-size: 30px;
+        margin: 0 10px;
+      }
     }
   }
 }

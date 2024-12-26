@@ -36,13 +36,13 @@
           :key="listIndex"
           @click="navClick(listIndex)"
         >
-          <up-image
+          <!-- <up-image
             :src="listItem.image"
             width="30px"
             height="30px"
             radius="10"
           ></up-image>
-          <view style="height: 10px"></view>
+          <view style="height: 10px"></view> -->
           <up-text align="center" :text="listItem.title" size="14"></up-text>
         </up-grid-item>
       </up-grid>
