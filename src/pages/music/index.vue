@@ -86,12 +86,13 @@ import { route, toast } from "@/uni_modules/uview-plus";
 import { debounce } from "@/uni_modules/uview-plus";
 import { searchMusic } from "@/common/api/music";
 import { onHide } from "@dcloudio/uni-app";
+import config from "@/common/config";
 const params = reactive({
   title: "",
   n: "",
   num: 60,
 });
-const src = ref("https://cdn.uviewui.com/uview/album/1.jpg");
+const src = ref(config.logo);
 const songList = ref<any[]>([]);
 let songInfo: any = reactive({
   id: "",
@@ -131,6 +132,10 @@ const search = () => {
  * 2.2 如果搜索的歌曲不存在于数据库 则会返回搜索结果列表
  */
 const handleChange = () => {
+  if (!params.title) {
+    toast("请输入歌曲名称或歌手名称");
+    return;
+  }
   searchMusic(params).then((res: any) => {
     const { errorCode, data, errorMessage } = res;
     if (errorCode != 0) {
@@ -157,6 +162,10 @@ const handleChange = () => {
       songInfo.music_url = data.music_url;
       songInfo.duration = 0;
       songInfo.currentTime = 0;
+      if (data.music_url.indexOf("http") === -1) {
+        toast("音频地址错误");
+        return;
+      }
       play(true);
 
       // 判读搜索到的歌曲是否存在于歌曲列表中
@@ -193,7 +202,8 @@ const play = (type: boolean) => {
     paused.value = innerAudioContext.paused;
   });
   innerAudioContext.onError((res: any) => {
-    alert("音频播放错误事件");
+    toast("音频播放失败");
+    playNext();
   });
   innerAudioContext.onCanplay((res: any) => {
     songInfo.duration = formatTime(innerAudioContext.duration);
@@ -203,19 +213,24 @@ const play = (type: boolean) => {
     songInfo.duration = formatTime(innerAudioContext.duration);
   });
   innerAudioContext.onEnded((res: any) => {
-    if (songList.value.length > 0) {
-      if (params.n && Number(params.n) + 1 > songList.value.length) {
-        params.n = songList.value[0].n;
-      } else {
-        params.n = params.n + 1;
-      }
-      handleChange();
-    } else {
-      innerAudioContext.pause();
-      innerAudioContext.destroy();
-      innerAudioContext = null;
-    }
+    playNext();
   });
+};
+
+// 播放下一曲
+const playNext = () => {
+  if (songList.value.length > 0) {
+    if (params.n && Number(params.n) + 1 > songList.value.length) {
+      params.n = songList.value[0].n;
+    } else {
+      params.n = params.n + 1;
+    }
+    handleChange();
+  } else {
+    innerAudioContext.pause();
+    innerAudioContext.destroy();
+    innerAudioContext = null;
+  }
 };
 
 const controller = (type: any) => {
