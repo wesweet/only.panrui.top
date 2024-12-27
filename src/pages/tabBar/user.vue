@@ -21,7 +21,6 @@
           :src="userInfo.avatar"
           width="80px"
           height="80px"
-          @click="click"
           shape="circle"
         ></up-image>
       </view>

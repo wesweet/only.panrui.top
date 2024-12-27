@@ -1,31 +1,38 @@
 <!--
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-07-02 20:07:21
- * @LastEditors: panrui 1547177202@qq.com
- * @LastEditTime: 2024-12-17 21:36:05
+ * @LastEditors: panr99 1547177202@qq.com
+ * @LastEditTime: 2024-12-27 17:07:23
  * @FilePath: 流浪列表页面
 -->
 <template>
-  <prstatus></prstatus>
   <up-navbar title="时光机" :autoBack="false" @leftClick="back"> </up-navbar>
   <view class="page-wrap">
     <view class="album-list">
       <view class="album" v-for="(item, index) in wanderList" :key="index">
         <view class="album__avatar" @click="toDetail(item.id)">
-          <image
+          <up-image
+            :show-loading="true"
             src="/static/images/login.png"
-            style="width: 24px; height: 24px"
-          ></image>
+            width="42px"
+            height="42px"
+          ></up-image>
         </view>
         <view class="album__content">
           <view @click="toDetail(item.id)">
             <up-text
               :text="item.title"
               bold
-              size="17"
-              color="#0a0a0a"
+              size="15"
+              color="#111827"
             ></up-text>
-            <up-text margin="5px 0 15px 0" :text="item.content"></up-text>
+            <up-text
+              margin="10px 0 15px 0"
+              :text="item.content"
+              lineHeight="22"
+              size="12"
+              color="#374151"
+            ></up-text>
           </view>
           <template v-if="item.urls && item.urls.length">
             <up-album
@@ -34,7 +41,10 @@
               singleMode="aspectFit"
             ></up-album>
           </template>
-          <up-text margin="10px 0 0 0" :text="item.date"></up-text>
+          <view class="time">
+            <up-icon name="calendar-fill"></up-icon>
+            <up-text :text="item.date" size="12" color="#374151"></up-text>
+          </view>
         </view>
       </view>
     </view>
@@ -49,6 +59,7 @@
 import { reactive, ref } from "vue";
 import { route, toast } from "@/uni_modules/uview-plus";
 import { getWanderList } from "@/common/api/wander";
+import config from "@/common/config";
 import {
   onPullDownRefresh,
   onReachBottom,
@@ -57,7 +68,6 @@ import {
 } from "@dcloudio/uni-app";
 
 // 在应用显示时检查密码，如果正确则加载漫游列表
-
 
 // 定义分页参数
 const pagination = reactive({
@@ -77,49 +87,11 @@ interface Wander {
 const wanderList = ref<Wander[]>([]);
 
 onShow(() => {
-  // const wanderPassword = uni.getStorageSync("wanderPassword");
-  // if (!wanderPassword) {
-  //   uni.showModal({
-  //     title: "校验",
-  //     content: "请输入密钥进入",
-  //     editable: true,
-  //     success: function (res: any) {
-  //       if (res.confirm) {
-  //         if (res.content == 1111) {
-  //           uni.setStorageSync("wanderPassword", 1111);
-  //           getWanderList();
-  //         } else {
-  //           uni.showToast({
-  //             title: "密码错误",
-  //             duration: 2000,
-  //             icon: "error",
-  //             complete: () => {
-  //               uni.switchTab({
-  //                 url: "/pages/tabBar/index",
-  //               });
-  //             },
-  //           });
-  //         }
-  //       } else if (res.cancel) {
-  //         uni.switchTab({
-  //           url: "/pages/tabBar/index",
-  //         });
-  //       }
-  //     },
-  //   });
-  //   return;
-  // }
-  // if (wanderPassword === 1111 && total.value == 0) {
-  // }
-  // if (total.value == 0) {
-  //   getWanderList();
-  // }
   pagination.page = 1;
   wanderList.value = [];
   total.value = 0;
   fetchGetWanderList();
 });
-
 
 // 加载漫游列表数据
 const fetchGetWanderList = () => {
@@ -194,7 +166,7 @@ onPullDownRefresh(() => {
 
 onReachBottom(() => {
   if (pagination.page * pagination.limit >= total.value) {
-    toast('没有更多数据了')
+    toast("没有更多数据了");
     return;
   }
   pagination.page++;
@@ -225,34 +197,34 @@ const back = () => {
 
 <style lang="scss" scoped>
 .page-wrap {
-  /* #ifdef H5 */
-  padding: calc(var(--status-bar-height) + 50px) 24px 0;
-  /* #endif */
-  /* #ifdef APP-PLUS */
-  padding: 50px 24px 0;
-  /* #endif */
-  /* #ifdef MP-WEIXIN */
-  padding: calc(var(--status-bar-height) + 50px) 24px 0;
-  /* #endif */
-  box-sizing: border-box;
-  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
-  min-height: 100%;
-  box-sizing: border-box;
-}
-.album {
-  @include flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
+  position: relative;
+  padding-top: calc(var(--status-bar-height) + 70px);
+  background-color: #f9fafb;
+  .album-list {
+    .album {
+      @include flex;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      padding: 14px;
+      background-color: #fff;
+      box-sizing: border-box;
 
-  &__avatar {
-    background-color: $u-bg-color;
-    padding: 5px;
-    border-radius: 3px;
-  }
+      &__avatar {
+        background-color: $u-bg-color;
+        padding: 0 5px 5px;
+        border-radius: 3px;
+      }
 
-  &__content {
-    margin-left: 15px;
-    flex: 1;
+      &__content {
+        margin-left: 10px;
+        flex: 1;
+        .time {
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+        }
+      }
+    }
   }
 }
 
