@@ -1,8 +1,8 @@
 /*
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-12-17 20:53:17
- * @LastEditors: panrui 1547177202@qq.com
- * @LastEditTime: 2024-12-21 20:51:48
+ * @LastEditors: panr99 1547177202@qq.com
+ * @LastEditTime: 2024-12-27 14:33:20
  * @FilePath: \only.panrui.top\src\utils\request\interceptors.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,7 +22,14 @@ const requestInterceptors = (vm: any) => {
       // 可使用async await 做异步操作
       // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}
       console.log("传入配置", config);
+      const data = uni.getStorageSync("userInfo");
       config.data = config.data || {};
+      config.params = config.params || {};
+      if (data) {
+        const userInfo = JSON.parse(data);
+        config.data.userId = userInfo.id;
+        config.params.userId = userInfo.id;
+      }
       // 添加token
       config.header = {
         ...config.header,
@@ -79,7 +86,7 @@ const responseInterceptors = (vm: any) => {
         route({
           url: "/pages/login/login",
           type: "redirect",
-        })
+        });
         return Promise.reject(response);
       }
       toast(response.errMsg);

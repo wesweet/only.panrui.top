@@ -60,8 +60,10 @@
     {
       "path": "pages/travel/index",
       "style": {
-        "navigationBarTitleText": "照片墙",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "旅行日记",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 10
       }
     },
     {

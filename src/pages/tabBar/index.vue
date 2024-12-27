@@ -153,8 +153,10 @@ onLoad(() => {
     });
 
   getTravelList({
-    page: 1,
-    limit: 5,
+    params: {
+      page: 1,
+      limit: 5,
+    },
   })
     .then((res: any) => {
       const { errorCode, errorMessage, data } = res;

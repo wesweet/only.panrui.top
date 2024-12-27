@@ -2,7 +2,7 @@
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:58
  * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-12-27 14:09:20
+ * @LastEditTime: 2024-12-27 14:25:05
  * @FilePath: \only.panrui.top\src\pages\tabBar\user.vue
  * @Description: 个人中心页
 -->
@@ -42,7 +42,7 @@
     <view class="page-wrap__content">
       <up-cell-group :border="false">
         <up-cell title="常用功能"></up-cell>
-        <up-cell icon="setting-fill" title="我的订单" :isLink="true"></up-cell>
+        <up-cell icon="setting-fill" title="旅行日记" :isLink="true" url="/pages/travel/index"></up-cell>
         <up-cell icon="integral-fill" title="收藏夹" :isLink="true"></up-cell>
         <up-cell icon="integral-fill" title="浏览历史" :isLink="true"></up-cell>
       </up-cell-group>
@@ -63,7 +63,7 @@
         :plain="true"
       ></up-button>
       <up-text
-        text="版本号：1.0.2"
+        text="版本号：1.2.1"
         align="center"
         size="12"
         color="#9CA3AF"

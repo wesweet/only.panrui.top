@@ -141,7 +141,6 @@ const fetchGetWanderList = () => {
         }
       }
       wanderList.value = wanderList.value.concat(data.list);
-      pagination.page++;
       total.value = data.total;
     })
     .catch((err: any) => {})
@@ -193,12 +192,12 @@ onPullDownRefresh(() => {
   uni.stopPullDownRefresh();
 });
 
-// 上拉触底时加载更多漫游列表数据
 onReachBottom(() => {
   if (pagination.page * pagination.limit >= total.value) {
-    toast("没有更多数据了", 300);
+    toast('没有更多数据了')
     return;
   }
+  pagination.page++;
   fetchGetWanderList();
 });
 
