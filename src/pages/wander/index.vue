@@ -1,8 +1,8 @@
 <!--
  * @Author: panrui 1547177202@qq.com
  * @Date: 2024-07-02 20:07:21
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-12-27 17:07:23
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2025-01-07 00:04:30
  * @FilePath: 流浪列表页面
 -->
 <template>
@@ -13,9 +13,10 @@
         <view class="album__avatar" @click="toDetail(item.id)">
           <up-image
             :show-loading="true"
-            src="/static/images/login.png"
+            :src="item.user.avatar"
             width="42px"
             height="42px"
+            shape="circle"
           ></up-image>
         </view>
         <view class="album__content">
@@ -83,6 +84,11 @@ interface Wander {
   photo?: string;
   date: string;
   urls?: string[];
+  user: {
+    id: string;
+    username: string;
+    avatar: string;
+  };
 }
 const wanderList = ref<Wander[]>([]);
 
@@ -211,8 +217,8 @@ const back = () => {
 
       &__avatar {
         background-color: $u-bg-color;
-        padding: 0 5px 5px;
-        border-radius: 3px;
+        padding: 3px;
+        border-radius: 50%;
       }
 
       &__content {
