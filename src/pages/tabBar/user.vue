@@ -1,8 +1,8 @@
 <!--
  * @Author: panr99 1547177202@qq.com
  * @Date: 2024-07-01 10:38:58
- * @LastEditors: panr99 1547177202@qq.com
- * @LastEditTime: 2024-12-27 14:25:05
+ * @LastEditors: panrui 1547177202@qq.com
+ * @LastEditTime: 2025-01-06 23:18:28
  * @FilePath: \only.panrui.top\src\pages\tabBar\user.vue
  * @Description: 个人中心页
 -->
@@ -41,7 +41,12 @@
     <view class="page-wrap__content">
       <up-cell-group :border="false">
         <up-cell title="常用功能"></up-cell>
-        <up-cell icon="setting-fill" title="旅行日记" :isLink="true" url="/pages/travel/index"></up-cell>
+        <up-cell
+          icon="setting-fill"
+          title="旅行日记"
+          :isLink="true"
+          url="/pages/travel/index"
+        ></up-cell>
         <up-cell icon="integral-fill" title="收藏夹" :isLink="true"></up-cell>
         <up-cell icon="integral-fill" title="浏览历史" :isLink="true"></up-cell>
       </up-cell-group>
@@ -130,7 +135,7 @@ const handleLogout = () => {
     align-items: center;
     width: 100%;
     height: 168px;
-    background-color: #000;
+    background-color: #363636;
     .page-wrap__avatar {
       margin: 0 20px;
       background-color: #fff;

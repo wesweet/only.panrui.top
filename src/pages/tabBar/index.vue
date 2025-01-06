@@ -212,16 +212,21 @@ const tagClick = (index: number, item: any) => {
 
 // 使用ref创建一个响应式数组，包含导航列表
 const navList = ref([
-  // {
-  //   title: "时光笔记",
-  //   image: "/static/images/dhphoto.png",
-  //   page: "/pages/wander/index",
-  // },
-  // {
-  //   title: "文档",
-  //   image: "/static/dhphoto.png",
-  //   page: "/pages/webview/wendang",
-  // },
+  {
+    title: "时光机",
+    image: "/static/images/dhphoto.png",
+    page: "/pages/wander/index",
+  },
+  {
+    title: "音乐",
+    image: "/static/images/dhphoto.png",
+    page: "/pages/music/index",
+  },
+  {
+    title: "文档",
+    image: "/static/dhphoto.png",
+    page: "/pages/webview/wendang",
+  },
   // {
   //   title: "账号",
   //   image: "/static/dhphoto.png",
@@ -232,11 +237,7 @@ const navList = ref([
     image: "/static/images/dhphoto.png",
     page: "/pages/website/index",
   },
-  {
-    title: "音乐",
-    image: "/static/images/dhphoto.png",
-    page: "/pages/music/index",
-  },
+
 ]);
 
 /**
@@ -278,24 +279,24 @@ const search = () => {
   switch (keyword.value) {
     case "我爱丁晗":
     case "我爱潘潘":
-      uni.navigateTo({
-        url: "/pages/wander/index",
-      });
+      // uni.navigateTo({
+      //   url: "/pages/wander/index",
+      // });
       break;
     case "音乐世界":
-      uni.navigateTo({
-        url: "/pages/music/index",
-      });
+      // uni.navigateTo({
+      //   url: "/pages/music/index",
+      // });
       break;
     case "账号世界":
-      uni.navigateTo({
-        url: "/pages/account/index",
-      });
+      // uni.navigateTo({
+      //   url: "/pages/account/index",
+      // });
       break;
     case "网站世界":
-      uni.navigateTo({
-        url: "/pages/website/index",
-      });
+      // uni.navigateTo({
+      //   url: "/pages/website/index",
+      // });
       break;
     default:
       break;
