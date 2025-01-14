@@ -117,6 +117,13 @@ const fetchGetWanderList = () => {
         if (element.photo) {
           element.urls = [element.photo];
         }
+        if (!element.user) {
+          element.user = {
+            id: "",
+            username: "",
+            avatar: config.logo,
+          };
+        }
       }
       wanderList.value = wanderList.value.concat(data.list);
       total.value = data.total;
