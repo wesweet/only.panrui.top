@@ -32,6 +32,7 @@
           <up-textarea
             v-model="baseFormData.content"
             placeholder="请输入内容"
+            maxlength="-1"
           ></up-textarea>
         </up-form-item>
       </up-form>
